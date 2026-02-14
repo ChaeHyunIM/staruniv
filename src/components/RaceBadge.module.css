@@ -1,0 +1,31 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 22px;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-sm);
+  line-height: 1;
+}
+
+.T {
+  color: var(--race-terran);
+  background: var(--race-terran-bg);
+  border: 1px solid rgb(74 158 255 / 0.25);
+}
+
+.Z {
+  color: var(--race-zerg);
+  background: var(--race-zerg-bg);
+  border: 1px solid rgb(224 64 64 / 0.25);
+}
+
+.P {
+  color: var(--race-protoss);
+  background: var(--race-protoss-bg);
+  border: 1px solid rgb(240 192 48 / 0.25);
+}

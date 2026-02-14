@@ -1,14 +1,5 @@
 {
   "name": "example-with-vitest",
-  "scripts": {
-    "dev": "vinxi dev",
-    "build": "vinxi build",
-    "start": "vinxi start",
-    "test": "vitest run",
-    "test-watch": "vitest",
-    "test-ui": "vitest --ui"
-  },
-  "type": "module",
   "devDependencies": {
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^0.15.0",
@@ -24,5 +15,15 @@
     "vite": "^7.1.10",
     "vite-plugin-solid": "^2.11.6",
     "vitest": "^4.0.0"
-  }
+  },
+  "scripts": {
+    "dev": "bun run --bun vinxi dev",
+    "build": "bun run --bun vinxi build",
+    "start": "bun run --bun vinxi start",
+    "test": "vitest run",
+    "test-watch": "vitest",
+    "test-ui": "vitest --ui",
+    "db:migrate": "bun run scripts/migrate.ts"
+  },
+  "type": "module"
 }

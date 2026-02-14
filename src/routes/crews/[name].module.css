@@ -1,0 +1,65 @@
+.page {
+  max-width: 900px;
+  margin-inline: auto;
+  padding: var(--sp-8) var(--sp-6);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--sp-6);
+  transition: color 0.15s;
+
+  &:hover {
+    color: var(--text-primary);
+  }
+}
+
+.crewHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-8);
+
+  & h1 {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.memberCount {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--radius-sm);
+}
+
+.section {
+  & h2 {
+    margin-bottom: var(--sp-4);
+    font-size: var(--text-lg);
+  }
+}
+
+.nickname {
+  color: var(--text-link);
+  font-weight: 500;
+}
+
+.badges {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: var(--sp-6) var(--sp-4);
+  }
+}
