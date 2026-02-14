@@ -105,8 +105,8 @@
     --tier-c-bg: oklch(0.50 0.02 240 / 0.08);
 
     /* ── Font ── */
-    --font-sans: "IBM Plex Sans KR", system-ui, sans-serif;
-    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+    --font-sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
 
     /* ── Radius ── */
     --radius: 1rem;
