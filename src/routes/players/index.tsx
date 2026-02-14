@@ -25,7 +25,7 @@ export default function PlayersPage() {
   );
 
   return (
-    <main class={styles.page}>
+    <main id="main-content" class={styles.page}>
       <Title>StarUniv - 선수 목록</Title>
       <div class={styles.header}>
         <h1>선수 목록</h1>
@@ -35,7 +35,7 @@ export default function PlayersPage() {
       <PlayerFilters />
 
       <ErrorBoundary fallback={<p class="empty-state">데이터를 불러올 수 없습니다.</p>}>
-        <Suspense fallback={<div class="loading">선수 목록을 불러오는 중</div>}>
+        <Suspense fallback={<div class="loading" role="status" aria-live="polite">선수 목록을 불러오는 중…</div>}>
           <Show when={players()?.length} fallback={<p class="empty-state">조건에 맞는 선수가 없습니다.</p>}>
             <div class="table-wrap">
               <table>

@@ -21,7 +21,7 @@ export default function Home() {
   const tierData = createAsync(() => getPlayersByTier());
 
   return (
-    <main class={styles.home}>
+    <main id="main-content" class={styles.home}>
       <Title>StarUniv - 티어표</Title>
       <div class={styles.header}>
         <h1>티어표</h1>
@@ -29,7 +29,7 @@ export default function Home() {
       </div>
 
       <ErrorBoundary fallback={<p class="empty-state">데이터를 불러올 수 없습니다.</p>}>
-        <Suspense fallback={<div class="loading">티어표를 불러오는 중</div>}>
+        <Suspense fallback={<div class="loading" role="status" aria-live="polite">티어표를 불러오는 중…</div>}>
           <For each={TIER_ORDER}>
             {(tier) => (
               <Show when={tierData()?.[tier]?.length}>
@@ -45,7 +45,7 @@ export default function Home() {
                   <div class={styles.grid}>
                     <For each={tierData()![tier]}>
                       {(player) => (
-                        <A href={`/players/${encodeURIComponent(player.nickname)}`} class={styles.playerCard}>
+                        <A href={`/players/${encodeURIComponent(player.nickname)}`} class={styles.playerCard} data-race={player.race}>
                           <RaceBadge race={player.race} />
                           <div class={styles.playerInfo}>
                             <div class={styles.playerName}>{player.nickname}</div>

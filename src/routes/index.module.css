@@ -6,6 +6,7 @@
 
 .header {
   margin-bottom: var(--sp-8);
+  animation: fadeSlideIn 0.4s ease-out both;
 
   & h1 {
     display: flex;
@@ -29,8 +30,26 @@
   }
 }
 
+/* 진입 애니메이션 */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .tierSection {
   margin-bottom: var(--sp-8);
+  animation: fadeSlideIn 0.4s ease-out both;
+
+  &:nth-child(1) { animation-delay: 0s; }
+  &:nth-child(2) { animation-delay: 0.08s; }
+  &:nth-child(3) { animation-delay: 0.16s; }
+  &:nth-child(4) { animation-delay: 0.24s; }
 }
 
 .tierHeader {
@@ -57,6 +76,7 @@
 .tierCount {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
   color: var(--text-muted);
 }
 
@@ -74,11 +94,27 @@
   background: var(--bg-secondary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  transition: border-color 0.15s, background-color 0.15s;
+  transition: border-color 0.15s, background-color 0.15s, box-shadow 0.2s;
 
   &:hover {
     border-color: var(--border-default);
     background: var(--bg-tertiary);
+  }
+
+  /* 종족별 hover glow */
+  &[data-race="T"]:hover {
+    border-color: rgb(74 158 255 / 0.4);
+    box-shadow: 0 0 12px rgb(74 158 255 / 0.15), inset 0 0 12px rgb(74 158 255 / 0.03);
+  }
+
+  &[data-race="Z"]:hover {
+    border-color: rgb(224 64 64 / 0.4);
+    box-shadow: 0 0 12px rgb(224 64 64 / 0.15), inset 0 0 12px rgb(224 64 64 / 0.03);
+  }
+
+  &[data-race="P"]:hover {
+    border-color: rgb(240 192 48 / 0.4);
+    box-shadow: 0 0 12px rgb(240 192 48 / 0.15), inset 0 0 12px rgb(240 192 48 / 0.03);
   }
 }
 

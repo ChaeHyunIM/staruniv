@@ -3,7 +3,7 @@ import styles from "./Nav.module.css";
 
 export default function Nav() {
   return (
-    <nav class={styles.nav}>
+    <nav class={styles.nav} aria-label="메인 내비게이션">
       <div class={styles.inner}>
         <A href="/" class={styles.logo}>
           Star<span class={styles.logoAccent}>Univ</span>

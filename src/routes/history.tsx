@@ -26,7 +26,7 @@ export default function HistoryPage() {
   });
 
   return (
-    <main class={styles.page}>
+    <main id="main-content" class={styles.page}>
       <Title>StarUniv - 대회 히스토리</Title>
       <div class={styles.header}>
         <h1>대회 히스토리</h1>
@@ -34,7 +34,7 @@ export default function HistoryPage() {
       </div>
 
       <ErrorBoundary fallback={<p class="empty-state">데이터를 불러올 수 없습니다.</p>}>
-        <Suspense fallback={<div class="loading">대회 기록을 불러오는 중</div>}>
+        <Suspense fallback={<div class="loading" role="status" aria-live="polite">대회 기록을 불러오는 중…</div>}>
           <Show when={groupedByYear().length} fallback={<p class="empty-state">대회 기록이 없습니다.</p>}>
             <For each={groupedByYear()}>
               {([year, entries]) => (

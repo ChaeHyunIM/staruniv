@@ -15,8 +15,8 @@ export default function PlayerDetailPage() {
   const player = createAsync(() => getPlayer(params.nickname));
 
   return (
-    <main class={styles.page}>
-      <Suspense fallback={<div class="loading">선수 정보를 불러오는 중</div>}>
+    <main id="main-content" class={styles.page}>
+      <Suspense fallback={<div class="loading" role="status" aria-live="polite">선수 정보를 불러오는 중…</div>}>
         <ErrorBoundary fallback={<p class="empty-state">선수를 찾을 수 없습니다.</p>}>
           <Show when={player()} fallback={<p class="empty-state">선수를 찾을 수 없습니다.</p>}>
             {(p) => (

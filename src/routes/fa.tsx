@@ -17,7 +17,7 @@ export default function FAPage() {
   const femalePlayers = createMemo(() => players()?.filter((p) => p.gender === "F") ?? []);
 
   return (
-    <main class={styles.page}>
+    <main id="main-content" class={styles.page}>
       <Title>StarUniv - FA 선수</Title>
       <div class={styles.header}>
         <h1>FA 명단</h1>
@@ -25,7 +25,7 @@ export default function FAPage() {
       </div>
 
       <ErrorBoundary fallback={<p class="empty-state">데이터를 불러올 수 없습니다.</p>}>
-        <Suspense fallback={<div class="loading">FA 명단을 불러오는 중</div>}>
+        <Suspense fallback={<div class="loading" role="status" aria-live="polite">FA 명단을 불러오는 중…</div>}>
           <Show when={players()?.length} fallback={<p class="empty-state">FA 선수가 없습니다.</p>}>
             <Show when={malePlayers().length}>
               <section class={styles.section}>

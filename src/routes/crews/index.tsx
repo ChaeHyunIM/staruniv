@@ -12,7 +12,7 @@ export default function CrewsPage() {
   const crews = createAsync(() => getCrews());
 
   return (
-    <main class={styles.page}>
+    <main id="main-content" class={styles.page}>
       <Title>StarUniv - 크루 목록</Title>
       <div class={styles.header}>
         <h1>크루 목록</h1>
@@ -20,7 +20,7 @@ export default function CrewsPage() {
       </div>
 
       <ErrorBoundary fallback={<p class="empty-state">데이터를 불러올 수 없습니다.</p>}>
-        <Suspense fallback={<div class="loading">크루 목록을 불러오는 중</div>}>
+        <Suspense fallback={<div class="loading" role="status" aria-live="polite">크루 목록을 불러오는 중…</div>}>
           <Show when={crews()?.length} fallback={<p class="empty-state">등록된 크루가 없습니다.</p>}>
             <div class={styles.grid}>
               <For each={crews()}>

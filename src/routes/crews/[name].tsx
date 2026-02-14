@@ -15,8 +15,8 @@ export default function CrewDetailPage() {
   const crew = createAsync(() => getCrew(params.name));
 
   return (
-    <main class={styles.page}>
-      <Suspense fallback={<div class="loading">크루 정보를 불러오는 중</div>}>
+    <main id="main-content" class={styles.page}>
+      <Suspense fallback={<div class="loading" role="status" aria-live="polite">크루 정보를 불러오는 중…</div>}>
         <ErrorBoundary fallback={<p class="empty-state">크루를 찾을 수 없습니다.</p>}>
           <Show when={crew()} fallback={<p class="empty-state">크루를 찾을 수 없습니다.</p>}>
             {(c) => (
