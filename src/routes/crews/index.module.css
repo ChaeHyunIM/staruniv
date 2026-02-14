@@ -17,14 +17,14 @@
       display: inline-block;
       width: 4px;
       height: 1em;
-      background: var(--accent);
+      background: var(--primary);
       border-radius: 2px;
     }
   }
 
   & p {
     margin-top: var(--sp-2);
-    color: var(--text-secondary);
+    color: var(--muted-foreground);
     font-size: var(--text-sm);
   }
 }
@@ -48,36 +48,36 @@
 
 .card {
   display: block;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
+  background: var(--card);
+  border: 1px solid oklch(from var(--border) l c h / 0.1);
   border-radius: var(--radius-md);
   padding: var(--sp-6);
   transition: border-color 0.15s, transform 0.15s, box-shadow 0.2s;
   animation: fadeSlideIn 0.35s ease-out both;
 
   &:hover {
-    border-color: var(--accent);
+    border-color: var(--primary);
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgb(96 165 250 / 0.1);
+    box-shadow: 0 4px 16px oklch(from var(--primary) l c h / 0.1);
   }
 }
 
 .cardName {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--text-lg);
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--foreground);
   margin-bottom: var(--sp-2);
 }
 
 .cardCount {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
-  color: var(--text-secondary);
+  color: var(--muted-foreground);
 }
 
 .cardCountNum {
-  color: var(--accent);
+  color: var(--primary);
   font-weight: 600;
 }
 

@@ -15,17 +15,17 @@
 .T {
   color: var(--race-terran);
   background: var(--race-terran-bg);
-  border: 1px solid rgb(74 158 255 / 0.25);
+  border: 1px solid oklch(from var(--race-terran) l c h / 0.25);
 }
 
 .Z {
   color: var(--race-zerg);
   background: var(--race-zerg-bg);
-  border: 1px solid rgb(224 64 64 / 0.25);
+  border: 1px solid oklch(from var(--race-zerg) l c h / 0.25);
 }
 
 .P {
   color: var(--race-protoss);
   background: var(--race-protoss-bg);
-  border: 1px solid rgb(240 192 48 / 0.25);
+  border: 1px solid oklch(from var(--race-protoss) l c h / 0.25);
 }

@@ -1,5 +1,4 @@
 /* StarUniv Global Styles */
-/* Dark StarCraft BW command-console aesthetic */
 
 @layer reset, base, components, pages;
 
@@ -52,50 +51,78 @@
 /* ─── Base ─── */
 @layer base {
   :root {
-    /* Surface colors — deep space dark */
-    --bg-primary: #080b12;
-    --bg-secondary: #0d1117;
-    --bg-tertiary: #151b26;
-    --bg-elevated: #1a2233;
-    --bg-hover: #1e2a3d;
+    /* ── Surface (warm pink-beige) ── */
+    --background: oklch(0.985 0.003 30);
+    --foreground: oklch(0.15 0.005 30);
+    --card: oklch(0.997 0.002 30);
+    --card-foreground: oklch(0.15 0.005 30);
+    --muted: oklch(0.96 0.003 30);
+    --muted-foreground: oklch(0.40 0.005 30);
+    --popover: oklch(0.997 0.002 30);
+    --popover-foreground: oklch(0.15 0.005 30);
 
-    /* Border */
-    --border-subtle: #1e2a3d;
-    --border-default: #283a52;
-    --border-strong: #3a506b;
+    /* ── Brand ── */
+    --primary: oklch(0.7297 0.1384 260.5699);
+    --primary-foreground: oklch(1.0000 0 0);
+    --secondary: oklch(0.6332 0.1460 132.7937);
+    --secondary-foreground: oklch(1.0000 0 0);
+    --accent: oklch(0.7686 0.1647 70.0804);
+    --accent-foreground: oklch(0 0 0);
+    --destructive: oklch(0.6368 0.2078 25.3313);
+    --destructive-foreground: oklch(1.0000 0 0);
 
-    /* Text */
-    --text-primary: #e2e8f0;
-    --text-secondary: #8b9dc3;
-    --text-muted: #506882;
-    --text-link: #60a5fa;
+    /* ── UI ── */
+    --border: oklch(0 0 0);
+    --input: oklch(0.5555 0 0);
+    --ring: oklch(0.7853 0.1041 274.7134);
 
-    /* Race colors — StarCraft BW */
-    --race-terran: #4a9eff;
-    --race-zerg: #e04040;
-    --race-protoss: #f0c030;
+    /* ── Chart ── */
+    --chart-1: oklch(0.7297 0.1384 260.5699);
+    --chart-2: oklch(0.6332 0.1460 132.7937);
+    --chart-3: oklch(0.7686 0.1647 70.0804);
+    --chart-4: oklch(0.6368 0.2078 25.3313);
+    --chart-5: oklch(0.7853 0.1041 274.7134);
 
-    /* Race color (muted for backgrounds) */
-    --race-terran-bg: #4a9eff18;
-    --race-zerg-bg: #e0404018;
-    --race-protoss-bg: #f0c03018;
+    /* ── Success ── */
+    --success: oklch(0.72 0.17 142);
 
-    /* Tier colors */
-    --tier-s: #ffd700;
-    --tier-a: #c0c0c0;
-    --tier-b: #cd7f32;
-    --tier-c: #607080;
+    /* ── Race colors (light) ── */
+    --race-terran: oklch(0.55 0.18 255);
+    --race-zerg: oklch(0.52 0.20 25);
+    --race-protoss: oklch(0.60 0.16 80);
+    --race-terran-bg: oklch(0.55 0.18 255 / 0.08);
+    --race-zerg-bg: oklch(0.52 0.20 25 / 0.08);
+    --race-protoss-bg: oklch(0.60 0.16 80 / 0.08);
 
-    --tier-s-bg: #ffd70015;
-    --tier-a-bg: #c0c0c015;
-    --tier-b-bg: #cd7f3215;
-    --tier-c-bg: #60708015;
+    /* ── Tier colors (light) ── */
+    --tier-s: oklch(0.60 0.16 85);
+    --tier-a: oklch(0.55 0 0);
+    --tier-b: oklch(0.55 0.10 55);
+    --tier-c: oklch(0.50 0.02 240);
+    --tier-s-bg: oklch(0.60 0.16 85 / 0.08);
+    --tier-a-bg: oklch(0.55 0 0 / 0.08);
+    --tier-b-bg: oklch(0.55 0.10 55 / 0.08);
+    --tier-c-bg: oklch(0.50 0.02 240 / 0.08);
 
-    /* Accent */
-    --accent: #60a5fa;
-    --accent-hover: #3b82f6;
+    /* ── Font ── */
+    --font-sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+    --font-mono: "Space Mono", "IBM Plex Mono", monospace;
 
-    /* Spacing scale */
+    /* ── Radius ── */
+    --radius: 1rem;
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+
+    /* ── Shadow ── */
+    --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.04);
+    --shadow-md: 0 2px 6px oklch(0 0 0 / 0.08);
+    --shadow-lg: 0 4px 16px oklch(0 0 0 / 0.12);
+    --shadow-xl: 0 8px 24px oklch(0 0 0 / 0.16);
+    --shadow-2xl: 0 16px 48px oklch(0 0 0 / 0.2);
+
+    /* ── Spacing ── */
     --sp-1: 0.25rem;
     --sp-2: 0.5rem;
     --sp-3: 0.75rem;
@@ -107,11 +134,7 @@
     --sp-12: 3rem;
     --sp-16: 4rem;
 
-    /* Typography */
-    --font-display: "Chakra Petch", "Noto Sans KR", system-ui, sans-serif;
-    --font-body: "IBM Plex Sans KR", "Noto Sans KR", system-ui, sans-serif;
-    --font-mono: "IBM Plex Mono", "Fira Code", monospace;
-
+    /* ── Typography ── */
     --text-xs: 0.75rem;
     --text-sm: 0.8125rem;
     --text-base: 0.9375rem;
@@ -124,26 +147,82 @@
     --leading-normal: 1.5;
     --leading-relaxed: 1.65;
 
-    /* Radius */
-    --radius-sm: 4px;
-    --radius-md: 6px;
-    --radius-lg: 10px;
-
-    /* Shadows */
-    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.3);
-    --shadow-md: 0 2px 8px rgb(0 0 0 / 0.4);
-    --shadow-lg: 0 4px 20px rgb(0 0 0 / 0.5);
-
-    /* Layout */
+    /* ── Layout ── */
     --content-width: 1200px;
     --nav-height: 56px;
   }
 
+  .dark {
+    /* ── Surface (softer dark) ── */
+    --background: oklch(0.205 0.006 280);
+    --foreground: oklch(0.95 0 0);
+    --card: oklch(0.235 0.006 280);
+    --card-foreground: oklch(0.95 0 0);
+    --muted: oklch(0.30 0.006 280);
+    --muted-foreground: oklch(0.68 0 0);
+    --popover: oklch(0.235 0.006 280);
+    --popover-foreground: oklch(0.95 0 0);
+
+    /* ── Brand ── */
+    --primary: oklch(0.7297 0.1384 260.5699);
+    --primary-foreground: oklch(1.0000 0 0);
+    --secondary: oklch(0.6332 0.1460 132.7937);
+    --secondary-foreground: oklch(1.0000 0 0);
+    --accent: oklch(0.7686 0.1647 70.0804);
+    --accent-foreground: oklch(0 0 0);
+    --destructive: oklch(0.6368 0.2078 25.3313);
+    --destructive-foreground: oklch(1.0000 0 0);
+
+    /* ── UI ── */
+    --border: oklch(1 0 0);
+    --input: oklch(0.5555 0 0);
+    --ring: oklch(0.7853 0.1041 274.7134);
+
+    /* ── Chart ── */
+    --chart-1: oklch(0.7297 0.1384 260.5699);
+    --chart-2: oklch(0.6332 0.1460 132.7937);
+    --chart-3: oklch(0.7686 0.1647 70.0804);
+    --chart-4: oklch(0.6368 0.2078 25.3313);
+    --chart-5: oklch(0.7853 0.1041 274.7134);
+
+    /* ── Success ── */
+    --success: oklch(0.78 0.18 142);
+
+    /* ── Race colors (dark) ── */
+    --race-terran: oklch(0.72 0.15 255);
+    --race-zerg: oklch(0.68 0.18 25);
+    --race-protoss: oklch(0.78 0.14 85);
+    --race-terran-bg: oklch(0.72 0.15 255 / 0.12);
+    --race-zerg-bg: oklch(0.68 0.18 25 / 0.12);
+    --race-protoss-bg: oklch(0.60 0.16 80 / 0.12);
+
+    /* ── Tier colors (dark) ── */
+    --tier-s: oklch(0.82 0.14 85);
+    --tier-a: oklch(0.75 0 0);
+    --tier-b: oklch(0.68 0.10 55);
+    --tier-c: oklch(0.60 0.02 240);
+    --tier-s-bg: oklch(0.82 0.14 85 / 0.12);
+    --tier-a-bg: oklch(0.75 0 0 / 0.12);
+    --tier-b-bg: oklch(0.68 0.10 55 / 0.12);
+    --tier-c-bg: oklch(0.60 0.02 240 / 0.12);
+
+    /* ── Shadow (stronger for dark) ── */
+    --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.2);
+    --shadow-md: 0 2px 6px oklch(0 0 0 / 0.3);
+    --shadow-lg: 0 4px 16px oklch(0 0 0 / 0.4);
+    --shadow-xl: 0 8px 24px oklch(0 0 0 / 0.5);
+    --shadow-2xl: 0 16px 48px oklch(0 0 0 / 0.6);
+  }
+
   html {
-    color-scheme: dark;
+    color-scheme: light;
     scroll-behavior: smooth;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -161,35 +240,19 @@
   }
 
   body {
-    font-family: var(--font-body);
+    font-family: var(--font-sans);
     font-size: var(--text-base);
     line-height: var(--leading-normal);
-    color: var(--text-primary);
-    background: var(--bg-primary);
-  }
-
-  /* Scanline overlay for SC feel */
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9999;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgb(0 0 0 / 0.03) 2px,
-      rgb(0 0 0 / 0.03) 4px
-    );
+    color: var(--foreground);
+    background: var(--background);
   }
 
   h1, h2, h3, h4 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-weight: 600;
     line-height: var(--leading-tight);
-    letter-spacing: 0.02em;
-    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    color: var(--foreground);
     text-wrap: balance;
     scroll-margin-top: calc(var(--nav-height) + var(--sp-4));
   }
@@ -206,28 +269,28 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--bg-secondary);
+    background: var(--muted);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--border-default);
+    background: var(--input);
     border-radius: 3px;
 
     &:hover {
-      background: var(--border-strong);
+      background: var(--muted-foreground);
     }
   }
 
   /* Focus visible */
   :focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--ring);
     outline-offset: 2px;
   }
 
   /* Selection */
   ::selection {
-    background: var(--accent);
-    color: var(--bg-primary);
+    background: var(--primary);
+    color: var(--primary-foreground);
   }
 }
 
@@ -253,57 +316,57 @@
         display: inline-block;
         width: 4px;
         height: 1em;
-        background: var(--accent);
+        background: var(--primary);
         border-radius: 2px;
       }
     }
 
     & p {
       margin-top: var(--sp-2);
-      color: var(--text-secondary);
+      color: var(--muted-foreground);
       font-size: var(--text-sm);
     }
   }
 
   /* Card */
   .card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-subtle);
+    background: var(--card);
+    border: 1px solid oklch(from var(--border) l c h / 0.15);
     border-radius: var(--radius-md);
     padding: var(--sp-5);
     transition: border-color 0.15s;
 
     &:hover {
-      border-color: var(--border-default);
+      border-color: oklch(from var(--border) l c h / 0.25);
     }
   }
 
   /* Table */
   .table-wrap {
     overflow-x: auto;
-    border: 1px solid var(--border-subtle);
+    border: 1px solid oklch(from var(--border) l c h / 0.15);
     border-radius: var(--radius-md);
-    background: var(--bg-secondary);
+    background: var(--card);
   }
 
   table {
     & th {
-      font-family: var(--font-display);
+      font-family: var(--font-sans);
       font-size: var(--text-xs);
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--text-muted);
+      color: var(--muted-foreground);
       padding: var(--sp-3) var(--sp-4);
       text-align: left;
-      background: var(--bg-tertiary);
-      border-bottom: 1px solid var(--border-subtle);
+      background: var(--muted);
+      border-bottom: 1px solid oklch(from var(--border) l c h / 0.15);
       white-space: nowrap;
     }
 
     & td {
       padding: var(--sp-3) var(--sp-4);
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid oklch(from var(--border) l c h / 0.1);
       font-size: var(--text-sm);
       font-variant-numeric: tabular-nums;
     }
@@ -312,7 +375,7 @@
       transition: background-color 0.1s;
 
       &:hover {
-        background: var(--bg-hover);
+        background: oklch(from var(--muted) l c h / 0.5);
       }
 
       &:last-child td {
@@ -323,11 +386,11 @@
 
   /* Link style */
   .link {
-    color: var(--text-link);
+    color: var(--primary);
     transition: color 0.15s;
 
     &:hover {
-      color: var(--accent-hover);
+      color: var(--ring);
     }
   }
 
@@ -335,7 +398,7 @@
   .empty-state {
     text-align: center;
     padding: var(--sp-16) var(--sp-8);
-    color: var(--text-muted);
+    color: var(--muted-foreground);
     font-size: var(--text-sm);
   }
 
@@ -343,7 +406,7 @@
   .loading {
     text-align: center;
     padding: var(--sp-16) var(--sp-8);
-    color: var(--text-muted);
+    color: var(--muted-foreground);
     font-size: var(--text-sm);
 
     &::after {
@@ -352,8 +415,8 @@
       width: 24px;
       height: 24px;
       margin: var(--sp-4) auto 0;
-      border: 2px solid var(--border-default);
-      border-top-color: var(--accent);
+      border: 2px solid oklch(from var(--border) l c h / 0.2);
+      border-top-color: var(--primary);
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
     }
@@ -366,9 +429,9 @@
     left: var(--sp-4);
     z-index: 200;
     padding: var(--sp-2) var(--sp-4);
-    background: var(--accent);
-    color: var(--bg-primary);
-    font-family: var(--font-display);
+    background: var(--primary);
+    color: var(--primary-foreground);
+    font-family: var(--font-sans);
     font-size: var(--text-sm);
     font-weight: 600;
     border-radius: var(--radius-sm);

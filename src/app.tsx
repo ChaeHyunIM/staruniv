@@ -13,14 +13,19 @@ export default function App() {
           <Title>StarUniv</Title>
           <Meta charset="utf-8" />
           <Meta name="viewport" content="width=device-width, initial-scale=1" />
-          <Meta name="theme-color" content="#080b12" />
           <Meta name="description" content="스타크래프트 대학 리그 선수 티어 및 크루 현황" />
+          <Link rel="preconnect" href="https://cdn.jsdelivr.net" />
+          <Link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+          />
           <Link rel="preconnect" href="https://fonts.googleapis.com" />
           <Link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <Link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
           />
+          <script innerHTML={`(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")}catch(e){}})()`} />
           <a href="#main-content" class="skip-link">
             본문으로 건너뛰기
           </a>

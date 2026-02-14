@@ -1,0 +1,32 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid oklch(from var(--border) l c h / 0.15);
+  border-radius: var(--radius-sm);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+
+  &:hover {
+    color: var(--foreground);
+    background: var(--muted);
+    border-color: oklch(from var(--border) l c h / 0.25);
+  }
+}
+
+.icon {
+  transition: transform 0.2s ease;
+}
+
+.sun {
+  transform: rotate(0deg);
+}
+
+.moon {
+  transform: rotate(-20deg);
+}

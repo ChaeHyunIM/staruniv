@@ -9,12 +9,12 @@
   align-items: center;
   gap: var(--sp-2);
   font-size: var(--text-sm);
-  color: var(--text-secondary);
+  color: var(--muted-foreground);
   margin-bottom: var(--sp-6);
   transition: color 0.15s;
 
   &:hover {
-    color: var(--text-primary);
+    color: var(--foreground);
   }
 }
 
@@ -34,8 +34,8 @@
 .memberCount {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
-  color: var(--text-secondary);
-  background: var(--bg-tertiary);
+  color: var(--muted-foreground);
+  background: var(--muted);
   padding: var(--sp-1) var(--sp-3);
   border-radius: var(--radius-sm);
 }
@@ -48,7 +48,7 @@
 }
 
 .nickname {
-  color: var(--text-link);
+  color: var(--primary);
   font-weight: 500;
 }
 

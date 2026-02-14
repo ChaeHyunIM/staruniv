@@ -17,14 +17,14 @@
       display: inline-block;
       width: 4px;
       height: 1em;
-      background: var(--accent);
+      background: var(--primary);
       border-radius: 2px;
     }
   }
 
   & p {
     margin-top: var(--sp-2);
-    color: var(--text-secondary);
+    color: var(--muted-foreground);
     font-size: var(--text-sm);
   }
 }
@@ -44,11 +44,11 @@
 .sectionCount {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--text-muted);
+  color: var(--muted-foreground);
 }
 
 .nickname {
-  color: var(--text-link);
+  color: var(--primary);
   font-weight: 500;
 }
 
