@@ -3,6 +3,7 @@ import { Show } from "solid-js";
 import type { PlayerWithCrew } from "~/lib/types";
 import { getInitials } from "~/lib/utils";
 import RaceBadge from "./RaceBadge";
+import TierBadge from "./TierBadge";
 import TagBadge from "./TagBadge";
 import styles from "./PlayerCard.module.css";
 
@@ -27,6 +28,12 @@ export default function PlayerCard(props: Props) {
 
       {/* Avatar */}
       <div class={styles.avatar} data-race={props.player.race}>
+        <img
+          src={`https://i.pravatar.cc/${props.variant === "full" ? 160 : 80}?u=${encodeURIComponent(props.player.nickname)}`}
+          alt=""
+          class={styles.avatarPhoto}
+          loading="lazy"
+        />
         <span class={styles.initials}>{initials()}</span>
       </div>
 
@@ -48,6 +55,40 @@ export default function PlayerCard(props: Props) {
           </Show>
         </div>
       </div>
+
+      {/* Expanded vertical card overlay — compact only */}
+      <Show when={props.variant === "compact"}>
+        <div class={styles.expanded} aria-hidden="true">
+          <div class={styles.expandedHero} data-race={props.player.race}>
+            <img
+              src={`https://i.pravatar.cc/300?u=${encodeURIComponent(props.player.nickname)}`}
+              alt=""
+              class={styles.expandedPhoto}
+              loading="lazy"
+            />
+          </div>
+          <div class={styles.expandedBadges}>
+            <RaceBadge race={props.player.race} />
+            <Show when={props.player.tag}>
+              <TagBadge tag={props.player.tag} />
+            </Show>
+          </div>
+          <div class={styles.expandedBody}>
+            <div class={styles.expandedName}>
+              <span>{props.player.nickname}</span>
+            </div>
+            <div class={styles.expandedFooter}>
+              <Show when={props.player.crew_name}>
+                <span class={styles.expandedCrew}>{props.player.crew_name}</span>
+              </Show>
+              <Show when={!props.player.crew_name && props.player.is_fa}>
+                <span class={styles.expandedFa}>FA</span>
+              </Show>
+            </div>
+            <span class={styles.expandedLink}>프로필 보기 →</span>
+          </div>
+        </div>
+      </Show>
     </A>
   );
 }
