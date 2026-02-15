@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS crews (
 CREATE TABLE IF NOT EXISTS players (
   id SERIAL PRIMARY KEY,
   nickname TEXT NOT NULL UNIQUE,
-  race TEXT NOT NULL CHECK (race IN ('T', 'Z', 'P')),
+  race TEXT NOT NULL DEFAULT '' CHECK (race IN ('T', 'Z', 'P', '')),
   tier TEXT,
   gender TEXT DEFAULT 'M' CHECK (gender IN ('M', 'F')),
   crew_id INTEGER REFERENCES crews(id) ON DELETE SET NULL,
@@ -45,6 +45,10 @@ DO $$ BEGIN
   ALTER TABLE players ADD COLUMN tag TEXT;
 EXCEPTION WHEN duplicate_column THEN NULL;
 END $$;
+
+-- Allow empty race for unconfirmed players
+ALTER TABLE players DROP CONSTRAINT IF EXISTS players_race_check;
+ALTER TABLE players ADD CONSTRAINT players_race_check CHECK (race IN ('T', 'Z', 'P', ''));
 
 -- Indexes for frequently filtered columns
 CREATE INDEX IF NOT EXISTS idx_players_race ON players(race);

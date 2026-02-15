@@ -13,14 +13,8 @@ export default function Nav() {
           <A href="/" class={styles.link} activeClass={styles.linkActive} end>
             Home
           </A>
-          <A href="/players" class={styles.link} activeClass={styles.linkActive}>
-            Players
-          </A>
           <A href="/crews" class={styles.link} activeClass={styles.linkActive}>
             Crews
-          </A>
-          <A href="/fa" class={styles.link} activeClass={styles.linkActive}>
-            FA
           </A>
           <A href="/history" class={styles.link} activeClass={styles.linkActive}>
             History

@@ -1,0 +1,534 @@
+/* ─── Shared base ─── */
+.compact,
+.full {
+  position: relative;
+  display: flex;
+  background: var(--card);
+  border: 1px solid oklch(from var(--border) l c h / 0.1);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+
+  &:hover {
+    border-color: oklch(from var(--border) l c h / 0.2);
+    background: var(--muted);
+  }
+
+  /* Race-specific hover glow (base) */
+  &[data-race="T"]:hover {
+    border-color: oklch(from var(--race-terran) l c h / 0.4);
+    box-shadow:
+      0 4px 16px oklch(from var(--race-terran) l c h / 0.12),
+      inset 0 0 20px oklch(from var(--race-terran) l c h / 0.04);
+  }
+
+  &[data-race="Z"]:hover {
+    border-color: oklch(from var(--race-zerg) l c h / 0.4);
+    box-shadow:
+      0 4px 16px oklch(from var(--race-zerg) l c h / 0.12),
+      inset 0 0 20px oklch(from var(--race-zerg) l c h / 0.04);
+  }
+
+  &[data-race="P"]:hover {
+    border-color: oklch(from var(--race-protoss) l c h / 0.4);
+    box-shadow:
+      0 4px 16px oklch(from var(--race-protoss) l c h / 0.12),
+      inset 0 0 20px oklch(from var(--race-protoss) l c h / 0.04);
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   COMPACT variant (horizontal, tier view)
+   — hover: scale up + reveal race artwork
+   ═══════════════════════════════════════════════════ */
+.compact {
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  padding-left: 0;
+  transition:
+    transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-color 0.2s ease,
+    box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
+    background-color 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Race artwork layer — hidden until hover */
+.compact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 30%;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 0;
+}
+
+/* Dark overlay */
+.compact::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.06 0.005 260 / 0.6) 0%,
+    oklch(0.04 0.005 260 / 0.88) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 1;
+}
+
+.compact[data-race="P"]::before { background-image: url("/images/races/protoss.webp"); }
+.compact[data-race="T"]::before { background-image: url("/images/races/terran.webp"); }
+.compact[data-race="Z"]::before { background-image: url("/images/races/zerg.webp"); }
+
+/* Content above overlay */
+.compact > .avatar,
+.compact > .body,
+.compact > .accent {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ── Compact hover: pop out + reveal ── */
+@media (hover: hover) {
+  .compact:hover {
+    z-index: 10;
+    transform: scale(2);
+    border-radius: var(--radius-lg);
+  }
+
+  .compact:hover::before,
+  .compact:hover::after {
+    opacity: 1;
+  }
+
+  /* Light text over dark artwork */
+  .compact:hover .name {
+    color: oklch(0.97 0 0);
+  }
+
+  .compact:hover .crew {
+    color: oklch(0.75 0 0);
+  }
+
+  .compact:hover .faLabel {
+    color: oklch(0.85 0 0);
+    border-color: oklch(1 0 0 / 0.2);
+  }
+
+  /* Avatar glow on pop-out */
+  .compact:hover .avatar {
+    transform: scale(1.1);
+  }
+
+  .compact:hover .avatar[data-race="T"] {
+    box-shadow:
+      inset 0 -2px 6px oklch(from var(--race-terran) l c h / 0.3),
+      0 0 16px oklch(from var(--race-terran) l c h / 0.5),
+      0 0 32px oklch(from var(--race-terran) l c h / 0.2);
+  }
+
+  .compact:hover .avatar[data-race="Z"] {
+    box-shadow:
+      inset 0 -2px 6px oklch(from var(--race-zerg) l c h / 0.3),
+      0 0 16px oklch(from var(--race-zerg) l c h / 0.5),
+      0 0 32px oklch(from var(--race-zerg) l c h / 0.2);
+  }
+
+  .compact:hover .avatar[data-race="P"] {
+    box-shadow:
+      inset 0 -2px 6px oklch(from var(--race-protoss) l c h / 0.3),
+      0 0 16px oklch(from var(--race-protoss) l c h / 0.5),
+      0 0 32px oklch(from var(--race-protoss) l c h / 0.2);
+  }
+
+  /* Dramatic card glow per race */
+  .compact[data-race="T"]:hover {
+    box-shadow:
+      0 12px 40px oklch(from var(--race-terran) l c h / 0.25),
+      inset 0 0 30px oklch(from var(--race-terran) l c h / 0.08);
+  }
+
+  .compact[data-race="Z"]:hover {
+    box-shadow:
+      0 12px 40px oklch(from var(--race-zerg) l c h / 0.25),
+      inset 0 0 30px oklch(from var(--race-zerg) l c h / 0.08);
+  }
+
+  .compact[data-race="P"]:hover {
+    box-shadow:
+      0 12px 40px oklch(from var(--race-protoss) l c h / 0.25),
+      inset 0 0 30px oklch(from var(--race-protoss) l c h / 0.08);
+  }
+}
+
+/* ─── Accent strip (compact only) ─── */
+.accent {
+  width: 3px;
+  align-self: stretch;
+  flex-shrink: 0;
+  border-radius: 2px 0 0 2px;
+  transition: opacity 0.3s ease;
+}
+
+.compact[data-race="T"] > .accent {
+  background: linear-gradient(
+    to bottom,
+    oklch(from var(--race-terran) l c h / 0.8),
+    oklch(from var(--race-terran) l c h / 0.3)
+  );
+}
+
+.compact[data-race="Z"] > .accent {
+  background: linear-gradient(
+    to bottom,
+    oklch(from var(--race-zerg) l c h / 0.8),
+    oklch(from var(--race-zerg) l c h / 0.3)
+  );
+}
+
+.compact[data-race="P"] > .accent {
+  background: linear-gradient(
+    to bottom,
+    oklch(from var(--race-protoss) l c h / 0.8),
+    oklch(from var(--race-protoss) l c h / 0.3)
+  );
+}
+
+@media (hover: hover) {
+  .compact:hover > .accent {
+    opacity: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   FULL variant (vertical, player/FA grid)
+   — hover: reveal race artwork (no scale)
+   ═══════════════════════════════════════════════════ */
+.full {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--sp-5) var(--sp-4);
+  gap: var(--sp-3);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Race artwork background — hidden by default */
+.full::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 25%;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  z-index: 0;
+}
+
+/* Dark overlay */
+.full::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    oklch(0.08 0.005 260 / 0.55) 0%,
+    oklch(0.04 0.005 260 / 0.88) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  z-index: 1;
+}
+
+.full[data-race="P"]::before { background-image: url("/images/races/protoss.webp"); }
+.full[data-race="T"]::before { background-image: url("/images/races/terran.webp"); }
+.full[data-race="Z"]::before { background-image: url("/images/races/zerg.webp"); }
+
+/* Content above overlay */
+.full > .avatar,
+.full > .body {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ── Full hover: reveal artwork ── */
+@media (hover: hover) {
+  .full:hover {
+    transform: translateY(-4px);
+  }
+
+  .full:hover::before,
+  .full:hover::after {
+    opacity: 1;
+  }
+
+  .full:hover .name {
+    color: oklch(0.97 0 0);
+  }
+
+  .full:hover .crew {
+    color: oklch(0.75 0 0);
+  }
+
+  .full:hover .faLabel {
+    color: oklch(0.85 0 0);
+    border-color: oklch(1 0 0 / 0.2);
+  }
+
+  .full:hover .avatar {
+    transform: scale(1.08);
+  }
+
+  .full:hover .avatar[data-race="T"] {
+    box-shadow:
+      inset 0 -2px 6px oklch(from var(--race-terran) l c h / 0.3),
+      0 0 20px oklch(from var(--race-terran) l c h / 0.45),
+      0 0 40px oklch(from var(--race-terran) l c h / 0.2);
+  }
+
+  .full:hover .avatar[data-race="Z"] {
+    box-shadow:
+      inset 0 -2px 6px oklch(from var(--race-zerg) l c h / 0.3),
+      0 0 20px oklch(from var(--race-zerg) l c h / 0.45),
+      0 0 40px oklch(from var(--race-zerg) l c h / 0.2);
+  }
+
+  .full:hover .avatar[data-race="P"] {
+    box-shadow:
+      inset 0 -2px 6px oklch(from var(--race-protoss) l c h / 0.3),
+      0 0 20px oklch(from var(--race-protoss) l c h / 0.45),
+      0 0 40px oklch(from var(--race-protoss) l c h / 0.2);
+  }
+
+  .full[data-race="T"]:hover {
+    box-shadow:
+      0 8px 30px oklch(from var(--race-terran) l c h / 0.2),
+      inset 0 0 30px oklch(from var(--race-terran) l c h / 0.06);
+  }
+
+  .full[data-race="Z"]:hover {
+    box-shadow:
+      0 8px 30px oklch(from var(--race-zerg) l c h / 0.2),
+      inset 0 0 30px oklch(from var(--race-zerg) l c h / 0.06);
+  }
+
+  .full[data-race="P"]:hover {
+    box-shadow:
+      0 8px 30px oklch(from var(--race-protoss) l c h / 0.2),
+      inset 0 0 30px oklch(from var(--race-protoss) l c h / 0.06);
+  }
+}
+
+/* ═══════════════════
+   Avatar
+   ═══════════════════ */
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.compact .avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.full .avatar {
+  width: 80px;
+  height: 80px;
+}
+
+/* Race gradients — Terran */
+.avatar[data-race="T"] {
+  background: linear-gradient(
+    135deg,
+    oklch(from var(--race-terran) calc(l - 0.15) c h),
+    var(--race-terran),
+    oklch(from var(--race-terran) calc(l - 0.1) c calc(h + 20))
+  );
+  box-shadow: inset 0 -2px 6px oklch(from var(--race-terran) l c h / 0.3);
+}
+
+/* Race gradients — Zerg */
+.avatar[data-race="Z"] {
+  background: linear-gradient(
+    135deg,
+    oklch(from var(--race-zerg) calc(l - 0.12) c calc(h - 10)),
+    var(--race-zerg),
+    oklch(from var(--race-zerg) calc(l - 0.08) c calc(h + 15))
+  );
+  box-shadow: inset 0 -2px 6px oklch(from var(--race-zerg) l c h / 0.3);
+}
+
+/* Race gradients — Protoss */
+.avatar[data-race="P"] {
+  background: linear-gradient(
+    135deg,
+    oklch(from var(--race-protoss) calc(l - 0.08) c calc(h - 10)),
+    var(--race-protoss),
+    oklch(from var(--race-protoss) calc(l + 0.05) c calc(h + 10))
+  );
+  box-shadow: inset 0 -2px 6px oklch(from var(--race-protoss) l c h / 0.3);
+}
+
+.initials {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1;
+  color: white;
+  text-shadow: 0 1px 3px oklch(0 0 0 / 0.3);
+  user-select: none;
+}
+
+.compact .initials {
+  font-size: var(--text-sm);
+}
+
+.full .initials {
+  font-size: var(--text-2xl);
+}
+
+/* ═══════════════════
+   Body / text
+   ═══════════════════ */
+.body {
+  flex: 1;
+  min-width: 0;
+}
+
+.full .body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-1);
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.compact .nameRow {
+  overflow: hidden;
+}
+
+.full .nameRow {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.name {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--foreground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.35s ease;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: 2px;
+}
+
+.full .meta {
+  justify-content: center;
+}
+
+.crew {
+  font-size: var(--text-xs);
+  color: var(--muted-foreground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.35s ease;
+}
+
+.faLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--muted-foreground);
+  padding: 1px 5px;
+  border: 1px solid oklch(from var(--border) l c h / 0.15);
+  border-radius: var(--radius-sm);
+  transition: color 0.35s ease, border-color 0.35s ease;
+}
+
+
+/* ═══════════════════
+   Responsive
+   ═══════════════════ */
+@media (max-width: 640px) {
+  .compact {
+    padding: var(--sp-2) var(--sp-3);
+    padding-left: 0;
+    gap: var(--sp-2);
+  }
+
+  .compact .avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .compact .initials {
+    font-size: var(--text-xs);
+  }
+
+  .full {
+    padding: var(--sp-4) var(--sp-3);
+  }
+
+  .full .avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .full .initials {
+    font-size: var(--text-xl);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .compact,
+  .full,
+  .avatar,
+  .accent,
+  .name,
+  .crew,
+  .faLabel {
+    transition: none;
+  }
+
+  .compact::before,
+  .compact::after,
+  .full::before,
+  .full::after {
+    transition: none;
+  }
+}

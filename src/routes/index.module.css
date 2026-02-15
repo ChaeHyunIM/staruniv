@@ -5,7 +5,7 @@
 }
 
 .header {
-  margin-bottom: var(--sp-8);
+  margin-bottom: var(--sp-6);
   animation: fadeSlideIn 0.4s ease-out both;
 
   & h1 {
@@ -30,7 +30,7 @@
   }
 }
 
-/* 진입 애니메이션 */
+/* ─── Entry animation ─── */
 @keyframes fadeSlideIn {
   from {
     opacity: 0;
@@ -42,6 +42,7 @@
   }
 }
 
+/* ─── Gender sections (tier + FA views) ─── */
 .genderSection {
   margin-bottom: var(--sp-10);
 
@@ -64,6 +65,7 @@
   }
 }
 
+/* ─── Tier section ─── */
 .tierSection {
   margin-bottom: var(--sp-8);
   animation: fadeSlideIn 0.4s ease-out both;
@@ -113,76 +115,68 @@
   color: var(--muted-foreground);
 }
 
-.grid {
+/* ─── Tier grid (compact cards) ─── */
+.tierGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: var(--sp-3);
 }
 
-.playerCard {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-3);
-  padding: var(--sp-3) var(--sp-4);
-  background: var(--card);
-  border: 1px solid oklch(from var(--border) l c h / 0.1);
-  border-radius: var(--radius-md);
-  transition: border-color 0.15s, background-color 0.15s, box-shadow 0.2s;
+/* ─── Players / FA grid (full cards) ─── */
+.playersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--sp-4);
+  animation: fadeSlideIn 0.4s ease-out both;
+}
 
-  &:hover {
-    border-color: oklch(from var(--border) l c h / 0.2);
-    background: var(--muted);
+/* ─── FA section ─── */
+.faSection {
+  margin-bottom: var(--sp-8);
+  animation: fadeSlideIn 0.4s ease-out both;
+
+  &:nth-child(2) {
+    animation-delay: 0.05s;
   }
 
-  /* 종족별 hover glow */
-  &[data-race="T"]:hover {
-    border-color: oklch(from var(--race-terran) l c h / 0.4);
-    box-shadow: 0 0 12px oklch(from var(--race-terran) l c h / 0.15), inset 0 0 12px oklch(from var(--race-terran) l c h / 0.03);
-  }
+  & h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-5);
+    font-size: var(--text-lg);
 
-  &[data-race="Z"]:hover {
-    border-color: oklch(from var(--race-zerg) l c h / 0.4);
-    box-shadow: 0 0 12px oklch(from var(--race-zerg) l c h / 0.15), inset 0 0 12px oklch(from var(--race-zerg) l c h / 0.03);
-  }
-
-  &[data-race="P"]:hover {
-    border-color: oklch(from var(--race-protoss) l c h / 0.4);
-    box-shadow: 0 0 12px oklch(from var(--race-protoss) l c h / 0.15), inset 0 0 12px oklch(from var(--race-protoss) l c h / 0.03);
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 3px;
+      height: 0.8em;
+      background: var(--primary);
+      border-radius: 2px;
+    }
   }
 }
 
-.playerInfo {
-  flex: 1;
-  min-width: 0;
-}
-
-.playerName {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-2);
-  font-family: var(--font-sans);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--foreground);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.playerCrew {
+.faCount {
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--muted-foreground);
-  margin-top: 2px;
 }
 
+/* ─── Responsive ─── */
 @media (max-width: 640px) {
   .home {
     padding: var(--sp-6) var(--sp-4);
   }
 
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  .tierGrid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: var(--sp-2);
+  }
+
+  .playersGrid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: var(--sp-3);
   }
 
   .tierDesc {

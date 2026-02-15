@@ -23,7 +23,7 @@ export default function PlayerDetailPage() {
             {(p) => (
               <>
                 <Title>StarUniv - {p().nickname}</Title>
-                <A href="/players" class={styles.back}>
+                <A href="/?view=players" class={styles.back}>
                   &larr; 선수 목록
                 </A>
                 <div class={styles.card}>
