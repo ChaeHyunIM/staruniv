@@ -95,14 +95,47 @@
     --race-protoss-bg: oklch(0.60 0.16 80 / 0.08);
 
     /* ── Tier colors (light) ── */
-    --tier-s: oklch(0.60 0.16 85);
-    --tier-a: oklch(0.55 0 0);
-    --tier-b: oklch(0.55 0.10 55);
-    --tier-c: oklch(0.50 0.02 240);
-    --tier-s-bg: oklch(0.60 0.16 85 / 0.08);
-    --tier-a-bg: oklch(0.55 0 0 / 0.08);
-    --tier-b-bg: oklch(0.55 0.10 55 / 0.08);
-    --tier-c-bg: oklch(0.50 0.02 240 / 0.08);
+    --tier-god: oklch(0.62 0.16 85);
+    --tier-king: oklch(0.58 0.14 75);
+    --tier-jack: oklch(0.52 0.10 60);
+    --tier-joker: oklch(0.52 0.16 300);
+    --tier-spade: oklch(0.50 0.12 230);
+    --tier-0: oklch(0.52 0.14 155);
+    --tier-1: oklch(0.50 0.12 155);
+    --tier-2: oklch(0.48 0.10 155);
+    --tier-3: oklch(0.52 0.12 200);
+    --tier-4: oklch(0.50 0.10 200);
+    --tier-5: oklch(0.48 0.08 200);
+    --tier-6: oklch(0.50 0.12 260);
+    --tier-7: oklch(0.48 0.10 260);
+    --tier-8: oklch(0.46 0.08 260);
+    --tier-baby: oklch(0.58 0.14 350);
+
+    --tier-god-bg: oklch(0.62 0.16 85 / 0.08);
+    --tier-king-bg: oklch(0.58 0.14 75 / 0.08);
+    --tier-jack-bg: oklch(0.52 0.10 60 / 0.08);
+    --tier-joker-bg: oklch(0.52 0.16 300 / 0.08);
+    --tier-spade-bg: oklch(0.50 0.12 230 / 0.08);
+    --tier-0-bg: oklch(0.52 0.14 155 / 0.08);
+    --tier-1-bg: oklch(0.50 0.12 155 / 0.08);
+    --tier-2-bg: oklch(0.48 0.10 155 / 0.08);
+    --tier-3-bg: oklch(0.52 0.12 200 / 0.08);
+    --tier-4-bg: oklch(0.50 0.10 200 / 0.08);
+    --tier-5-bg: oklch(0.48 0.08 200 / 0.08);
+    --tier-6-bg: oklch(0.50 0.12 260 / 0.08);
+    --tier-7-bg: oklch(0.48 0.10 260 / 0.08);
+    --tier-8-bg: oklch(0.46 0.08 260 / 0.08);
+    --tier-baby-bg: oklch(0.58 0.14 350 / 0.08);
+
+    /* ── Tag colors (light) ── */
+    --tag-promotion: oklch(0.58 0.16 55);
+    --tag-rising: oklch(0.52 0.14 145);
+    --tag-new: oklch(0.55 0.14 255);
+    --tag-inactive: oklch(0.50 0.02 0);
+    --tag-promotion-bg: oklch(0.58 0.16 55 / 0.1);
+    --tag-rising-bg: oklch(0.52 0.14 145 / 0.1);
+    --tag-new-bg: oklch(0.55 0.14 255 / 0.1);
+    --tag-inactive-bg: oklch(0.50 0.02 0 / 0.1);
 
     /* ── Font ── */
     --font-sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
@@ -197,14 +230,47 @@
     --race-protoss-bg: oklch(0.60 0.16 80 / 0.12);
 
     /* ── Tier colors (dark) ── */
-    --tier-s: oklch(0.82 0.14 85);
-    --tier-a: oklch(0.75 0 0);
-    --tier-b: oklch(0.68 0.10 55);
-    --tier-c: oklch(0.60 0.02 240);
-    --tier-s-bg: oklch(0.82 0.14 85 / 0.12);
-    --tier-a-bg: oklch(0.75 0 0 / 0.12);
-    --tier-b-bg: oklch(0.68 0.10 55 / 0.12);
-    --tier-c-bg: oklch(0.60 0.02 240 / 0.12);
+    --tier-god: oklch(0.82 0.14 85);
+    --tier-king: oklch(0.78 0.12 75);
+    --tier-jack: oklch(0.70 0.08 60);
+    --tier-joker: oklch(0.72 0.14 300);
+    --tier-spade: oklch(0.68 0.10 230);
+    --tier-0: oklch(0.72 0.12 155);
+    --tier-1: oklch(0.70 0.10 155);
+    --tier-2: oklch(0.68 0.08 155);
+    --tier-3: oklch(0.72 0.10 200);
+    --tier-4: oklch(0.70 0.08 200);
+    --tier-5: oklch(0.68 0.06 200);
+    --tier-6: oklch(0.70 0.10 260);
+    --tier-7: oklch(0.68 0.08 260);
+    --tier-8: oklch(0.66 0.06 260);
+    --tier-baby: oklch(0.78 0.12 350);
+
+    --tier-god-bg: oklch(0.82 0.14 85 / 0.12);
+    --tier-king-bg: oklch(0.78 0.12 75 / 0.12);
+    --tier-jack-bg: oklch(0.70 0.08 60 / 0.12);
+    --tier-joker-bg: oklch(0.72 0.14 300 / 0.12);
+    --tier-spade-bg: oklch(0.68 0.10 230 / 0.12);
+    --tier-0-bg: oklch(0.72 0.12 155 / 0.12);
+    --tier-1-bg: oklch(0.70 0.10 155 / 0.12);
+    --tier-2-bg: oklch(0.68 0.08 155 / 0.12);
+    --tier-3-bg: oklch(0.72 0.10 200 / 0.12);
+    --tier-4-bg: oklch(0.70 0.08 200 / 0.12);
+    --tier-5-bg: oklch(0.68 0.06 200 / 0.12);
+    --tier-6-bg: oklch(0.70 0.10 260 / 0.12);
+    --tier-7-bg: oklch(0.68 0.08 260 / 0.12);
+    --tier-8-bg: oklch(0.66 0.06 260 / 0.12);
+    --tier-baby-bg: oklch(0.78 0.12 350 / 0.12);
+
+    /* ── Tag colors (dark) ── */
+    --tag-promotion: oklch(0.75 0.14 55);
+    --tag-rising: oklch(0.70 0.12 145);
+    --tag-new: oklch(0.72 0.12 255);
+    --tag-inactive: oklch(0.60 0.02 0);
+    --tag-promotion-bg: oklch(0.75 0.14 55 / 0.15);
+    --tag-rising-bg: oklch(0.70 0.12 145 / 0.15);
+    --tag-new-bg: oklch(0.72 0.12 255 / 0.15);
+    --tag-inactive-bg: oklch(0.60 0.02 0 / 0.15);
 
     /* ── Shadow (stronger for dark) ── */
     --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.2);

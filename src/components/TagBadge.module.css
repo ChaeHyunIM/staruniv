@@ -1,0 +1,42 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 18px;
+  padding-inline: var(--sp-1);
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-sm);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.badge:empty {
+  display: none;
+}
+
+.badge[data-tag="승급임박"] {
+  color: var(--tag-promotion);
+  background: var(--tag-promotion-bg);
+  border: 1px solid oklch(from var(--tag-promotion) l c h / 0.3);
+}
+
+.badge[data-tag="상승"] {
+  color: var(--tag-rising);
+  background: var(--tag-rising-bg);
+  border: 1px solid oklch(from var(--tag-rising) l c h / 0.3);
+}
+
+.badge[data-tag="new"] {
+  color: var(--tag-new);
+  background: var(--tag-new-bg);
+  border: 1px solid oklch(from var(--tag-new) l c h / 0.3);
+}
+
+.badge[data-tag="inactive"] {
+  color: var(--tag-inactive);
+  background: var(--tag-inactive-bg);
+  border: 1px solid oklch(from var(--tag-inactive) l c h / 0.3);
+}

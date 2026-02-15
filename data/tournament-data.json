@@ -1,0 +1,20 @@
+{
+  "tournaments": [
+    { "year": 2021, "name": "스케스 대학대전", "winner": "김성여대" },
+    { "year": 2022, "name": "조용히사라배 대학대전 시즌1", "winner": "바스포드" },
+    { "year": 2022, "name": "떡참배 대학대전", "winner": "염석대" },
+    { "year": 2022, "name": "조용히사라배 대학대전 시즌2", "winner": "무친대" },
+    { "year": 2022, "name": "시조새배 좋소파리그", "winner": "CP" },
+    { "year": 2022, "name": "철감봉남배 대학대전", "winner": "바스포드" },
+    { "year": 2023, "name": "핫식스배 스타멸망전 동아리 대전", "winner": "점단기" },
+    { "year": 2023, "name": "철구 풀발 373배 스타대전", "winner": "JSA" },
+    { "year": 2023, "name": "핫식스배 스타멸망전", "winner": "JSA" },
+    { "year": 2024, "name": "시조새 큐센배 JPL 시즌1", "winner": "YB" },
+    { "year": 2024, "name": "철구 씨나인배 대학리그", "winner": "섭이대" },
+    { "year": 2024, "name": "철구 라네트배 대학리그", "winner": "츠캄몬스타즈" },
+    { "year": 2025, "name": "시조새배 JPL 시즌2", "winner": "케이대" },
+    { "year": 2025, "name": "철구/김인호 SOOP 스타대학리그", "winner": "케이대" },
+    { "year": 2026, "name": "박퍼니 정선숲퍼컵", "winner": null, "status": "ongoing" }
+  ],
+  "_note": "일부 우승 크루는 현재 비활성 또는 해체됨 (김성여대, 바스포드, 염석대, 무친대, CP, 점단기, YB, 섭이대)"
+}

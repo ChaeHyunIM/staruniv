@@ -4,6 +4,7 @@ import { Title } from "@solidjs/meta";
 import { getPlayer } from "~/lib/queries";
 import RaceBadge from "~/components/RaceBadge";
 import TierBadge from "~/components/TierBadge";
+import TagBadge from "~/components/TagBadge";
 import styles from "./[nickname].module.css";
 
 export const route = {
@@ -30,6 +31,9 @@ export default function PlayerDetailPage() {
                     <RaceBadge race={p().race} />
                     <TierBadge tier={p().tier} />
                     <h1>{p().nickname}</h1>
+                    <Show when={p().tag}>
+                      <TagBadge tag={p().tag} />
+                    </Show>
                   </div>
                   <dl class={styles.info}>
                     <div class={styles.field}>

@@ -51,10 +51,25 @@ export default function PlayerFilters() {
           onChange={(e) => update("tier", e.currentTarget.value)}
         >
           <option value="">전체</option>
-          <option value="S">S</option>
-          <option value="A">A</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
+          <optgroup label="남자 티어">
+            <option value="God">God</option>
+            <option value="King">King</option>
+            <option value="Jack">Jack</option>
+            <option value="Joker">Joker</option>
+            <option value="Spade">Spade</option>
+          </optgroup>
+          <optgroup label="여자 티어">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="Baby">Baby</option>
+          </optgroup>
         </select>
       </div>
 

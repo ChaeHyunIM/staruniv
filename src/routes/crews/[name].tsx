@@ -4,6 +4,7 @@ import { Title } from "@solidjs/meta";
 import { getCrew } from "~/lib/queries";
 import RaceBadge from "~/components/RaceBadge";
 import TierBadge from "~/components/TierBadge";
+import TagBadge from "~/components/TagBadge";
 import styles from "./[name].module.css";
 
 export const route = {
@@ -43,6 +44,7 @@ export default function CrewDetailPage() {
                             <th>티어</th>
                             <th>닉네임</th>
                             <th>성별</th>
+                            <th>상태</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -57,6 +59,11 @@ export default function CrewDetailPage() {
                                   </A>
                                 </td>
                                 <td>{p.gender === "M" ? "남" : "여"}</td>
+                                <td>
+                                  <Show when={p.tag}>
+                                    <TagBadge tag={p.tag} />
+                                  </Show>
+                                </td>
                               </tr>
                             )}
                           </For>

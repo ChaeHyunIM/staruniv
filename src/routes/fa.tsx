@@ -4,6 +4,7 @@ import { Title } from "@solidjs/meta";
 import { getFAPlayers } from "~/lib/queries";
 import RaceBadge from "~/components/RaceBadge";
 import TierBadge from "~/components/TierBadge";
+import TagBadge from "~/components/TagBadge";
 import styles from "./fa.module.css";
 
 export const route = {
@@ -39,6 +40,7 @@ export default function FAPage() {
                         <th>종족</th>
                         <th>티어</th>
                         <th>닉네임</th>
+                        <th>상태</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -51,6 +53,11 @@ export default function FAPage() {
                               <A href={`/players/${encodeURIComponent(p.nickname)}`} class={styles.nickname}>
                                 {p.nickname}
                               </A>
+                            </td>
+                            <td>
+                              <Show when={p.tag}>
+                                <TagBadge tag={p.tag} />
+                              </Show>
                             </td>
                           </tr>
                         )}
@@ -73,6 +80,7 @@ export default function FAPage() {
                         <th>종족</th>
                         <th>티어</th>
                         <th>닉네임</th>
+                        <th>상태</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -85,6 +93,11 @@ export default function FAPage() {
                               <A href={`/players/${encodeURIComponent(p.nickname)}`} class={styles.nickname}>
                                 {p.nickname}
                               </A>
+                            </td>
+                            <td>
+                              <Show when={p.tag}>
+                                <TagBadge tag={p.tag} />
+                              </Show>
                             </td>
                           </tr>
                         )}

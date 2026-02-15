@@ -1,0 +1,1706 @@
+{
+  "version": "3.53",
+  "updated_at": "2026-01-31",
+  "notes": {
+    "상승": [
+      "규리야",
+      "공다츠",
+      "빵리나",
+      "나린",
+      "메옹",
+      "수니양",
+      "오리꿍",
+      "경콩이",
+      "김말랑",
+      "퀸주",
+      "아리송이",
+      "연또",
+      "은조",
+      "우질",
+      "찡찡시아",
+      "정연이"
+    ],
+    "임박": [
+      "키링",
+      "주서리",
+      "엄보리",
+      "진니",
+      "막내현진",
+      "하루용",
+      "백원이야",
+      "햇참새",
+      "진땅콩",
+      "히요코"
+    ],
+    "신규": [
+      "저지현",
+      "밤하밍",
+      "미진이",
+      "이응씨",
+      "유즈",
+      "햄희",
+      "요정너구리",
+      "밍둥이",
+      "으니"
+    ]
+  },
+  "tiers": [
+    {
+      "tier": "God",
+      "description": "메이저 프로리그, K리그 최상위, ASL S20 16강",
+      "gender": "M",
+      "players": [
+        {
+          "nickname": "황병영",
+          "race": "T"
+        },
+        {
+          "nickname": "이재호",
+          "race": "T"
+        },
+        {
+          "nickname": "유영진",
+          "race": "T"
+        },
+        {
+          "nickname": "이영호",
+          "race": "T"
+        },
+        {
+          "nickname": "조기석",
+          "race": "T"
+        },
+        {
+          "nickname": "이영웅",
+          "race": "T"
+        },
+        {
+          "nickname": "김지성",
+          "race": "T"
+        },
+        {
+          "nickname": "정영재",
+          "race": "T"
+        },
+        {
+          "nickname": "최호선",
+          "race": "T"
+        },
+        {
+          "nickname": "짭제",
+          "race": "Z"
+        },
+        {
+          "nickname": "홍구",
+          "race": "Z"
+        },
+        {
+          "nickname": "김정우",
+          "race": "Z"
+        },
+        {
+          "nickname": "김민철",
+          "race": "Z"
+        },
+        {
+          "nickname": "김명운",
+          "race": "Z"
+        },
+        {
+          "nickname": "이제동",
+          "race": "Z"
+        },
+        {
+          "nickname": "조일장",
+          "race": "Z"
+        },
+        {
+          "nickname": "김성대",
+          "race": "Z"
+        },
+        {
+          "nickname": "장윤철",
+          "race": "P"
+        },
+        {
+          "nickname": "김택용",
+          "race": "P"
+        },
+        {
+          "nickname": "도재욱",
+          "race": "P"
+        },
+        {
+          "nickname": "변현제",
+          "race": "P"
+        },
+        {
+          "nickname": "정윤종",
+          "race": "P"
+        }
+      ]
+    },
+    {
+      "tier": "King",
+      "description": "K리그, H리그 중상위, ASL 24강급 (챌린저)",
+      "gender": "M",
+      "players": [
+        {
+          "nickname": "몽군",
+          "race": "T"
+        },
+        {
+          "nickname": "박성균",
+          "race": "T"
+        },
+        {
+          "nickname": "김태영",
+          "race": "T"
+        },
+        {
+          "nickname": "구성훈",
+          "race": "T"
+        },
+        {
+          "nickname": "샤이니",
+          "race": "T"
+        },
+        {
+          "nickname": "김경모",
+          "race": "T"
+        },
+        {
+          "nickname": "박준오",
+          "race": "Z"
+        },
+        {
+          "nickname": "이영한",
+          "race": "Z"
+        },
+        {
+          "nickname": "이예훈",
+          "race": "Z"
+        },
+        {
+          "nickname": "방태수",
+          "race": "Z"
+        },
+        {
+          "nickname": "송병구",
+          "race": "P"
+        },
+        {
+          "nickname": "김윤중",
+          "race": "P"
+        },
+        {
+          "nickname": "윤수철",
+          "race": "P"
+        },
+        {
+          "nickname": "박수범",
+          "race": "P"
+        },
+        {
+          "nickname": "윤용태",
+          "race": "P"
+        },
+        {
+          "nickname": "유승곤",
+          "race": "P"
+        },
+        {
+          "nickname": "원선재",
+          "race": "P"
+        },
+        {
+          "nickname": "홍덕",
+          "race": "P"
+        }
+      ]
+    },
+    {
+      "tier": "Jack",
+      "description": "K리그, H리그 중하위, 아마고수 중상위, ACS 4강급 (그마)",
+      "gender": "M",
+      "players": [
+        {
+          "nickname": "신상문",
+          "race": "T"
+        },
+        {
+          "nickname": "흑운장",
+          "race": "T"
+        },
+        {
+          "nickname": "임진묵",
+          "race": "T"
+        },
+        {
+          "nickname": "지동원",
+          "race": "T"
+        },
+        {
+          "nickname": "김영진",
+          "race": "T"
+        },
+        {
+          "nickname": "정민기",
+          "race": "T"
+        },
+        {
+          "nickname": "배호딱",
+          "race": "T"
+        },
+        {
+          "nickname": "만두호성",
+          "race": "Z"
+        },
+        {
+          "nickname": "김윤환",
+          "race": "Z"
+        },
+        {
+          "nickname": "고석현",
+          "race": "Z"
+        },
+        {
+          "nickname": "이창우",
+          "race": "Z"
+        },
+        {
+          "nickname": "박재혁",
+          "race": "Z"
+        },
+        {
+          "nickname": "어윤수",
+          "race": "Z"
+        },
+        {
+          "nickname": "배병우",
+          "race": "Z"
+        },
+        {
+          "nickname": "배성흠",
+          "race": "Z"
+        },
+        {
+          "nickname": "김병수",
+          "race": "Z"
+        },
+        {
+          "nickname": "서문지훈",
+          "race": "Z"
+        },
+        {
+          "nickname": "윤진규",
+          "race": "Z"
+        },
+        {
+          "nickname": "얍삽e",
+          "race": "Z"
+        },
+        {
+          "nickname": "김수식",
+          "race": "Z"
+        },
+        {
+          "nickname": "염보성",
+          "race": "P"
+        },
+        {
+          "nickname": "이경민",
+          "race": "P"
+        },
+        {
+          "nickname": "오메킴",
+          "race": "P"
+        },
+        {
+          "nickname": "정경두",
+          "race": "P"
+        },
+        {
+          "nickname": "진영화",
+          "race": "P"
+        },
+        {
+          "nickname": "김범수",
+          "race": "P"
+        },
+        {
+          "nickname": "왜냐맨",
+          "race": "P"
+        },
+        {
+          "nickname": "권혁진",
+          "race": "P"
+        },
+        {
+          "nickname": "구라미스",
+          "race": "P"
+        },
+        {
+          "nickname": "프발",
+          "race": "P"
+        },
+        {
+          "nickname": "원지훈",
+          "race": "P"
+        },
+        {
+          "nickname": "김봉실",
+          "race": "P"
+        }
+      ]
+    },
+    {
+      "tier": "Joker",
+      "description": "조커리그, 젓갈리그, 아마고수 중하위 (마스터)",
+      "gender": "M",
+      "players": [
+        {
+          "nickname": "이인극",
+          "race": "T"
+        },
+        {
+          "nickname": "허유",
+          "race": "T"
+        },
+        {
+          "nickname": "저지현",
+          "race": "T",
+          "tag": "new"
+        },
+        {
+          "nickname": "김상곤",
+          "race": "T"
+        },
+        {
+          "nickname": "민찬기",
+          "race": "T"
+        },
+        {
+          "nickname": "액션구드론",
+          "race": "Z"
+        },
+        {
+          "nickname": "인치호",
+          "race": "Z"
+        },
+        {
+          "nickname": "전상욱",
+          "race": "Z"
+        },
+        {
+          "nickname": "김영주",
+          "race": "Z"
+        },
+        {
+          "nickname": "김건욱",
+          "race": "Z"
+        },
+        {
+          "nickname": "김대한",
+          "race": "Z"
+        },
+        {
+          "nickname": "김기덕",
+          "race": "Z"
+        },
+        {
+          "nickname": "선우도현",
+          "race": "Z"
+        },
+        {
+          "nickname": "철구",
+          "race": "Z"
+        },
+        {
+          "nickname": "킁식",
+          "race": "P"
+        },
+        {
+          "nickname": "김학수",
+          "race": "P"
+        },
+        {
+          "nickname": "라박이",
+          "race": "P"
+        },
+        {
+          "nickname": "손찬웅",
+          "race": "P"
+        },
+        {
+          "nickname": "김민우",
+          "race": "P"
+        },
+        {
+          "nickname": "박준혁",
+          "race": "P"
+        },
+        {
+          "nickname": "쿰신",
+          "race": "P"
+        },
+        {
+          "nickname": "쿨지지",
+          "race": "P"
+        },
+        {
+          "nickname": "전제민",
+          "race": "P"
+        },
+        {
+          "nickname": "미동미동",
+          "race": "P"
+        },
+        {
+          "nickname": "윤준석",
+          "race": "P"
+        },
+        {
+          "nickname": "안기효",
+          "race": "P"
+        }
+      ]
+    },
+    {
+      "tier": "Spade",
+      "description": "스페이드 리그 중상위, 아재리그 (다이아 상위)",
+      "gender": "M",
+      "players": [
+        {
+          "nickname": "기뉴다",
+          "race": "T"
+        },
+        {
+          "nickname": "최재성",
+          "race": "T"
+        },
+        {
+          "nickname": "박성진",
+          "race": "T"
+        },
+        {
+          "nickname": "이윤열",
+          "race": "T"
+        },
+        {
+          "nickname": "김상수",
+          "race": "T"
+        },
+        {
+          "nickname": "이완",
+          "race": "T"
+        },
+        {
+          "nickname": "팔레트",
+          "race": "T"
+        },
+        {
+          "nickname": "초난강",
+          "race": "T"
+        },
+        {
+          "nickname": "박태민",
+          "race": "Z"
+        },
+        {
+          "nickname": "박성준",
+          "race": "Z"
+        },
+        {
+          "nickname": "박성준2",
+          "race": "Z",
+          "_note": "동명이인 - 닉네임 확인 필요"
+        },
+        {
+          "nickname": "초롱초롱",
+          "race": "Z"
+        },
+        {
+          "nickname": "카권",
+          "race": "Z"
+        },
+        {
+          "nickname": "빡죠스",
+          "race": "P"
+        },
+        {
+          "nickname": "유민",
+          "race": "P"
+        },
+        {
+          "nickname": "트슈",
+          "race": "P"
+        },
+        {
+          "nickname": "탱크",
+          "race": "P"
+        },
+        {
+          "nickname": "파도",
+          "race": "P"
+        },
+        {
+          "nickname": "전태규",
+          "race": "P"
+        },
+        {
+          "nickname": "송현덕",
+          "race": "P"
+        },
+        {
+          "nickname": "난수",
+          "race": "P"
+        },
+        {
+          "nickname": "고도준",
+          "race": "P"
+        },
+        {
+          "nickname": "안정우",
+          "race": "P"
+        },
+        {
+          "nickname": "서기수",
+          "race": "P"
+        },
+        {
+          "nickname": "김성제",
+          "race": "P"
+        },
+        {
+          "nickname": "강민",
+          "race": "P"
+        },
+        {
+          "nickname": "봉준",
+          "race": "P"
+        },
+        {
+          "nickname": "하얀눈길",
+          "race": "P"
+        }
+      ]
+    },
+    {
+      "tier": "0",
+      "description": "퀸메프, 스페이드 리그 중하위, 래더 2200급 (다이아 하위)",
+      "gender": "F",
+      "players": [
+        {
+          "nickname": "서지수",
+          "race": "T",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "강구열",
+          "race": "T",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "내가스틱",
+          "race": "Z"
+        },
+        {
+          "nickname": "정소윤",
+          "race": "Z",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "채린쟝",
+          "race": "Z"
+        },
+        {
+          "nickname": "보혜",
+          "race": "P",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "멍이에요",
+          "race": "P",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "유성민",
+          "race": "P",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "소룡이",
+          "race": "P"
+        },
+        {
+          "nickname": "토스봇",
+          "race": "P"
+        },
+        {
+          "nickname": "파메",
+          "race": "P"
+        }
+      ]
+    },
+    {
+      "tier": "1",
+      "description": "중메프 중상위권, 래더 2100급 (에메랄드 상위)",
+      "gender": "F",
+      "players": [
+        {
+          "nickname": "빡재",
+          "race": "T",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "모토케이",
+          "race": "T",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "라히",
+          "race": "T"
+        },
+        {
+          "nickname": "나도현",
+          "race": "T"
+        },
+        {
+          "nickname": "다린",
+          "race": "T",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "카리스",
+          "race": "T"
+        },
+        {
+          "nickname": "안아",
+          "race": "P"
+        },
+        {
+          "nickname": "애공",
+          "race": "P"
+        },
+        {
+          "nickname": "수입뿌드",
+          "race": "P",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "앙상국",
+          "race": "P"
+        }
+      ]
+    },
+    {
+      "tier": "2",
+      "description": "중메프 중하위권, 퀸티어, 래더 2000급 (에메랄드 하위)",
+      "gender": "F",
+      "players": [
+        {
+          "nickname": "클템",
+          "race": "T",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "저라뎃",
+          "race": "T"
+        },
+        {
+          "nickname": "히영",
+          "race": "T"
+        },
+        {
+          "nickname": "우힝이",
+          "race": "T"
+        },
+        {
+          "nickname": "혜로로",
+          "race": "Z",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "또봉순",
+          "race": "Z",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "남덕선",
+          "race": "Z",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "나무늘봉순",
+          "race": "Z"
+        },
+        {
+          "nickname": "하블리",
+          "race": "Z"
+        },
+        {
+          "nickname": "카히리",
+          "race": "P"
+        },
+        {
+          "nickname": "슬돌이",
+          "race": "P"
+        },
+        {
+          "nickname": "다나짱",
+          "race": "P"
+        },
+        {
+          "nickname": "오리3",
+          "race": "P"
+        },
+        {
+          "nickname": "빵훈",
+          "race": "P"
+        }
+      ]
+    },
+    {
+      "tier": "3",
+      "description": "안진마리그, LASL 본선급, 래더 1800급 (플레티넘)",
+      "gender": "F",
+      "players": [
+        {
+          "nickname": "뚜미",
+          "race": "T"
+        },
+        {
+          "nickname": "소심",
+          "race": "T"
+        },
+        {
+          "nickname": "김인호",
+          "race": "T"
+        },
+        {
+          "nickname": "하리",
+          "race": "T"
+        },
+        {
+          "nickname": "나예리",
+          "race": "T"
+        },
+        {
+          "nickname": "규리야",
+          "race": "T",
+          "tag": "상승"
+        },
+        {
+          "nickname": "지두두",
+          "race": "T",
+          "tag": "inactive"
+        },
+        {
+          "nickname": "추르미",
+          "race": "Z"
+        },
+        {
+          "nickname": "라미",
+          "race": "Z",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "다예",
+          "race": "Z",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "파찌",
+          "race": "Z"
+        },
+        {
+          "nickname": "상어녀",
+          "race": "Z"
+        },
+        {
+          "nickname": "공다츠",
+          "race": "Z",
+          "tag": "상승"
+        },
+        {
+          "nickname": "김뽀뇨",
+          "race": "P"
+        },
+        {
+          "nickname": "기나",
+          "race": "P",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "구보라",
+          "race": "P"
+        },
+        {
+          "nickname": "별비",
+          "race": "P"
+        },
+        {
+          "nickname": "이유란",
+          "race": "P"
+        },
+        {
+          "nickname": "박듀듀",
+          "race": "P",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "토마토",
+          "race": "P"
+        },
+        {
+          "nickname": "유복실",
+          "race": "P"
+        },
+        {
+          "nickname": "최하니",
+          "race": "P"
+        },
+        {
+          "nickname": "빵리나",
+          "race": "P",
+          "tag": "상승"
+        },
+        {
+          "nickname": "시조새",
+          "race": "P"
+        }
+      ]
+    },
+    {
+      "tier": "4",
+      "description": "사막리그, 래더 1700급 (골드 상위)",
+      "gender": "F",
+      "players": [
+        {
+          "nickname": "태영",
+          "race": "T",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "금선2",
+          "race": "T"
+        },
+        {
+          "nickname": "햇살",
+          "race": "T"
+        },
+        {
+          "nickname": "우리밍",
+          "race": "T"
+        },
+        {
+          "nickname": "오조은",
+          "race": "T"
+        },
+        {
+          "nickname": "쥬나",
+          "race": "Z",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "림예이",
+          "race": "Z",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "늑대채린",
+          "race": "Z",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "요닝",
+          "race": "Z",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "찌킹",
+          "race": "Z"
+        },
+        {
+          "nickname": "몽순",
+          "race": "Z"
+        },
+        {
+          "nickname": "정소이",
+          "race": "Z"
+        },
+        {
+          "nickname": "구루미",
+          "race": "Z"
+        },
+        {
+          "nickname": "슬아",
+          "race": "Z"
+        },
+        {
+          "nickname": "링고",
+          "race": "Z"
+        },
+        {
+          "nickname": "나린",
+          "race": "Z",
+          "tag": "상승"
+        },
+        {
+          "nickname": "키링",
+          "race": "P",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "임밍지",
+          "race": "P"
+        },
+        {
+          "nickname": "졈니",
+          "race": "P"
+        },
+        {
+          "nickname": "최도랑",
+          "race": "P"
+        },
+        {
+          "nickname": "연애인",
+          "race": "P"
+        },
+        {
+          "nickname": "꼬니부킹",
+          "race": "P"
+        },
+        {
+          "nickname": "은똥",
+          "race": "P"
+        }
+      ]
+    },
+    {
+      "tier": "5",
+      "description": "소나무리그, 래더 1600급 (골드 하위)",
+      "gender": "F",
+      "players": [
+        {
+          "nickname": "깨림이",
+          "race": "T"
+        },
+        {
+          "nickname": "만다",
+          "race": "T"
+        },
+        {
+          "nickname": "김하선",
+          "race": "T"
+        },
+        {
+          "nickname": "옆집뽀누나농떼르만",
+          "race": "T"
+        },
+        {
+          "nickname": "시녕뭉",
+          "race": "T"
+        },
+        {
+          "nickname": "강덕구",
+          "race": "T"
+        },
+        {
+          "nickname": "소주양",
+          "race": "T"
+        },
+        {
+          "nickname": "유이",
+          "race": "T"
+        },
+        {
+          "nickname": "치리",
+          "race": "Z"
+        },
+        {
+          "nickname": "슈슈",
+          "race": "Z"
+        },
+        {
+          "nickname": "란란",
+          "race": "Z"
+        },
+        {
+          "nickname": "삐약삐약",
+          "race": "Z"
+        },
+        {
+          "nickname": "단양",
+          "race": "Z"
+        },
+        {
+          "nickname": "아라미",
+          "race": "Z"
+        },
+        {
+          "nickname": "예실",
+          "race": "P"
+        },
+        {
+          "nickname": "주하랑",
+          "race": "P"
+        },
+        {
+          "nickname": "오하얀",
+          "race": "P"
+        },
+        {
+          "nickname": "설둥이",
+          "race": "P"
+        },
+        {
+          "nickname": "예슬",
+          "race": "P"
+        },
+        {
+          "nickname": "라운이",
+          "race": "P"
+        },
+        {
+          "nickname": "연둥바둥",
+          "race": "P"
+        },
+        {
+          "nickname": "정중만",
+          "race": "P"
+        },
+        {
+          "nickname": "최세상",
+          "race": "P"
+        },
+        {
+          "nickname": "주서리",
+          "race": "P",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "묘아",
+          "race": "P"
+        }
+      ]
+    },
+    {
+      "tier": "6",
+      "description": "6부리그, 래더 1500급 (실버)",
+      "gender": "F",
+      "players": [
+        {
+          "nickname": "비타밍",
+          "race": "T"
+        },
+        {
+          "nickname": "모리",
+          "race": "T"
+        },
+        {
+          "nickname": "으냥이",
+          "race": "T"
+        },
+        {
+          "nickname": "선정은",
+          "race": "T"
+        },
+        {
+          "nickname": "서윤",
+          "race": "T"
+        },
+        {
+          "nickname": "빵미유",
+          "race": "T"
+        },
+        {
+          "nickname": "려원",
+          "race": "T"
+        },
+        {
+          "nickname": "메옹",
+          "race": "T",
+          "tag": "상승"
+        },
+        {
+          "nickname": "수니양",
+          "race": "T",
+          "tag": "상승"
+        },
+        {
+          "nickname": "내가먼지",
+          "race": "T"
+        },
+        {
+          "nickname": "이아깽",
+          "race": "T"
+        },
+        {
+          "nickname": "링가",
+          "race": "T"
+        },
+        {
+          "nickname": "뚜비",
+          "race": "T"
+        },
+        {
+          "nickname": "또해영",
+          "race": "Z"
+        },
+        {
+          "nickname": "2라니",
+          "race": "Z"
+        },
+        {
+          "nickname": "귀요민정",
+          "race": "Z"
+        },
+        {
+          "nickname": "도릿",
+          "race": "Z"
+        },
+        {
+          "nickname": "김태향",
+          "race": "Z"
+        },
+        {
+          "nickname": "박하악",
+          "race": "Z"
+        },
+        {
+          "nickname": "미니언",
+          "race": "Z"
+        },
+        {
+          "nickname": "오리꿍",
+          "race": "Z",
+          "tag": "상승"
+        },
+        {
+          "nickname": "쌍디",
+          "race": "Z"
+        },
+        {
+          "nickname": "임조이",
+          "race": "Z"
+        },
+        {
+          "nickname": "김설",
+          "race": "Z"
+        },
+        {
+          "nickname": "연블비",
+          "race": "Z"
+        },
+        {
+          "nickname": "김채이",
+          "race": "P"
+        },
+        {
+          "nickname": "양유정",
+          "race": "P"
+        },
+        {
+          "nickname": "다우미",
+          "race": "P"
+        },
+        {
+          "nickname": "밍가",
+          "race": "P"
+        },
+        {
+          "nickname": "태린",
+          "race": "P"
+        },
+        {
+          "nickname": "김무아",
+          "race": "P"
+        },
+        {
+          "nickname": "뿌하",
+          "race": "P"
+        },
+        {
+          "nickname": "연수",
+          "race": "P"
+        },
+        {
+          "nickname": "히댕",
+          "race": "P"
+        },
+        {
+          "nickname": "비재희",
+          "race": "P"
+        },
+        {
+          "nickname": "엄보리",
+          "race": "P",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "진유성",
+          "race": "P"
+        },
+        {
+          "nickname": "남수댕",
+          "race": "P"
+        },
+        {
+          "nickname": "백갑숙",
+          "race": "P"
+        },
+        {
+          "nickname": "하랑e",
+          "race": "P"
+        },
+        {
+          "nickname": "팔순",
+          "race": "P"
+        },
+        {
+          "nickname": "하두링",
+          "race": "P"
+        }
+      ]
+    },
+    {
+      "tier": "7",
+      "description": "햄스터리그, 래더1300급 (브론즈)",
+      "gender": "F",
+      "players": [
+        {
+          "nickname": "정다닝",
+          "race": "T"
+        },
+        {
+          "nickname": "밥새",
+          "race": "T"
+        },
+        {
+          "nickname": "세월",
+          "race": "T"
+        },
+        {
+          "nickname": "빵지니",
+          "race": "T"
+        },
+        {
+          "nickname": "경콩이",
+          "race": "T",
+          "tag": "상승"
+        },
+        {
+          "nickname": "김말랑",
+          "race": "T",
+          "tag": "상승"
+        },
+        {
+          "nickname": "면추가",
+          "race": "T"
+        },
+        {
+          "nickname": "냥수디",
+          "race": "Z"
+        },
+        {
+          "nickname": "자닌",
+          "race": "Z"
+        },
+        {
+          "nickname": "먼진",
+          "race": "Z"
+        },
+        {
+          "nickname": "키모야",
+          "race": "Z"
+        },
+        {
+          "nickname": "핑핑",
+          "race": "Z"
+        },
+        {
+          "nickname": "진니",
+          "race": "Z",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "햄찌야",
+          "race": "Z"
+        },
+        {
+          "nickname": "하루몽",
+          "race": "Z"
+        },
+        {
+          "nickname": "다뉴",
+          "race": "Z"
+        },
+        {
+          "nickname": "퀸주",
+          "race": "Z",
+          "tag": "상승"
+        },
+        {
+          "nickname": "정서린",
+          "race": "P"
+        },
+        {
+          "nickname": "막내현진",
+          "race": "P",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "효짱",
+          "race": "P"
+        },
+        {
+          "nickname": "우마루대장",
+          "race": "P"
+        },
+        {
+          "nickname": "이주현",
+          "race": "P"
+        },
+        {
+          "nickname": "은서",
+          "race": "P"
+        },
+        {
+          "nickname": "한쪼니",
+          "race": "P"
+        },
+        {
+          "nickname": "제티",
+          "race": "P"
+        },
+        {
+          "nickname": "흑설",
+          "race": "P"
+        },
+        {
+          "nickname": "아리송이",
+          "race": "P",
+          "tag": "상승"
+        },
+        {
+          "nickname": "욱하는형",
+          "race": "P"
+        },
+        {
+          "nickname": "이기광",
+          "race": "P"
+        }
+      ]
+    },
+    {
+      "tier": "8",
+      "description": "스타크루 유스 유입 (아이언)",
+      "gender": "F",
+      "players": [
+        {
+          "nickname": "제갈츄빈",
+          "race": "T"
+        },
+        {
+          "nickname": "갱이다",
+          "race": "T"
+        },
+        {
+          "nickname": "김세주",
+          "race": "T"
+        },
+        {
+          "nickname": "단비송",
+          "race": "T"
+        },
+        {
+          "nickname": "혜냥",
+          "race": "P"
+        },
+        {
+          "nickname": "지우리",
+          "race": "T"
+        },
+        {
+          "nickname": "돌애정",
+          "race": "T"
+        },
+        {
+          "nickname": "밍또암",
+          "race": "T"
+        },
+        {
+          "nickname": "허로아",
+          "race": "T",
+          "tag": "inactive"
+        },
+        {
+          "nickname": "여운",
+          "race": "T",
+          "tag": "inactive"
+        },
+        {
+          "nickname": "이지다",
+          "race": "Z"
+        },
+        {
+          "nickname": "백원이야",
+          "race": "Z",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "냥냥코기",
+          "race": "Z"
+        },
+        {
+          "nickname": "구쁜",
+          "race": "Z"
+        },
+        {
+          "nickname": "행복짱",
+          "race": "Z"
+        },
+        {
+          "nickname": "다라츄",
+          "race": "Z"
+        },
+        {
+          "nickname": "황단비",
+          "race": "Z"
+        },
+        {
+          "nickname": "민트",
+          "race": "Z"
+        },
+        {
+          "nickname": "삼교",
+          "race": "Z"
+        },
+        {
+          "nickname": "단이",
+          "race": "Z"
+        },
+        {
+          "nickname": "연또",
+          "race": "Z",
+          "tag": "상승"
+        },
+        {
+          "nickname": "은조",
+          "race": "Z",
+          "tag": "상승"
+        },
+        {
+          "nickname": "병하",
+          "race": "Z"
+        },
+        {
+          "nickname": "박퍼니",
+          "race": "Z"
+        },
+        {
+          "nickname": "새밍",
+          "race": "Z",
+          "tag": "inactive"
+        },
+        {
+          "nickname": "맹꽁안나",
+          "race": "Z"
+        },
+        {
+          "nickname": "햇참새",
+          "race": "P",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "진땅콩",
+          "race": "P",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "아링",
+          "race": "P"
+        },
+        {
+          "nickname": "다예나",
+          "race": "P"
+        },
+        {
+          "nickname": "엄키키",
+          "race": "P"
+        },
+        {
+          "nickname": "요시",
+          "race": "P"
+        },
+        {
+          "nickname": "구키",
+          "race": "P"
+        },
+        {
+          "nickname": "히요코",
+          "race": "P",
+          "tag": "승급임박"
+        },
+        {
+          "nickname": "비그리",
+          "race": "P"
+        },
+        {
+          "nickname": "이주리",
+          "race": "P"
+        },
+        {
+          "nickname": "하이유",
+          "race": "P"
+        },
+        {
+          "nickname": "지아송",
+          "race": "P"
+        },
+        {
+          "nickname": "혜요이",
+          "race": "P"
+        },
+        {
+          "nickname": "뀨알",
+          "race": "P"
+        },
+        {
+          "nickname": "모비",
+          "race": "P"
+        },
+        {
+          "nickname": "먹체토",
+          "race": "P"
+        },
+        {
+          "nickname": "예꾸",
+          "race": "P"
+        },
+        {
+          "nickname": "우질",
+          "race": "P",
+          "tag": "상승"
+        },
+        {
+          "nickname": "찡찡시아",
+          "race": "P",
+          "tag": "상승"
+        },
+        {
+          "nickname": "정연이",
+          "race": "P",
+          "tag": "상승"
+        },
+        {
+          "nickname": "마예준",
+          "race": "P"
+        },
+        {
+          "nickname": "와이퍼",
+          "race": "P"
+        },
+        {
+          "nickname": "케이",
+          "race": "P"
+        }
+      ]
+    },
+    {
+      "tier": "Baby",
+      "description": "스타크래프트 입문단계 (언랭)",
+      "gender": "F",
+      "players": [
+        {
+          "nickname": "밤하밍",
+          "race": "T",
+          "tag": "new"
+        },
+        {
+          "nickname": "미진이",
+          "race": "T",
+          "tag": "new"
+        },
+        {
+          "nickname": "이응씨",
+          "race": "T",
+          "tag": "new"
+        },
+        {
+          "nickname": "오세은",
+          "race": "T"
+        },
+        {
+          "nickname": "유즈",
+          "race": "Z",
+          "tag": "new"
+        },
+        {
+          "nickname": "초이",
+          "race": "Z"
+        },
+        {
+          "nickname": "고요",
+          "race": "Z"
+        },
+        {
+          "nickname": "권아온",
+          "race": "Z"
+        },
+        {
+          "nickname": "박쮸이",
+          "race": "Z"
+        },
+        {
+          "nickname": "요정너구리",
+          "race": "P",
+          "tag": "new"
+        },
+        {
+          "nickname": "으니",
+          "race": "P",
+          "tag": "new"
+        },
+        {
+          "nickname": "멍라희",
+          "race": "P"
+        },
+        {
+          "nickname": "옥수수",
+          "race": "P"
+        },
+        {
+          "nickname": "유네",
+          "race": "P"
+        },
+        {
+          "nickname": "있찌",
+          "race": "P"
+        },
+        {
+          "nickname": "햄희",
+          "race": "Z",
+          "tag": "new"
+        },
+        {
+          "nickname": "밍둥이",
+          "race": "P",
+          "tag": "new"
+        },
+        {
+          "nickname": "윤하랑",
+          "race": "P"
+        },
+        {
+          "nickname": "짜미",
+          "race": "P"
+        }
+      ]
+    }
+  ],
+  "_remaining_tiers": [],
+  "_remaining_data_needed": []
+}

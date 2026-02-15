@@ -4,6 +4,7 @@ import { Title } from "@solidjs/meta";
 import { getPlayers } from "~/lib/queries";
 import RaceBadge from "~/components/RaceBadge";
 import TierBadge from "~/components/TierBadge";
+import TagBadge from "~/components/TagBadge";
 import PlayerFilters from "~/components/PlayerFilters";
 import styles from "./index.module.css";
 
@@ -69,8 +70,8 @@ export default function PlayersPage() {
                         </td>
                         <td>{p.gender === "M" ? "남" : "여"}</td>
                         <td>
-                          <Show when={p.is_fa}>
-                            <span class={styles.faTag}>FA</span>
+                          <Show when={p.tag}>
+                            <TagBadge tag={p.tag} />
                           </Show>
                         </td>
                       </tr>

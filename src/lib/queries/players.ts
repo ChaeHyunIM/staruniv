@@ -15,7 +15,7 @@ export const getPlayers = query(async (filters: PlayerFilters = {}) => {
   const { race, tier, crew, gender, search } = filters;
 
   const rows = await sql`
-    SELECT p.id, p.nickname, p.race, p.tier, p.gender, p.crew_id, p.is_fa, p.status,
+    SELECT p.id, p.nickname, p.race, p.tier, p.gender, p.crew_id, p.is_fa, p.tag, p.status,
            p.created_at, p.updated_at, c.name AS crew_name
     FROM players p
     LEFT JOIN crews c ON p.crew_id = c.id
@@ -26,7 +26,12 @@ export const getPlayers = query(async (filters: PlayerFilters = {}) => {
     ${gender ? sql`AND p.gender = ${gender}` : sql``}
     ${search ? sql`AND p.nickname ILIKE ${"%" + search + "%"}` : sql``}
     ORDER BY
-      CASE p.tier WHEN 'S' THEN 0 WHEN 'A' THEN 1 WHEN 'B' THEN 2 WHEN 'C' THEN 3 ELSE 4 END,
+      CASE p.tier
+        WHEN 'God' THEN 0 WHEN 'King' THEN 1 WHEN 'Jack' THEN 2 WHEN 'Joker' THEN 3 WHEN 'Spade' THEN 4
+        WHEN '0' THEN 5 WHEN '1' THEN 6 WHEN '2' THEN 7 WHEN '3' THEN 8 WHEN '4' THEN 9
+        WHEN '5' THEN 10 WHEN '6' THEN 11 WHEN '7' THEN 12 WHEN '8' THEN 13 WHEN 'Baby' THEN 14
+        ELSE 15
+      END,
       p.nickname
   `;
 
@@ -36,7 +41,7 @@ export const getPlayers = query(async (filters: PlayerFilters = {}) => {
 export const getPlayer = query(async (nickname: string) => {
   "use server";
   const rows = await sql`
-    SELECT p.id, p.nickname, p.race, p.tier, p.gender, p.crew_id, p.is_fa, p.status,
+    SELECT p.id, p.nickname, p.race, p.tier, p.gender, p.crew_id, p.is_fa, p.tag, p.status,
            p.created_at, p.updated_at, c.name AS crew_name
     FROM players p
     LEFT JOIN crews c ON p.crew_id = c.id
@@ -49,13 +54,18 @@ export const getPlayer = query(async (nickname: string) => {
 export const getPlayersByTier = query(async () => {
   "use server";
   const rows = await sql`
-    SELECT p.id, p.nickname, p.race, p.tier, p.gender, p.crew_id, p.is_fa, p.status,
+    SELECT p.id, p.nickname, p.race, p.tier, p.gender, p.crew_id, p.is_fa, p.tag, p.status,
            p.created_at, p.updated_at, c.name AS crew_name
     FROM players p
     LEFT JOIN crews c ON p.crew_id = c.id
     WHERE p.status = 'active' AND p.tier IS NOT NULL
     ORDER BY
-      CASE p.tier WHEN 'S' THEN 0 WHEN 'A' THEN 1 WHEN 'B' THEN 2 WHEN 'C' THEN 3 ELSE 4 END,
+      CASE p.tier
+        WHEN 'God' THEN 0 WHEN 'King' THEN 1 WHEN 'Jack' THEN 2 WHEN 'Joker' THEN 3 WHEN 'Spade' THEN 4
+        WHEN '0' THEN 5 WHEN '1' THEN 6 WHEN '2' THEN 7 WHEN '3' THEN 8 WHEN '4' THEN 9
+        WHEN '5' THEN 10 WHEN '6' THEN 11 WHEN '7' THEN 12 WHEN '8' THEN 13 WHEN 'Baby' THEN 14
+        ELSE 15
+      END,
       p.nickname
   `;
 
