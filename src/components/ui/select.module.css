@@ -96,6 +96,11 @@
   &::placeholder {
     color: var(--muted-foreground);
   }
+
+  /* 칩이 있을 때 (형제가 존재할 때) placeholder 숨김 */
+  &:not(:only-child)::placeholder {
+    color: transparent;
+  }
 }
 
 /* ── placeholder 텍스트 ── */
@@ -110,6 +115,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 3px;
+  flex: 1;
+  min-width: 0;
 }
 
 /* ── 개별 칩 ── */
