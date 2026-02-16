@@ -17,7 +17,6 @@ export const route = {
 const VIEW_TITLES: Record<ViewType, { h1: string; desc: string; title: string }> = {
   tier: { h1: "티어표", desc: "스타크래프트 대학 리그 선수 티어 현황", title: "StarUniv - 티어표" },
   players: { h1: "선수 목록", desc: "전체 선수 목록 및 필터링", title: "StarUniv - 선수 목록" },
-  fa: { h1: "FA 명단", desc: "소속 크루가 없는 FA 선수 목록", title: "StarUniv - FA 명단" },
 };
 
 export default function Home() {
@@ -73,30 +72,22 @@ export default function Home() {
 
     const races = searchParams.race ? (searchParams.race as string).split(",") : [];
     const tiers = searchParams.tier ? (searchParams.tier as string).split(",") : [];
-    const crew = searchParams.crew as string | undefined;
+    const crewNames = searchParams.crew ? (searchParams.crew as string).split(",") : [];
     const gender = searchParams.gender as string | undefined;
     const search = (searchParams.search as string | undefined)?.toLowerCase();
+    const faOnly = searchParams.fa === "true";
 
     return players.filter((p) => {
+      if (faOnly && !p.is_fa) return false;
       if (races.length && !races.includes(p.race)) return false;
       if (tiers.length && p.tier && !tiers.includes(p.tier)) return false;
       if (tiers.length && !p.tier) return false;
-      if (crew && p.crew_name !== crew) return false;
+      if (crewNames.length && (!p.crew_name || !crewNames.includes(p.crew_name))) return false;
       if (gender && p.gender !== gender) return false;
       if (search && !p.nickname.toLowerCase().includes(search)) return false;
       return true;
     });
   });
-
-  /* ── FA 뷰: is_fa 필터 ── */
-  const faPlayers = createMemo(() => {
-    const players = allPlayers();
-    if (!players) return [];
-    return players.filter((p) => p.is_fa);
-  });
-
-  const maleFAPlayers = createMemo(() => faPlayers().filter((p) => p.gender === "M"));
-  const femaleFAPlayers = createMemo(() => faPlayers().filter((p) => p.gender === "F"));
 
   /* ── Tier section renderer ── */
   const renderTierSection = (tier: Tier, index: number) => (
@@ -164,38 +155,6 @@ export default function Home() {
               </Show>
             </Match>
 
-            {/* ── FA View ── */}
-            <Match when={currentView() === "fa"}>
-              <Show
-                when={faPlayers().length}
-                fallback={<p class="empty-state">FA 선수가 없습니다.</p>}
-              >
-                <Show when={maleFAPlayers().length}>
-                  <section class={styles.faSection}>
-                    <h2>
-                      남자 선수 <span class={styles.faCount}>{maleFAPlayers().length}명</span>
-                    </h2>
-                    <div class={styles.playersGrid}>
-                      <For each={maleFAPlayers()}>
-                        {(p) => <PlayerCard player={p} variant="full" />}
-                      </For>
-                    </div>
-                  </section>
-                </Show>
-                <Show when={femaleFAPlayers().length}>
-                  <section class={styles.faSection}>
-                    <h2>
-                      여자 선수 <span class={styles.faCount}>{femaleFAPlayers().length}명</span>
-                    </h2>
-                    <div class={styles.playersGrid}>
-                      <For each={femaleFAPlayers()}>
-                        {(p) => <PlayerCard player={p} variant="full" />}
-                      </For>
-                    </div>
-                  </section>
-                </Show>
-              </Show>
-            </Match>
           </Switch>
         </Suspense>
       </ErrorBoundary>

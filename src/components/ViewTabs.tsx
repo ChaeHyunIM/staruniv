@@ -2,12 +2,11 @@ import { useSearchParams } from "@solidjs/router";
 import { For, createEffect, onMount } from "solid-js";
 import styles from "./ViewTabs.module.css";
 
-export type ViewType = "tier" | "players" | "fa";
+export type ViewType = "tier" | "players";
 
 const TABS: { id: ViewType; label: string }[] = [
   { id: "tier", label: "티어표" },
   { id: "players", label: "선수 목록" },
-  { id: "fa", label: "FA 명단" },
 ];
 
 export default function ViewTabs() {

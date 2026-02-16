@@ -1,0 +1,251 @@
+/* ── 루트 필드 래퍼 ── */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+/* ── 레이블 ── */
+
+.label {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted-foreground);
+}
+
+/* ── 트리거 버튼 ── */
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-height: 34px;
+  min-width: 100px;
+  padding: 3px 6px 3px var(--sp-2);
+  background: var(--muted);
+  border: 1px solid oklch(from var(--border) l c h / 0.2);
+  border-radius: var(--radius-sm);
+  color: var(--foreground);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: border-color 0.15s;
+  line-height: 1;
+
+  &:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 1px;
+    border-color: var(--ring);
+  }
+
+  &[data-expanded] {
+    border-color: var(--ring);
+  }
+}
+
+/* ── 드롭다운 화살표 아이콘 ── */
+
+.icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  color: var(--muted-foreground);
+  margin-left: auto;
+  padding: 0 2px;
+  transition: transform 0.15s;
+
+  .trigger[data-expanded] & {
+    transform: rotate(180deg);
+  }
+}
+
+/* ── Combobox 드롭다운 토글 버튼 ── */
+
+.comboTrigger {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  color: var(--muted-foreground);
+  margin-left: auto;
+  padding: 0 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s;
+
+  .trigger[data-expanded] & {
+    transform: rotate(180deg);
+  }
+}
+
+/* ── Combobox 검색 인풋 ── */
+
+.comboInput {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--foreground);
+  font-size: var(--text-sm);
+  line-height: 1;
+  padding: 0;
+
+  &::placeholder {
+    color: var(--muted-foreground);
+  }
+}
+
+/* ── placeholder 텍스트 ── */
+
+.placeholder {
+  color: var(--muted-foreground);
+}
+
+/* ── 칩 컨테이너 ── */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+/* ── 개별 칩 ── */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  height: 24px;
+  padding: 0 6px;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+
+  /* 기본 칩 색상 */
+  color: var(--foreground);
+  background: oklch(from var(--foreground) l c h / 0.08);
+  border: 1px solid oklch(from var(--border) l c h / 0.2);
+}
+
+/* ── 칩 제거 버튼 ── */
+
+.chipRemove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.6;
+  border-radius: 2px;
+  transition: opacity 0.1s, background 0.1s;
+
+  &:hover {
+    opacity: 1;
+    background: oklch(from currentColor l c h / 0.15);
+  }
+}
+
+/* ── 드롭다운 콘텐츠 ── */
+
+.content {
+  background: var(--popover);
+  color: var(--popover-foreground);
+  border: 1px solid oklch(from var(--border) l c h / 0.15);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  padding: var(--sp-1);
+  min-width: 140px;
+  max-height: 280px;
+  overflow-y: auto;
+  z-index: 100;
+  animation: slideDown 0.12s ease-out;
+
+  &[data-closed] {
+    animation: slideUp 0.1s ease-in;
+  }
+}
+
+.listbox {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+/* ── 드롭다운 아이템 ── */
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  padding: 6px var(--sp-3);
+  border-radius: calc(var(--radius-sm) - 2px);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  outline: none;
+  transition: background 0.1s;
+
+  &[data-highlighted] {
+    background: oklch(from var(--foreground) l c h / 0.06);
+  }
+
+  &[data-selected] {
+    font-weight: 500;
+  }
+}
+
+.itemLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.itemIndicator {
+  display: flex;
+  align-items: center;
+  color: var(--ring);
+}
+
+/* ── 애니메이션 ── */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+/* ── 반응형 ── */
+
+@media (max-width: 640px) {
+  .trigger {
+    width: 100%;
+  }
+}

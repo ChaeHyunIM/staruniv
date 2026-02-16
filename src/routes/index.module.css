@@ -138,39 +138,6 @@
 }
 
 
-/* ─── FA section ─── */
-.faSection {
-  margin-bottom: var(--sp-8);
-  animation: fadeSlideIn 0.4s ease-out both;
-
-  &:nth-child(2) {
-    animation-delay: 0.05s;
-  }
-
-  & h2 {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-3);
-    margin-bottom: var(--sp-5);
-    font-size: var(--text-lg);
-
-    &::before {
-      content: "";
-      display: inline-block;
-      width: 3px;
-      height: 0.8em;
-      background: var(--primary);
-      border-radius: 2px;
-    }
-  }
-}
-
-.faCount {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--muted-foreground);
-}
-
 /* ─── Responsive ─── */
 @media (max-width: 640px) {
   .home {
