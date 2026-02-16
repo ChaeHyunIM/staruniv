@@ -40,6 +40,18 @@ When building or modifying any UI/UX (components, pages, layouts, styling), alwa
 
 When writing basic UI components (dialog, popover, tooltip, select, checkbox, tabs, accordion, etc.), refer to **Kobalte** (`@kobalte/core`) — a headless, accessible UI component library for SolidJS. Use Kobalte's API patterns, accessibility handling, and component structure as a reference for implementation.
 
+## Icons
+
+Use `lucide-solid` for SVG icons. Always use named exports.
+
+```tsx
+// Good
+import { Search, ChevronDown, X } from "lucide-solid";
+
+// Bad — no default exports
+import SearchIcon from "lucide-solid/icons/search";
+```
+
 ## Code Comments
 
 All comments in code must be written in Korean.
