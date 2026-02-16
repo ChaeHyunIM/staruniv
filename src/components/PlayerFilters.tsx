@@ -1,5 +1,5 @@
-import { useSearchParams } from "@solidjs/router";
-import { createAsync } from "@solidjs/router";
+import { useSearchParams, createAsync } from "@solidjs/router";
+import { createSignal, onCleanup } from "solid-js";
 import {
   TIER_ORDER,
   type Tier,
@@ -57,6 +57,11 @@ export default function PlayerFilters() {
   const [searchParams, setSearchParams] = useSearchParams();
   const crews = createAsync(() => getCrews());
 
+  /* ── 검색어 debounce (300ms) ── */
+  const [searchText, setSearchText] = createSignal((searchParams.search as string) ?? "");
+  let debounceTimer: ReturnType<typeof setTimeout> | undefined;
+  onCleanup(() => clearTimeout(debounceTimer));
+
   /* 콤마 구분 → 배열 파싱 */
   const selectedRaces = (): Race[] =>
     searchParams.race
@@ -89,6 +94,8 @@ export default function PlayerFilters() {
   };
 
   const resetAll = () => {
+    clearTimeout(debounceTimer);
+    setSearchText("");
     setSearchParams({
       race: undefined,
       tier: undefined,
@@ -202,8 +209,13 @@ export default function PlayerFilters() {
           placeholder="닉네임 검색…"
           spellcheck={false}
           autocomplete="off"
-          value={searchParams.search ?? ""}
-          onInput={(e) => update("search", e.currentTarget.value)}
+          value={searchText()}
+          onInput={(e) => {
+            const value = e.currentTarget.value;
+            setSearchText(value);
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => update("search", value), 300);
+          }}
         />
       </div>
 
