@@ -25,5 +25,8 @@
     "test-ui": "vitest --ui",
     "db:migrate": "bun run scripts/migrate.ts"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "driver.js": "^1.4.0"
+  }
 }

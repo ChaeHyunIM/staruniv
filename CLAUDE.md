@@ -37,3 +37,11 @@ When building or modifying any UI/UX (components, pages, layouts, styling), alwa
 
 1. `/frontend-design` — for creating distinctive, production-grade frontend interfaces with high design quality
 2. `/web-design-guidelines` — for reviewing UI code against Web Interface Guidelines (accessibility, UX audit, best practices)
+
+## Code Comments
+
+All comments in code must be written in Korean.
+
+## Dev Server / Build
+
+Do not run the dev server (`vinxi dev`, `bun run dev`) or build (`vinxi build`, `bun run build`) after completing a task. The user will handle this manually.

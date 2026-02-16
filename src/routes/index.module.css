@@ -69,6 +69,7 @@
 .tierSection {
   position: relative;
   margin-bottom: var(--sp-8);
+  scroll-margin-top: calc(var(--nav-height) + var(--sp-4));
   animation: fadeSlideIn 0.4s ease-out both;
 
   &:has(a:hover) {
@@ -136,15 +137,6 @@
   animation: fadeSlideIn 0.4s ease-out both;
 }
 
-/* ─── Spotlight: dim non-hovered cards ─── */
-@media (hover: hover) {
-  .tierGrid:has(a:hover) > a:not(:hover),
-  .playersGrid:has(a:hover) > a:not(:hover) {
-    opacity: 0.4;
-    filter: saturate(0.3);
-    transition-delay: 0s;
-  }
-}
 
 /* ─── FA section ─── */
 .faSection {

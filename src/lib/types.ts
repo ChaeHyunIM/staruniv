@@ -13,8 +13,6 @@ export const TIER_ORDER: Tier[] = [
   "Baby",
 ];
 
-export const MALE_TIERS: Tier[] = ["God", "King", "Jack", "Joker", "Spade"];
-export const FEMALE_TIERS: Tier[] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "Baby"];
 
 export const TIER_DESCRIPTIONS: Record<Tier, string> = {
   God: "메이저 프로리그, K리그 최상위",

@@ -1,12 +1,13 @@
 import { createAsync, useSearchParams, type RouteDefinition } from "@solidjs/router";
-import { ErrorBoundary, For, Match, Show, Suspense, Switch, createMemo } from "solid-js";
+import { ErrorBoundary, For, Match, Show, Suspense, Switch, createMemo, createSignal, onMount } from "solid-js";
 import { Title } from "@solidjs/meta";
 import { getAllPlayers } from "~/lib/queries";
-import { MALE_TIERS, FEMALE_TIERS, TIER_DESCRIPTIONS, type Tier } from "~/lib/types";
+import { TIER_ORDER, TIER_DESCRIPTIONS, type Tier } from "~/lib/types";
 import type { PlayerWithCrew } from "~/lib/types";
 import ViewTabs, { type ViewType } from "~/components/ViewTabs";
 import PlayerCard from "~/components/PlayerCard";
 import PlayerFilters from "~/components/PlayerFilters";
+import TierNavigator from "~/components/TierNavigator";
 import styles from "./index.module.css";
 
 export const route = {
@@ -22,6 +23,31 @@ const VIEW_TITLES: Record<ViewType, { h1: string; desc: string; title: string }>
 export default function Home() {
   const [searchParams] = useSearchParams();
   const currentView = (): ViewType => (searchParams.view as ViewType) ?? "tier";
+
+  /* ── 티어 순서 상태 (localStorage 연동) ── */
+  const [orderedTiers, setOrderedTiers] = createSignal<Tier[]>([...TIER_ORDER]);
+
+  onMount(() => {
+    try {
+      const saved = localStorage.getItem("tierOrder");
+      if (!saved) return;
+      const parsed = JSON.parse(saved) as string[];
+      if (
+        Array.isArray(parsed) &&
+        parsed.length === TIER_ORDER.length &&
+        TIER_ORDER.every((t) => parsed.includes(t))
+      ) {
+        setOrderedTiers(parsed as Tier[]);
+      }
+    } catch {
+      /* invalid data → keep defaults */
+    }
+  });
+
+  const handleReorder = (tiers: Tier[]) => {
+    setOrderedTiers(tiers);
+    localStorage.setItem("tierOrder", JSON.stringify(tiers));
+  };
 
   /* ── 단일 fetch: 모든 active 선수 ── */
   const allPlayers = createAsync(() => getAllPlayers());
@@ -74,7 +100,7 @@ export default function Home() {
   /* ── Tier section renderer ── */
   const renderTierSection = (tier: Tier, index: number) => (
     <Show when={tierData()[tier]?.length}>
-      <section class={styles.tierSection} style={{ "animation-delay": `${index * 0.05}s` }}>
+      <section id={`tier-${tier}`} class={styles.tierSection} style={{ "animation-delay": `${index * 0.05}s` }}>
         <div class={styles.tierHeader}>
           <span class={styles.tierLabel} data-tier={tier}>
             {tier}
@@ -112,18 +138,14 @@ export default function Home() {
           <Switch>
             {/* ── Tier View ── */}
             <Match when={currentView() === "tier"}>
-              <div class={styles.genderSection}>
-                <h2>남자 티어</h2>
-                <For each={MALE_TIERS}>
-                  {(tier, i) => renderTierSection(tier, i())}
-                </For>
-              </div>
-              <div class={styles.genderSection}>
-                <h2>여자 티어</h2>
-                <For each={FEMALE_TIERS}>
-                  {(tier, i) => renderTierSection(tier, i() + MALE_TIERS.length)}
-                </For>
-              </div>
+              <For each={orderedTiers()}>
+                {(tier, i) => renderTierSection(tier, i())}
+              </For>
+              <TierNavigator
+                tiers={orderedTiers}
+                onReorder={handleReorder}
+                tierData={tierData}
+              />
             </Match>
 
             {/* ── Players View ── */}
