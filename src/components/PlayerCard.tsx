@@ -23,12 +23,10 @@ export default function PlayerCard(props: Props) {
 
   const handleMouseEnter = (e: MouseEvent) => {
     const el = e.currentTarget as HTMLElement;
-    const grid = el.parentElement;
-    if (!grid) return;
     const elRect = el.getBoundingClientRect();
-    const gridRect = grid.getBoundingClientRect();
     const expandedHeight = elRect.width + 100;
-    setFlipUp(gridRect.bottom - elRect.top < expandedHeight);
+    // 뷰포트 하단 기준으로 판정 — 그리드가 짧아도 위로 뒤집히지 않음
+    setFlipUp(window.innerHeight - elRect.top < expandedHeight);
   };
 
   return (
