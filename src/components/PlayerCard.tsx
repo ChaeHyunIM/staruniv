@@ -41,13 +41,17 @@ export default function PlayerCard(props: Props) {
 
       {/* Avatar */}
       <div class={styles.avatar} data-race={props.player.race}>
-        <img
-          src={`https://i.pravatar.cc/${props.variant === "full" ? 160 : 80}?u=${encodeURIComponent(props.player.nickname)}`}
-          alt=""
-          class={styles.avatarPhoto}
-          loading="lazy"
-        />
-        <span class={styles.initials}>{initials()}</span>
+        <Show
+          when={props.player.profile_image}
+          fallback={<span class={styles.initials}>{initials()}</span>}
+        >
+          <img
+            src={`https:${props.player.profile_image}`}
+            alt=""
+            class={styles.avatarPhoto}
+            loading="lazy"
+          />
+        </Show>
       </div>
 
       {/* Body */}
@@ -73,12 +77,14 @@ export default function PlayerCard(props: Props) {
       <Show when={props.variant === "compact"}>
         <div class={styles.expanded} aria-hidden="true">
           <div class={styles.expandedHero} data-race={props.player.race}>
-            <img
-              src={`https://i.pravatar.cc/300?u=${encodeURIComponent(props.player.nickname)}`}
-              alt=""
-              class={styles.expandedPhoto}
-              loading="lazy"
-            />
+            <Show when={props.player.profile_image}>
+              <img
+                src={`https:${props.player.profile_image}`}
+                alt=""
+                class={styles.expandedPhoto}
+                loading="lazy"
+              />
+            </Show>
           </div>
           <div class={styles.expandedBody}>
             <div class={styles.expandedName}>

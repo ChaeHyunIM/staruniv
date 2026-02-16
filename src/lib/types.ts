@@ -50,6 +50,8 @@ export interface Player {
   is_fa: boolean;
   tag: Tag | null;
   status: string;
+  soop_id: string | null;
+  profile_image: string | null;
   created_at: string;
   updated_at: string;
 }
