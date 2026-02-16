@@ -6,7 +6,7 @@
   display: flex;
   background: var(--card);
   border: 1px solid oklch(from var(--border) l c h / 0.1);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   overflow: hidden;
   transition:
     opacity 0.3s ease 0.12s,
@@ -20,7 +20,6 @@
   align-items: center;
   gap: var(--sp-3);
   padding: var(--sp-3) var(--sp-4);
-  padding-left: 0;
   transition:
     transform 0.2s ease,
     border-color 0.2s ease,
@@ -37,25 +36,10 @@
     background: var(--muted);
   }
 
-  .compact[data-race="T"]:hover {
-    border-color: oklch(from var(--race-terran) l c h / 0.4);
+  .compact[data-race]:hover {
     box-shadow:
-      0 4px 16px oklch(from var(--race-terran) l c h / 0.15),
-      inset 0 0 16px oklch(from var(--race-terran) l c h / 0.05);
-  }
-
-  .compact[data-race="Z"]:hover {
-    border-color: oklch(from var(--race-zerg) l c h / 0.4);
-    box-shadow:
-      0 4px 16px oklch(from var(--race-zerg) l c h / 0.15),
-      inset 0 0 16px oklch(from var(--race-zerg) l c h / 0.05);
-  }
-
-  .compact[data-race="P"]:hover {
-    border-color: oklch(from var(--race-protoss) l c h / 0.4);
-    box-shadow:
-      0 4px 16px oklch(from var(--race-protoss) l c h / 0.15),
-      inset 0 0 16px oklch(from var(--race-protoss) l c h / 0.05);
+      0 4px 16px oklch(from var(--_accent) l c h / 0.15),
+      inset 0 0 16px oklch(from var(--_accent) l c h / 0.05);
   }
 
   .compact:hover .avatar {
@@ -63,43 +47,60 @@
   }
 }
 
-/* ─── Accent strip (compact only) ─── */
-.accent {
-  width: 3px;
-  align-self: stretch;
-  flex-shrink: 0;
-  border-radius: 2px 0 0 2px;
+/* ─── Accent border (compact / list) ─── */
+/* 종족 accent 색상 변수 — 기본 border를 숨겨 accent만 보이도록 */
+.compact[data-race="T"],
+.list[data-race="T"] { --_accent: var(--race-terran); }
+
+.compact[data-race="Z"],
+.list[data-race="Z"] { --_accent: var(--race-zerg); }
+
+.compact[data-race="P"],
+.list[data-race="P"] { --_accent: var(--race-protoss); }
+
+.compact[data-race],
+.list[data-race] {
+  border-color: transparent;
+  box-shadow: 0 1px 4px oklch(0 0 0 / 0.08);
 }
 
-.full > .accent {
-  display: none;
-}
-
-.compact[data-race="T"] > .accent,
-.list[data-race="T"] > .accent {
+/* border-radius 윤곽을 따르는 gradient accent */
+.compact[data-race]::before,
+.list[data-race]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
   background: linear-gradient(
     to bottom,
-    oklch(from var(--race-terran) l c h / 0.8),
-    oklch(from var(--race-terran) l c h / 0.3)
-  );
+    oklch(from var(--_accent) l c h / 0.8),
+    oklch(from var(--_accent) l c h / 0.3)
+  ) border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  clip-path: inset(0 calc(100% - var(--radius-sm)) 0 0);
+  pointer-events: none;
+  transition: clip-path 0.35s ease;
 }
 
-.compact[data-race="Z"] > .accent,
-.list[data-race="Z"] > .accent {
-  background: linear-gradient(
-    to bottom,
-    oklch(from var(--race-zerg) l c h / 0.8),
-    oklch(from var(--race-zerg) l c h / 0.3)
-  );
+.list[data-race]::before {
+  padding: 1.5px;
+  clip-path: inset(0 calc(100% - var(--radius-sm)) 0 0);
 }
 
-.compact[data-race="P"] > .accent,
-.list[data-race="P"] > .accent {
-  background: linear-gradient(
-    to bottom,
-    oklch(from var(--race-protoss) l c h / 0.8),
-    oklch(from var(--race-protoss) l c h / 0.3)
-  );
+/* 호버 시 accent를 카드 전체 border로 확장 */
+@media (hover: hover) {
+  .compact[data-race]:hover::before,
+  .list[data-race]:hover::before {
+    clip-path: inset(0);
+  }
 }
 
 
@@ -157,17 +158,11 @@
   align-items: center;
   gap: var(--sp-2);
   padding: var(--sp-1) var(--sp-3);
-  padding-left: 0;
   transition:
     background-color 0.15s ease,
     opacity 0.3s ease 0.12s,
     filter 0.3s ease 0.12s;
   border-radius: var(--radius-sm);
-}
-
-.list > .accent {
-  width: 2px;
-  border-radius: 1px 0 0 1px;
 }
 
 .list .avatar {
@@ -381,7 +376,6 @@
 @media (max-width: 640px) {
   .compact {
     padding: var(--sp-2) var(--sp-3);
-    padding-left: 0;
     gap: var(--sp-2);
   }
 
@@ -409,7 +403,6 @@
 
   .list {
     padding: var(--sp-1) var(--sp-2);
-    padding-left: 0;
   }
 }
 
@@ -418,7 +411,6 @@
   .full,
   .list,
   .avatar,
-  .accent,
   .name,
   .crew {
     transition: none;

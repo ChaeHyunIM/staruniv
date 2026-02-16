@@ -28,8 +28,6 @@ export default function PlayerCard(props: Props) {
       class={styles[props.variant]}
       data-race={props.player.race}
     >
-      <div class={styles.accent} aria-hidden="true" />
-
       <div class={styles.avatar} data-race={props.player.race}>
         <img
           src={props.player.profile_image ? `https:${profileWebp(props.player.profile_image)}` : undefined}
