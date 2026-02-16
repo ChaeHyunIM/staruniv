@@ -64,17 +64,17 @@ export default function PlayerCard(props: Props) {
       <div class={styles.body}>
         <div class={styles.nameRow}>
           <span class={styles.name}>{props.player.nickname}</span>
-          <Show when={props.player.tag}>
-            <TagBadge tag={props.player.tag} />
-          </Show>
-        </div>
-        <div class={styles.meta}>
-          <RaceBadge race={props.player.race} />
           <Show when={props.player.crew_name}>
             <span class={styles.crew}>{props.player.crew_name}</span>
           </Show>
           <Show when={!props.player.crew_name && props.player.is_fa}>
-            <span class={styles.faLabel}>FA</span>
+            <span class={styles.crew}>FA</span>
+          </Show>
+        </div>
+        <div class={styles.meta}>
+          <RaceBadge race={props.player.race} />
+          <Show when={props.player.tag}>
+            <TagBadge tag={props.player.tag} />
           </Show>
         </div>
       </div>
