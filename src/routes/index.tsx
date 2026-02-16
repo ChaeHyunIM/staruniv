@@ -1,17 +1,18 @@
 import { createAsync, useSearchParams, type RouteDefinition } from "@solidjs/router";
 import { ErrorBoundary, For, Match, Show, Suspense, Switch, createMemo, createSignal, onMount } from "solid-js";
 import { Title } from "@solidjs/meta";
-import { getAllPlayers } from "~/lib/queries";
+import { getAllPlayers, getCrews } from "~/lib/queries";
 import { TIER_ORDER, TIER_DESCRIPTIONS, type Tier } from "~/lib/types";
 import type { PlayerWithCrew } from "~/lib/types";
 import ViewTabs, { type ViewType } from "~/components/ViewTabs";
 import PlayerCard from "~/components/PlayerCard";
-import PlayerFilters from "~/components/PlayerFilters";
+import { clientOnly } from "@solidjs/start";
+const PlayerFilters = clientOnly(() => import("~/components/PlayerFilters"));
 import TierNavigator from "~/components/TierNavigator";
 import styles from "./index.module.css";
 
 export const route = {
-  preload: () => getAllPlayers(),
+  preload: () => { getAllPlayers(); getCrews(); },
 } satisfies RouteDefinition;
 
 const VIEW_TITLES: Record<ViewType, { h1: string; desc: string; title: string }> = {
