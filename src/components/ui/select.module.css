@@ -83,8 +83,9 @@
 /* ── Combobox 검색 인풋 ── */
 
 .comboInput {
-  flex: 1;
-  min-width: 0;
+  flex: 1 1 0;
+  width: 0;
+  min-width: 100px;
   background: transparent;
   border: none;
   outline: none;
@@ -156,7 +157,9 @@
   cursor: pointer;
   opacity: 0.6;
   border-radius: 2px;
-  transition: opacity 0.1s, background 0.1s;
+  transition:
+    opacity 0.1s,
+    background 0.1s;
 
   &:hover {
     opacity: 1;
