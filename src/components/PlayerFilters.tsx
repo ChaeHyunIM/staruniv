@@ -1,6 +1,5 @@
 import { useSearchParams } from "@solidjs/router";
 import { createAsync } from "@solidjs/router";
-import { Switch as KSwitch } from "@kobalte/core/switch";
 import {
   TIER_ORDER,
   type Tier,
@@ -13,6 +12,16 @@ import { MultiSelect } from "~/components/ui/MultiSelect";
 import { SingleSelect } from "~/components/ui/SingleSelect";
 import { MultiCombobox } from "~/components/ui/MultiCombobox";
 import styles from "./PlayerFilters.module.css";
+
+/* FA를 크루 콤보박스의 특수 옵션으로 표현 */
+const FA_SENTINEL: CrewWithCount = {
+  id: -1,
+  name: "FA",
+  is_active: true,
+  created_at: "",
+  updated_at: "",
+  member_count: 0,
+};
 
 const RACE_OPTIONS: Race[] = ["T", "Z", "P"];
 const RACE_LABELS: Record<Race, string> = {
@@ -58,12 +67,15 @@ export default function PlayerFilters() {
       ? ((searchParams.tier as string).split(",") as Tier[])
       : [];
 
+  /* 크루 옵션 목록 (FA를 맨 앞에 추가) */
+  const crewOptions = (): CrewWithCount[] => [FA_SENTINEL, ...(crews() ?? [])];
+
   /* URL 파라미터와 매칭되는 크루 객체 배열 */
   const selectedCrews = (): CrewWithCount[] => {
     const param = searchParams.crew as string | undefined;
     if (!param) return [];
     const names = param.split(",");
-    const list = crews() ?? [];
+    const list = crewOptions();
     return names.flatMap((n) => {
       const found = list.find((c) => c.name === n);
       return found ? [found] : [];
@@ -71,8 +83,6 @@ export default function PlayerFilters() {
   };
   const selectedGender = (): Gender | null =>
     (searchParams.gender as Gender) || null;
-
-  const isFAOnly = () => searchParams.fa === "true";
 
   const update = (key: string, value: string) => {
     setSearchParams({ [key]: value || undefined });
@@ -85,7 +95,6 @@ export default function PlayerFilters() {
       crew: undefined,
       gender: undefined,
       search: undefined,
-      fa: undefined,
     });
   };
 
@@ -95,8 +104,7 @@ export default function PlayerFilters() {
       searchParams.tier ||
       searchParams.crew ||
       searchParams.gender ||
-      searchParams.search ||
-      searchParams.fa
+      searchParams.search
     );
 
   return (
@@ -160,11 +168,11 @@ export default function PlayerFilters() {
         selectedLabel={(opt) => GENDER_LABELS[opt]}
       />
 
-      {/* ── 스타대학 ── */}
+      {/* ── 스타대학 (FA 포함) ── */}
       <MultiCombobox<CrewWithCount>
         class={styles.filterField}
         label="스타대학"
-        options={crews() ?? []}
+        options={crewOptions()}
         optionValue="name"
         optionTextValue="name"
         optionLabel="name"
@@ -180,21 +188,6 @@ export default function PlayerFilters() {
         itemLabel={(opt) => <>{opt.name}</>}
         chipLabel={(opt) => opt.name}
       />
-
-      {/* ── FA 토글 ── */}
-      <KSwitch
-        class={styles.faSwitch}
-        checked={isFAOnly()}
-        onChange={(checked) =>
-          setSearchParams({ fa: checked ? "true" : undefined })
-        }
-      >
-        <KSwitch.Label class={styles.faSwitchLabel}>FA</KSwitch.Label>
-        <KSwitch.Input />
-        <KSwitch.Control class={styles.faSwitchControl}>
-          <KSwitch.Thumb class={styles.faSwitchThumb} />
-        </KSwitch.Control>
-      </KSwitch>
 
       {/* ── 검색 ── */}
       <div class={styles.field}>

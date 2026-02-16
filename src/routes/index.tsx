@@ -72,17 +72,22 @@ export default function Home() {
 
     const races = searchParams.race ? (searchParams.race as string).split(",") : [];
     const tiers = searchParams.tier ? (searchParams.tier as string).split(",") : [];
-    const crewNames = searchParams.crew ? (searchParams.crew as string).split(",") : [];
+    const crewParam = searchParams.crew ? (searchParams.crew as string).split(",") : [];
+    const hasFa = crewParam.includes("FA");
+    const crewNames = crewParam.filter((n) => n !== "FA");
     const gender = searchParams.gender as string | undefined;
     const search = (searchParams.search as string | undefined)?.toLowerCase();
-    const faOnly = searchParams.fa === "true";
 
     return players.filter((p) => {
-      if (faOnly && !p.is_fa) return false;
       if (races.length && !races.includes(p.race)) return false;
       if (tiers.length && p.tier && !tiers.includes(p.tier)) return false;
       if (tiers.length && !p.tier) return false;
-      if (crewNames.length && (!p.crew_name || !crewNames.includes(p.crew_name))) return false;
+      /* FA와 크루는 OR 조건: FA 선수이거나 해당 크루 소속이면 통과 */
+      if (hasFa || crewNames.length) {
+        const matchesFa = hasFa && p.is_fa;
+        const matchesCrew = crewNames.length > 0 && !!p.crew_name && crewNames.includes(p.crew_name);
+        if (!matchesFa && !matchesCrew) return false;
+      }
       if (gender && p.gender !== gender) return false;
       if (search && !p.nickname.toLowerCase().includes(search)) return false;
       return true;

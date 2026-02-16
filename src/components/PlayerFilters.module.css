@@ -115,64 +115,6 @@
   &[data-tier="baby"]  { background: var(--tier-baby); }
 }
 
-/* ── FA 스위치 토글 ── */
-
-.faSwitch {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-2);
-  align-self: flex-end;
-  height: 34px;
-  cursor: pointer;
-}
-
-.faSwitchLabel {
-  font-family: var(--font-sans);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--muted-foreground);
-  cursor: pointer;
-  user-select: none;
-  transition: color 0.15s;
-
-  .faSwitch[data-checked] & {
-    color: var(--primary);
-  }
-}
-
-.faSwitchControl {
-  display: inline-flex;
-  align-items: center;
-  width: 36px;
-  height: 20px;
-  padding: 2px;
-  background: oklch(from var(--muted-foreground) l c h / 0.25);
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.2s;
-
-  .faSwitch[data-checked] & {
-    background: var(--primary);
-  }
-}
-
-.faSwitchThumb {
-  display: block;
-  width: 16px;
-  height: 16px;
-  background: var(--card);
-  border-radius: 50%;
-  box-shadow: 0 1px 3px oklch(0 0 0 / 0.2);
-  transition: transform 0.2s;
-
-  .faSwitch[data-checked] & {
-    transform: translateX(16px);
-  }
-}
-
 /* ── 초기화 버튼 ── */
 
 .reset {

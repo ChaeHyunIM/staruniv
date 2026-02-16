@@ -29,7 +29,7 @@ INSERT INTO crews (id, name, is_active) VALUES (9, '씨나인', true);
 INSERT INTO crews (id, name, is_active) VALUES (10, '정선대', true);
 INSERT INTO crews (id, name, is_active) VALUES (11, '수술대', true);
 INSERT INTO crews (id, name, is_active) VALUES (12, '뉴캣슬', true);
-INSERT INTO crews (id, name, is_active) VALUES (13, '높지대', true);
+INSERT INTO crews (id, name, is_active) VALUES (13, '늪지대', true);
 INSERT INTO crews (id, name, is_active) VALUES (14, '케이대', true);
 INSERT INTO crews (id, name, is_active) VALUES (15, '김성여대', false);
 INSERT INTO crews (id, name, is_active) VALUES (16, '바스포드', false);
