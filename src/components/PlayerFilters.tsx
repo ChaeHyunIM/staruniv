@@ -31,8 +31,9 @@ const RACE_LABELS: Record<Race, string> = {
 };
 const RACE_CSS: Record<Race, string> = { T: "terran", Z: "zerg", P: "protoss" };
 
-const GENDER_OPTIONS: Gender[] = ["M", "F"];
-const GENDER_LABELS: Record<Gender, string> = { M: "남", F: "여" };
+type GenderOption = Gender | "ALL";
+const GENDER_OPTIONS: GenderOption[] = ["ALL", "M", "F"];
+const GENDER_LABELS: Record<GenderOption, string> = { ALL: "전체", M: "남", F: "여" };
 
 /* 티어 → CSS 변수 접미어 매핑 */
 const TIER_CSS: Record<Tier, string> = {
@@ -86,8 +87,8 @@ export default function PlayerFilters() {
       return found ? [found] : [];
     });
   };
-  const selectedGender = (): Gender | null =>
-    (searchParams.gender as Gender) || null;
+  const selectedGender = (): GenderOption =>
+    (searchParams.gender as Gender) || "ALL";
 
   const update = (key: string, value: string) => {
     setSearchParams({ [key]: value || undefined });
@@ -163,14 +164,16 @@ export default function PlayerFilters() {
       />
 
       {/* ── 성별 ── */}
-      <SingleSelect<Gender>
+      <SingleSelect<GenderOption>
         class={styles.filterField}
         label="성별"
         options={GENDER_OPTIONS}
         optionValue={(opt) => opt}
         optionTextValue={(opt) => GENDER_LABELS[opt]}
         value={selectedGender()}
-        onChange={(value) => setSearchParams({ gender: value || undefined })}
+        onChange={(value) =>
+          setSearchParams({ gender: value === "ALL" ? undefined : value ?? undefined })
+        }
         itemLabel={(opt) => <>{GENDER_LABELS[opt]}</>}
         selectedLabel={(opt) => GENDER_LABELS[opt]}
       />
