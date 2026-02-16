@@ -71,15 +71,16 @@ export default function Home() {
     const players = allPlayers();
     if (!players) return [];
 
-    const race = searchParams.race as string | undefined;
-    const tier = searchParams.tier as string | undefined;
+    const races = searchParams.race ? (searchParams.race as string).split(",") : [];
+    const tiers = searchParams.tier ? (searchParams.tier as string).split(",") : [];
     const crew = searchParams.crew as string | undefined;
     const gender = searchParams.gender as string | undefined;
     const search = (searchParams.search as string | undefined)?.toLowerCase();
 
     return players.filter((p) => {
-      if (race && p.race !== race) return false;
-      if (tier && p.tier !== tier) return false;
+      if (races.length && !races.includes(p.race)) return false;
+      if (tiers.length && p.tier && !tiers.includes(p.tier)) return false;
+      if (tiers.length && !p.tier) return false;
       if (crew && p.crew_name !== crew) return false;
       if (gender && p.gender !== gender) return false;
       if (search && !p.nickname.toLowerCase().includes(search)) return false;

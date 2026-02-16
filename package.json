@@ -27,6 +27,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@kobalte/core": "^0.13.11",
     "driver.js": "^1.4.0"
   }
 }

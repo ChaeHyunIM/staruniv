@@ -38,6 +38,8 @@ When building or modifying any UI/UX (components, pages, layouts, styling), alwa
 1. `/frontend-design` — for creating distinctive, production-grade frontend interfaces with high design quality
 2. `/web-design-guidelines` — for reviewing UI code against Web Interface Guidelines (accessibility, UX audit, best practices)
 
+When writing basic UI components (dialog, popover, tooltip, select, checkbox, tabs, accordion, etc.), refer to **Kobalte** (`@kobalte/core`) — a headless, accessible UI component library for SolidJS. Use Kobalte's API patterns, accessibility handling, and component structure as a reference for implementation.
+
 ## Code Comments
 
 All comments in code must be written in Korean.
