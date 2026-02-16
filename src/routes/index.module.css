@@ -30,6 +30,15 @@
   }
 }
 
+/* ─── Toolbar: 필터 + 레이아웃 토글 ─── */
+.toolbar {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+  animation: fadeSlideIn 0.4s ease-out 0.05s both;
+}
+
 /* ─── Entry animation ─── */
 @keyframes fadeSlideIn {
   from {
@@ -121,7 +130,7 @@
   color: var(--muted-foreground);
 }
 
-/* ─── Tier grid (compact cards) ─── */
+/* ─── Tier grid — variant별 레이아웃 분기 ─── */
 .tierGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -129,12 +138,14 @@
   padding-bottom: var(--sp-8);
 }
 
-/* ─── Players / FA grid (full cards) ─── */
-.playersGrid {
-  display: grid;
+.tierGrid[data-variant="full"] {
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: var(--sp-4);
-  animation: fadeSlideIn 0.4s ease-out both;
+}
+
+.tierGrid[data-variant="list"] {
+  grid-template-columns: 1fr;
+  gap: var(--sp-1);
 }
 
 
@@ -144,12 +155,17 @@
     padding: var(--sp-6) var(--sp-4);
   }
 
+  .toolbar {
+    flex-direction: column;
+    gap: var(--sp-2);
+  }
+
   .tierGrid {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: var(--sp-2);
   }
 
-  .playersGrid {
+  .tierGrid[data-variant="full"] {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: var(--sp-3);
   }

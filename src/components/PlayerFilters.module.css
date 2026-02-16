@@ -3,7 +3,8 @@
   flex-wrap: wrap;
   align-items: center;
   gap: var(--sp-3);
-  margin-bottom: var(--sp-6);
+  flex: 1;
+  min-width: 0;
   padding: var(--sp-4) var(--sp-5);
   background: var(--card);
   border: 1px solid oklch(from var(--border) l c h / 0.15);

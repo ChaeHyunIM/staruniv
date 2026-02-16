@@ -1,6 +1,7 @@
 /* ─── Shared base ─── */
 .compact,
-.full {
+.full,
+.list {
   position: relative;
   display: flex;
   background: var(--card);
@@ -74,7 +75,8 @@
   display: none;
 }
 
-.compact[data-race="T"] > .accent {
+.compact[data-race="T"] > .accent,
+.list[data-race="T"] > .accent {
   background: linear-gradient(
     to bottom,
     oklch(from var(--race-terran) l c h / 0.8),
@@ -82,7 +84,8 @@
   );
 }
 
-.compact[data-race="Z"] > .accent {
+.compact[data-race="Z"] > .accent,
+.list[data-race="Z"] > .accent {
   background: linear-gradient(
     to bottom,
     oklch(from var(--race-zerg) l c h / 0.8),
@@ -90,7 +93,8 @@
   );
 }
 
-.compact[data-race="P"] > .accent {
+.compact[data-race="P"] > .accent,
+.list[data-race="P"] > .accent {
   background: linear-gradient(
     to bottom,
     oklch(from var(--race-protoss) l c h / 0.8),
@@ -143,6 +147,58 @@
     box-shadow:
       0 4px 16px oklch(from var(--race-protoss) l c h / 0.12),
       inset 0 0 20px oklch(from var(--race-protoss) l c h / 0.04);
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   LIST variant (dense one-liner)
+   ═══════════════════════════════════════════════════ */
+.list {
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-1) var(--sp-3);
+  padding-left: 0;
+  transition:
+    background-color 0.15s ease,
+    opacity 0.3s ease 0.12s,
+    filter 0.3s ease 0.12s;
+  border-radius: var(--radius-sm);
+}
+
+.list > .accent {
+  width: 2px;
+  border-radius: 1px 0 0 1px;
+}
+
+.list .avatar {
+  width: 24px;
+  height: 24px;
+}
+
+.list .initials {
+  font-size: 10px;
+}
+
+.list .nameRow {
+  overflow: hidden;
+}
+
+.list .name {
+  font-size: var(--text-xs);
+  font-weight: 500;
+}
+
+.list .crew {
+  font-size: 10px;
+}
+
+.list .meta {
+  margin-top: 0;
+}
+
+@media (hover: hover) {
+  .list:hover {
+    background: var(--muted);
   }
 }
 
@@ -441,11 +497,17 @@
   .full .initials {
     font-size: var(--text-xl);
   }
+
+  .list {
+    padding: var(--sp-1) var(--sp-2);
+    padding-left: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .compact,
   .full,
+  .list,
   .avatar,
   .accent,
   .name,

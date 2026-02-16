@@ -6,6 +6,7 @@
       "dependencies": {
         "@kobalte/core": "^0.13.11",
         "driver.js": "^1.4.0",
+        "lucide-solid": "^0.564.0",
       },
       "devDependencies": {
         "@solidjs/meta": "^0.29.4",
@@ -829,6 +830,8 @@
     "lodash.isarguments": ["lodash.isarguments@3.1.0", "", {}, "sha512-chi4NHZlZqZD18a0imDHnZPrDeBbTtVN7GXMwuGdRH9qotxAjYs3aVLKc7zNOG9eddR5Ksd8rvFEBc9SsggPpg=="],
 
     "lru-cache": ["lru-cache@11.2.6", "", {}, "sha512-ESL2CrkS/2wTPfuend7Zhkzo2u0daGJ/A2VucJOgQ/C48S/zB8MMeMHSGKYpXhIjbPxfuezITkaBH1wqv00DDQ=="],
+
+    "lucide-solid": ["lucide-solid@0.564.0", "", { "peerDependencies": { "solid-js": "^1.4.7" } }, "sha512-gZdibdRlnooRdKek2zhNGnep/N5TSlOSMWgUXiVtglys728zLLRupyaI7IfZ3USS/p6MG5eu2RKM2CARRYiXVg=="],
 
     "lz-string": ["lz-string@1.5.0", "", { "bin": { "lz-string": "bin/bin.js" } }, "sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ=="],
 

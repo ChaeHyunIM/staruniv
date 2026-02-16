@@ -7,7 +7,7 @@ import styles from "./PlayerCard.module.css";
 
 interface Props {
   player: PlayerWithCrew;
-  variant: "compact" | "full";
+  variant: "compact" | "full" | "list";
 }
 
 /** 원본 프로필 이미지 경로를 webp(420x420, ~11-20KB)로 변환 */
@@ -25,7 +25,7 @@ export default function PlayerCard(props: Props) {
   return (
     <A
       href={`/players/${encodeURIComponent(props.player.nickname)}`}
-      class={props.variant === "compact" ? styles.compact : styles.full}
+      class={styles[props.variant]}
       data-race={props.player.race}
     >
       <div class={styles.accent} aria-hidden="true" />
