@@ -12,6 +12,11 @@ interface Props {
   variant: "compact" | "full";
 }
 
+/** 원본 프로필 이미지 경로를 webp(420x420, ~11-20KB)로 변환 */
+function profileWebp(path: string) {
+  return path.replace(/\.jpg$/, ".webp");
+}
+
 export default function PlayerCard(props: Props) {
   const initials = () => getInitials(props.player.nickname);
   const [flipUp, setFlipUp] = createSignal(false);
@@ -39,17 +44,18 @@ export default function PlayerCard(props: Props) {
         <div class={styles.accent} aria-hidden="true" />
       </Show>
 
-      {/* Avatar */}
+      {/* Avatar — webp 사용 (420x420, ~11-20KB) */}
       <div class={styles.avatar} data-race={props.player.race}>
         <Show
           when={props.player.profile_image}
           fallback={<span class={styles.initials}>{initials()}</span>}
         >
           <img
-            src={`https:${props.player.profile_image}`}
+            src={`https:${profileWebp(props.player.profile_image!)}`}
             alt=""
             class={styles.avatarPhoto}
             loading="lazy"
+            decoding="async"
           />
         </Show>
       </div>
@@ -79,10 +85,11 @@ export default function PlayerCard(props: Props) {
           <div class={styles.expandedHero} data-race={props.player.race}>
             <Show when={props.player.profile_image}>
               <img
-                src={`https:${props.player.profile_image}`}
+                src={`https:${profileWebp(props.player.profile_image!)}`}
                 alt=""
                 class={styles.expandedPhoto}
                 loading="lazy"
+                decoding="async"
               />
             </Show>
           </div>
