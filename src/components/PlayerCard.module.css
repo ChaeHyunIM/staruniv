@@ -70,6 +70,10 @@
   border-radius: 2px 0 0 2px;
 }
 
+.full > .accent {
+  display: none;
+}
+
 .compact[data-race="T"] > .accent {
   background: linear-gradient(
     to bottom,
@@ -270,6 +274,15 @@
   transform: translateZ(0);
 }
 
+/* src 없으면 img 숨김, 있으면 이니셜 숨김 */
+.avatarPhoto:not([src]) {
+  display: none;
+}
+
+.avatar:has(.avatarPhoto[src]) .initials {
+  display: none;
+}
+
 .compact .avatar {
   width: 40px;
   height: 40px;
@@ -389,6 +402,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   transition: color 0.35s ease;
+}
+
+.hidden {
+  display: none;
 }
 
 
