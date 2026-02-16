@@ -1,0 +1,38 @@
+.skeleton {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--card);
+  border: 1px solid oklch(from var(--border) l c h / 0.15);
+  border-radius: var(--radius-md);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.label {
+  width: 36px;
+  height: 16px;
+  border-radius: 4px;
+  background: var(--muted);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+.control {
+  width: 100px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: var(--muted);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}

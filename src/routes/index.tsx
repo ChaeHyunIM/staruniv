@@ -1,5 +1,17 @@
-import { createAsync, useSearchParams, type RouteDefinition } from "@solidjs/router";
-import { ErrorBoundary, For, Show, Suspense, createMemo, createSignal, onMount } from "solid-js";
+import {
+  createAsync,
+  useSearchParams,
+  type RouteDefinition,
+} from "@solidjs/router";
+import {
+  ErrorBoundary,
+  For,
+  Show,
+  Suspense,
+  createMemo,
+  createSignal,
+  onMount,
+} from "solid-js";
 import { Title } from "@solidjs/meta";
 import { getAllPlayers, getCrews } from "~/lib/queries";
 import { TIER_ORDER, TIER_DESCRIPTIONS, type Tier } from "~/lib/types";
@@ -9,10 +21,14 @@ import { clientOnly } from "@solidjs/start";
 const PlayerFilters = clientOnly(() => import("~/components/PlayerFilters"));
 import LayoutToggle, { type CardVariant } from "~/components/LayoutToggle";
 import TierNavigator from "~/components/TierNavigator";
+import FiltersSkeleton from "~/components/FiltersSkeleton";
 import styles from "./index.module.css";
 
 export const route = {
-  preload: () => { getAllPlayers(); getCrews(); },
+  preload: () => {
+    getAllPlayers();
+    getCrews();
+  },
 } satisfies RouteDefinition;
 
 export default function Home() {
@@ -64,9 +80,15 @@ export default function Home() {
     const players = allPlayers();
     if (!players) return {} as Record<string, PlayerWithCrew[]>;
 
-    const races = searchParams.race ? (searchParams.race as string).split(",") : [];
-    const tierFilter = searchParams.tier ? (searchParams.tier as string).split(",") : [];
-    const crewParam = searchParams.crew ? (searchParams.crew as string).split(",") : [];
+    const races = searchParams.race
+      ? (searchParams.race as string).split(",")
+      : [];
+    const tierFilter = searchParams.tier
+      ? (searchParams.tier as string).split(",")
+      : [];
+    const crewParam = searchParams.crew
+      ? (searchParams.crew as string).split(",")
+      : [];
     const hasFa = crewParam.includes("FA");
     const crewNames = crewParam.filter((n) => n !== "FA");
     const gender = searchParams.gender as string | undefined;
@@ -81,7 +103,10 @@ export default function Home() {
       if (tierFilter.length && !tierFilter.includes(p.tier)) continue;
       if (hasFa || crewNames.length) {
         const matchesFa = hasFa && p.is_fa;
-        const matchesCrew = crewNames.length > 0 && !!p.crew_name && crewNames.includes(p.crew_name);
+        const matchesCrew =
+          crewNames.length > 0 &&
+          !!p.crew_name &&
+          crewNames.includes(p.crew_name);
         if (!matchesFa && !matchesCrew) continue;
       }
       if (gender && p.gender !== gender) continue;
@@ -96,17 +121,13 @@ export default function Home() {
   /* ── Tier section renderer ── */
   const renderTierSection = (tier: Tier, index: number) => (
     <Show when={tierData()[tier]?.length}>
-      <section id={`tier-${tier}`} class={styles.tierSection} style={{ "animation-delay": `${index * 0.05}s` }}>
+      <section id={`tier-${tier}`} class={styles.tierSection}>
         <div class={styles.tierHeader}>
           <span class={styles.tierLabel} data-tier={tier}>
             {tier}
           </span>
-          <span class={styles.tierCount}>
-            {tierData()[tier].length}명
-          </span>
-          <span class={styles.tierDesc}>
-            {TIER_DESCRIPTIONS[tier]}
-          </span>
+          <span class={styles.tierCount}>{tierData()[tier].length}명</span>
+          <span class={styles.tierDesc}>{TIER_DESCRIPTIONS[tier]}</span>
         </div>
         <div class={styles.tierGrid} data-variant={cardVariant()}>
           <For each={tierData()[tier]}>
@@ -128,10 +149,18 @@ export default function Home() {
         <p>스타크래프트 대학 리그 선수 티어 현황</p>
       </div>
 
-      <PlayerFilters />
+      <PlayerFilters fallback={<FiltersSkeleton />} />
 
-      <ErrorBoundary fallback={<p class="empty-state">데이터를 불러올 수 없습니다.</p>}>
-        <Suspense fallback={<div class="loading" role="status" aria-live="polite">데이터를 불러오는 중…</div>}>
+      <ErrorBoundary
+        fallback={<p class="empty-state">데이터를 불러올 수 없습니다.</p>}
+      >
+        <Suspense
+          fallback={
+            <div class="loading" role="status" aria-live="polite">
+              데이터를 불러오는 중…
+            </div>
+          }
+        >
           <For each={orderedTiers()}>
             {(tier, i) => renderTierSection(tier, i())}
           </For>
