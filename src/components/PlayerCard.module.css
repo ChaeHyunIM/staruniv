@@ -101,6 +101,13 @@
     0 2px 8px oklch(0 0 0 / 0.15);
 }
 
+/* Flip upward for bottom-row cards */
+.flipUp .expanded {
+  top: auto;
+  bottom: 0;
+  transform: translateY(-4px);
+}
+
 /* Race-specific expanded card glow */
 @media (hover: hover) {
   .compact[data-race="T"]:hover .expanded {
@@ -176,17 +183,6 @@
   letter-spacing: 0.05em;
 }
 
-/* ── Badges (floating over hero) ── */
-.expandedBadges {
-  position: absolute;
-  left: var(--sp-3);
-  bottom: 35%;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: var(--sp-1);
-}
-
 /* ── Body section (overlay) ── */
 .expandedBody {
   position: absolute;
@@ -207,22 +203,48 @@
 
 .expandedName {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: var(--sp-2);
-
-  & > span:first-child {
-    font-family: var(--font-sans);
-    font-size: var(--text-base);
-    font-weight: 700;
-    color: oklch(0.97 0 0);
-  }
 }
 
-.expandedMeta {
-  display: flex;
+.expandedRace {
+  display: inline-flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: var(--sp-2);
+  justify-content: center;
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.expandedRace[data-race="T"] {
+  color: oklch(0.97 0 0);
+  background: var(--race-terran);
+  box-shadow: 0 2px 8px oklch(from var(--race-terran) l c h / 0.5);
+}
+
+.expandedRace[data-race="Z"] {
+  color: oklch(0.97 0 0);
+  background: var(--race-zerg);
+  box-shadow: 0 2px 8px oklch(from var(--race-zerg) l c h / 0.5);
+}
+
+.expandedRace[data-race="P"] {
+  color: oklch(0.97 0 0);
+  background: var(--race-protoss);
+  box-shadow: 0 2px 8px oklch(from var(--race-protoss) l c h / 0.5);
+}
+
+.expandedName > span:nth-child(2) {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: oklch(0.97 0 0);
+  text-shadow: 0 1px 4px oklch(0 0 0 / 0.5);
 }
 
 .expandedFooter:empty {
@@ -231,7 +253,12 @@
 
 .expandedCrew {
   font-size: var(--text-xs);
-  color: oklch(0.7 0 0);
+  font-weight: 500;
+  color: oklch(0.9 0 0);
+  background: oklch(1 0 0 / 0.12);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  text-shadow: 0 1px 3px oklch(0 0 0 / 0.5);
 }
 
 .expandedFa {

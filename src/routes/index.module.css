@@ -67,8 +67,13 @@
 
 /* ─── Tier section ─── */
 .tierSection {
+  position: relative;
   margin-bottom: var(--sp-8);
   animation: fadeSlideIn 0.4s ease-out both;
+
+  &:has(a:hover) {
+    z-index: 1;
+  }
 }
 
 .tierHeader {

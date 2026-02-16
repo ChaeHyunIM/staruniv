@@ -1,5 +1,5 @@
 import { A } from "@solidjs/router";
-import { Show } from "solid-js";
+import { createSignal, Show } from "solid-js";
 import type { PlayerWithCrew } from "~/lib/types";
 import { getInitials } from "~/lib/utils";
 import RaceBadge from "./RaceBadge";
@@ -14,12 +14,25 @@ interface Props {
 
 export default function PlayerCard(props: Props) {
   const initials = () => getInitials(props.player.nickname);
+  const [flipUp, setFlipUp] = createSignal(false);
+
+  const handleMouseEnter = (e: MouseEvent) => {
+    const el = e.currentTarget as HTMLElement;
+    const grid = el.parentElement;
+    if (!grid) return;
+    const elRect = el.getBoundingClientRect();
+    const gridRect = grid.getBoundingClientRect();
+    const expandedHeight = elRect.width + 100;
+    setFlipUp(gridRect.bottom - elRect.top < expandedHeight);
+  };
 
   return (
     <A
       href={`/players/${encodeURIComponent(props.player.nickname)}`}
       class={props.variant === "compact" ? styles.compact : styles.full}
+      classList={{ [styles.flipUp]: flipUp() }}
       data-race={props.player.race}
+      onMouseEnter={props.variant === "compact" ? handleMouseEnter : undefined}
     >
       {/* Accent strip — compact only */}
       <Show when={props.variant === "compact"}>
@@ -67,15 +80,15 @@ export default function PlayerCard(props: Props) {
               loading="lazy"
             />
           </div>
-          <div class={styles.expandedBadges}>
-            <RaceBadge race={props.player.race} />
-            <Show when={props.player.tag}>
-              <TagBadge tag={props.player.tag} />
-            </Show>
-          </div>
           <div class={styles.expandedBody}>
             <div class={styles.expandedName}>
+              <span class={styles.expandedRace} data-race={props.player.race}>
+                {props.player.race}
+              </span>
               <span>{props.player.nickname}</span>
+              <Show when={props.player.tag}>
+                <TagBadge tag={props.player.tag} />
+              </Show>
             </div>
             <div class={styles.expandedFooter}>
               <Show when={props.player.crew_name}>
