@@ -121,14 +121,14 @@ export default function Home() {
     <main id="main-content" class={styles.home}>
       <Title>StarUniv - 티어표</Title>
       <div class={styles.header}>
-        <h1>티어표</h1>
+        <div class={styles.headerRow}>
+          <h1>티어표</h1>
+          <LayoutToggle value={cardVariant()} onChange={handleVariantChange} />
+        </div>
         <p>스타크래프트 대학 리그 선수 티어 현황</p>
       </div>
 
-      <div class={styles.toolbar}>
-        <PlayerFilters />
-        <LayoutToggle value={cardVariant()} onChange={handleVariantChange} />
-      </div>
+      <PlayerFilters />
 
       <ErrorBoundary fallback={<p class="empty-state">데이터를 불러올 수 없습니다.</p>}>
         <Suspense fallback={<div class="loading" role="status" aria-live="polite">데이터를 불러오는 중…</div>}>

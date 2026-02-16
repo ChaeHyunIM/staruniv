@@ -30,13 +30,11 @@
   }
 }
 
-/* ─── Toolbar: 필터 + 레이아웃 토글 ─── */
-.toolbar {
+.headerRow {
   display: flex;
-  align-items: flex-start;
-  gap: var(--sp-3);
-  margin-bottom: var(--sp-6);
-  animation: fadeSlideIn 0.4s ease-out 0.05s both;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
 }
 
 /* ─── Entry animation ─── */
@@ -153,11 +151,6 @@
 @media (max-width: 640px) {
   .home {
     padding: var(--sp-6) var(--sp-4);
-  }
-
-  .toolbar {
-    flex-direction: column;
-    gap: var(--sp-2);
   }
 
   .tierGrid {

@@ -202,105 +202,14 @@
   }
 }
 
-/* Race artwork background — hidden by default */
-.full::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center 25%;
-  opacity: 0;
-  transition: opacity 0.45s ease;
-  z-index: 0;
-}
-
-/* Dark overlay */
-.full::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    oklch(0.08 0.005 260 / 0.55) 0%,
-    oklch(0.04 0.005 260 / 0.88) 100%
-  );
-  opacity: 0;
-  transition: opacity 0.45s ease;
-  z-index: 1;
-}
-
-.full[data-race="P"]::before { background-image: url("/images/races/protoss.webp"); }
-.full[data-race="T"]::before { background-image: url("/images/races/terran.webp"); }
-.full[data-race="Z"]::before { background-image: url("/images/races/zerg.webp"); }
-
-/* Content above overlay */
-.full > .avatar,
-.full > .body {
-  position: relative;
-  z-index: 2;
-}
-
-/* ── Full hover: reveal artwork ── */
+/* ── Full hover ── */
 @media (hover: hover) {
   .full:hover {
     transform: translateY(-4px);
   }
 
-  .full:hover::before,
-  .full:hover::after {
-    opacity: 1;
-  }
-
-  .full:hover .name {
-    color: oklch(0.97 0 0);
-  }
-
-  .full:hover .crew {
-    color: oklch(0.75 0 0);
-  }
-
-
   .full:hover .avatar {
     transform: scale(1.08);
-  }
-
-  .full:hover .avatar[data-race="T"] {
-    box-shadow:
-      inset 0 -2px 6px oklch(from var(--race-terran) l c h / 0.3),
-      0 0 20px oklch(from var(--race-terran) l c h / 0.45),
-      0 0 40px oklch(from var(--race-terran) l c h / 0.2);
-  }
-
-  .full:hover .avatar[data-race="Z"] {
-    box-shadow:
-      inset 0 -2px 6px oklch(from var(--race-zerg) l c h / 0.3),
-      0 0 20px oklch(from var(--race-zerg) l c h / 0.45),
-      0 0 40px oklch(from var(--race-zerg) l c h / 0.2);
-  }
-
-  .full:hover .avatar[data-race="P"] {
-    box-shadow:
-      inset 0 -2px 6px oklch(from var(--race-protoss) l c h / 0.3),
-      0 0 20px oklch(from var(--race-protoss) l c h / 0.45),
-      0 0 40px oklch(from var(--race-protoss) l c h / 0.2);
-  }
-
-  .full[data-race="T"]:hover {
-    box-shadow:
-      0 8px 30px oklch(from var(--race-terran) l c h / 0.2),
-      inset 0 0 30px oklch(from var(--race-terran) l c h / 0.06);
-  }
-
-  .full[data-race="Z"]:hover {
-    box-shadow:
-      0 8px 30px oklch(from var(--race-zerg) l c h / 0.2),
-      inset 0 0 30px oklch(from var(--race-zerg) l c h / 0.06);
-  }
-
-  .full[data-race="P"]:hover {
-    box-shadow:
-      0 8px 30px oklch(from var(--race-protoss) l c h / 0.2),
-      inset 0 0 30px oklch(from var(--race-protoss) l c h / 0.06);
   }
 }
 
@@ -512,11 +421,6 @@
   .accent,
   .name,
   .crew {
-    transition: none;
-  }
-
-  .full::before,
-  .full::after {
     transition: none;
   }
 }
