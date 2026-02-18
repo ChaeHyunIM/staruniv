@@ -8,9 +8,7 @@ import {
   type CrewWithCount,
 } from "~/lib/types";
 import { getCrews } from "~/lib/queries/crews";
-import { MultiSelect } from "~/components/ui/MultiSelect";
-import { SingleSelect } from "~/components/ui/SingleSelect";
-import { MultiCombobox } from "~/components/ui/MultiCombobox";
+import { MultiSelect, SingleSelect, MultiCombobox } from "~/components/ui/select";
 import { createDebouncedSignal } from "~/primitives/createDebounced";
 import LayoutToggle, { type CardVariant } from "~/components/LayoutToggle";
 import styles from "./PlayerFilters.module.css";

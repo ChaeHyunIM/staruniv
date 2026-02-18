@@ -8,10 +8,7 @@
   border: 1px solid var(--border-10);
   border-radius: var(--radius-sm);
   overflow: hidden;
-
-  /* off-screen 카드의 layout/paint를 건너뛰어 variant 전환 reflow 비용 감소 */
   content-visibility: auto;
-  contain-intrinsic-block-size: auto 56px;
 }
 
 /* ═══════════════════════════════════════════════════
