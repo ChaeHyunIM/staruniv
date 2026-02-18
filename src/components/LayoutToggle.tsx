@@ -9,7 +9,7 @@ export type CardVariant = "compact" | "full" | "list";
 const VARIANTS: { id: CardVariant; icon: typeof LayoutGrid; label: string }[] = [
   { id: "compact", icon: LayoutList, label: "컴팩트" },
   { id: "full", icon: LayoutGrid, label: "카드" },
-  { id: "list", icon: List, label: "리스트" },
+  // { id: "list", icon: List, label: "리스트" },
 ];
 
 interface Props {
