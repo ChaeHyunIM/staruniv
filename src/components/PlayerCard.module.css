@@ -45,18 +45,24 @@
 /* ─── Accent border (compact / list) ─── */
 /* 종족 accent 색상 변수 — 기본 border를 숨겨 accent만 보이도록 */
 .compact[data-race="T"],
-.list[data-race="T"] { --_accent: var(--race-terran); }
+.list[data-race="T"] {
+  --_accent: var(--race-terran);
+}
 
 .compact[data-race="Z"],
-.list[data-race="Z"] { --_accent: var(--race-zerg); }
+.list[data-race="Z"] {
+  --_accent: var(--race-zerg);
+}
 
 .compact[data-race="P"],
-.list[data-race="P"] { --_accent: var(--race-protoss); }
+.list[data-race="P"] {
+  --_accent: var(--race-protoss);
+}
 
 .compact[data-race],
 .list[data-race] {
   border-color: transparent;
-  box-shadow: 0 1px 4px oklch(0 0 0 / 0.08);
+  box-shadow: 0 1px 4px oklch(from var(--_accent) l c h / 0.1);
 }
 
 /* border-radius 윤곽을 따르는 gradient accent */
@@ -68,10 +74,11 @@
   border-radius: inherit;
   padding: 2px;
   background: linear-gradient(
-    to bottom,
-    oklch(from var(--_accent) l c h / 0.8),
-    oklch(from var(--_accent) l c h / 0.3)
-  ) border-box;
+      to bottom,
+      oklch(from var(--_accent) l c h / 0.8),
+      oklch(from var(--_accent) l c h / 0.3)
+    )
+    border-box;
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -97,7 +104,6 @@
     clip-path: inset(0);
   }
 }
-
 
 /* ═══════════════════════════════════════════════════
    FULL variant (vertical, player/FA grid)
@@ -198,7 +204,6 @@
   }
 }
 
-
 /* ═══════════════════
    Avatar
    ═══════════════════ */
@@ -210,7 +215,9 @@
   border-radius: 50%;
   flex-shrink: 0;
   overflow: hidden;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .avatarPhoto {
@@ -355,8 +362,6 @@
 .hidden {
   display: none;
 }
-
-
 
 /* ═══════════════════
    Responsive
