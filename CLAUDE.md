@@ -53,6 +53,31 @@ import Search from "lucide-solid/icons/search";
 import { Camera, Search } from "lucide-solid";
 ```
 
+## File & Folder Naming Convention
+
+| Target | Convention | Example |
+|---|---|---|
+| Component folder | kebab-case | `player-card/` |
+| Component file (.tsx) | PascalCase | `PlayerCard.tsx` |
+| CSS module file | kebab-case | `player-card.module.css` |
+| CSS class name | camelCase | `.nameRow`, `.avatarPhoto` |
+| Barrel file | `index.ts` | `index.ts` |
+| General TS/utility file | camelCase | `createDebounced.ts` |
+| Route folder/file | kebab-case (SolidStart file-based routing) | `history/index.tsx` |
+
+Component structure example:
+```
+src/components/
+  player-card/
+    PlayerCard.tsx          ← PascalCase (component)
+    player-card.module.css  ← kebab-case (styles)
+    index.ts                ← barrel re-export
+```
+
+- Folders and CSS files use kebab-case to prevent case-sensitivity conflicts between macOS and Linux CI
+- Only component .tsx files keep PascalCase (1:1 mapping with the exported component name)
+- CSS class names use camelCase for JS dot access (`styles.nameRow`)
+
 ## Code Comments
 
 All comments in code must be written in Korean.
