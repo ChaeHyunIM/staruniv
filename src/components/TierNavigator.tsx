@@ -1,9 +1,9 @@
 import { createSignal, For, Show, type Accessor } from "solid-js";
+import { Dialog } from "@kobalte/core/dialog";
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
 import { TIER_ORDER, type Tier, type PlayerWithCrew } from "~/lib/types";
 import { createReorderable } from "~/primitives/createReorderable";
-import { createFocusTrap } from "~/primitives/createFocusTrap";
 import styles from "./TierNavigator.module.css";
 
 // TODO: 유저 인증 시스템 도입 시 투어 완료 상태를 서버 DB(user_preferences)로 마이그레이션
@@ -19,8 +19,7 @@ interface TierNavigatorProps {
 export default function TierNavigator(props: TierNavigatorProps) {
   const [isOpen, setIsOpen] = createSignal(false);
 
-  let panelRef: HTMLDivElement | undefined;
-  let fabRef: HTMLButtonElement | undefined;
+  let panelRef: HTMLElement | undefined;
 
   const reorderable = createReorderable<Tier>({
     items: props.tiers,
@@ -88,22 +87,10 @@ export default function TierNavigator(props: TierNavigatorProps) {
     });
   };
 
-  /* ── Focus trap ── */
-  const { focusFirst, restoreFocus } = createFocusTrap({
-    container: () => panelRef,
-    isActive: isOpen,
-    triggerRef: () => fabRef,
-    onEscape: () => setIsOpen(false),
-  });
-
-  /* ── Toggle panel ── */
-  const togglePanel = () => {
-    const opening = !isOpen();
-    setIsOpen(opening);
-    if (opening) {
-      startTour();
-      requestAnimationFrame(() => focusFirst());
-    }
+  /* ── Open/close 핸들러 ── */
+  const handleOpenChange = (open: boolean) => {
+    setIsOpen(open);
+    if (open) startTour();
   };
 
   /* ── Scroll to tier section ── */
@@ -111,7 +98,6 @@ export default function TierNavigator(props: TierNavigatorProps) {
     const el = document.getElementById(`tier-${tier}`);
     if (el) el.scrollIntoView({ behavior: "smooth" });
     setIsOpen(false);
-    restoreFocus();
   };
 
   /* ── 키보드 reorder 후 포커스 복원 래퍼 ── */
@@ -135,17 +121,12 @@ export default function TierNavigator(props: TierNavigatorProps) {
   };
 
   return (
-    <>
-      {/* Backdrop */}
-      <Show when={isOpen()}>
-        <div class={styles.backdrop} aria-hidden="true" onClick={() => setIsOpen(false)} />
-      </Show>
-
-      {/* Panel */}
-      <Show when={isOpen()}>
-        <div ref={panelRef} id="tier-navigator-panel" class={styles.panel} role="dialog" aria-modal="true" aria-label="티어 네비게이터">
+    <Dialog open={isOpen()} onOpenChange={handleOpenChange} modal preventScroll={false}>
+      <Dialog.Portal>
+        <Dialog.Overlay class={styles.backdrop} />
+        <Dialog.Content ref={(el) => { panelRef = el; }} class={styles.panel}>
           <div class={styles.panelHeader}>
-            <h3>티어 순서</h3>
+            <Dialog.Title class={styles.panelTitle}>티어 순서</Dialog.Title>
             <button id="tour-reset-btn" class={styles.resetBtn} onClick={handleReset} title="기본 순서로 초기화">
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                 <path d="M2 8a6 6 0 0 1 10.2-4.3M14 8a6 6 0 0 1-10.2 4.3" />
@@ -210,18 +191,13 @@ export default function TierNavigator(props: TierNavigatorProps) {
               }}
             </For>
           </div>
-        </div>
-      </Show>
+        </Dialog.Content>
+      </Dialog.Portal>
 
       {/* FAB */}
-      <button
-        ref={fabRef}
+      <Dialog.Trigger
         class={styles.fab}
-        classList={{ [styles.fabOpen]: isOpen() }}
-        onClick={togglePanel}
         aria-label={isOpen() ? "네비게이터 닫기" : "티어 네비게이터 열기"}
-        aria-expanded={isOpen()}
-        aria-controls="tier-navigator-panel"
       >
         <Show
           when={!isOpen()}
@@ -236,7 +212,7 @@ export default function TierNavigator(props: TierNavigatorProps) {
           </svg>
         </Show>
         <span class={styles.fabLabel}>티어 이동</span>
-      </button>
-    </>
+      </Dialog.Trigger>
+    </Dialog>
   );
 }

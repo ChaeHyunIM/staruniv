@@ -54,7 +54,7 @@
   line-height: 1;
 }
 
-.fabOpen {
+.fab[data-expanded] {
   padding: 0 var(--sp-3);
   gap: 0;
 
@@ -101,7 +101,7 @@
   padding: var(--sp-3) var(--sp-4);
   border-bottom: 1px solid oklch(from var(--border) l c h / 0.1);
 
-  & h3 {
+  & .panelTitle {
     font-size: var(--text-sm);
     font-weight: 600;
     scroll-margin-top: 0;
