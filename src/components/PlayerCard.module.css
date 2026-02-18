@@ -227,15 +227,39 @@
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* src 없으면 img 숨김, 있으면 이니셜 숨김 */
+/* 이미지 로드 완료 시 이니셜 위에 페이드인 */
+.avatarPhoto.loaded {
+  opacity: 1;
+}
+
+/* src 없으면 img 숨김 */
 .avatarPhoto:not([src]) {
   display: none;
 }
 
-.avatar:has(.avatarPhoto[src]) .initials {
-  display: none;
+/* 이미지 로딩 중 shimmer wave */
+@keyframes avatar-shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+.avatar:has(.avatarPhoto[src]:not(.loaded))::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    oklch(1 0 0 / 0.18) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: avatar-shimmer 1.8s ease-in-out infinite;
 }
 
 .compact .avatar {
@@ -404,8 +428,14 @@
   .full,
   .list,
   .avatar,
+  .avatarPhoto,
   .name,
   .crew {
     transition: none;
+  }
+
+  .avatar::after {
+    animation: none;
+    display: none;
   }
 }

@@ -30,6 +30,10 @@ export default function PlayerCard(props: Props) {
     >
       <div class={styles.avatar} data-race={props.player.race}>
         <img
+          ref={(el) => {
+            /* 하이드레이션 전에 이미 로드된 이미지 처리 */
+            if (el.complete && el.naturalWidth > 0) el.classList.add(styles.loaded);
+          }}
           src={props.player.profile_image ? `https:${profileWebp(props.player.profile_image)}` : undefined}
           alt={props.player.nickname}
           width={80}
@@ -37,6 +41,8 @@ export default function PlayerCard(props: Props) {
           class={styles.avatarPhoto}
           loading="lazy"
           decoding="async"
+          onLoad={(e) => e.currentTarget.classList.add(styles.loaded)}
+          onError={(e) => e.currentTarget.classList.add(styles.loaded)}
         />
         <span class={styles.initials}>{initials()}</span>
       </div>
