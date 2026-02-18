@@ -504,6 +504,67 @@
   }
 }
 
+/* ═══════════════════════════════════════════════════
+   Safari / iOS 최적화
+   — gradient + oklch(from ...) 렌더링 부하 감소
+   — -webkit-named-image는 WebKit(Safari/iOS)에서만 지원됨
+   ═══════════════════════════════════════════════════ */
+@supports (background: -webkit-named-image(i)) {
+  /* ── 아바타: gradient → flat 종족색 ── */
+  .avatar[data-race="T"] {
+    background: var(--race-terran);
+    box-shadow: none;
+  }
+
+  .avatar[data-race="Z"] {
+    background: var(--race-zerg);
+    box-shadow: none;
+  }
+
+  .avatar[data-race="P"] {
+    background: var(--race-protoss);
+    box-shadow: none;
+  }
+
+  /* ── card box-shadow 단순화 ── */
+  .compact[data-race],
+  .list[data-race] {
+    box-shadow: 0 1px 3px oklch(0 0 0 / 0.06);
+  }
+
+  /* ── accent: gradient mask ::before → 단순 border ── */
+  .compact[data-race]::before,
+  .list[data-race]::before {
+    display: none;
+  }
+
+  .compact[data-race],
+  .list[data-race] {
+    border-color: var(--_accent);
+  }
+
+  /* ── hover glow overlay 비활성화 ── */
+  .compact[data-race]::after,
+  .full[data-race="T"]::after,
+  .full[data-race="Z"]::after,
+  .full[data-race="P"]::after {
+    display: none;
+  }
+
+  /* ── full variant 호버: oklch(from ...) → 단순 종족색 border ── */
+  .full[data-race="T"]:hover {
+    border-color: var(--race-terran);
+  }
+
+  .full[data-race="Z"]:hover {
+    border-color: var(--race-zerg);
+  }
+
+  .full[data-race="P"]:hover {
+    border-color: var(--race-protoss);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .compact,
   .full,
