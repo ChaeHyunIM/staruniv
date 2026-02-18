@@ -2,9 +2,9 @@ import { A, createAsync, useParams, type RouteDefinition } from "@solidjs/router
 import { ErrorBoundary, For, Show, Suspense } from "solid-js";
 import { Title } from "@solidjs/meta";
 import { getCrew } from "~/lib/queries";
-import RaceBadge from "~/components/RaceBadge";
-import TierBadge from "~/components/TierBadge";
-import TagBadge from "~/components/TagBadge";
+import RaceBadge from "~/components/race-badge";
+import TierBadge from "~/components/tier-badge";
+import TagBadge from "~/components/tag-badge";
 import styles from "./[name].module.css";
 
 export const route = {

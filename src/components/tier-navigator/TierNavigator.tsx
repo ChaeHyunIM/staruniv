@@ -8,7 +8,7 @@ import Menu from "lucide-solid/icons/menu";
 import X from "lucide-solid/icons/x";
 import { TIER_ORDER, type Tier, type PlayerWithCrew } from "~/lib/types";
 import { createReorderable } from "~/primitives/createReorderable";
-import styles from "./TierNavigator.module.css";
+import styles from "./tier-navigator.module.css";
 
 // TODO: 유저 인증 시스템 도입 시 투어 완료 상태를 서버 DB(user_preferences)로 마이그레이션
 // 현재는 비인증 앱이므로 localStorage 사용 중

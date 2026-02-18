@@ -1,5 +1,5 @@
 import type { Tier } from "~/lib/types";
-import styles from "./TierBadge.module.css";
+import styles from "./tier-badge.module.css";
 
 const TIER_LABELS: Record<string, string> = {
   God: "God 티어",

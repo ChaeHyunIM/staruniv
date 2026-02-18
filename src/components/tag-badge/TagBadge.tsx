@@ -1,5 +1,5 @@
 import type { Tag } from "~/lib/types";
-import styles from "./TagBadge.module.css";
+import styles from "./tag-badge.module.css";
 
 const TAG_LABELS: Record<Tag, string> = {
   승급임박: "승급임박",

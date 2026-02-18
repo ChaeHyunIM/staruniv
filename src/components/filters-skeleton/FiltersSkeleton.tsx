@@ -1,4 +1,4 @@
-import styles from "./FiltersSkeleton.module.css";
+import styles from "./filters-skeleton.module.css";
 
 const FIELDS = 6;
 

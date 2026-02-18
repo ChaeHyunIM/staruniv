@@ -2,7 +2,7 @@ import { For } from "solid-js";
 import LayoutGrid from "lucide-solid/icons/layout-grid";
 import LayoutList from "lucide-solid/icons/layout-list";
 import List from "lucide-solid/icons/list";
-import styles from "./LayoutToggle.module.css";
+import styles from "./layout-toggle.module.css";
 
 export type CardVariant = "compact" | "full" | "list";
 
@@ -18,8 +18,15 @@ interface Props {
 }
 
 export default function LayoutToggle(props: Props) {
+  const activeIndex = () => VARIANTS.findIndex((v) => v.id === props.value);
+
   return (
-    <div class={styles.toggle} role="group" aria-label="카드 표시 방식">
+    <div
+      class={styles.toggle}
+      role="group"
+      aria-label="카드 표시 방식"
+      style={{ "--active-index": String(activeIndex()) }}
+    >
       <For each={VARIANTS}>
         {(v) => (
           <button

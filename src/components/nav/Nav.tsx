@@ -1,6 +1,6 @@
 import { A } from "@solidjs/router";
-import styles from "./Nav.module.css";
-import ThemeToggle from "../ThemeToggle";
+import styles from "./nav.module.css";
+import ThemeToggle from "../theme-toggle";
 
 export default function Nav() {
   return (

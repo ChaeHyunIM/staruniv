@@ -1,5 +1,5 @@
 import type { Race } from "~/lib/types";
-import styles from "./RaceBadge.module.css";
+import styles from "./race-badge.module.css";
 
 const RACE_NAMES: Record<Race, string> = {
   T: "Terran",

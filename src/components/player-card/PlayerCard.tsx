@@ -1,9 +1,9 @@
 import { A } from "@solidjs/router";
 import type { PlayerWithCrew } from "~/lib/types";
 import { getInitials } from "~/lib/utils";
-import RaceBadge from "../RaceBadge";
-import TagBadge from "../TagBadge";
-import styles from "./PlayerCard.module.css";
+import RaceBadge from "../race-badge";
+import TagBadge from "../tag-badge";
+import styles from "./player-card.module.css";
 
 interface Props {
   player: PlayerWithCrew;

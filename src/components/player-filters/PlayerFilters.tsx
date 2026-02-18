@@ -10,8 +10,8 @@ import {
 import { getCrews } from "~/lib/queries/crews";
 import { MultiSelect, SingleSelect, MultiCombobox } from "~/components/ui/select";
 import { createDebouncedSignal } from "~/primitives/createDebounced";
-import LayoutToggle, { type CardVariant } from "~/components/LayoutToggle";
-import styles from "./PlayerFilters.module.css";
+import LayoutToggle, { type CardVariant } from "~/components/layout-toggle";
+import styles from "./player-filters.module.css";
 
 /* FA를 크루 콤보박스의 특수 옵션으로 표현 */
 const FA_SENTINEL: CrewWithCount = {

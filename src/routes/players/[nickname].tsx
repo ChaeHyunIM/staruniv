@@ -7,9 +7,9 @@ import {
 import { ErrorBoundary, Show, Suspense } from "solid-js";
 import { Title } from "@solidjs/meta";
 import { getPlayer } from "~/lib/queries";
-import RaceBadge from "~/components/RaceBadge";
-import TierBadge from "~/components/TierBadge";
-import TagBadge from "~/components/TagBadge";
+import RaceBadge from "~/components/race-badge";
+import TierBadge from "~/components/tier-badge";
+import TagBadge from "~/components/tag-badge";
 import styles from "./[nickname].module.css";
 
 export const route = {

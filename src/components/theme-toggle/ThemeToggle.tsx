@@ -1,7 +1,7 @@
 import { createSignal, createEffect, onMount, Show } from "solid-js";
 import Sun from "lucide-solid/icons/sun";
 import Moon from "lucide-solid/icons/moon";
-import styles from "./ThemeToggle.module.css";
+import styles from "./theme-toggle.module.css";
 
 export default function ThemeToggle() {
   const [dark, setDark] = createSignal(false);
