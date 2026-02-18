@@ -4,8 +4,8 @@
   z-index: 100;
   height: var(--nav-height);
   border-bottom: 1px solid oklch(from var(--border) l c h / 0.1);
-  backdrop-filter: blur(12px);
-  background: oklch(from var(--card) l c h / 0.85);
+  backdrop-filter: blur(8px);
+  background: oklch(from var(--card) l c h / 0.9);
 }
 
 .inner {

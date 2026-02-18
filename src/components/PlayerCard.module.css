@@ -20,7 +20,6 @@
   transition:
     transform 0.2s ease,
     border-color 0.2s ease,
-    box-shadow 0.2s ease,
     background-color 0.15s ease;
 }
 
@@ -29,12 +28,6 @@
   .compact:hover {
     transform: translateY(-2px);
     background: var(--muted);
-  }
-
-  .compact[data-race]:hover {
-    box-shadow:
-      0 4px 16px oklch(from var(--_accent) l c h / 0.15),
-      inset 0 0 16px oklch(from var(--_accent) l c h / 0.05);
   }
 
   .compact:hover .avatar {
@@ -105,6 +98,26 @@
   }
 }
 
+/* hover glow overlay — opacity transition으로 GPU compositing 활용 */
+.compact[data-race]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    0 4px 16px oklch(from var(--_accent) l c h / 0.15),
+    inset 0 0 16px oklch(from var(--_accent) l c h / 0.05);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+@media (hover: hover) {
+  .compact[data-race]:hover::after {
+    opacity: 1;
+  }
+}
+
 /* ═══════════════════════════════════════════════════
    FULL variant (vertical, player/FA grid)
    — hover: reveal race artwork (no scale)
@@ -118,7 +131,6 @@
   transition:
     transform 0.2s ease,
     border-color 0.2s ease,
-    box-shadow 0.2s ease,
     background-color 0.15s ease;
 
   &:hover {
@@ -127,26 +139,63 @@
     background: var(--muted);
   }
 
-  /* Race-specific hover glow */
+  /* Race-specific hover — border-color만 유지 */
   &[data-race="T"]:hover {
     border-color: oklch(from var(--race-terran) l c h / 0.4);
-    box-shadow:
-      0 4px 16px oklch(from var(--race-terran) l c h / 0.12),
-      inset 0 0 20px oklch(from var(--race-terran) l c h / 0.04);
   }
 
   &[data-race="Z"]:hover {
     border-color: oklch(from var(--race-zerg) l c h / 0.4);
-    box-shadow:
-      0 4px 16px oklch(from var(--race-zerg) l c h / 0.12),
-      inset 0 0 20px oklch(from var(--race-zerg) l c h / 0.04);
   }
 
   &[data-race="P"]:hover {
     border-color: oklch(from var(--race-protoss) l c h / 0.4);
-    box-shadow:
-      0 4px 16px oklch(from var(--race-protoss) l c h / 0.12),
-      inset 0 0 20px oklch(from var(--race-protoss) l c h / 0.04);
+  }
+}
+
+/* full variant hover glow overlay — 종족별 ::after */
+.full[data-race="T"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    0 4px 16px oklch(from var(--race-terran) l c h / 0.12),
+    inset 0 0 20px oklch(from var(--race-terran) l c h / 0.04);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.full[data-race="Z"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    0 4px 16px oklch(from var(--race-zerg) l c h / 0.12),
+    inset 0 0 20px oklch(from var(--race-zerg) l c h / 0.04);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.full[data-race="P"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    0 4px 16px oklch(from var(--race-protoss) l c h / 0.12),
+    inset 0 0 20px oklch(from var(--race-protoss) l c h / 0.04);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+@media (hover: hover) {
+  .full[data-race]:hover::after {
+    opacity: 1;
   }
 }
 
@@ -215,9 +264,7 @@
   border-radius: 50%;
   flex-shrink: 0;
   overflow: hidden;
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
+  transition: transform 0.35s ease;
 }
 
 .avatarPhoto {
@@ -241,10 +288,10 @@
   display: none;
 }
 
-/* 이미지 로딩 중 shimmer wave */
+/* 이미지 로딩 중 shimmer wave — transform 기반 GPU compositing */
 @keyframes avatar-shimmer {
-  from { background-position: 200% 0; }
-  to { background-position: -200% 0; }
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
 }
 
 .avatar:has(.avatarPhoto[src]:not(.loaded))::after {
@@ -258,7 +305,6 @@
     oklch(1 0 0 / 0.18) 50%,
     transparent 70%
   );
-  background-size: 200% 100%;
   animation: avatar-shimmer 1.8s ease-in-out infinite;
 }
 
@@ -434,8 +480,15 @@
     transition: none;
   }
 
+  /* shimmer 애니메이션 비활성화 */
   .avatar::after {
     animation: none;
     display: none;
+  }
+
+  /* hover glow overlay transition 비활성화 */
+  .compact[data-race]::after,
+  .full[data-race]::after {
+    transition: none;
   }
 }
