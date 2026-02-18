@@ -1,6 +1,6 @@
 {
   "version": "3.53",
-  "updated_at": "2026-01-31",
+  "updated_at": "2026-02-18",
   "notes": {
     "상승": [
       "규리야",
@@ -10,7 +10,7 @@
       "메옹",
       "수니양",
       "오리꿍",
-      "경콩이",
+      "경콩",
       "김말랑",
       "퀸주",
       "아리송이",
@@ -26,14 +26,13 @@
       "엄보리",
       "진니",
       "막내현진",
-      "하루용",
       "백원이야",
       "햇참새",
       "진땅콩",
       "히요코"
     ],
     "신규": [
-      "저지현",
+      "져지현",
       "밤하밍",
       "미진이",
       "이응씨",
@@ -166,8 +165,12 @@
           "race": "T"
         },
         {
-          "nickname": "김경모",
+          "nickname": "유승곤",
           "race": "T"
+        },
+        {
+          "nickname": "김경모",
+          "race": "Z"
         },
         {
           "nickname": "박준오",
@@ -203,10 +206,6 @@
         },
         {
           "nickname": "윤용태",
-          "race": "P"
-        },
-        {
-          "nickname": "유승곤",
           "race": "P"
         },
         {
@@ -254,7 +253,11 @@
         },
         {
           "nickname": "만두호성",
-          "race": "Z"
+          "race": "T"
+        },
+        {
+          "nickname": "염보성",
+          "race": "T"
         },
         {
           "nickname": "김윤환",
@@ -303,10 +306,6 @@
         {
           "nickname": "김수식",
           "race": "Z"
-        },
-        {
-          "nickname": "염보성",
-          "race": "P"
         },
         {
           "nickname": "이경민",
@@ -364,21 +363,29 @@
           "race": "T"
         },
         {
-          "nickname": "허유",
+          "nickname": "민찬기",
           "race": "T"
         },
         {
-          "nickname": "저지현",
-          "race": "T",
+          "nickname": "전상욱",
+          "race": "T"
+        },
+        {
+          "nickname": "김영주",
+          "race": "T"
+        },
+        {
+          "nickname": "허유",
+          "race": "Z"
+        },
+        {
+          "nickname": "져지현",
+          "race": "Z",
           "tag": "new"
         },
         {
           "nickname": "김상곤",
-          "race": "T"
-        },
-        {
-          "nickname": "민찬기",
-          "race": "T"
+          "race": "Z"
         },
         {
           "nickname": "액션구드론",
@@ -386,14 +393,6 @@
         },
         {
           "nickname": "인치호",
-          "race": "Z"
-        },
-        {
-          "nickname": "전상욱",
-          "race": "Z"
-        },
-        {
-          "nickname": "김영주",
           "race": "Z"
         },
         {
@@ -512,9 +511,8 @@
           "race": "Z"
         },
         {
-          "nickname": "박성준2",
-          "race": "Z",
-          "_note": "동명이인 - 닉네임 확인 필요"
+          "nickname": "저그맨박성준",
+          "race": "Z"
         },
         {
           "nickname": "초롱초롱",
@@ -709,11 +707,15 @@
           "race": "T"
         },
         {
-          "nickname": "히영",
+          "nickname": "히엉",
           "race": "T"
         },
         {
           "nickname": "우힝이",
+          "race": "T"
+        },
+        {
+          "nickname": "김쵸아",
           "race": "T"
         },
         {
@@ -741,7 +743,7 @@
         },
         {
           "nickname": "카히리",
-          "race": "P"
+          "race": "Z"
         },
         {
           "nickname": "슬돌이",
@@ -775,14 +777,6 @@
           "race": "T"
         },
         {
-          "nickname": "김인호",
-          "race": "T"
-        },
-        {
-          "nickname": "하리",
-          "race": "T"
-        },
-        {
           "nickname": "나예리",
           "race": "T"
         },
@@ -798,6 +792,10 @@
         },
         {
           "nickname": "추르미",
+          "race": "T"
+        },
+        {
+          "nickname": "김인호",
           "race": "Z"
         },
         {
@@ -824,6 +822,14 @@
           "tag": "상승"
         },
         {
+          "nickname": "이유란",
+          "race": "Z"
+        },
+        {
+          "nickname": "하리",
+          "race": "P"
+        },
+        {
           "nickname": "김뽀뇨",
           "race": "P"
         },
@@ -838,10 +844,6 @@
         },
         {
           "nickname": "별비",
-          "race": "P"
-        },
-        {
-          "nickname": "이유란",
           "race": "P"
         },
         {
@@ -868,6 +870,14 @@
         },
         {
           "nickname": "시조새",
+          "race": "P"
+        },
+        {
+          "nickname": "사랑e",
+          "race": "P"
+        },
+        {
+          "nickname": "디임",
           "race": "P"
         }
       ]
@@ -939,13 +949,13 @@
           "race": "Z"
         },
         {
-          "nickname": "링고",
-          "race": "Z"
-        },
-        {
           "nickname": "나린",
           "race": "Z",
           "tag": "상승"
+        },
+        {
+          "nickname": "링고",
+          "race": "P"
         },
         {
           "nickname": "키링",
@@ -969,11 +979,15 @@
           "race": "P"
         },
         {
-          "nickname": "꼬니부킹",
+          "nickname": "꼬니부깅",
           "race": "P"
         },
         {
           "nickname": "은똥",
+          "race": "P"
+        },
+        {
+          "nickname": "초롱빡",
           "race": "P"
         }
       ]
@@ -996,11 +1010,7 @@
           "race": "T"
         },
         {
-          "nickname": "옆집뽀누나농떼르만",
-          "race": "T"
-        },
-        {
-          "nickname": "시녕뭉",
+          "nickname": "뽀누나",
           "race": "T"
         },
         {
@@ -1014,6 +1024,18 @@
         {
           "nickname": "유이",
           "race": "T"
+        },
+        {
+          "nickname": "최세상",
+          "race": "T"
+        },
+        {
+          "nickname": "농떼르만",
+          "race": "T"
+        },
+        {
+          "nickname": "시녕뭉",
+          "race": "Z"
         },
         {
           "nickname": "치리",
@@ -1072,10 +1094,6 @@
           "race": "P"
         },
         {
-          "nickname": "최세상",
-          "race": "P"
-        },
-        {
           "nickname": "주서리",
           "race": "P",
           "tag": "승급임박"
@@ -1100,15 +1118,11 @@
           "race": "T"
         },
         {
-          "nickname": "으냥이",
+          "nickname": "으냉이",
           "race": "T"
         },
         {
           "nickname": "선정은",
-          "race": "T"
-        },
-        {
-          "nickname": "서윤",
           "race": "T"
         },
         {
@@ -1144,6 +1158,10 @@
         {
           "nickname": "뚜비",
           "race": "T"
+        },
+        {
+          "nickname": "서윤",
+          "race": "Z"
         },
         {
           "nickname": "또해영",
@@ -1195,6 +1213,14 @@
           "race": "Z"
         },
         {
+          "nickname": "히댕",
+          "race": "Z"
+        },
+        {
+          "nickname": "비재희",
+          "race": "Z"
+        },
+        {
           "nickname": "김채이",
           "race": "P"
         },
@@ -1227,14 +1253,6 @@
           "race": "P"
         },
         {
-          "nickname": "히댕",
-          "race": "P"
-        },
-        {
-          "nickname": "비재희",
-          "race": "P"
-        },
-        {
           "nickname": "엄보리",
           "race": "P",
           "tag": "승급임박"
@@ -1256,7 +1274,7 @@
           "race": "P"
         },
         {
-          "nickname": "팔순",
+          "nickname": "팥순",
           "race": "P"
         },
         {
@@ -1287,7 +1305,7 @@
           "race": "T"
         },
         {
-          "nickname": "경콩이",
+          "nickname": "경콩",
           "race": "T",
           "tag": "상승"
         },
@@ -1297,23 +1315,23 @@
           "tag": "상승"
         },
         {
-          "nickname": "면추가",
+          "nickname": "키모야",
           "race": "T"
+        },
+        {
+          "nickname": "면추가",
+          "race": "Z"
         },
         {
           "nickname": "냥수디",
           "race": "Z"
         },
         {
-          "nickname": "자닌",
+          "nickname": "쟈닌",
           "race": "Z"
         },
         {
           "nickname": "먼진",
-          "race": "Z"
-        },
-        {
-          "nickname": "키모야",
           "race": "Z"
         },
         {
@@ -1330,10 +1348,6 @@
           "race": "Z"
         },
         {
-          "nickname": "하루몽",
-          "race": "Z"
-        },
-        {
           "nickname": "다뉴",
           "race": "Z"
         },
@@ -1341,6 +1355,18 @@
           "nickname": "퀸주",
           "race": "Z",
           "tag": "상승"
+        },
+        {
+          "nickname": "우마루대장",
+          "race": "Z"
+        },
+        {
+          "nickname": "이주헌",
+          "race": "Z"
+        },
+        {
+          "nickname": "하루묭",
+          "race": "P"
         },
         {
           "nickname": "정서린",
@@ -1353,14 +1379,6 @@
         },
         {
           "nickname": "효짱",
-          "race": "P"
-        },
-        {
-          "nickname": "우마루대장",
-          "race": "P"
-        },
-        {
-          "nickname": "이주현",
           "race": "P"
         },
         {
@@ -1391,6 +1409,10 @@
         {
           "nickname": "이기광",
           "race": "P"
+        },
+        {
+          "nickname": "하리보나",
+          "race": "P"
         }
       ]
     },
@@ -1417,7 +1439,7 @@
         },
         {
           "nickname": "혜냥",
-          "race": "P"
+          "race": "T"
         },
         {
           "nickname": "지우리",
@@ -1428,7 +1450,7 @@
           "race": "T"
         },
         {
-          "nickname": "밍또암",
+          "nickname": "밍또얌",
           "race": "T"
         },
         {
@@ -1440,6 +1462,10 @@
           "nickname": "여운",
           "race": "T",
           "tag": "inactive"
+        },
+        {
+          "nickname": "박퍼니",
+          "race": "T"
         },
         {
           "nickname": "이지다",
@@ -1455,7 +1481,7 @@
           "race": "Z"
         },
         {
-          "nickname": "구쁜",
+          "nickname": "구쁘",
           "race": "Z"
         },
         {
@@ -1497,16 +1523,12 @@
           "race": "Z"
         },
         {
-          "nickname": "박퍼니",
-          "race": "Z"
-        },
-        {
           "nickname": "새밍",
           "race": "Z",
           "tag": "inactive"
         },
         {
-          "nickname": "맹꽁안나",
+          "nickname": "안나",
           "race": "Z"
         },
         {
@@ -1561,7 +1583,7 @@
           "race": "P"
         },
         {
-          "nickname": "혜요이",
+          "nickname": "헤요이",
           "race": "P"
         },
         {
@@ -1634,6 +1656,14 @@
           "race": "T"
         },
         {
+          "nickname": "김유나",
+          "race": "T"
+        },
+        {
+          "nickname": "단솔",
+          "race": "T"
+        },
+        {
           "nickname": "유즈",
           "race": "Z",
           "tag": "new"
@@ -1651,7 +1681,15 @@
           "race": "Z"
         },
         {
-          "nickname": "박쮸이",
+          "nickname": "박쭈이",
+          "race": "Z"
+        },
+        {
+          "nickname": "이영숙",
+          "race": "Z"
+        },
+        {
+          "nickname": "땃쥐",
           "race": "Z"
         },
         {
@@ -1673,7 +1711,7 @@
           "race": "P"
         },
         {
-          "nickname": "유네",
+          "nickname": "유녜",
           "race": "P"
         },
         {

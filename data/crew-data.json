@@ -4,11 +4,14 @@
       "name": "흑카데미",
       "since": "2023-03-31",
       "total": 14,
-      "structure": { "총장": 1, "교수+코치": 3, "학생": 10 },
+      "structure": {
+        "총장": 1,
+        "교수+코치": 3,
+        "학생": 10
+      },
       "note": "킹, 4티어 X",
       "awards": [],
       "members": [
-        { "nickname": "흑운장", "tier": "Jack", "role": "총장", "race": "T" },
         {
           "nickname": "몽군",
           "tier": "King",
@@ -17,23 +20,41 @@
           "_note": "대외티어 God"
         },
         {
-          "nickname": "달그락영주",
-          "tier": "Joker",
-          "role": "교수",
+          "nickname": "흑운장",
+          "tier": "Jack",
+          "role": "총장",
           "race": "T"
         },
-        { "nickname": "빡재", "tier": "1", "role": "코치", "race": "T" },
-        { "nickname": "우힝이", "tier": "2", "role": "학생", "race": "T" },
-        { "nickname": "히영", "tier": "2", "role": "학생", "race": "T" },
-        { "nickname": "뚜미", "tier": "3", "role": "학생", "race": "T" },
         {
-          "nickname": "링가",
-          "tier": "6",
+          "nickname": "김영주",
+          "tier": "Joker",
           "role": "학생",
-          "race": "T",
-          "_note": "자체승급 5티어"
+          "race": "T"
         },
-        { "nickname": "이아깽", "tier": "6", "role": "학생", "race": "T" },
+        {
+          "nickname": "빡재",
+          "tier": "1",
+          "role": "코치",
+          "race": "T"
+        },
+        {
+          "nickname": "히엉",
+          "tier": "2",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "우힝이",
+          "tier": "2",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "뚜미",
+          "tier": "3",
+          "role": "학생",
+          "race": "T"
+        },
         {
           "nickname": "메옹",
           "tier": "6",
@@ -42,38 +63,119 @@
           "_note": "7→6 승급"
         },
         {
-          "nickname": "경콩이",
-          "tier": "7",
+          "nickname": "이아깽",
+          "tier": "6",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "링가",
+          "tier": "6",
           "role": "학생",
           "race": "T",
-          "_note": "8→7 승급"
+          "_note": "자체승급 5티어"
         },
-        { "nickname": "제갈츄빈", "tier": "8", "role": "학생", "race": "T" },
-        { "nickname": "갱이다", "tier": "8", "role": "학생", "race": "T" },
-        { "nickname": "김유나", "tier": "Baby", "role": "학생", "race": "T" }
+        {
+          "nickname": "경콩",
+          "tier": "7",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "제갈츄빈",
+          "tier": "8",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "갱이다",
+          "tier": "8",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "김유나",
+          "tier": "Baby",
+          "role": "학생",
+          "race": "T"
+        }
       ]
     },
     {
       "name": "JSA",
       "since": "2023-05-08",
       "total": 20,
-      "structure": { "이사장": 1, "교수+코치": 7, "학생": 12 },
+      "structure": {
+        "이사장": 1,
+        "교수+코치": 7,
+        "학생": 12
+      },
       "note": "킹, 4티어 X",
       "awards": [
         "2023.08.06 풀발373배 대학대전 우승",
         "2023.11.26 핫식스배 대학대전 우승"
       ],
       "members": [
-        { "nickname": "시조새", "tier": "3", "role": "이사장", "race": "P" },
-        { "nickname": "홍구", "tier": "God", "role": "교수", "race": "Z" },
-        { "nickname": "조기석", "tier": "God", "role": "교수", "race": "T" },
-        { "nickname": "김영진", "tier": "Jack", "role": "교수", "race": "T" },
-        { "nickname": "배병우", "tier": "Jack", "role": "교수", "race": "Z" },
-        { "nickname": "김병수", "tier": "Jack", "role": "교수", "race": "Z" },
-        { "nickname": "윤준석", "tier": "Joker", "role": "교수", "race": "P" },
-        { "nickname": "김민우", "tier": "Joker", "role": "교수", "race": "P" },
-        { "nickname": "하블리", "tier": "2", "role": "학생", "race": "Z" },
-        { "nickname": "라미", "tier": "3", "role": "학생", "race": "Z" },
+        {
+          "nickname": "조기석",
+          "tier": "God",
+          "role": "교수",
+          "race": "T"
+        },
+        {
+          "nickname": "홍구",
+          "tier": "God",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "김영진",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "T"
+        },
+        {
+          "nickname": "배병우",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "김병수",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "김민우",
+          "tier": "Joker",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "윤준석",
+          "tier": "Joker",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "하블리",
+          "tier": "2",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "라미",
+          "tier": "3",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "시조새",
+          "tier": "3",
+          "role": "이사장",
+          "race": "P"
+        },
         {
           "nickname": "나린",
           "tier": "4",
@@ -81,47 +183,56 @@
           "race": "Z",
           "_note": "5→4 승급"
         },
-        { "nickname": "김태향", "tier": "6", "role": "학생", "race": "Z" },
-        { "nickname": "려원", "tier": "6", "role": "학생", "race": "T" },
-        { "nickname": "밥새", "tier": "7", "role": "학생", "race": "T" },
-        { "nickname": "자닌", "tier": "7", "role": "학생", "race": "Z" },
-        { "nickname": "돌애정", "tier": "8", "role": "학생", "race": "T" },
-        { "nickname": "백원이야", "tier": "8", "role": "학생", "race": "Z" },
-        { "nickname": "모비", "tier": "8", "role": "학생", "race": "P" },
-        { "nickname": "옥수수", "tier": "Baby", "role": "학생", "race": "P" },
-        { "nickname": "미진이", "tier": "Baby", "role": "학생", "race": "T" }
-      ]
-    },
-    {
-      "name": "엠비대",
-      "since": "2025-01-13",
-      "total": 21,
-      "structure": { "이사장": 2, "교수+코치": 7, "학생": 12 },
-      "note": "갓 티어 X",
-      "awards": [],
-      "members": [
-        { "nickname": "마에준", "tier": "8", "role": "이사장", "race": "P" },
-        { "nickname": "병하", "tier": "8", "role": "이사장", "race": "Z" },
-        { "nickname": "이영한", "tier": "King", "role": "교수", "race": "Z" },
-        { "nickname": "압살e", "tier": "Jack", "role": "교수", "race": "Z" },
-        { "nickname": "진영화", "tier": "Jack", "role": "교수", "race": "P" },
-        { "nickname": "만두호성", "tier": "Jack", "role": "교수", "race": "T" },
-        { "nickname": "이장우", "tier": "Jack", "role": "교수", "race": "Z" },
-        { "nickname": "빡쵸스", "tier": "Spade", "role": "교수", "race": "P" },
-        { "nickname": "토스봇", "tier": "0", "role": "코치", "race": "P" },
-        { "nickname": "카허리", "tier": "2", "role": "학생회장", "race": "Z" },
-        { "nickname": "하리", "tier": "3", "role": "학생", "race": "P" },
-        { "nickname": "링고", "tier": "4", "role": "학생", "race": "P" },
-        { "nickname": "최세상", "tier": "5", "role": "학생", "race": "T" },
-        { "nickname": "시냥몽", "tier": "5", "role": "학생", "race": "Z" },
-        { "nickname": "엄보리", "tier": "6", "role": "학생", "race": "P" },
-        { "nickname": "정다님", "tier": "7", "role": "학생", "race": "T" },
-        { "nickname": "면추가", "tier": "7", "role": "학생", "race": "Z" },
-        { "nickname": "엄키키", "tier": "8", "role": "학생", "race": "P" },
-        { "nickname": "권아온", "tier": "Baby", "role": "학생", "race": "Z" },
-        { "nickname": "헨히", "tier": "Baby", "role": "학생", "race": "Z" },
         {
-          "nickname": "요정너구리",
+          "nickname": "려원",
+          "tier": "6",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "김태향",
+          "tier": "6",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "밥새",
+          "tier": "7",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "쟈닌",
+          "tier": "7",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "돌애정",
+          "tier": "8",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "백원이야",
+          "tier": "8",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "모비",
+          "tier": "8",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "미진이",
+          "tier": "Baby",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "옥수수",
           "tier": "Baby",
           "role": "학생",
           "race": "P"
@@ -129,61 +240,363 @@
       ]
     },
     {
+      "name": "엠비대",
+      "since": "2025-01-13",
+      "total": 21,
+      "structure": {
+        "이사장": 2,
+        "교수+코치": 7,
+        "학생": 12
+      },
+      "note": "갓 티어 X",
+      "awards": [],
+      "members": [
+        {
+          "nickname": "이영한",
+          "tier": "King",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "만두호성",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "T"
+        },
+        {
+          "nickname": "이창우",
+          "tier": "Jack",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "얍삽e",
+          "tier": "Jack",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "진영화",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "빡죠스",
+          "tier": "Spade",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "토스봇",
+          "tier": "0",
+          "role": "코치",
+          "race": "P"
+        },
+        {
+          "nickname": "카히리",
+          "tier": "2",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "하리",
+          "tier": "3",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "링고",
+          "tier": "4",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "시녕뭉",
+          "tier": "5",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "최세상",
+          "tier": "5",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "엄보리",
+          "tier": "6",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "정다닝",
+          "tier": "7",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "면추가",
+          "tier": "7",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "병하",
+          "tier": "8",
+          "role": "이사장",
+          "race": "Z"
+        },
+        {
+          "nickname": "엄키키",
+          "tier": "8",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "마예준",
+          "tier": "8",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "권아온",
+          "tier": "Baby",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "요정너구리",
+          "tier": "Baby",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "햄희",
+          "tier": "Baby",
+          "role": "학생",
+          "race": ""
+        }
+      ]
+    },
+    {
       "name": "와플대",
       "since": "2025-02-02",
       "total": 18,
-      "structure": { "이사장": 1, "교수+코치": 7, "학생": 10 },
+      "structure": {
+        "이사장": 1,
+        "교수+코치": 7,
+        "학생": 10
+      },
       "note": "갓, 킹, 3티어 X",
       "awards": [],
       "members": [
-        { "nickname": "와이퍼", "tier": "8", "role": "이사장", "race": "P" },
-        { "nickname": "박성준", "tier": "Spade", "role": "총장", "race": "Z" },
-        { "nickname": "프발", "tier": "Jack", "role": "교수", "race": "P" },
-        { "nickname": "김상곤", "tier": "Joker", "role": "교수", "race": "Z" },
-        { "nickname": "김대한", "tier": "Joker", "role": "교수", "race": "Z" },
-        { "nickname": "허유", "tier": "Joker", "role": "교수", "race": "Z" },
-        { "nickname": "전상욱", "tier": "Joker", "role": "교수", "race": "T" },
-        { "nickname": "송현덕", "tier": "Spade", "role": "교수", "race": "P" },
-        { "nickname": "포봉순", "tier": "2", "role": "학생", "race": "Z" },
         {
-          "nickname": "꼬니부김",
-          "tier": "4",
-          "role": "학생회장",
+          "nickname": "프발",
+          "tier": "Jack",
+          "role": "교수",
           "race": "P"
         },
-        { "nickname": "몽순", "tier": "4", "role": "학생", "race": "Z" },
-        { "nickname": "단양", "tier": "5", "role": "학생", "race": "Z" },
-        { "nickname": "비재희", "tier": "6", "role": "학생", "race": "Z" },
-        { "nickname": "키모야", "tier": "7", "role": "학생", "race": "T" },
-        { "nickname": "구키", "tier": "8", "role": "학생", "race": "P" },
-        { "nickname": "황단비", "tier": "8", "role": "학생", "race": "Z" },
-        { "nickname": "단이", "tier": "8", "role": "학생", "race": "Z" },
-        { "nickname": "잇찌", "tier": "Baby", "role": "학생", "race": "P" }
+        {
+          "nickname": "허유",
+          "tier": "Joker",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "김상곤",
+          "tier": "Joker",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "전상욱",
+          "tier": "Joker",
+          "role": "교수",
+          "race": "T"
+        },
+        {
+          "nickname": "김대한",
+          "tier": "Joker",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "박성준",
+          "tier": "Spade",
+          "role": "총장",
+          "race": "Z"
+        },
+        {
+          "nickname": "송현덕",
+          "tier": "Spade",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "또봉순",
+          "tier": "2",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "몽순",
+          "tier": "4",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "꼬니부깅",
+          "tier": "4",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "단양",
+          "tier": "5",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "비재희",
+          "tier": "6",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "키모야",
+          "tier": "7",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "황단비",
+          "tier": "8",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "단이",
+          "tier": "8",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "구키",
+          "tier": "8",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "와이퍼",
+          "tier": "8",
+          "role": "이사장",
+          "race": "P"
+        },
+        {
+          "nickname": "있찌",
+          "tier": "Baby",
+          "role": "학생",
+          "race": "P"
+        }
       ]
     },
     {
       "name": "이노대",
       "since": "2024-07-04",
       "total": 21,
-      "structure": { "이사장": 1, "교수": 8, "학생": 12 },
+      "structure": {
+        "이사장": 1,
+        "교수": 8,
+        "학생": 12
+      },
       "note": "4티어 X",
       "awards": [],
       "members": [
-        { "nickname": "김인호", "tier": "3", "role": "이사장", "race": "Z" },
-        { "nickname": "김성대", "tier": "God", "role": "총장", "race": "Z" },
-        { "nickname": "임진묵", "tier": "Jack", "role": "부총장", "race": "T" },
-        { "nickname": "변현제", "tier": "God", "role": "교수", "race": "P" },
-        { "nickname": "이예훈", "tier": "King", "role": "교수", "race": "Z" },
-        { "nickname": "윤수철", "tier": "King", "role": "교수", "race": "P" },
-        { "nickname": "구성훈", "tier": "King", "role": "교수", "race": "T" },
-        { "nickname": "어윤수", "tier": "Jack", "role": "교수", "race": "Z" },
-        { "nickname": "김범수", "tier": "Jack", "role": "교수", "race": "P" },
-        { "nickname": "다나짱", "tier": "2", "role": "학생", "race": "P" },
-        { "nickname": "박듀듀", "tier": "3", "role": "학생", "race": "P" },
-        { "nickname": "이유란", "tier": "3", "role": "학생", "race": "Z" },
-        { "nickname": "라운이", "tier": "5", "role": "학생", "race": "P" },
-        { "nickname": "비타밍", "tier": "6", "role": "학생", "race": "T" },
-        { "nickname": "김설", "tier": "6", "role": "학생", "race": "Z" },
+        {
+          "nickname": "김성대",
+          "tier": "God",
+          "role": "총장",
+          "race": "Z"
+        },
+        {
+          "nickname": "변현제",
+          "tier": "God",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "구성훈",
+          "tier": "King",
+          "role": "교수",
+          "race": "T"
+        },
+        {
+          "nickname": "이예훈",
+          "tier": "King",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "윤수철",
+          "tier": "King",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "임진묵",
+          "tier": "Jack",
+          "role": "부총장",
+          "race": "T"
+        },
+        {
+          "nickname": "어윤수",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "김범수",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "다나짱",
+          "tier": "2",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "김인호",
+          "tier": "3",
+          "role": "이사장",
+          "race": "Z"
+        },
+        {
+          "nickname": "이유란",
+          "tier": "3",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "박듀듀",
+          "tier": "3",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "라운이",
+          "tier": "5",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "비타밍",
+          "tier": "6",
+          "role": "학생",
+          "race": "T"
+        },
         {
           "nickname": "수니양",
           "tier": "6",
@@ -191,13 +604,11 @@
           "race": "T",
           "_note": "7→6 승급"
         },
-        { "nickname": "다뉴", "tier": "7", "role": "학생", "race": "Z" },
         {
-          "nickname": "아리송이",
-          "tier": "7",
+          "nickname": "김설",
+          "tier": "6",
           "role": "학생",
-          "race": "P",
-          "_note": "8→7 승급"
+          "race": "Z"
         },
         {
           "nickname": "김말랑",
@@ -207,87 +618,216 @@
           "_note": "8→7 승급"
         },
         {
+          "nickname": "다뉴",
+          "tier": "7",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "아리송이",
+          "tier": "7",
+          "role": "학생",
+          "race": "P",
+          "_note": "8→7 승급"
+        },
+        {
           "nickname": "연또",
           "tier": "8",
           "role": "학생",
           "race": "Z",
           "_note": "Baby→8 승급"
         },
-        { "nickname": "밤하밍", "tier": "Baby", "role": "학생", "race": "T" }
+        {
+          "nickname": "밤하밍",
+          "tier": "Baby",
+          "role": "학생",
+          "race": "T"
+        }
       ]
     },
     {
       "name": "츠캄몬스타즈",
       "since": "2024-09-01",
       "total": 19,
-      "structure": { "총장": 2, "교수+코치": 8, "학생": 9 },
+      "structure": {
+        "총장": 2,
+        "교수+코치": 8,
+        "학생": 9
+      },
       "note": "2티어 X",
-      "awards": ["2024.12.23 라네트배 대학대전 우승"],
+      "awards": [
+        "2024.12.23 라네트배 대학대전 우승"
+      ],
       "members": [
-        { "nickname": "김윤환", "tier": "Jack", "role": "총장", "race": "Z" },
-        { "nickname": "이경민", "tier": "Jack", "role": "총장", "race": "P" },
-        { "nickname": "황병영", "tier": "God", "role": "교수", "race": "T" },
-        { "nickname": "조일장", "tier": "God", "role": "교수", "race": "Z" },
-        { "nickname": "박준오", "tier": "King", "role": "교수", "race": "Z" },
-        { "nickname": "박수범", "tier": "King", "role": "교수", "race": "P" },
-        { "nickname": "지동원", "tier": "Jack", "role": "교수", "race": "T" },
-        { "nickname": "배성흠", "tier": "Jack", "role": "교수", "race": "Z" },
         {
-          "nickname": "파도튜브",
+          "nickname": "황병영",
+          "tier": "God",
+          "role": "교수",
+          "race": "T"
+        },
+        {
+          "nickname": "조일장",
+          "tier": "God",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "박준오",
+          "tier": "King",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "박수범",
+          "tier": "King",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "지동원",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "T"
+        },
+        {
+          "nickname": "김윤환",
+          "tier": "Jack",
+          "role": "총장",
+          "race": "Z"
+        },
+        {
+          "nickname": "배성흠",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "이경민",
+          "tier": "Jack",
+          "role": "총장",
+          "race": "P"
+        },
+        {
+          "nickname": "파도",
           "tier": "Spade",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "수입뿌드",
+          "tier": "1",
           "role": "코치",
           "race": "P"
         },
-        { "nickname": "수입뿌드", "tier": "1", "role": "코치", "race": "P" },
-        { "nickname": "토마토", "tier": "3", "role": "학생", "race": "P" },
-        { "nickname": "햇살", "tier": "4", "role": "학생", "race": "T" },
-        { "nickname": "치리", "tier": "5", "role": "학생", "race": "Z" },
-        { "nickname": "주하랑", "tier": "5", "role": "학생", "race": "P" },
-        { "nickname": "소주양", "tier": "5", "role": "학생", "race": "T" },
-        { "nickname": "임조이", "tier": "6", "role": "학생", "race": "Z" },
-        { "nickname": "먼진", "tier": "7", "role": "학생", "race": "Z" },
-        { "nickname": "진땅콩", "tier": "8", "role": "학생", "race": "P" },
-        { "nickname": "박쮸이", "tier": "Baby", "role": "학생", "race": "Z" }
+        {
+          "nickname": "토마토",
+          "tier": "3",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "햇살",
+          "tier": "4",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "소주양",
+          "tier": "5",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "치리",
+          "tier": "5",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "주하랑",
+          "tier": "5",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "임조이",
+          "tier": "6",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "먼진",
+          "tier": "7",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "진땅콩",
+          "tier": "8",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "박쭈이",
+          "tier": "Baby",
+          "role": "학생",
+          "race": "Z"
+        }
       ]
     },
     {
       "name": "BGM",
       "since": "2025-12-13",
-      "total": 20,
-      "structure": { "이사장": 1, "교수+코치+기타": 7, "학생": 12 },
+      "total": 18,
+      "structure": {
+        "이사장": 1,
+        "교수+코치+기타": 7,
+        "학생": 12
+      },
       "note": "갓, 킹, 3티어 X",
       "awards": [],
       "members": [
         {
-          "nickname": "뽀현욱",
-          "tier": "Check",
-          "role": "이사장",
+          "nickname": "김기덕",
+          "tier": "Joker",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "라박이",
+          "tier": "Joker",
+          "role": "교수",
           "race": "P"
         },
         {
-          "nickname": "두풀조합",
-          "tier": "Check",
-          "role": "고문",
+          "nickname": "쿰신",
+          "tier": "Joker",
+          "role": "교수",
           "race": "P"
         },
-        { "nickname": "쿨지지", "tier": "Joker", "role": "교수", "race": "P" },
+        {
+          "nickname": "쿨지지",
+          "tier": "Joker",
+          "role": "교수",
+          "race": "P"
+        },
         {
           "nickname": "박성진",
           "tier": "Spade",
           "role": "총괄PD",
           "race": "T"
         },
-        { "nickname": "라박이", "tier": "Joker", "role": "교수", "race": "P" },
-        { "nickname": "김기덕", "tier": "Joker", "role": "교수", "race": "Z" },
-        { "nickname": "쿰신", "tier": "Joker", "role": "교수", "race": "P" },
-        { "nickname": "라히", "tier": "1", "role": "코치", "race": "T" },
-        { "nickname": "안아", "tier": "1", "role": "학생", "race": "P" },
         {
-          "nickname": "김초아",
-          "tier": "2",
+          "nickname": "라히",
+          "tier": "1",
+          "role": "코치",
+          "race": "T"
+        },
+        {
+          "nickname": "안아",
+          "tier": "1",
           "role": "학생",
-          "race": "T",
-          "_note": "티어표에 없음"
+          "race": "P"
         },
         {
           "nickname": "뽀누나",
@@ -303,13 +843,54 @@
           "race": "Z",
           "_note": "자체승급 4티어"
         },
-        { "nickname": "태린", "tier": "6", "role": "학생", "race": "P" },
-        { "nickname": "진니", "tier": "7", "role": "학생", "race": "Z" },
-        { "nickname": "흑설", "tier": "7", "role": "학생", "race": "P" },
-        { "nickname": "햇참새", "tier": "8", "role": "학생", "race": "P" },
-        { "nickname": "먹체토", "tier": "8", "role": "학생", "race": "P" },
-        { "nickname": "김세주", "tier": "8", "role": "학생", "race": "T" },
-        { "nickname": "유네", "tier": "Baby", "role": "학생", "race": "P" },
+        {
+          "nickname": "태린",
+          "tier": "6",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "진니",
+          "tier": "7",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "흑설",
+          "tier": "7",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "김세주",
+          "tier": "8",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "햇참새",
+          "tier": "8",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "먹체토",
+          "tier": "8",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "유녜",
+          "tier": "Baby",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "김쵸아",
+          "tier": "2",
+          "role": "학생",
+          "race": "T"
+        },
         {
           "nickname": "이영숙",
           "tier": "Baby",
@@ -322,27 +903,57 @@
     {
       "name": "HM",
       "since": "2025-12-18",
-      "total": 16,
-      "structure": { "이사장": 1, "교수+코치": 6, "학생": 9 },
+      "total": 15,
+      "structure": {
+        "이사장": 1,
+        "교수+코치": 6,
+        "학생": 9
+      },
       "note": "2티어 X",
       "awards": [],
       "members": [
-        { "nickname": "혁민", "tier": "Check", "role": "이사장", "race": "P" },
-        { "nickname": "강민", "tier": "Spade", "role": "총장", "race": "P" },
-        { "nickname": "최호선", "tier": "God", "role": "교수", "race": "T" },
-        { "nickname": "방태수", "tier": "King", "role": "교수", "race": "Z" },
-        { "nickname": "박태민", "tier": "Spade", "role": "교수", "race": "Z" },
-        { "nickname": "파메", "tier": "0", "role": "코치", "race": "P" },
-        { "nickname": "나도현", "tier": "1", "role": "코치", "race": "T" },
         {
-          "nickname": "사랑e",
-          "tier": "3",
-          "role": "학생",
-          "race": "P",
-          "_note": "티어표에 없음"
+          "nickname": "최호선",
+          "tier": "God",
+          "role": "교수",
+          "race": "T"
         },
-        { "nickname": "금선2", "tier": "4", "role": "학생", "race": "T" },
-        { "nickname": "도릿", "tier": "6", "role": "학생", "race": "Z" },
+        {
+          "nickname": "방태수",
+          "tier": "King",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "박태민",
+          "tier": "Spade",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "강민",
+          "tier": "Spade",
+          "role": "총장",
+          "race": "P"
+        },
+        {
+          "nickname": "파메",
+          "tier": "0",
+          "role": "코치",
+          "race": "P"
+        },
+        {
+          "nickname": "나도현",
+          "tier": "1",
+          "role": "코치",
+          "race": "T"
+        },
+        {
+          "nickname": "금선2",
+          "tier": "4",
+          "role": "학생",
+          "race": "T"
+        },
         {
           "nickname": "뚜비",
           "tier": "6",
@@ -350,17 +961,48 @@
           "race": "T",
           "_note": "자체승급 5티어"
         },
-        { "nickname": "세월", "tier": "7", "role": "학생", "race": "T" },
-        { "nickname": "이주리", "tier": "8", "role": "학생", "race": "P" },
-        { "nickname": "삼교", "tier": "8", "role": "학생", "race": "Z" },
-        { "nickname": "멍라희", "tier": "Baby", "role": "학생", "race": "P" },
         {
-          "nickname": "맞쥐",
+          "nickname": "도릿",
+          "tier": "6",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "세월",
+          "tier": "7",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "삼교",
+          "tier": "8",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "이주리",
+          "tier": "8",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "멍라희",
           "tier": "Baby",
           "role": "학생",
-          "race": "Z",
-          "tag": "new",
+          "race": "P"
+        },
+        {
+          "nickname": "사랑e",
+          "tier": "3",
+          "role": "학생",
+          "race": "P",
           "_note": "티어표에 없음"
+        },
+        {
+          "nickname": "땃쥐",
+          "tier": "Baby",
+          "role": "학생",
+          "race": "Z"
         }
       ]
     },
@@ -368,28 +1010,122 @@
       "name": "씨나인",
       "since": "2024-03-10",
       "total": 25,
-      "structure": { "이사장": 1, "교수+기타": 11, "학생": 13 },
+      "structure": {
+        "이사장": 1,
+        "교수+기타": 11,
+        "학생": 13
+      },
       "note": "모든 티어 O",
       "awards": [],
       "members": [
-        { "nickname": "철구", "tier": "Joker", "role": "이사장", "race": "Z" },
-        { "nickname": "박재혁", "tier": "Jack", "role": "총장", "race": "Z" },
-        { "nickname": "빵훈", "tier": "2", "role": "선도부장", "race": "P" },
-        { "nickname": "김윤중", "tier": "King", "role": "교수", "race": "P" },
-        { "nickname": "윤용태", "tier": "King", "role": "교수", "race": "P" },
-        { "nickname": "강구열", "tier": "0", "role": "교수", "race": "T" },
-        { "nickname": "김택용", "tier": "God", "role": "교수", "race": "P" },
-        { "nickname": "웨나맨", "tier": "Jack", "role": "교수", "race": "P" },
-        { "nickname": "김민철", "tier": "God", "role": "교수", "race": "Z" },
-        { "nickname": "윤진규", "tier": "Jack", "role": "교수", "race": "Z" },
-        { "nickname": "이영호", "tier": "God", "role": "교수", "race": "T" },
-        { "nickname": "최재성", "tier": "Spade", "role": "교수", "race": "T" },
-        { "nickname": "나무늘봉순", "tier": "2", "role": "학생", "race": "Z" },
-        { "nickname": "다잎", "tier": "3", "role": "학생", "race": "P" },
-        { "nickname": "겸니", "tier": "4", "role": "학생", "race": "P" },
-        { "nickname": "오조은", "tier": "4", "role": "학생", "race": "T" },
-        { "nickname": "요닝", "tier": "4", "role": "학생", "race": "Z" },
-        { "nickname": "란란", "tier": "5", "role": "학생", "race": "Z" },
+        {
+          "nickname": "이영호",
+          "tier": "God",
+          "role": "교수",
+          "race": "T"
+        },
+        {
+          "nickname": "김민철",
+          "tier": "God",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "김택용",
+          "tier": "God",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "김윤중",
+          "tier": "King",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "윤용태",
+          "tier": "King",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "박재혁",
+          "tier": "Jack",
+          "role": "총장",
+          "race": "Z"
+        },
+        {
+          "nickname": "윤진규",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "왜냐맨",
+          "tier": "Jack",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "철구",
+          "tier": "Joker",
+          "role": "이사장",
+          "race": "Z"
+        },
+        {
+          "nickname": "최재성",
+          "tier": "Spade",
+          "role": "교수",
+          "race": "T"
+        },
+        {
+          "nickname": "강구열",
+          "tier": "0",
+          "role": "교수",
+          "race": "T"
+        },
+        {
+          "nickname": "나무늘봉순",
+          "tier": "2",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "빵훈",
+          "tier": "2",
+          "role": "선도부장",
+          "race": "P"
+        },
+        {
+          "nickname": "오조은",
+          "tier": "4",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "요닝",
+          "tier": "4",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "졈니",
+          "tier": "4",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "란란",
+          "tier": "5",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "모리",
+          "tier": "6",
+          "role": "학생",
+          "race": "T"
+        },
         {
           "nickname": "오리꿍",
           "tier": "6",
@@ -397,17 +1133,42 @@
           "race": "Z",
           "_note": "자체승급 7티어"
         },
-        { "nickname": "남수명", "tier": "6", "role": "학생", "race": "P" },
-        { "nickname": "허밍", "tier": "6", "role": "학생", "race": "Z" },
-        { "nickname": "모리", "tier": "6", "role": "학생", "race": "T" },
-        { "nickname": "호짱", "tier": "7", "role": "학생", "race": "P" },
-        { "nickname": "이지다", "tier": "8", "role": "학생", "race": "Z" },
+        {
+          "nickname": "히댕",
+          "tier": "6",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "남수댕",
+          "tier": "6",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "효짱",
+          "tier": "7",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "이지다",
+          "tier": "8",
+          "role": "학생",
+          "race": "Z"
+        },
         {
           "nickname": "은조",
-          "tier": "Baby",
+          "tier": "8",
           "role": "학생",
           "race": "Z",
           "_note": "8티어"
+        },
+        {
+          "nickname": "디임",
+          "tier": "3",
+          "role": "학생",
+          "race": "P"
         }
       ]
     },
@@ -415,25 +1176,68 @@
       "name": "정선대",
       "since": "2024-06-25",
       "total": 21,
-      "structure": { "이사장": 1, "교수": 7, "학생": 13 },
+      "structure": {
+        "이사장": 1,
+        "교수": 7,
+        "학생": 13
+      },
       "note": "갓, 8 티어 X",
       "awards": [],
       "members": [
-        { "nickname": "박퍼니", "tier": "8", "role": "이사장", "race": "Z" },
-        { "nickname": "전태규", "tier": "Spade", "role": "총장", "race": "P" },
+        {
+          "nickname": "원선재",
+          "tier": "King",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "배호딱",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "T"
+        },
+        {
+          "nickname": "김수식",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "정경두",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "권혁진",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "P"
+        },
         {
           "nickname": "민찬기",
           "tier": "Joker",
           "role": "부총장",
           "race": "T"
         },
-        { "nickname": "권혁진", "tier": "Jack", "role": "교수", "race": "P" },
-        { "nickname": "정경두", "tier": "Jack", "role": "교수", "race": "P" },
-        { "nickname": "김수식", "tier": "Jack", "role": "교수", "race": "Z" },
-        { "nickname": "원선재", "tier": "King", "role": "교수", "race": "P" },
-        { "nickname": "배호딱", "tier": "Jack", "role": "교수", "race": "T" },
-        { "nickname": "헤르로", "tier": "2", "role": "학생회장", "race": "Z" },
-        { "nickname": "소심", "tier": "3", "role": "학생", "race": "T" },
+        {
+          "nickname": "전태규",
+          "tier": "Spade",
+          "role": "총장",
+          "race": "P"
+        },
+        {
+          "nickname": "혜로로",
+          "tier": "2",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "소심",
+          "tier": "3",
+          "role": "학생",
+          "race": "T"
+        },
         {
           "nickname": "빵리나",
           "tier": "3",
@@ -441,28 +1245,92 @@
           "race": "P",
           "_note": "자체승급 4티어"
         },
-        { "nickname": "오하안", "tier": "5", "role": "학생", "race": "P" },
-        { "nickname": "설동이", "tier": "5", "role": "학생", "race": "P" },
-        { "nickname": "선정은", "tier": "6", "role": "학생", "race": "T" },
-        { "nickname": "김채이", "tier": "6", "role": "학생", "race": "P" },
-        { "nickname": "은서", "tier": "7", "role": "학생", "race": "P" },
-        { "nickname": "단솔", "tier": "Baby", "role": "인턴", "race": "T" },
-        { "nickname": "고요", "tier": "Baby", "role": "학생", "race": "Z" },
-        { "nickname": "초이", "tier": "Baby", "role": "학생", "race": "Z" },
-        { "nickname": "으니", "tier": "Baby", "role": "학생", "race": "P" },
-        { "nickname": "이웅씨", "tier": "Baby", "role": "학생", "race": "T" }
+        {
+          "nickname": "오하얀",
+          "tier": "5",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "설둥이",
+          "tier": "5",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "선정은",
+          "tier": "6",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "김채이",
+          "tier": "6",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "은서",
+          "tier": "7",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "박퍼니",
+          "tier": "8",
+          "role": "이사장",
+          "race": "T"
+        },
+        {
+          "nickname": "이응씨",
+          "tier": "Baby",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "초이",
+          "tier": "Baby",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "고요",
+          "tier": "Baby",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "으니",
+          "tier": "Baby",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "단솔",
+          "tier": "Baby",
+          "role": "인턴",
+          "race": "T"
+        }
       ]
     },
     {
       "name": "수술대",
       "since": "2025-06-26",
       "total": 25,
-      "structure": { "이사장": 1, "교수+코치": 8, "학생": 16 },
+      "structure": {
+        "이사장": 1,
+        "교수+코치": 8,
+        "학생": 16
+      },
       "note": "킹 티어 X, 1 티어 O",
       "awards": [],
       "members": [
-        { "nickname": "정중만", "tier": "5", "role": "이사장", "race": "P" },
-        { "nickname": "짭제", "tier": "God", "role": "교수", "race": "Z" },
+        {
+          "nickname": "짭제",
+          "tier": "God",
+          "role": "교수",
+          "race": "Z"
+        },
         {
           "nickname": "송병구",
           "tier": "King",
@@ -470,22 +1338,66 @@
           "race": "P",
           "_note": "대회티어 God"
         },
-        { "nickname": "신상문", "tier": "Jack", "role": "교수", "race": "T" },
-        { "nickname": "서문지훈", "tier": "Jack", "role": "교수", "race": "Z" },
+        {
+          "nickname": "신상문",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "T"
+        },
+        {
+          "nickname": "서문지훈",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "Z"
+        },
         {
           "nickname": "선우도현",
           "tier": "Joker",
           "role": "교수",
           "race": "Z"
         },
-        { "nickname": "손찬웅", "tier": "Joker", "role": "교수", "race": "P" },
-        { "nickname": "소룡이", "tier": "0", "role": "코치", "race": "P" },
-        { "nickname": "멍이에요", "tier": "0", "role": "코치", "race": "P" },
-        { "nickname": "다린", "tier": "1", "role": "학생", "race": "T" },
-        { "nickname": "남덕선", "tier": "2", "role": "학생", "race": "Z" },
-        { "nickname": "나예리", "tier": "3", "role": "학생", "race": "T" },
-        { "nickname": "파찌", "tier": "3", "role": "학생", "race": "Z" },
-        { "nickname": "유복실", "tier": "3", "role": "학생", "race": "P" },
+        {
+          "nickname": "손찬웅",
+          "tier": "Joker",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "멍이에요",
+          "tier": "0",
+          "role": "코치",
+          "race": "P"
+        },
+        {
+          "nickname": "소룡이",
+          "tier": "0",
+          "role": "코치",
+          "race": "P"
+        },
+        {
+          "nickname": "다린",
+          "tier": "1",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "남덕선",
+          "tier": "2",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "나예리",
+          "tier": "3",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "파찌",
+          "tier": "3",
+          "role": "학생",
+          "race": "Z"
+        },
         {
           "nickname": "공다츠",
           "tier": "3",
@@ -493,27 +1405,104 @@
           "race": "Z",
           "_note": "4→3 승급"
         },
-        { "nickname": "연애인", "tier": "4", "role": "학생", "race": "P" },
-        { "nickname": "깨림이", "tier": "5", "role": "학생", "race": "T" },
-        { "nickname": "주서리", "tier": "5", "role": "학생회장", "race": "P" },
-        { "nickname": "김무아", "tier": "6", "role": "학생", "race": "P" },
-        { "nickname": "귀요민정", "tier": "6", "role": "학생", "race": "Z" },
-        { "nickname": "밍가", "tier": "6", "role": "학생", "race": "P" },
-        { "nickname": "2라니", "tier": "6", "role": "학생", "race": "Z" },
-        { "nickname": "핑핑", "tier": "7", "role": "학생", "race": "Z" },
-        { "nickname": "행복짱", "tier": "8", "role": "학생", "race": "Z" },
-        { "nickname": "혜요이", "tier": "8", "role": "학생", "race": "P" }
+        {
+          "nickname": "유복실",
+          "tier": "3",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "연애인",
+          "tier": "4",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "깨림이",
+          "tier": "5",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "정중만",
+          "tier": "5",
+          "role": "이사장",
+          "race": "P"
+        },
+        {
+          "nickname": "주서리",
+          "tier": "5",
+          "role": "학생회장",
+          "race": "P"
+        },
+        {
+          "nickname": "2라니",
+          "tier": "6",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "귀요민정",
+          "tier": "6",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "밍가",
+          "tier": "6",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "김무아",
+          "tier": "6",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "핑핑",
+          "tier": "7",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "행복짱",
+          "tier": "8",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "헤요이",
+          "tier": "8",
+          "role": "학생",
+          "race": "P"
+        }
       ]
     },
     {
       "name": "뉴캣슬",
       "since": "2025-07-22",
       "total": 29,
-      "structure": { "대장": 1, "교수+코치+기타": 12, "학생": 16 },
+      "structure": {
+        "대장": 1,
+        "교수+코치+기타": 12,
+        "학생": 16
+      },
       "note": "2 티어 X",
       "awards": [],
       "members": [
-        { "nickname": "기뉴다", "tier": "Spade", "role": "대장", "race": "T" },
+        {
+          "nickname": "김정우",
+          "tier": "God",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "도재욱",
+          "tier": "God",
+          "role": "교수",
+          "race": "P"
+        },
         {
           "nickname": "박성균",
           "tier": "King",
@@ -521,14 +1510,15 @@
           "race": "T",
           "_note": "대회티어 God"
         },
-        { "nickname": "도재욱", "tier": "God", "role": "교수", "race": "P" },
-        { "nickname": "김정우", "tier": "God", "role": "교수", "race": "Z" },
-        { "nickname": "샤이니", "tier": "King", "role": "교수", "race": "T" },
-        { "nickname": "구라미스", "tier": "Jack", "role": "교수", "race": "P" },
-        { "nickname": "김건욱", "tier": "Joker", "role": "교수", "race": "Z" },
         {
-          "nickname": "미동미동",
-          "tier": "Joker",
+          "nickname": "샤이니",
+          "tier": "King",
+          "role": "교수",
+          "race": "T"
+        },
+        {
+          "nickname": "구라미스",
+          "tier": "Jack",
           "role": "교수",
           "race": "P"
         },
@@ -538,19 +1528,90 @@
           "role": "교수",
           "race": "Z"
         },
-        { "nickname": "박성준", "tier": "Spade", "role": "교수", "race": "Z" },
-        { "nickname": "초난강", "tier": "Spade", "role": "코치", "race": "T" },
-        { "nickname": "트슈", "tier": "Spade", "role": "코치", "race": "P" },
-        { "nickname": "욱하는형", "tier": "7", "role": "구단주", "race": "P" },
-        { "nickname": "상어녀", "tier": "3", "role": "학생", "race": "Z" },
-        { "nickname": "최도랑", "tier": "4", "role": "학생", "race": "P" },
-        { "nickname": "키링", "tier": "4", "role": "학생", "race": "P" },
-        { "nickname": "쥬나", "tier": "4", "role": "학생", "race": "Z" },
-        { "nickname": "유이", "tier": "5", "role": "학생", "race": "T" },
-        { "nickname": "강덕구", "tier": "5", "role": "학생", "race": "T" },
-        { "nickname": "백갑숙", "tier": "6", "role": "학생", "race": "P" },
-        { "nickname": "진유성", "tier": "6", "role": "학생", "race": "P" },
-        { "nickname": "막내현진", "tier": "7", "role": "학생", "race": "P" },
+        {
+          "nickname": "김건욱",
+          "tier": "Joker",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "미동미동",
+          "tier": "Joker",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "기뉴다",
+          "tier": "Spade",
+          "role": "대장",
+          "race": "T"
+        },
+        {
+          "nickname": "초난강",
+          "tier": "Spade",
+          "role": "코치",
+          "race": "T"
+        },
+        {
+          "nickname": "저그맨박성준",
+          "tier": "Spade",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "트슈",
+          "tier": "Spade",
+          "role": "코치",
+          "race": "P"
+        },
+        {
+          "nickname": "상어녀",
+          "tier": "3",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "쥬나",
+          "tier": "4",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "키링",
+          "tier": "4",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "최도랑",
+          "tier": "4",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "강덕구",
+          "tier": "5",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "유이",
+          "tier": "5",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "진유성",
+          "tier": "6",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "백갑숙",
+          "tier": "6",
+          "role": "학생",
+          "race": "P"
+        },
         {
           "nickname": "퀸주",
           "tier": "7",
@@ -558,9 +1619,36 @@
           "race": "Z",
           "_note": "8→7 승급"
         },
-        { "nickname": "밍또암", "tier": "8", "role": "학생", "race": "T" },
-        { "nickname": "뀨알", "tier": "8", "role": "학생", "race": "P" },
-        { "nickname": "냥냥코기", "tier": "8", "role": "학생", "race": "Z" },
+        {
+          "nickname": "막내현진",
+          "tier": "7",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "욱하는형",
+          "tier": "7",
+          "role": "구단주",
+          "race": "P"
+        },
+        {
+          "nickname": "밍또얌",
+          "tier": "8",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "냥냥코기",
+          "tier": "8",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "뀨알",
+          "tier": "8",
+          "role": "학생",
+          "race": "P"
+        },
         {
           "nickname": "우질",
           "tier": "8",
@@ -568,20 +1656,62 @@
           "race": "P",
           "_note": "Baby→8 승급"
         },
-        { "nickname": "오세은", "tier": "Baby", "role": "학생", "race": "T" },
-        { "nickname": "유즈", "tier": "Baby", "role": "학생", "race": "Z" }
+        {
+          "nickname": "오세은",
+          "tier": "Baby",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "유즈",
+          "tier": "Baby",
+          "role": "학생",
+          "race": "Z"
+        }
       ]
     },
     {
       "name": "늪지대",
       "since": "2023-06-17",
       "total": 19,
-      "structure": { "이사장": 1, "교수+코치": 6, "학생": 12 },
+      "structure": {
+        "이사장": 1,
+        "교수+코치": 6,
+        "학생": 12
+      },
       "note": "갓, 킹, 2티어 X / 1티어 O",
       "awards": [],
       "members": [
-        { "nickname": "쌍디", "tier": "6", "role": "이사장", "race": "Z" },
-        { "nickname": "서기수", "tier": "Spade", "role": "총장", "race": "P" },
+        {
+          "nickname": "져지현",
+          "tier": "Joker",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "인치호",
+          "tier": "Joker",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "킁식",
+          "tier": "Joker",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "카권",
+          "tier": "Spade",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "서기수",
+          "tier": "Spade",
+          "role": "총장",
+          "race": "P"
+        },
         {
           "nickname": "김성제",
           "tier": "Spade",
@@ -589,37 +1719,66 @@
           "race": "P"
         },
         {
-          "nickname": "Judge현",
-          "tier": "Joker",
-          "role": "교수",
-          "race": "Z",
-          "_note": "저지현과 동일인물 가능성"
+          "nickname": "애공",
+          "tier": "1",
+          "role": "학생회장",
+          "race": "P"
         },
-        { "nickname": "카권", "tier": "Spade", "role": "교수", "race": "Z" },
-        { "nickname": "인치호", "tier": "Joker", "role": "교수", "race": "Z" },
-        { "nickname": "킁식", "tier": "Joker", "role": "교수", "race": "P" },
-        { "nickname": "애공", "tier": "1", "role": "학생회장", "race": "P" },
         {
-          "nickname": "초롱빡",
+          "nickname": "슬아",
           "tier": "4",
           "role": "학생",
-          "race": "P",
-          "_note": "자체승급 3티어, 티어표에 없음"
+          "race": "Z"
         },
-        { "nickname": "슬아", "tier": "4", "role": "학생", "race": "Z" },
-        { "nickname": "슈슈", "tier": "5", "role": "학생", "race": "Z" },
-        { "nickname": "예실", "tier": "5", "role": "학생", "race": "P" },
-        { "nickname": "연블비", "tier": "6", "role": "학생", "race": "Z" },
         {
-          "nickname": "하리보나",
-          "tier": "7",
+          "nickname": "슈슈",
+          "tier": "5",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "예실",
+          "tier": "5",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "쌍디",
+          "tier": "6",
+          "role": "이사장",
+          "race": "Z"
+        },
+        {
+          "nickname": "연블비",
+          "tier": "6",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "다라츄",
+          "tier": "8",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "아링",
+          "tier": "8",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "지아송",
+          "tier": "8",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "찡찡시아",
+          "tier": "8",
           "role": "학생",
           "race": "P",
-          "_note": "티어표에 없음"
+          "_note": "Baby→8 승급"
         },
-        { "nickname": "다라츄", "tier": "8", "role": "학생", "race": "Z" },
-        { "nickname": "아링", "tier": "8", "role": "학생", "race": "P" },
-        { "nickname": "지아송", "tier": "8", "role": "학생", "race": "P" },
         {
           "nickname": "정연이",
           "tier": "8",
@@ -628,11 +1787,17 @@
           "_note": "Baby→8 승급"
         },
         {
-          "nickname": "찡찡시아",
-          "tier": "8",
+          "nickname": "하리보나",
+          "tier": "7",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "초롱빡",
+          "tier": "4",
           "role": "학생",
           "race": "P",
-          "_note": "Baby→8 승급"
+          "_note": "자체승급 3티어"
         }
       ]
     },
@@ -640,32 +1805,83 @@
       "name": "케이대",
       "since": "2023-09-10",
       "total": 24,
-      "structure": { "이사장": 1, "교수+코치": 10, "학생": 13 },
+      "structure": {
+        "이사장": 1,
+        "교수+코치": 10,
+        "학생": 13
+      },
       "note": "5티어 X",
       "awards": [
         "2025.07.16 시조새배 JPL2 대학대전 우승",
         "2025.11.23 SOOP 스타대학리그 우승"
       ],
       "members": [
-        { "nickname": "케이", "tier": "8", "role": "이사장", "race": "P" },
-        { "nickname": "김학수", "tier": "Joker", "role": "총장", "race": "P" },
-        { "nickname": "정영재", "tier": "God", "role": "부총장", "race": "T" },
-        { "nickname": "장윤철", "tier": "God", "role": "교수", "race": "P" },
         {
-          "nickname": "깨모다",
+          "nickname": "정영재",
+          "tier": "God",
+          "role": "부총장",
+          "race": "T"
+        },
+        {
+          "nickname": "장윤철",
+          "tier": "God",
+          "role": "교수",
+          "race": "P"
+        },
+        {
+          "nickname": "김경모",
+          "tier": "King",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "홍덕",
           "tier": "King",
           "role": "교수",
-          "race": "Z",
-          "_note": "김경모와 동일인물 가능성"
+          "race": "P"
         },
-        { "nickname": "홍덕", "tier": "King", "role": "교수", "race": "P" },
-        { "nickname": "정민기", "tier": "Jack", "role": "교수", "race": "T" },
-        { "nickname": "고석현", "tier": "Jack", "role": "교수", "race": "Z" },
-        { "nickname": "유민", "tier": "Spade", "role": "코치", "race": "P" },
-        { "nickname": "정소윤", "tier": "0", "role": "코치", "race": "Z" },
-        { "nickname": "보혜", "tier": "0", "role": "코치", "race": "P" },
-        { "nickname": "슬돌이", "tier": "2", "role": "학생", "race": "P" },
-        { "nickname": "김뽀뇨", "tier": "3", "role": "학생회장", "race": "P" },
+        {
+          "nickname": "정민기",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "T"
+        },
+        {
+          "nickname": "고석현",
+          "tier": "Jack",
+          "role": "교수",
+          "race": "Z"
+        },
+        {
+          "nickname": "김학수",
+          "tier": "Joker",
+          "role": "총장",
+          "race": "P"
+        },
+        {
+          "nickname": "유민",
+          "tier": "Spade",
+          "role": "코치",
+          "race": "P"
+        },
+        {
+          "nickname": "정소윤",
+          "tier": "0",
+          "role": "코치",
+          "race": "Z"
+        },
+        {
+          "nickname": "보혜",
+          "tier": "0",
+          "role": "코치",
+          "race": "P"
+        },
+        {
+          "nickname": "슬돌이",
+          "tier": "2",
+          "role": "학생",
+          "race": "P"
+        },
         {
           "nickname": "규리야",
           "tier": "3",
@@ -673,16 +1889,108 @@
           "race": "T",
           "_note": "4→3 승급"
         },
-        { "nickname": "늑대채린", "tier": "4", "role": "학생", "race": "Z" },
-        { "nickname": "찌킹", "tier": "4", "role": "학생", "race": "Z" },
-        { "nickname": "구루미", "tier": "4", "role": "학생", "race": "Z" },
-        { "nickname": "내가먼지", "tier": "6", "role": "학생", "race": "T" },
-        { "nickname": "또해영", "tier": "6", "role": "학생", "race": "Z" },
-        { "nickname": "박하악", "tier": "6", "role": "학생", "race": "Z" },
-        { "nickname": "정서린", "tier": "7", "role": "학생", "race": "P" },
-        { "nickname": "냥수디", "tier": "7", "role": "학생", "race": "Z" },
-        { "nickname": "다예나", "tier": "8", "role": "학생", "race": "P" },
-        { "nickname": "단비송", "tier": "8", "role": "학생", "race": "T" }
+        {
+          "nickname": "김뽀뇨",
+          "tier": "3",
+          "role": "학생회장",
+          "race": "P"
+        },
+        {
+          "nickname": "늑대채린",
+          "tier": "4",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "찌킹",
+          "tier": "4",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "구루미",
+          "tier": "4",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "내가먼지",
+          "tier": "6",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "또해영",
+          "tier": "6",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "박하악",
+          "tier": "6",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "냥수디",
+          "tier": "7",
+          "role": "학생",
+          "race": "Z"
+        },
+        {
+          "nickname": "정서린",
+          "tier": "7",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "단비송",
+          "tier": "8",
+          "role": "학생",
+          "race": "T"
+        },
+        {
+          "nickname": "다예나",
+          "tier": "8",
+          "role": "학생",
+          "race": "P"
+        },
+        {
+          "nickname": "케이",
+          "tier": "8",
+          "role": "이사장",
+          "race": "P"
+        }
+      ]
+    },
+    {
+      "name": "YB",
+      "since": "",
+      "total": 19,
+      "structure": { "수장": 1, "총괄": 1, "교수": 2, "토스수석": 1, "코치": 1, "어드바이저": 1, "학생": 12 },
+      "note": "",
+      "awards": [],
+      "is_active": false,
+      "members": [
+        { "nickname": "염보성", "tier": "Jack", "role": "수장", "race": "T" },
+        { "nickname": "오메킴", "tier": "Jack", "role": "총괄", "race": "T" },
+        { "nickname": "유승곤", "tier": "King", "role": "교수", "race": "T" },
+        { "nickname": "김태영", "tier": "King", "role": "교수", "race": "T" },
+        { "nickname": "전제민", "tier": "Joker", "role": "토스수석", "race": "P" },
+        { "nickname": "탱크", "tier": "Spade", "role": "코치", "race": "P" },
+        { "nickname": "저라뎃", "tier": "2", "role": "어드바이저", "race": "T" },
+        { "nickname": "준밧드", "tier": "4", "role": "학생", "race": "T" },
+        { "nickname": "우리밍", "tier": "4", "role": "학생", "race": "T" },
+        { "nickname": "태영", "tier": "4", "role": "학생", "race": "T" },
+        { "nickname": "임밍지", "tier": "4", "role": "학생", "race": "P" },
+        { "nickname": "임아니", "tier": "5", "role": "학생", "race": "Z" },
+        { "nickname": "으냉이", "tier": "6", "role": "학생", "race": "T" },
+        { "nickname": "하랑e", "tier": "6", "role": "학생", "race": "P" },
+        { "nickname": "빵지니", "tier": "7", "role": "학생", "race": "T" },
+        { "nickname": "하루묭", "tier": "7", "role": "학생", "race": "P" },
+        { "nickname": "한쪼니", "tier": "7", "role": "학생", "race": "P" },
+        { "nickname": "히요코", "tier": "8", "role": "학생", "race": "P" },
+        { "nickname": "윤하랑", "tier": "Baby", "role": "학생", "race": "" }
       ]
     }
   ],
@@ -1270,18 +2578,66 @@
       }
     ],
     "baby_race_filled": [
-      { "nickname": "옥수수", "race": "P", "source": "JSA" },
-      { "nickname": "미진이", "race": "T", "source": "JSA" },
-      { "nickname": "밤하밍", "race": "T", "source": "이노대" },
-      { "nickname": "박쮸이", "race": "Z", "source": "츠캄몬스타즈" },
-      { "nickname": "유네", "race": "P", "source": "BGM" },
-      { "nickname": "멍라희", "race": "P", "source": "HM" },
-      { "nickname": "고요", "race": "Z", "source": "정선대" },
-      { "nickname": "초이", "race": "Z", "source": "정선대" },
-      { "nickname": "으니", "race": "P", "source": "정선대" },
-      { "nickname": "이웅씨", "race": "T", "source": "정선대" },
-      { "nickname": "오세은", "race": "T", "source": "뉴캣슬" },
-      { "nickname": "유즈", "race": "Z", "source": "뉴캣슬" }
+      {
+        "nickname": "옥수수",
+        "race": "P",
+        "source": "JSA"
+      },
+      {
+        "nickname": "미진이",
+        "race": "T",
+        "source": "JSA"
+      },
+      {
+        "nickname": "밤하밍",
+        "race": "T",
+        "source": "이노대"
+      },
+      {
+        "nickname": "박쮸이",
+        "race": "Z",
+        "source": "츠캄몬스타즈"
+      },
+      {
+        "nickname": "유네",
+        "race": "P",
+        "source": "BGM"
+      },
+      {
+        "nickname": "멍라희",
+        "race": "P",
+        "source": "HM"
+      },
+      {
+        "nickname": "고요",
+        "race": "Z",
+        "source": "정선대"
+      },
+      {
+        "nickname": "초이",
+        "race": "Z",
+        "source": "정선대"
+      },
+      {
+        "nickname": "으니",
+        "race": "P",
+        "source": "정선대"
+      },
+      {
+        "nickname": "이웅씨",
+        "race": "T",
+        "source": "정선대"
+      },
+      {
+        "nickname": "오세은",
+        "race": "T",
+        "source": "뉴캣슬"
+      },
+      {
+        "nickname": "유즈",
+        "race": "Z",
+        "source": "뉴캣슬"
+      }
     ],
     "name_discrepancy": [
       {
@@ -1345,6 +2701,5 @@
         "source": "정선대"
       }
     ]
-  },
-  "_remaining_crews": "나머지 크루 이미지 대기중"
+  }
 }
