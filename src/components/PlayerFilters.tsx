@@ -12,6 +12,7 @@ import { MultiSelect } from "~/components/ui/MultiSelect";
 import { SingleSelect } from "~/components/ui/SingleSelect";
 import { MultiCombobox } from "~/components/ui/MultiCombobox";
 import { createDebouncedSignal } from "~/primitives/createDebounced";
+import LayoutToggle, { type CardVariant } from "~/components/LayoutToggle";
 import styles from "./PlayerFilters.module.css";
 
 /* FA를 크루 콤보박스의 특수 옵션으로 표현 */
@@ -55,7 +56,12 @@ const TIER_CSS: Record<Tier, string> = {
   Baby: "baby",
 };
 
-export default function PlayerFilters() {
+interface Props {
+  cardVariant: CardVariant;
+  onVariantChange: (variant: CardVariant) => void;
+}
+
+export default function PlayerFilters(props: Props) {
   const [searchParams, setSearchParams] = useSearchParams();
   const crews = createAsync(() => getCrews());
 
@@ -218,6 +224,12 @@ export default function PlayerFilters() {
           value={search.value()}
           onInput={(e) => search.set(e.currentTarget.value)}
         />
+      </div>
+
+      {/* ── 보기 방식 ── */}
+      <div class={styles.field}>
+        <span class={styles.label}>보기</span>
+        <LayoutToggle value={props.cardVariant} onChange={props.onVariantChange} />
       </div>
 
       <Show when={hasAnyFilter()}>

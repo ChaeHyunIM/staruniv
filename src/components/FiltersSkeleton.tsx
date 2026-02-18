@@ -1,6 +1,6 @@
 import styles from "./FiltersSkeleton.module.css";
 
-const FIELDS = 5;
+const FIELDS = 6;
 
 export default function FiltersSkeleton() {
   return (

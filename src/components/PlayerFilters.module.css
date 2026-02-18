@@ -43,10 +43,6 @@
   }
 }
 
-/* ── 필터 필드 레이아웃 (Select/Combobox 래퍼) ── */
-
-.filterField {}
-
 /* ── 종족 칩 색상 ── */
 
 .filters [data-race="terran"] {
