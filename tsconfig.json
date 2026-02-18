@@ -10,7 +10,7 @@
     "allowJs": true,
     "strict": true,
     "noEmit": true,
-    "types": ["@solidjs/start/env", "vitest/globals", "@testing-library/jest-dom"],
+    "types": ["vite/client", "@solidjs/start/env", "vitest/globals", "@testing-library/jest-dom"],
     "isolatedModules": true,
     "skipLibCheck": true,
     "paths": {
