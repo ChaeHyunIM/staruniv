@@ -1,4 +1,4 @@
-import { createSignal, For, Show, onCleanup, type Accessor } from "solid-js";
+import { createSignal, For, Show, onMount, onCleanup, type Accessor } from "solid-js";
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
 import { TIER_ORDER, type Tier, type PlayerWithCrew } from "~/lib/types";
@@ -18,6 +18,9 @@ export default function TierNavigator(props: TierNavigatorProps) {
   const [isOpen, setIsOpen] = createSignal(false);
   const [dragTier, setDragTier] = createSignal<Tier | null>(null);
   const [dropTarget, setDropTarget] = createSignal<{ tier: Tier; position: "before" | "after" } | null>(null);
+
+  let panelRef: HTMLDivElement | undefined;
+  let fabRef: HTMLButtonElement | undefined;
 
   /* ── Guided tour ── */
   const shouldTour = () =>
@@ -56,7 +59,7 @@ export default function TierNavigator(props: TierNavigatorProps) {
           element: "#tour-drag-handle",
           popover: {
             title: "순서 편집",
-            description: "점 모양 핸들을 드래그해서 티어 표시 순서를 자유롭게 바꿀 수 있어요",
+            description: "점 모양 핸들을 드래그하거나 Alt+↑↓ 키로 티어 순서를 바꿀 수 있어요",
             side: "left",
             align: "start",
           },
@@ -79,21 +82,57 @@ export default function TierNavigator(props: TierNavigatorProps) {
     });
   };
 
-  /* ── Keyboard: Escape closes ── */
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === "Escape" && isOpen()) setIsOpen(false);
+  /* ── Focus trap: 패널 내부에 포커스를 가둠 ── */
+  const trapFocus = (e: KeyboardEvent) => {
+    if (e.key !== "Tab" || !panelRef) return;
+    const focusable = panelRef.querySelectorAll<HTMLElement>(
+      'button, [href], [tabindex]:not([tabindex="-1"]), input, select, textarea, [role="button"]'
+    );
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   };
 
-  if (typeof document !== "undefined") {
+  /* ── Keyboard: Escape 닫기 + focus trap ── */
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (!isOpen()) return;
+    if (e.key === "Escape") {
+      setIsOpen(false);
+      fabRef?.focus();
+      return;
+    }
+    trapFocus(e);
+  };
+
+  onMount(() => {
     document.addEventListener("keydown", handleKeyDown);
     onCleanup(() => document.removeEventListener("keydown", handleKeyDown));
-  }
+  });
 
   /* ── Toggle panel ── */
   const togglePanel = () => {
     const opening = !isOpen();
     setIsOpen(opening);
-    if (opening) startTour();
+    if (opening) {
+      startTour();
+      /* 패널 렌더 후 첫 포커서블 요소로 포커스 이동 */
+      requestAnimationFrame(() => {
+        panelRef?.querySelector<HTMLElement>("button, [tabindex]")?.focus();
+      });
+    }
   };
 
   /* ── Scroll to tier section ── */
@@ -101,6 +140,33 @@ export default function TierNavigator(props: TierNavigatorProps) {
     const el = document.getElementById(`tier-${tier}`);
     if (el) el.scrollIntoView({ behavior: "smooth" });
     setIsOpen(false);
+    fabRef?.focus();
+  };
+
+  /* ── Keyboard reorder: Alt+Arrow로 티어 순서 변경 ── */
+  const handleItemKeyDown = (tier: Tier, e: KeyboardEvent) => {
+    if (!e.altKey) return;
+    const tiers = [...props.tiers()];
+    const idx = tiers.indexOf(tier);
+    if (idx === -1) return;
+
+    let swapIdx = -1;
+    if (e.key === "ArrowUp" && idx > 0) {
+      swapIdx = idx - 1;
+    } else if (e.key === "ArrowDown" && idx < tiers.length - 1) {
+      swapIdx = idx + 1;
+    }
+    if (swapIdx === -1) return;
+
+    e.preventDefault();
+    [tiers[idx], tiers[swapIdx]] = [tiers[swapIdx], tiers[idx]];
+    props.onReorder(tiers);
+
+    /* 이동 후 같은 아이템에 포커스 유지 */
+    requestAnimationFrame(() => {
+      const items = panelRef?.querySelectorAll<HTMLElement>(`.${styles.tierItem}`);
+      items?.[swapIdx]?.focus();
+    });
   };
 
   /* ── Drag & Drop handlers ── */
@@ -164,16 +230,16 @@ export default function TierNavigator(props: TierNavigatorProps) {
     <>
       {/* Backdrop */}
       <Show when={isOpen()}>
-        <div class={styles.backdrop} onClick={() => setIsOpen(false)} />
+        <div class={styles.backdrop} aria-hidden="true" onClick={() => setIsOpen(false)} />
       </Show>
 
       {/* Panel */}
       <Show when={isOpen()}>
-        <div class={styles.panel} role="dialog" aria-label="티어 네비게이터">
+        <div ref={panelRef} class={styles.panel} role="dialog" aria-modal="true" aria-label="티어 네비게이터">
           <div class={styles.panelHeader}>
             <h3>티어 순서</h3>
             <button id="tour-reset-btn" class={styles.resetBtn} onClick={handleReset} title="기본 순서로 초기화">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                 <path d="M2 8a6 6 0 0 1 10.2-4.3M14 8a6 6 0 0 1-10.2 4.3" />
                 <path d="M12.5 1v3h-3M3.5 15v-3h3" />
               </svg>
@@ -181,7 +247,7 @@ export default function TierNavigator(props: TierNavigatorProps) {
             </button>
           </div>
 
-          <div class={styles.tierList}>
+          <div class={styles.tierList} role="listbox" aria-label="티어 순서 목록">
             <For each={props.tiers()}>
               {(tier, idx) => {
                 const count = () => props.tierData()[tier]?.length ?? 0;
@@ -200,17 +266,22 @@ export default function TierNavigator(props: TierNavigatorProps) {
                       [styles.tierItemDropBefore]: isDropBefore(),
                       [styles.tierItemDropAfter]: isDropAfter(),
                     }}
+                    role="option"
+                    tabIndex={0}
+                    aria-label={`${tier}${count() > 0 ? ` ${count()}명` : ""} — Alt+화살표로 순서 변경`}
                     draggable={true}
                     onDragStart={(e) => handleDragStart(tier, e)}
                     onDragOver={(e) => handleDragOver(tier, e)}
                     onDragLeave={() => setDropTarget(null)}
                     onDrop={handleDrop}
                     onDragEnd={handleDragEnd}
+                    onKeyDown={(e) => handleItemKeyDown(tier, e)}
                     onClick={() => scrollToTier(tier)}
                   >
                     <span
                       id={isFirst() ? "tour-drag-handle" : undefined}
                       class={styles.dragHandle}
+                      aria-hidden="true"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <svg viewBox="0 0 16 16" fill="currentColor">
@@ -238,20 +309,23 @@ export default function TierNavigator(props: TierNavigatorProps) {
 
       {/* FAB */}
       <button
+        ref={fabRef}
         class={styles.fab}
         classList={{ [styles.fabOpen]: isOpen() }}
         onClick={togglePanel}
         aria-label={isOpen() ? "네비게이터 닫기" : "티어 네비게이터 열기"}
+        aria-expanded={isOpen()}
+        aria-controls="tier-navigator-panel"
       >
         <Show
           when={!isOpen()}
           fallback={
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
               <path d="M18 6 6 18M6 6l12 12" />
             </svg>
           }
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
             <path d="M3 7h18M3 12h18M3 17h18" />
           </svg>
         </Show>

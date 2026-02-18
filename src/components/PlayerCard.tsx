@@ -31,7 +31,9 @@ export default function PlayerCard(props: Props) {
       <div class={styles.avatar} data-race={props.player.race}>
         <img
           src={props.player.profile_image ? `https:${profileWebp(props.player.profile_image)}` : undefined}
-          alt=""
+          alt={props.player.nickname}
+          width={80}
+          height={80}
           class={styles.avatarPhoto}
           loading="lazy"
           decoding="async"

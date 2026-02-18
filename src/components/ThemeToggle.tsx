@@ -12,6 +12,9 @@ export default function ThemeToggle() {
     const isDark = dark();
     document.documentElement.classList.toggle("dark", isDark);
     localStorage.setItem("theme", isDark ? "dark" : "light");
+    /* 모바일 브라우저 상태바 색상 동기화 */
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", isDark ? "#302e3b" : "#fbfaf9");
   });
 
   return (

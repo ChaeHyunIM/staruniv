@@ -118,15 +118,25 @@ export default function Home() {
     return tiers;
   });
 
+  /* ── 필터 적용 후 결과 존재 여부 ── */
+  const hasAnyResults = createMemo(() => {
+    const data = tierData();
+    return orderedTiers().some((tier) => (data[tier]?.length ?? 0) > 0);
+  });
+
+  const hasActiveFilter = createMemo(() => {
+    return !!(searchParams.race || searchParams.tier || searchParams.crew || searchParams.gender || searchParams.search);
+  });
+
   /* ── Tier section renderer ── */
-  const renderTierSection = (tier: Tier, index: number) => (
+  const renderTierSection = (tier: Tier) => (
     <Show when={tierData()[tier]?.length}>
       <section id={`tier-${tier}`} class={styles.tierSection}>
         <div class={styles.tierHeader}>
           <span class={styles.tierLabel} data-tier={tier}>
             {tier}
           </span>
-          <span class={styles.tierCount}>{tierData()[tier].length}명</span>
+          <span class={styles.tierCount}>{tierData()[tier]?.length}명</span>
           <span class={styles.tierDesc}>{TIER_DESCRIPTIONS[tier]}</span>
         </div>
         <div class={styles.tierGrid} data-variant={cardVariant()}>
@@ -162,8 +172,11 @@ export default function Home() {
           }
         >
           <For each={orderedTiers()}>
-            {(tier, i) => renderTierSection(tier, i())}
+            {(tier) => renderTierSection(tier)}
           </For>
+          <Show when={hasActiveFilter() && !hasAnyResults()}>
+            <p class="empty-state">필터 조건에 맞는 선수가 없습니다.</p>
+          </Show>
           <TierNavigator
             tiers={orderedTiers}
             onReorder={handleReorder}

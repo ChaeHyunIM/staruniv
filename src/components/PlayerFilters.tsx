@@ -1,5 +1,5 @@
 import { useSearchParams, createAsync } from "@solidjs/router";
-import { createSignal, onCleanup } from "solid-js";
+import { createSignal, onCleanup, Show } from "solid-js";
 import {
   TIER_ORDER,
   type Tier,
@@ -222,7 +222,7 @@ export default function PlayerFilters() {
         />
       </div>
 
-      {hasAnyFilter() && (
+      <Show when={hasAnyFilter()}>
         <button
           class={styles.reset}
           onClick={resetAll}
@@ -230,7 +230,7 @@ export default function PlayerFilters() {
         >
           초기화
         </button>
-      )}
+      </Show>
     </div>
   );
 }

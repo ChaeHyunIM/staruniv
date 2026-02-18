@@ -74,6 +74,7 @@
   width: 280px;
   max-height: 70dvh;
   overflow-y: auto;
+  overscroll-behavior: contain;
   background: var(--card);
   border: 1px solid oklch(from var(--border) l c h / 0.15);
   border-radius: var(--radius-lg);
@@ -148,6 +149,12 @@
 
   &:hover {
     background: oklch(from var(--muted) l c h / 0.5);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: -2px;
+    border-radius: 2px;
   }
 }
 
