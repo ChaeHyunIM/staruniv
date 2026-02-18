@@ -11,10 +11,7 @@ export default function App() {
       root={(props) => (
         <MetaProvider>
           <Title>StarUniv</Title>
-          <Meta
-            name="description"
-            content="스타크래프트 대학 리그 선수 티어 및 크루 현황"
-          />
+          <Meta name="description" content="스타크래프트 대학 리그 선수 티어 및 크루 현황" />
           <Meta name="theme-color" content="#fbfaf9" />
           <a href="#main-content" class="skip-link">
             본문으로 건너뛰기

@@ -31,7 +31,9 @@ export function createLocalStorage<T>(
       const parsed = deserialize(raw);
       if (validate && !validate(parsed)) return;
       setValue(() => parsed);
-    } catch { /* 손상된 데이터 무시 */ }
+    } catch {
+      /* 손상된 데이터 무시 */
+    }
   });
 
   /* 원본 setter를 감싸서 localStorage에도 기록 */
@@ -39,7 +41,9 @@ export function createLocalStorage<T>(
     const result = (setValue as (...a: unknown[]) => T)(...args);
     try {
       localStorage.setItem(key, serialize(result));
-    } catch { /* quota 초과 등 무시 */ }
+    } catch {
+      /* quota 초과 등 무시 */
+    }
     return result;
   }) as Setter<T>;
 

@@ -329,8 +329,12 @@
 
 /* 이미지 로딩 중 shimmer wave — transform 기반 GPU compositing */
 @keyframes avatar-shimmer {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(100%); }
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
 }
 
 .avatar:has(.avatarPhoto[src]:not(.loaded))::after {
@@ -338,12 +342,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: linear-gradient(
-    100deg,
-    transparent 30%,
-    oklch(1 0 0 / 0.18) 50%,
-    transparent 70%
-  );
+  background: linear-gradient(100deg, transparent 30%, oklch(1 0 0 / 0.18) 50%, transparent 70%);
   animation: avatar-shimmer 1.8s ease-in-out infinite;
 }
 

@@ -13,25 +13,30 @@ Safari에서 LayoutToggle(compact ↔ full) 전환 시 심한 렉이 발생하�
 ## 최적화 효과
 
 ### 초기 페이지 로드
+
 - 뷰포트 밖의 카드와 티어 섹션은 layout/paint를 건너뜀
 - 브라우저가 처리해야 할 초기 렌더링 작업량이 대폭 감소
 - 체감 First Contentful Paint 개선
 
 ### 스크롤 성능
+
 - off-screen 카드가 placeholder 공간만 차지하고, 뷰포트 진입 시 점진적으로 렌더링
 - 스크롤 중 layout/paint 대상이 뷰포트 근처 요소로 제한됨
 - `contain: layout style paint`(content-visibility가 자동 적용)로 on-screen 카드의 reflow도 요소 내부로 격리
 
 ### 레이아웃 전환 (LayoutToggle)
+
 - variant 변경 시 200+개 카드의 class가 동시에 변경되지만, 실제 reflow 대상은 화면에 보이는 카드(~20-30개)로 제한
 - 나머지 off-screen 카드는 style recalculation 자체가 뷰포트 진입 시점까지 지연됨
 - Safari에서 발생하던 렉과 WebKit 렌더 프로세스 크래시 해결
 
 ### 필터/검색
+
 - 필터 적용으로 카드 목록이 변경될 때도 off-screen 요소는 렌더링에서 제외
 - reflow 비용이 전체 카드 수가 아닌 화면에 보이는 카드 수에 비례
 
 ### 메모리
+
 - off-screen 요소에 `contain: size`가 적용되어 텍스처 메모리 사용량 감소
 - 특히 모바일 Safari에서 텍스처 메모리 한계(~256MB)에 도달하는 문제 완화
 
@@ -41,7 +46,9 @@ Safari에서 LayoutToggle(compact ↔ full) 전환 시 심한 렉이 발생하�
 
 ```css
 /* PlayerCard.module.css */
-.compact, .full, .list {
+.compact,
+.full,
+.list {
   content-visibility: auto;
 }
 ```
@@ -54,13 +61,23 @@ Safari에서 LayoutToggle(compact ↔ full) 전환 시 심한 렉이 발생하�
 
 ```css
 /* index.module.css */
-.tierGrid                        { grid-auto-rows: 66px; }
-.tierGrid[data-variant="full"]   { grid-auto-rows: 172px; }
-.tierGrid[data-variant="list"]   { grid-auto-rows: 34px; }
+.tierGrid {
+  grid-auto-rows: 66px;
+}
+.tierGrid[data-variant="full"] {
+  grid-auto-rows: 172px;
+}
+.tierGrid[data-variant="list"] {
+  grid-auto-rows: 34px;
+}
 
 /* 모바일 (max-width: 640px) */
-.tierGrid                        { grid-auto-rows: 58px; }
-.tierGrid[data-variant="full"]   { grid-auto-rows: 152px; }
+.tierGrid {
+  grid-auto-rows: 58px;
+}
+.tierGrid[data-variant="full"] {
+  grid-auto-rows: 152px;
+}
 ```
 
 **이 부분이 핵심.** `content-visibility: auto`는 off-screen 요소의 style recalculation을 defer하기 때문에, 카드에 직접 설정한 `contain-intrinsic-block-size`는 variant 전환 시 이전 variant의 값이 남는 문제가 있다.
@@ -99,19 +116,19 @@ Safari에서 LayoutToggle(compact ↔ full) 전환 시 심한 렉이 발생하�
 
 ### Desktop
 
-| variant | 계산 | 높이 |
-|---------|------|------|
-| compact | border 2 + padding 24 (sp-3 x 2) + content 40 | **66px** |
-| full | border 2 + padding 36 (sp-5 + sp-4) + avatar 80 + gap 12 (sp-3) + body 42 | **172px** |
-| list | border 2 + padding 8 (sp-1 x 2) + avatar 24 | **34px** |
+| variant | 계산                                                                      | 높이      |
+| ------- | ------------------------------------------------------------------------- | --------- |
+| compact | border 2 + padding 24 (sp-3 x 2) + content 40                             | **66px**  |
+| full    | border 2 + padding 36 (sp-5 + sp-4) + avatar 80 + gap 12 (sp-3) + body 42 | **172px** |
+| list    | border 2 + padding 8 (sp-1 x 2) + avatar 24                               | **34px**  |
 
 ### Mobile (max-width: 640px)
 
-| variant | 계산 | 높이 |
-|---------|------|------|
-| compact | border 2 + padding 16 (sp-2 x 2) + content 40 | **58px** |
-| full | border 2 + padding 32 (sp-4 x 2) + avatar 64 + gap 12 + body 42 | **152px** |
-| list | 동일 | **34px** |
+| variant | 계산                                                            | 높이      |
+| ------- | --------------------------------------------------------------- | --------- |
+| compact | border 2 + padding 16 (sp-2 x 2) + content 40                   | **58px**  |
+| full    | border 2 + padding 32 (sp-4 x 2) + avatar 64 + gap 12 + body 42 | **152px** |
+| list    | 동일                                                            | **34px**  |
 
 > padding이나 avatar 크기가 변경되면 `grid-auto-rows` 값도 함께 업데이트해야 한다.
 

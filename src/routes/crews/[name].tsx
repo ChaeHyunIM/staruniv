@@ -17,7 +17,13 @@ export default function CrewDetailPage() {
 
   return (
     <main id="main-content" class="page page--narrow">
-      <Suspense fallback={<div class="loading" role="status" aria-live="polite">크루 정보를 불러오는 중…</div>}>
+      <Suspense
+        fallback={
+          <div class="loading" role="status" aria-live="polite">
+            크루 정보를 불러오는 중…
+          </div>
+        }
+      >
         <ErrorBoundary fallback={<p class="empty-state">크루를 찾을 수 없습니다.</p>}>
           <Show when={crew()} fallback={<p class="empty-state">크루를 찾을 수 없습니다.</p>}>
             {(c) => (
@@ -51,10 +57,17 @@ export default function CrewDetailPage() {
                           <For each={c().players}>
                             {(p) => (
                               <tr>
-                                <td><RaceBadge race={p.race} /></td>
-                                <td><TierBadge tier={p.tier} /></td>
                                 <td>
-                                  <A href={`/players/${encodeURIComponent(p.nickname)}`} class={styles.nickname}>
+                                  <RaceBadge race={p.race} />
+                                </td>
+                                <td>
+                                  <TierBadge tier={p.tier} />
+                                </td>
+                                <td>
+                                  <A
+                                    href={`/players/${encodeURIComponent(p.nickname)}`}
+                                    class={styles.nickname}
+                                  >
                                     {p.nickname}
                                   </A>
                                 </td>

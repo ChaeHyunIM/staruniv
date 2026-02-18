@@ -14,7 +14,7 @@ export const getCrews = query(async () => {
     ORDER BY c.name
   `;
 
-  return rows as unknown as CrewWithCount[];
+  return rows as CrewWithCount[];
 }, "crews");
 
 export const getCrew = query(async (name: string) => {
@@ -28,7 +28,7 @@ export const getCrew = query(async (name: string) => {
     GROUP BY c.id
   `;
 
-  const crew = crewRows[0] as unknown as CrewWithCount | undefined;
+  const crew = crewRows[0] as CrewWithCount | undefined;
   if (!crew) return null;
 
   const playerRows = await sql`
@@ -44,5 +44,5 @@ export const getCrew = query(async (name: string) => {
       nickname
   `;
 
-  return { ...crew, players: playerRows as unknown as Player[] };
+  return { ...crew, players: playerRows as Player[] };
 }, "crew");

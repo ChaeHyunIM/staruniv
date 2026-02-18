@@ -50,10 +50,7 @@ export function MultiSelect<T>(props: {
               <div class={styles.chips}>
                 <For each={state.selectedOptions()}>
                   {(option) => (
-                    <span
-                      class={styles.chip}
-                      {...(props.chipAttrs?.(option) ?? {})}
-                    >
+                    <span class={styles.chip} {...(props.chipAttrs?.(option) ?? {})}>
                       {props.chipLabel(option)}
                       <button
                         class={styles.chipRemove}

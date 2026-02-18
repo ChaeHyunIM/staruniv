@@ -72,13 +72,13 @@ import { useNavigate } from "@solidjs/router";
 
 function MyComponent() {
   const navigate = useNavigate();
-  
+
   const handleClick = () => {
     navigate("/users/123");
     navigate("/users/123", { replace: true }); // Replace history
     navigate(-1); // Go back
   };
-  
+
   return <button onClick={handleClick}>Navigate</button>;
 }
 ```
@@ -99,7 +99,7 @@ import { useParams } from "@solidjs/router";
 
 function User() {
   const params = useParams();
-  
+
   return <div>User ID: {params.id}</div>;
 }
 ```
@@ -124,19 +124,18 @@ import { useSearchParams } from "@solidjs/router";
 
 function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
-  
+
   // Read: ?q=hello&page=1
-  console.log(searchParams.q);    // "hello"
+  console.log(searchParams.q); // "hello"
   console.log(searchParams.page); // "1"
-  
+
   // Update
   setSearchParams({ q: "world" });
   setSearchParams({ page: 2 }, { replace: true });
-  
-  return <input 
-    value={searchParams.q || ""} 
-    onInput={(e) => setSearchParams({ q: e.target.value })}
-  />;
+
+  return (
+    <input value={searchParams.q || ""} onInput={(e) => setSearchParams({ q: e.target.value })} />
+  );
 }
 ```
 
@@ -147,7 +146,7 @@ import { useLocation } from "@solidjs/router";
 
 function CurrentPath() {
   const location = useLocation();
-  
+
   return (
     <div>
       <p>Path: {location.pathname}</p>
@@ -167,7 +166,7 @@ function CurrentPath() {
     <Route path="/:id" component={UserDetail} />
     <Route path="/:id/edit" component={UserEdit} />
   </Route>
-</Router>
+</Router>;
 
 function UsersLayout(props) {
   return (
@@ -186,12 +185,9 @@ import { useMatch } from "@solidjs/router";
 
 function NavLink(props) {
   const match = useMatch(() => props.href);
-  
+
   return (
-    <A 
-      href={props.href} 
-      class={match() ? "active" : ""}
-    >
+    <A href={props.href} class={match() ? "active" : ""}>
       {props.children}
     </A>
   );
@@ -204,14 +200,10 @@ function NavLink(props) {
 const filters = {
   parent: ["mom", "dad"],
   id: /^\d+$/,
-  withHtml: (v) => v.endsWith(".html")
+  withHtml: (v) => v.endsWith(".html"),
 };
 
-<Route 
-  path="/users/:parent/:id/:withHtml" 
-  component={User}
-  matchFilters={filters}
-/>
+<Route path="/users/:parent/:id/:withHtml" component={User} matchFilters={filters} />;
 ```
 
 ## Lazy Loading Routes
@@ -221,7 +213,7 @@ import { lazy } from "solid-js";
 
 const UserProfile = lazy(() => import("./pages/UserProfile"));
 
-<Route path="/profile" component={UserProfile} />
+<Route path="/profile" component={UserProfile} />;
 ```
 
 ## Data Loading (Preload)
@@ -236,22 +228,14 @@ const getUser = cache(async (id: string) => {
 }, "user");
 
 // Route with preload
-<Route 
-  path="/users/:id" 
-  component={User}
-  preload={({ params }) => getUser(params.id)}
-/>
+<Route path="/users/:id" component={User} preload={({ params }) => getUser(params.id)} />;
 
 // Component using data
 function User() {
   const params = useParams();
   const user = createAsync(() => getUser(params.id));
-  
-  return (
-    <Show when={user()}>
-      {(user) => <div>{user().name}</div>}
-    </Show>
-  );
+
+  return <Show when={user()}>{(user) => <div>{user().name}</div>}</Show>;
 }
 ```
 
@@ -262,23 +246,23 @@ import { Navigate } from "@solidjs/router";
 
 function ProtectedRoute(props) {
   const { isAuthenticated } = useAuth();
-  
+
   return (
-    <Show 
-      when={isAuthenticated()} 
-      fallback={<Navigate href="/login" />}
-    >
+    <Show when={isAuthenticated()} fallback={<Navigate href="/login" />}>
       {props.children}
     </Show>
   );
 }
 
 // Usage
-<Route path="/dashboard" component={() => (
-  <ProtectedRoute>
-    <Dashboard />
-  </ProtectedRoute>
-)} />
+<Route
+  path="/dashboard"
+  component={() => (
+    <ProtectedRoute>
+      <Dashboard />
+    </ProtectedRoute>
+  )}
+/>;
 ```
 
 ## Route Guards with Preload
@@ -290,11 +274,7 @@ const checkAuth = cache(async () => {
   return res.json();
 }, "auth");
 
-<Route 
-  path="/dashboard" 
-  component={Dashboard}
-  preload={() => checkAuth()}
-/>
+<Route path="/dashboard" component={Dashboard} preload={() => checkAuth()} />;
 ```
 
 ## Hash Router
@@ -304,7 +284,7 @@ import { HashRouter, Route } from "@solidjs/router";
 
 <HashRouter>
   <Route path="/" component={Home} />
-</HashRouter>
+</HashRouter>;
 ```
 
 ## Memory Router (Testing)
@@ -314,7 +294,7 @@ import { MemoryRouter, Route } from "@solidjs/router";
 
 <MemoryRouter initialEntries={["/users/123"]}>
   <Route path="/users/:id" component={User} />
-</MemoryRouter>
+</MemoryRouter>;
 ```
 
 ## Route Actions
@@ -330,13 +310,11 @@ const addTodo = action(async (formData: FormData) => {
 
 function AddTodoForm() {
   const submission = useSubmission(addTodo);
-  
+
   return (
     <form action={addTodo} method="post">
       <input name="title" />
-      <button disabled={submission.pending}>
-        {submission.pending ? "Adding..." : "Add"}
-      </button>
+      <button disabled={submission.pending}>{submission.pending ? "Adding..." : "Add"}</button>
     </form>
   );
 }
@@ -344,15 +322,15 @@ function AddTodoForm() {
 
 ## Hooks Summary
 
-| Hook | Purpose |
-|------|---------|
-| `useParams()` | Access route parameters |
-| `useSearchParams()` | Read/write query string |
-| `useLocation()` | Current location object |
-| `useNavigate()` | Programmatic navigation |
-| `useMatch(() => path)` | Check if path matches |
-| `useBeforeLeave()` | Guard against navigation |
-| `useIsRouting()` | Check if route transition in progress |
+| Hook                   | Purpose                               |
+| ---------------------- | ------------------------------------- |
+| `useParams()`          | Access route parameters               |
+| `useSearchParams()`    | Read/write query string               |
+| `useLocation()`        | Current location object               |
+| `useNavigate()`        | Programmatic navigation               |
+| `useMatch(() => path)` | Check if path matches                 |
+| `useBeforeLeave()`     | Guard against navigation              |
+| `useIsRouting()`       | Check if route transition in progress |
 
 ## Navigation Guards
 
@@ -361,7 +339,7 @@ import { useBeforeLeave } from "@solidjs/router";
 
 function Editor() {
   const [hasUnsaved, setHasUnsaved] = createSignal(false);
-  
+
   useBeforeLeave((e) => {
     if (hasUnsaved() && !e.defaultPrevented) {
       e.preventDefault();
@@ -370,7 +348,7 @@ function Editor() {
       }
     }
   });
-  
+
   return <textarea onInput={() => setHasUnsaved(true)} />;
 }
 ```
@@ -385,6 +363,7 @@ function Editor() {
 ```
 
 To disable:
+
 ```tsx
 import { useLocation } from "@solidjs/router";
 

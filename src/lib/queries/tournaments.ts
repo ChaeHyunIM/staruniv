@@ -12,5 +12,5 @@ export const getTournaments = query(async () => {
     ORDER BY t.year DESC, t.id DESC
   `;
 
-  return rows as unknown as TournamentWithCrew[];
+  return rows as TournamentWithCrew[];
 }, "tournaments");

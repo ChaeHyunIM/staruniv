@@ -32,8 +32,7 @@ export default function PlayerCard(props: Props) {
         <img
           ref={(el) => {
             /* 하이드레이션 전에 이미 로드된 이미지 처리 */
-            if (el.complete && el.naturalWidth > 0)
-              el.classList.add(styles.loaded);
+            if (el.complete && el.naturalWidth > 0) el.classList.add(styles.loaded);
           }}
           src={
             props.player.profile_image

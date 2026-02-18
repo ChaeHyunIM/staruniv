@@ -1,18 +1,41 @@
 export type Race = "T" | "Z" | "P";
 export type Gender = "M" | "F";
 export type Tier =
-  | "God" | "King" | "Jack" | "Joker" | "Spade"
-  | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8"
+  | "God"
+  | "King"
+  | "Jack"
+  | "Joker"
+  | "Spade"
+  | "0"
+  | "1"
+  | "2"
+  | "3"
+  | "4"
+  | "5"
+  | "6"
+  | "7"
+  | "8"
   | "Baby";
 
 export type Tag = "승급임박" | "상승" | "new" | "inactive";
 
 export const TIER_ORDER: Tier[] = [
-  "God", "King", "Jack", "Joker", "Spade",
-  "0", "1", "2", "3", "4", "5", "6", "7", "8",
+  "God",
+  "King",
+  "Jack",
+  "Joker",
+  "Spade",
+  "0",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
   "Baby",
 ];
-
 
 export const TIER_DESCRIPTIONS: Record<Tier, string> = {
   God: "메이저 프로리그, K리그 최상위",

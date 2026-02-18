@@ -10,7 +10,10 @@
   border-radius: var(--radius-sm);
   color: var(--muted-foreground);
   cursor: pointer;
-  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+  transition:
+    color 0.15s,
+    background-color 0.15s,
+    border-color 0.15s;
 
   &:hover {
     color: var(--foreground);

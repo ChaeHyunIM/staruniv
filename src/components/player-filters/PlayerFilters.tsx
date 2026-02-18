@@ -1,12 +1,6 @@
 import { useSearchParams, createAsync } from "@solidjs/router";
 import { createEffect, on, Show } from "solid-js";
-import {
-  TIER_ORDER,
-  type Tier,
-  type Race,
-  type Gender,
-  type CrewWithCount,
-} from "~/lib/types";
+import { TIER_ORDER, type Tier, type Race, type Gender, type CrewWithCount } from "~/lib/types";
 import { getCrews } from "~/lib/queries/crews";
 import { MultiSelect, SingleSelect, MultiCombobox } from "~/components/ui/select";
 import { createDebouncedSignal } from "~/primitives/createDebounced";
@@ -67,19 +61,21 @@ export default function PlayerFilters(props: Props) {
   const search = createDebouncedSignal((searchParams.search as string) ?? "", 300);
 
   /* debounced 값 변경 시 URL 파라미터에 반영 */
-  createEffect(on(() => search.debounced(), (val) => {
-    update("search", val);
-  }, { defer: true }));
+  createEffect(
+    on(
+      () => search.debounced(),
+      (val) => {
+        update("search", val);
+      },
+      { defer: true },
+    ),
+  );
 
   /* 콤마 구분 → 배열 파싱 */
   const selectedRaces = (): Race[] =>
-    searchParams.race
-      ? ((searchParams.race as string).split(",") as Race[])
-      : [];
+    searchParams.race ? ((searchParams.race as string).split(",") as Race[]) : [];
   const selectedTiers = (): Tier[] =>
-    searchParams.tier
-      ? ((searchParams.tier as string).split(",") as Tier[])
-      : [];
+    searchParams.tier ? ((searchParams.tier as string).split(",") as Tier[]) : [];
 
   /* 크루 옵션 목록 (FA를 맨 앞에 추가) */
   const crewOptions = (): CrewWithCount[] => [FA_SENTINEL, ...(crews() ?? [])];
@@ -95,8 +91,7 @@ export default function PlayerFilters(props: Props) {
       return found ? [found] : [];
     });
   };
-  const selectedGender = (): GenderOption =>
-    (searchParams.gender as Gender) || "ALL";
+  const selectedGender = (): GenderOption => (searchParams.gender as Gender) || "ALL";
 
   const update = (key: string, value: string) => {
     setSearchParams({ [key]: value || undefined });
@@ -179,7 +174,7 @@ export default function PlayerFilters(props: Props) {
         optionTextValue={(opt) => GENDER_LABELS[opt]}
         value={selectedGender()}
         onChange={(value) =>
-          setSearchParams({ gender: value === "ALL" ? undefined : value ?? undefined })
+          setSearchParams({ gender: value === "ALL" ? undefined : (value ?? undefined) })
         }
         itemLabel={(opt) => <>{GENDER_LABELS[opt]}</>}
         selectedLabel={(opt) => GENDER_LABELS[opt]}
@@ -197,9 +192,7 @@ export default function PlayerFilters(props: Props) {
         value={selectedCrews()}
         onChange={(values) =>
           setSearchParams({
-            crew: values.length
-              ? values.map((c) => c.name).join(",")
-              : undefined,
+            crew: values.length ? values.map((c) => c.name).join(",") : undefined,
           })
         }
         itemLabel={(opt) => <>{opt.name}</>}
@@ -231,11 +224,7 @@ export default function PlayerFilters(props: Props) {
       </div>
 
       <Show when={hasAnyFilter()}>
-        <button
-          class={styles.reset}
-          onClick={resetAll}
-          aria-label="모든 필터 초기화"
-        >
+        <button class={styles.reset} onClick={resetAll} aria-label="모든 필터 초기화">
           초기화
         </button>
       </Show>

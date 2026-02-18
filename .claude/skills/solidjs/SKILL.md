@@ -34,14 +34,15 @@ console.log(count()); // 0
 
 // Update value (setter)
 setCount(1);
-setCount(prev => prev + 1); // Functional update
+setCount((prev) => prev + 1); // Functional update
 ```
 
 **Options:**
+
 ```tsx
 const [value, setValue] = createSignal(initialValue, {
   equals: false, // Always trigger updates, even if value unchanged
-  name: "debugName" // For devtools
+  name: "debugName", // For devtools
 });
 ```
 
@@ -57,6 +58,7 @@ createEffect(() => {
 ```
 
 **Key behaviors:**
+
 - Initial run: after render, before browser paint
 - Subsequent runs: when tracked dependencies change
 - Never runs during SSR or hydration
@@ -74,6 +76,7 @@ console.log(doubled()); // Cached, only recalculates when count changes
 ```
 
 Use memos when:
+
 - Derived value is expensive to compute
 - Derived value is accessed multiple times
 - You want to prevent downstream updates when result unchanged
@@ -88,13 +91,13 @@ const [user, { mutate, refetch }] = createResource(userId, fetchUser);
 // In JSX
 <Show when={!user.loading} fallback={<Loading />}>
   <div>{user()?.name}</div>
-</Show>
+</Show>;
 
 // Resource properties
-user.loading   // boolean
-user.error     // error if failed
-user.state     // "unresolved" | "pending" | "ready" | "refreshing" | "errored"
-user.latest    // last successful value
+user.loading; // boolean
+user.error; // error if failed
+user.state; // "unresolved" | "pending" | "ready" | "refreshing" | "errored"
+user.latest; // last successful value
 ```
 
 ## Stores — Complex State
@@ -106,23 +109,26 @@ import { createStore } from "solid-js/store";
 
 const [state, setState] = createStore({
   user: { name: "John", age: 30 },
-  todos: []
+  todos: [],
 });
 
 // Path syntax updates
 setState("user", "name", "Jane");
-setState("todos", todos => [...todos, newTodo]);
+setState("todos", (todos) => [...todos, newTodo]);
 setState("todos", 0, "completed", true);
 
 // Produce for immer-like updates
 import { produce } from "solid-js/store";
-setState(produce(s => {
-  s.user.age++;
-  s.todos.push(newTodo);
-}));
+setState(
+  produce((s) => {
+    s.user.age++;
+    s.todos.push(newTodo);
+  }),
+);
 ```
 
 **Store utilities:**
+
 - `produce` — Immer-like mutations
 - `reconcile` — Diff and patch data (for API responses)
 - `unwrap` — Get raw non-reactive object
@@ -153,6 +159,7 @@ return <button class={local.class} {...others} />;
 ```
 
 **Props rules:**
+
 - Props are reactive getters — don't destructure at top level
 - Use `props.value` in JSX, not `const { value } = props`
 
@@ -163,11 +170,11 @@ import { children } from "solid-js";
 
 const Wrapper: Component = (props) => {
   const resolved = children(() => props.children);
-  
+
   createEffect(() => {
     console.log("Children:", resolved());
   });
-  
+
   return <div>{resolved()}</div>;
 };
 ```
@@ -181,7 +188,7 @@ import { Show } from "solid-js";
 
 <Show when={user()} fallback={<Login />}>
   {(user) => <Profile user={user()} />}
-</Show>
+</Show>;
 ```
 
 ### For — List Rendering (keyed by reference)
@@ -191,9 +198,11 @@ import { For } from "solid-js";
 
 <For each={items()} fallback={<Empty />}>
   {(item, index) => (
-    <div>{index()}: {item.name}</div>
+    <div>
+      {index()}: {item.name}
+    </div>
   )}
-</For>
+</For>;
 ```
 
 **Note:** `index` is a signal, `item` is the value.
@@ -203,11 +212,7 @@ import { For } from "solid-js";
 ```tsx
 import { Index } from "solid-js";
 
-<Index each={items()}>
-  {(item, index) => (
-    <input value={item().text} />
-  )}
-</Index>
+<Index each={items()}>{(item, index) => <input value={item().text} />}</Index>;
 ```
 
 **Note:** `item` is a signal, `index` is the value. Better for primitive arrays or inputs.
@@ -227,7 +232,7 @@ import { Switch, Match } from "solid-js";
   <Match when={state() === "success"}>
     <Success />
   </Match>
-</Switch>
+</Switch>;
 ```
 
 ### Dynamic — Dynamic Component
@@ -235,7 +240,7 @@ import { Switch, Match } from "solid-js";
 ```tsx
 import { Dynamic } from "solid-js/web";
 
-<Dynamic component={selected()} someProp="value" />
+<Dynamic component={selected()} someProp="value" />;
 ```
 
 ### Portal — Render Outside DOM Hierarchy
@@ -245,7 +250,7 @@ import { Portal } from "solid-js/web";
 
 <Portal mount={document.body}>
   <Modal />
-</Portal>
+</Portal>;
 ```
 
 ### ErrorBoundary — Error Handling
@@ -253,14 +258,16 @@ import { Portal } from "solid-js/web";
 ```tsx
 import { ErrorBoundary } from "solid-js";
 
-<ErrorBoundary fallback={(err, reset) => (
-  <div>
-    Error: {err.message}
-    <button onClick={reset}>Retry</button>
-  </div>
-)}>
+<ErrorBoundary
+  fallback={(err, reset) => (
+    <div>
+      Error: {err.message}
+      <button onClick={reset}>Retry</button>
+    </div>
+  )}
+>
   <RiskyComponent />
-</ErrorBoundary>
+</ErrorBoundary>;
 ```
 
 ### Suspense — Async Loading
@@ -270,7 +277,7 @@ import { Suspense } from "solid-js";
 
 <Suspense fallback={<Loading />}>
   <AsyncComponent />
-</Suspense>
+</Suspense>;
 ```
 
 ## Context API
@@ -287,12 +294,14 @@ const CounterContext = createContext<{
 // Provider component
 export function CounterProvider(props) {
   const [count, setCount] = createSignal(0);
-  
+
   return (
-    <CounterContext.Provider value={{
-      count,
-      increment: () => setCount(c => c + 1)
-    }}>
+    <CounterContext.Provider
+      value={{
+        count,
+        increment: () => setCount((c) => c + 1),
+      }}
+    >
       {props.children}
     </CounterContext.Provider>
   );
@@ -316,12 +325,12 @@ function MyComponent() {
     console.log("Mounted");
     const handler = () => {};
     window.addEventListener("resize", handler);
-    
+
     onCleanup(() => {
       window.removeEventListener("resize", handler);
     });
   });
-  
+
   return <div>Content</div>;
 }
 ```
@@ -354,6 +363,7 @@ let inputRef: HTMLInputElement;
 See [references/routing.md](references/routing.md) for complete routing guide.
 
 Quick setup:
+
 ```tsx
 import { Router, Route } from "@solidjs/router";
 
@@ -361,7 +371,7 @@ import { Router, Route } from "@solidjs/router";
   <Route path="/" component={Home} />
   <Route path="/users/:id" component={User} />
   <Route path="*404" component={NotFound} />
-</Router>
+</Router>;
 ```
 
 ## SolidStart
@@ -369,6 +379,7 @@ import { Router, Route } from "@solidjs/router";
 See [references/solidstart.md](references/solidstart.md) for full-stack development guide.
 
 Quick setup:
+
 ```bash
 npm create solid@latest my-app
 cd my-app && npm install && npm run dev
@@ -414,9 +425,7 @@ createEffect(() => {
 import type { Component, ParentComponent, JSX } from "solid-js";
 
 // Basic component
-const Button: Component<{ label: string }> = (props) => (
-  <button>{props.label}</button>
-);
+const Button: Component<{ label: string }> = (props) => <button>{props.label}</button>;
 
 // With children
 const Layout: ParentComponent<{ title: string }> = (props) => (
@@ -446,40 +455,44 @@ npm create solid@latest my-app -- --template solidstart
 ```
 
 **vite.config.ts:**
+
 ```ts
 import { defineConfig } from "vite";
 import solid from "vite-plugin-solid";
 
 export default defineConfig({
-  plugins: [solid()]
+  plugins: [solid()],
 });
 ```
 
 ## Anti-Patterns to Avoid
 
 1. **Destructuring props** — Breaks reactivity
+
    ```tsx
    // ❌ Bad
    const { name } = props;
-   
+
    // ✅ Good
-   props.name
+   props.name;
    ```
 
 2. **Accessing signals outside tracking scope**
+
    ```tsx
    // ❌ Won't update
    console.log(count());
-   
+
    // ✅ Will update
    createEffect(() => console.log(count()));
    ```
 
 3. **Forgetting to call signal getters**
+
    ```tsx
    // ❌ Passes the function
    <div>{count}</div>
-   
+
    // ✅ Passes the value
    <div>{count()}</div>
    ```

@@ -33,8 +33,7 @@ export default function TierNavigator(props: TierNavigatorProps) {
   });
 
   /* ── Guided tour ── */
-  const shouldTour = () =>
-    typeof localStorage !== "undefined" && !localStorage.getItem(TOUR_KEY);
+  const shouldTour = () => typeof localStorage !== "undefined" && !localStorage.getItem(TOUR_KEY);
 
   const startTour = () => {
     if (!shouldTour()) return;
@@ -132,14 +131,25 @@ export default function TierNavigator(props: TierNavigatorProps) {
       <Dialog.Portal>
         <Dialog.Overlay class={styles.backdrop} />
         <Dialog.Content
-          ref={(el) => { panelRef = el; }}
+          ref={(el) => {
+            panelRef = el;
+          }}
           class={styles.panel}
-          onInteractOutside={(e: Event) => { if (isTourActive()) e.preventDefault(); }}
-          onEscapeKeyDown={(e: Event) => { if (isTourActive()) e.preventDefault(); }}
+          onInteractOutside={(e: Event) => {
+            if (isTourActive()) e.preventDefault();
+          }}
+          onEscapeKeyDown={(e: Event) => {
+            if (isTourActive()) e.preventDefault();
+          }}
         >
           <div class={styles.panelHeader}>
             <Dialog.Title class={styles.panelTitle}>티어 순서</Dialog.Title>
-            <button id="tour-reset-btn" class={styles.resetBtn} onClick={handleReset} title="기본 순서로 초기화">
+            <button
+              id="tour-reset-btn"
+              class={styles.resetBtn}
+              onClick={handleReset}
+              title="기본 순서로 초기화"
+            >
               <RefreshCw aria-hidden="true" />
               초기화
             </button>
@@ -201,10 +211,7 @@ export default function TierNavigator(props: TierNavigatorProps) {
         class={styles.fab}
         aria-label={isOpen() ? "네비게이터 닫기" : "티어 네비게이터 열기"}
       >
-        <Show
-          when={!isOpen()}
-          fallback={<X aria-hidden="true" />}
-        >
+        <Show when={!isOpen()} fallback={<X aria-hidden="true" />}>
           <Menu aria-hidden="true" />
         </Show>
         <span class={styles.fabLabel}>티어 이동</span>

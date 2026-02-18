@@ -5,6 +5,7 @@ Complete guide to building full-stack applications with SolidStart, the SolidJS 
 ## Overview
 
 SolidStart is built on:
+
 - **Solid** — Fine-grained reactive UI library
 - **Vinxi** — Framework bundler (Vite + Nitro)
 - **File-based routing** — via Solid Router
@@ -47,6 +48,7 @@ my-app/
 ## Configuration
 
 **app.config.ts:**
+
 ```ts
 import { defineConfig } from "@solidjs/start/config";
 
@@ -57,39 +59,42 @@ export default defineConfig({
   },
   vite: {
     // Vite options
-  }
+  },
 });
 ```
 
 ## Rendering Modes
 
 ### SSR (Default)
+
 ```ts
 // app.config.ts
 export default defineConfig({
   server: {
-    preset: "node-server"
-  }
+    preset: "node-server",
+  },
 });
 ```
 
 ### Static Site Generation (SSG)
+
 ```ts
 export default defineConfig({
   server: {
     prerender: {
       routes: ["/", "/about", "/posts"],
       // or crawl from root
-      crawlLinks: true
-    }
-  }
+      crawlLinks: true,
+    },
+  },
 });
 ```
 
 ### Client-Side Only (SPA)
+
 ```ts
 export default defineConfig({
-  ssr: false
+  ssr: false,
 });
 ```
 
@@ -97,13 +102,13 @@ export default defineConfig({
 
 ### Basic Routes
 
-| File | Route |
-|------|-------|
-| `routes/index.tsx` | `/` |
-| `routes/about.tsx` | `/about` |
-| `routes/blog/index.tsx` | `/blog` |
-| `routes/blog/[slug].tsx` | `/blog/:slug` |
-| `routes/[...all].tsx` | `/*all` (catch-all) |
+| File                     | Route               |
+| ------------------------ | ------------------- |
+| `routes/index.tsx`       | `/`                 |
+| `routes/about.tsx`       | `/about`            |
+| `routes/blog/index.tsx`  | `/blog`             |
+| `routes/blog/[slug].tsx` | `/blog/:slug`       |
+| `routes/[...all].tsx`    | `/*all` (catch-all) |
 
 ### Dynamic Routes
 
@@ -169,18 +174,14 @@ const getUser = cache(async (id: string) => {
 }, "user");
 
 export const route = {
-  preload: ({ params }) => getUser(params.id)
+  preload: ({ params }) => getUser(params.id),
 };
 
 export default function User() {
   const params = useParams();
   const user = createAsync(() => getUser(params.id));
-  
-  return (
-    <Show when={user()}>
-      {(user) => <h1>{user().name}</h1>}
-    </Show>
-  );
+
+  return <Show when={user()}>{(user) => <h1>{user().name}</h1>}</Show>;
 }
 ```
 
@@ -191,7 +192,7 @@ import { createAsync } from "@solidjs/router";
 
 const data = createAsync(() => fetchData(), {
   initialValue: [],
-  deferStream: true // Wait for data before streaming
+  deferStream: true, // Wait for data before streaming
 });
 ```
 
@@ -206,7 +207,7 @@ export default function Page() {
     if (!res.ok) throw new Error("Failed");
     return res.json();
   });
-  
+
   return (
     <ErrorBoundary fallback={(err) => <div>Error: {err.message}</div>}>
       <Suspense fallback={<Loading />}>
@@ -227,7 +228,7 @@ import { APIEvent } from "@solidjs/start/server";
 
 export function GET(event: APIEvent) {
   return new Response(JSON.stringify({ message: "Hello" }), {
-    headers: { "Content-Type": "application/json" }
+    headers: { "Content-Type": "application/json" },
   });
 }
 
@@ -257,12 +258,12 @@ export async function GET(event: APIEvent) {
   const searchParams = url.searchParams;
   const headers = event.request.headers;
   const cookies = event.request.headers.get("cookie");
-  
+
   // Set cookies
   return new Response(data, {
     headers: {
-      "Set-Cookie": "session=abc123; HttpOnly"
-    }
+      "Set-Cookie": "session=abc123; HttpOnly",
+    },
   });
 }
 ```
@@ -296,13 +297,11 @@ const addTodo = action(async (formData: FormData) => {
 
 function AddTodoForm() {
   const submission = useSubmission(addTodo);
-  
+
   return (
     <form action={addTodo} method="post">
       <input name="title" required />
-      <button disabled={submission.pending}>
-        {submission.pending ? "Adding..." : "Add Todo"}
-      </button>
+      <button disabled={submission.pending}>{submission.pending ? "Adding..." : "Add Todo"}</button>
       {submission.error && <p>Error: {submission.error.message}</p>}
     </form>
   );
@@ -332,22 +331,23 @@ export default createMiddleware({
       console.log("Request:", event.request.url);
       // Return Response to short-circuit
       // Return undefined to continue
-    }
+    },
   ],
   onBeforeResponse: [
     async (event, response) => {
       // Modify response
       return response;
-    }
-  ]
+    },
+  ],
 });
 ```
 
 Register in config:
+
 ```ts
 // app.config.ts
 export default defineConfig({
-  middleware: "./src/middleware.ts"
+  middleware: "./src/middleware.ts",
 });
 ```
 
@@ -367,8 +367,8 @@ export function getSession() {
       name: "session",
       secure: process.env.NODE_ENV === "production",
       httpOnly: true,
-      maxAge: 60 * 60 * 24 * 7 // 1 week
-    }
+      maxAge: 60 * 60 * 24 * 7, // 1 week
+    },
   });
 }
 
@@ -376,9 +376,9 @@ export function getSession() {
 async function login(formData: FormData) {
   "use server";
   const session = await getSession();
-  
+
   // Validate credentials...
-  
+
   await session.update({ userId: user.id });
   throw redirect("/dashboard");
 }
@@ -404,7 +404,7 @@ export const route = {
     if (!session.data.userId) {
       throw redirect("/login");
     }
-  }
+  },
 };
 
 export default function ProtectedLayout(props) {
@@ -424,7 +424,7 @@ export default function Page() {
       <Meta name="description" content="Page description" />
       <Meta property="og:title" content="OG Title" />
       <Link rel="canonical" href="https://example.com/page" />
-      
+
       <div>Content</div>
     </>
   );
@@ -450,6 +450,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
 ## Static Assets
 
 Place in `public/`:
+
 ```
 public/
 ├── favicon.ico
@@ -459,6 +460,7 @@ public/
 ```
 
 Access at root:
+
 ```tsx
 <img src="/images/logo.png" alt="Logo" />
 ```
@@ -477,7 +479,7 @@ import "./global.css";
 ```tsx
 import styles from "./Button.module.css";
 
-<button class={styles.primary}>Click</button>
+<button class={styles.primary}>Click</button>;
 ```
 
 ### Tailwind CSS
@@ -490,7 +492,7 @@ npx tailwindcss init -p
 ```ts
 // tailwind.config.js
 export default {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"]
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
 };
 ```
 
@@ -515,7 +517,7 @@ node .output/server/index.mjs
 ```ts
 // app.config.ts
 export default defineConfig({
-  server: { preset: "vercel" }
+  server: { preset: "vercel" },
 });
 ```
 
@@ -523,7 +525,7 @@ export default defineConfig({
 
 ```ts
 export default defineConfig({
-  server: { preset: "netlify" }
+  server: { preset: "netlify" },
 });
 ```
 
@@ -531,7 +533,7 @@ export default defineConfig({
 
 ```ts
 export default defineConfig({
-  server: { preset: "cloudflare-pages" }
+  server: { preset: "cloudflare-pages" },
 });
 ```
 
@@ -550,7 +552,7 @@ export const GET = defineWebSocket({
   },
   close(peer) {
     console.log("Disconnected:", peer.id);
-  }
+  },
 });
 ```
 
@@ -575,7 +577,7 @@ async function getData() {
 import type { RouteDefinition } from "@solidjs/router";
 
 export const route: RouteDefinition = {
-  preload: ({ params }) => getUser(params.id)
+  preload: ({ params }) => getUser(params.id),
 };
 
 // Type for API routes

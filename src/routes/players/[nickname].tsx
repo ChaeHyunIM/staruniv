@@ -1,9 +1,4 @@
-import {
-  A,
-  createAsync,
-  useParams,
-  type RouteDefinition,
-} from "@solidjs/router";
+import { A, createAsync, useParams, type RouteDefinition } from "@solidjs/router";
 import { ErrorBoundary, Show, Suspense } from "solid-js";
 import { Title } from "@solidjs/meta";
 import { getPlayer } from "~/lib/queries";
@@ -29,13 +24,8 @@ export default function PlayerDetailPage() {
           </div>
         }
       >
-        <ErrorBoundary
-          fallback={<p class="empty-state">선수를 찾을 수 없습니다.</p>}
-        >
-          <Show
-            when={player()}
-            fallback={<p class="empty-state">선수를 찾을 수 없습니다.</p>}
-          >
+        <ErrorBoundary fallback={<p class="empty-state">선수를 찾을 수 없습니다.</p>}>
+          <Show when={player()} fallback={<p class="empty-state">선수를 찾을 수 없습니다.</p>}>
             {(p) => (
               <>
                 <Title>StarUniv - {p().nickname}</Title>
@@ -54,13 +44,7 @@ export default function PlayerDetailPage() {
                   <dl class={styles.info}>
                     <div class={styles.field}>
                       <dt>종족</dt>
-                      <dd>
-                        {p().race === "T"
-                          ? "Terran"
-                          : p().race === "Z"
-                            ? "Zerg"
-                            : "Protoss"}
-                      </dd>
+                      <dd>{p().race === "T" ? "Terran" : p().race === "Z" ? "Zerg" : "Protoss"}</dd>
                     </div>
                     <div class={styles.field}>
                       <dt>티어</dt>

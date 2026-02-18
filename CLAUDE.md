@@ -55,17 +55,18 @@ import { Camera, Search } from "lucide-solid";
 
 ## File & Folder Naming Convention
 
-| Target | Convention | Example |
-|---|---|---|
-| Component folder | kebab-case | `player-card/` |
-| Component file (.tsx) | PascalCase | `PlayerCard.tsx` |
-| CSS module file | kebab-case | `player-card.module.css` |
-| CSS class name | camelCase | `.nameRow`, `.avatarPhoto` |
-| Barrel file | `index.ts` | `index.ts` |
-| General TS/utility file | camelCase | `createDebounced.ts` |
-| Route folder/file | kebab-case (SolidStart file-based routing) | `history/index.tsx` |
+| Target                  | Convention                                 | Example                    |
+| ----------------------- | ------------------------------------------ | -------------------------- |
+| Component folder        | kebab-case                                 | `player-card/`             |
+| Component file (.tsx)   | PascalCase                                 | `PlayerCard.tsx`           |
+| CSS module file         | kebab-case                                 | `player-card.module.css`   |
+| CSS class name          | camelCase                                  | `.nameRow`, `.avatarPhoto` |
+| Barrel file             | `index.ts`                                 | `index.ts`                 |
+| General TS/utility file | camelCase                                  | `createDebounced.ts`       |
+| Route folder/file       | kebab-case (SolidStart file-based routing) | `history/index.tsx`        |
 
 Component structure example:
+
 ```
 src/components/
   player-card/

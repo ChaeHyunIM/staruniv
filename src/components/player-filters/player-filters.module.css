@@ -63,21 +63,81 @@
 
 /* ── 티어 칩 색상 ── */
 
-.filters [data-tier="god"]    { color: var(--tier-god);    background: var(--tier-god-bg);    border: 1px solid oklch(from var(--tier-god) l c h / 0.2); }
-.filters [data-tier="king"]   { color: var(--tier-king);   background: var(--tier-king-bg);   border: 1px solid oklch(from var(--tier-king) l c h / 0.2); }
-.filters [data-tier="jack"]   { color: var(--tier-jack);   background: var(--tier-jack-bg);   border: 1px solid oklch(from var(--tier-jack) l c h / 0.2); }
-.filters [data-tier="joker"]  { color: var(--tier-joker);  background: var(--tier-joker-bg);  border: 1px solid oklch(from var(--tier-joker) l c h / 0.2); }
-.filters [data-tier="spade"]  { color: var(--tier-spade);  background: var(--tier-spade-bg);  border: 1px solid oklch(from var(--tier-spade) l c h / 0.2); }
-.filters [data-tier="0"]      { color: var(--tier-0);      background: var(--tier-0-bg);      border: 1px solid oklch(from var(--tier-0) l c h / 0.2); }
-.filters [data-tier="1"]      { color: var(--tier-1);      background: var(--tier-1-bg);      border: 1px solid oklch(from var(--tier-1) l c h / 0.2); }
-.filters [data-tier="2"]      { color: var(--tier-2);      background: var(--tier-2-bg);      border: 1px solid oklch(from var(--tier-2) l c h / 0.2); }
-.filters [data-tier="3"]      { color: var(--tier-3);      background: var(--tier-3-bg);      border: 1px solid oklch(from var(--tier-3) l c h / 0.2); }
-.filters [data-tier="4"]      { color: var(--tier-4);      background: var(--tier-4-bg);      border: 1px solid oklch(from var(--tier-4) l c h / 0.2); }
-.filters [data-tier="5"]      { color: var(--tier-5);      background: var(--tier-5-bg);      border: 1px solid oklch(from var(--tier-5) l c h / 0.2); }
-.filters [data-tier="6"]      { color: var(--tier-6);      background: var(--tier-6-bg);      border: 1px solid oklch(from var(--tier-6) l c h / 0.2); }
-.filters [data-tier="7"]      { color: var(--tier-7);      background: var(--tier-7-bg);      border: 1px solid oklch(from var(--tier-7) l c h / 0.2); }
-.filters [data-tier="8"]      { color: var(--tier-8);      background: var(--tier-8-bg);      border: 1px solid oklch(from var(--tier-8) l c h / 0.2); }
-.filters [data-tier="baby"]   { color: var(--tier-baby);   background: var(--tier-baby-bg);   border: 1px solid oklch(from var(--tier-baby) l c h / 0.2); }
+.filters [data-tier="god"] {
+  color: var(--tier-god);
+  background: var(--tier-god-bg);
+  border: 1px solid oklch(from var(--tier-god) l c h / 0.2);
+}
+.filters [data-tier="king"] {
+  color: var(--tier-king);
+  background: var(--tier-king-bg);
+  border: 1px solid oklch(from var(--tier-king) l c h / 0.2);
+}
+.filters [data-tier="jack"] {
+  color: var(--tier-jack);
+  background: var(--tier-jack-bg);
+  border: 1px solid oklch(from var(--tier-jack) l c h / 0.2);
+}
+.filters [data-tier="joker"] {
+  color: var(--tier-joker);
+  background: var(--tier-joker-bg);
+  border: 1px solid oklch(from var(--tier-joker) l c h / 0.2);
+}
+.filters [data-tier="spade"] {
+  color: var(--tier-spade);
+  background: var(--tier-spade-bg);
+  border: 1px solid oklch(from var(--tier-spade) l c h / 0.2);
+}
+.filters [data-tier="0"] {
+  color: var(--tier-0);
+  background: var(--tier-0-bg);
+  border: 1px solid oklch(from var(--tier-0) l c h / 0.2);
+}
+.filters [data-tier="1"] {
+  color: var(--tier-1);
+  background: var(--tier-1-bg);
+  border: 1px solid oklch(from var(--tier-1) l c h / 0.2);
+}
+.filters [data-tier="2"] {
+  color: var(--tier-2);
+  background: var(--tier-2-bg);
+  border: 1px solid oklch(from var(--tier-2) l c h / 0.2);
+}
+.filters [data-tier="3"] {
+  color: var(--tier-3);
+  background: var(--tier-3-bg);
+  border: 1px solid oklch(from var(--tier-3) l c h / 0.2);
+}
+.filters [data-tier="4"] {
+  color: var(--tier-4);
+  background: var(--tier-4-bg);
+  border: 1px solid oklch(from var(--tier-4) l c h / 0.2);
+}
+.filters [data-tier="5"] {
+  color: var(--tier-5);
+  background: var(--tier-5-bg);
+  border: 1px solid oklch(from var(--tier-5) l c h / 0.2);
+}
+.filters [data-tier="6"] {
+  color: var(--tier-6);
+  background: var(--tier-6-bg);
+  border: 1px solid oklch(from var(--tier-6) l c h / 0.2);
+}
+.filters [data-tier="7"] {
+  color: var(--tier-7);
+  background: var(--tier-7-bg);
+  border: 1px solid oklch(from var(--tier-7) l c h / 0.2);
+}
+.filters [data-tier="8"] {
+  color: var(--tier-8);
+  background: var(--tier-8-bg);
+  border: 1px solid oklch(from var(--tier-8) l c h / 0.2);
+}
+.filters [data-tier="baby"] {
+  color: var(--tier-baby);
+  background: var(--tier-baby-bg);
+  border: 1px solid oklch(from var(--tier-baby) l c h / 0.2);
+}
 
 /* ── 종족/티어 색상 도트 (itemLabel에서 사용) ── */
 
@@ -88,26 +148,62 @@
   flex-shrink: 0;
 
   /* 종족 */
-  &[data-race="terran"]  { background: var(--race-terran); }
-  &[data-race="zerg"]    { background: var(--race-zerg); }
-  &[data-race="protoss"] { background: var(--race-protoss); }
+  &[data-race="terran"] {
+    background: var(--race-terran);
+  }
+  &[data-race="zerg"] {
+    background: var(--race-zerg);
+  }
+  &[data-race="protoss"] {
+    background: var(--race-protoss);
+  }
 
   /* 티어 */
-  &[data-tier="god"]   { background: var(--tier-god); }
-  &[data-tier="king"]  { background: var(--tier-king); }
-  &[data-tier="jack"]  { background: var(--tier-jack); }
-  &[data-tier="joker"] { background: var(--tier-joker); }
-  &[data-tier="spade"] { background: var(--tier-spade); }
-  &[data-tier="0"]     { background: var(--tier-0); }
-  &[data-tier="1"]     { background: var(--tier-1); }
-  &[data-tier="2"]     { background: var(--tier-2); }
-  &[data-tier="3"]     { background: var(--tier-3); }
-  &[data-tier="4"]     { background: var(--tier-4); }
-  &[data-tier="5"]     { background: var(--tier-5); }
-  &[data-tier="6"]     { background: var(--tier-6); }
-  &[data-tier="7"]     { background: var(--tier-7); }
-  &[data-tier="8"]     { background: var(--tier-8); }
-  &[data-tier="baby"]  { background: var(--tier-baby); }
+  &[data-tier="god"] {
+    background: var(--tier-god);
+  }
+  &[data-tier="king"] {
+    background: var(--tier-king);
+  }
+  &[data-tier="jack"] {
+    background: var(--tier-jack);
+  }
+  &[data-tier="joker"] {
+    background: var(--tier-joker);
+  }
+  &[data-tier="spade"] {
+    background: var(--tier-spade);
+  }
+  &[data-tier="0"] {
+    background: var(--tier-0);
+  }
+  &[data-tier="1"] {
+    background: var(--tier-1);
+  }
+  &[data-tier="2"] {
+    background: var(--tier-2);
+  }
+  &[data-tier="3"] {
+    background: var(--tier-3);
+  }
+  &[data-tier="4"] {
+    background: var(--tier-4);
+  }
+  &[data-tier="5"] {
+    background: var(--tier-5);
+  }
+  &[data-tier="6"] {
+    background: var(--tier-6);
+  }
+  &[data-tier="7"] {
+    background: var(--tier-7);
+  }
+  &[data-tier="8"] {
+    background: var(--tier-8);
+  }
+  &[data-tier="baby"] {
+    background: var(--tier-baby);
+  }
 }
 
 /* ── 초기화 버튼 ── */
@@ -122,7 +218,9 @@
   color: var(--muted-foreground);
   font-size: var(--text-sm);
   cursor: pointer;
-  transition: color 0.15s, border-color 0.15s;
+  transition:
+    color 0.15s,
+    border-color 0.15s;
 
   &:hover {
     color: var(--foreground);

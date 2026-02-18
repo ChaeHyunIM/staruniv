@@ -35,7 +35,7 @@ for (const d of crewData._race_corrections.name_discrepancy) {
 
 // ─── 여캠 티어에 있지만 남자인 선수 ───
 const maleInFemaleTier = new Set<string>(
-  faData._male_in_female_tier.map((p: { nickname: string }) => p.nickname)
+  faData._male_in_female_tier.map((p: { nickname: string }) => p.nickname),
 );
 
 // ─── FA 선수 목록 ───
@@ -183,7 +183,7 @@ let crewId = 1;
 for (const crew of crewData.crews) {
   crewIdMap.set(crew.name, crewId);
   lines.push(
-    `INSERT INTO crews (id, name, is_active) VALUES (${crewId}, '${esc(crew.name)}', true);`
+    `INSERT INTO crews (id, name, is_active) VALUES (${crewId}, '${esc(crew.name)}', true);`,
   );
   crewId++;
 }
@@ -191,9 +191,7 @@ for (const crew of crewData.crews) {
 // 비활성 크루 (대회 우승 이력만)
 for (const name of inactiveCrewNames) {
   crewIdMap.set(name, crewId);
-  lines.push(
-    `INSERT INTO crews (id, name, is_active) VALUES (${crewId}, '${esc(name)}', false);`
-  );
+  lines.push(`INSERT INTO crews (id, name, is_active) VALUES (${crewId}, '${esc(name)}', false);`);
   crewId++;
 }
 
@@ -207,7 +205,7 @@ for (const p of players) {
   const crewIdStr = crewIdVal ? String(crewIdVal) : "NULL";
   const tagStr = p.tag ? `'${esc(p.tag)}'` : "NULL";
   lines.push(
-    `INSERT INTO players (id, nickname, race, tier, gender, crew_id, is_fa, tag, status) VALUES (${playerId}, '${esc(p.nickname)}', '${p.race}', '${esc(p.tier)}', '${p.gender}', ${crewIdStr}, ${p.is_fa}, ${tagStr}, '${p.status}');`
+    `INSERT INTO players (id, nickname, race, tier, gender, crew_id, is_fa, tag, status) VALUES (${playerId}, '${esc(p.nickname)}', '${p.race}', '${esc(p.tier)}', '${p.gender}', ${crewIdStr}, ${p.is_fa}, ${tagStr}, '${p.status}');`,
   );
   playerId++;
 }
@@ -221,7 +219,7 @@ for (const t of tournamentData.tournaments) {
   const winnerStr = winnerCrewId ? String(winnerCrewId) : "NULL";
   const statusStr = t.status === "ongoing" ? "ongoing" : "completed";
   lines.push(
-    `INSERT INTO tournaments (id, name, year, winner_crew_id, status) VALUES (${tournamentId}, '${esc(t.name)}', ${t.year}, ${winnerStr}, '${statusStr}');`
+    `INSERT INTO tournaments (id, name, year, winner_crew_id, status) VALUES (${tournamentId}, '${esc(t.name)}', ${t.year}, ${winnerStr}, '${statusStr}');`,
   );
   tournamentId++;
 }
@@ -230,7 +228,7 @@ lines.push("");
 // 티어 버전 삽입
 lines.push("-- ─── Tier Version ───");
 lines.push(
-  `INSERT INTO tier_versions (version, released_at, notes) VALUES ('${esc(tierData.version)}', '${tierData.updated_at}', NULL);`
+  `INSERT INTO tier_versions (version, released_at, notes) VALUES ('${esc(tierData.version)}', '${tierData.updated_at}', NULL);`,
 );
 lines.push("");
 
@@ -249,7 +247,9 @@ const crewPlayers = players.filter((p) => p.crew_name !== null);
 
 console.log("=== generate-seed.ts ===");
 console.log(`Output: ${OUT_PATH}`);
-console.log(`Crews: ${crewNames.size} active + ${inactiveCrewNames.size} inactive = ${allCrewNames.length}`);
+console.log(
+  `Crews: ${crewNames.size} active + ${inactiveCrewNames.size} inactive = ${allCrewNames.length}`,
+);
 console.log(`Players: ${players.length} total (${activePlayers.length} active)`);
 console.log(`  Male: ${malePlayers.length}, Female: ${femalePlayers.length}`);
 console.log(`  FA: ${faPlayers.length}, Crew: ${crewPlayers.length}`);

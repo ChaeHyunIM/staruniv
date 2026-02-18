@@ -14,9 +14,7 @@ if (!filePath) {
   process.exit(1);
 }
 
-const absPath = filePath.startsWith("/")
-  ? filePath
-  : join(import.meta.dirname, "..", filePath);
+const absPath = filePath.startsWith("/") ? filePath : join(import.meta.dirname, "..", filePath);
 
 const content = await Bun.file(absPath).text();
 

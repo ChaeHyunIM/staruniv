@@ -39,9 +39,7 @@ export interface ReorderableReturn<T> {
   move(item: T, delta: number): number;
 }
 
-export function createReorderable<T>(
-  options: CreateReorderableOptions<T>,
-): ReorderableReturn<T> {
+export function createReorderable<T>(options: CreateReorderableOptions<T>): ReorderableReturn<T> {
   const [dragItem, setDragItem] = createSignal<T | null>(null);
   const [dropTarget, setDropTarget] = createSignal<{
     key: string | number;
@@ -54,10 +52,13 @@ export function createReorderable<T>(
   const reorder = (fromIndex: number, toIndex: number): void => {
     const items = [...options.items()];
     if (
-      fromIndex < 0 || fromIndex >= items.length ||
-      toIndex < 0 || toIndex >= items.length ||
+      fromIndex < 0 ||
+      fromIndex >= items.length ||
+      toIndex < 0 ||
+      toIndex >= items.length ||
       fromIndex === toIndex
-    ) return;
+    )
+      return;
 
     const [moved] = items.splice(fromIndex, 1);
     items.splice(toIndex, 0, moved);
@@ -116,9 +117,7 @@ export function createReorderable<T>(
       const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
       const isVertical = orientation() === "vertical";
       const pos = isVertical ? e.clientY : e.clientX;
-      const mid = isVertical
-        ? rect.top + rect.height / 2
-        : rect.left + rect.width / 2;
+      const mid = isVertical ? rect.top + rect.height / 2 : rect.left + rect.width / 2;
 
       setDropTarget({ key: options.key(item), position: pos < mid ? "before" : "after" });
     },

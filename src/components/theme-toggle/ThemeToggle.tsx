@@ -28,9 +28,7 @@ export default function ThemeToggle() {
     >
       <Show
         when={dark()}
-        fallback={
-          <Sun class={`${styles.icon} ${styles.sun}`} size={18} aria-hidden="true" />
-        }
+        fallback={<Sun class={`${styles.icon} ${styles.sun}`} size={18} aria-hidden="true" />}
       >
         <Moon class={`${styles.icon} ${styles.moon}`} size={18} aria-hidden="true" />
       </Show>

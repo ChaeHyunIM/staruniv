@@ -28,9 +28,7 @@ export function SingleSelect<T>(props: {
       placeholder={placeholder()}
       itemComponent={(itemProps) => (
         <Select.Item item={itemProps.item} class={styles.item}>
-          <Select.ItemLabel>
-            {props.itemLabel(itemProps.item.rawValue)}
-          </Select.ItemLabel>
+          <Select.ItemLabel>{props.itemLabel(itemProps.item.rawValue)}</Select.ItemLabel>
           <Select.ItemIndicator class={styles.itemIndicator}>
             <CheckIcon />
           </Select.ItemIndicator>

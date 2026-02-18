@@ -57,19 +57,19 @@
     --card: oklch(0.997 0.002 30);
     --card-foreground: oklch(0.15 0.005 30);
     --muted: oklch(0.96 0.003 30);
-    --muted-foreground: oklch(0.40 0.005 30);
+    --muted-foreground: oklch(0.4 0.005 30);
     --popover: oklch(0.997 0.002 30);
     --popover-foreground: oklch(0.15 0.005 30);
 
     /* ── Brand ── */
     --primary: oklch(0.7297 0.1384 260.5699);
-    --primary-foreground: oklch(1.0000 0 0);
-    --secondary: oklch(0.6332 0.1460 132.7937);
-    --secondary-foreground: oklch(1.0000 0 0);
+    --primary-foreground: oklch(1 0 0);
+    --secondary: oklch(0.6332 0.146 132.7937);
+    --secondary-foreground: oklch(1 0 0);
     --accent: oklch(0.7686 0.1647 70.0804);
     --accent-foreground: oklch(0 0 0);
     --destructive: oklch(0.6368 0.2078 25.3313);
-    --destructive-foreground: oklch(1.0000 0 0);
+    --destructive-foreground: oklch(1 0 0);
 
     /* ── UI ── */
     --border: oklch(0 0 0);
@@ -80,7 +80,7 @@
 
     /* ── Chart ── */
     --chart-1: oklch(0.7297 0.1384 260.5699);
-    --chart-2: oklch(0.6332 0.1460 132.7937);
+    --chart-2: oklch(0.6332 0.146 132.7937);
     --chart-3: oklch(0.7686 0.1647 70.0804);
     --chart-4: oklch(0.6368 0.2078 25.3313);
     --chart-5: oklch(0.7853 0.1041 274.7134);
@@ -90,42 +90,42 @@
 
     /* ── Race colors (light) ── */
     --race-terran: oklch(0.55 0.18 255);
-    --race-zerg: oklch(0.52 0.20 25);
-    --race-protoss: oklch(0.60 0.16 80);
+    --race-zerg: oklch(0.52 0.2 25);
+    --race-protoss: oklch(0.6 0.16 80);
     --race-terran-bg: oklch(0.55 0.18 255 / 0.08);
-    --race-zerg-bg: oklch(0.52 0.20 25 / 0.08);
-    --race-protoss-bg: oklch(0.60 0.16 80 / 0.08);
+    --race-zerg-bg: oklch(0.52 0.2 25 / 0.08);
+    --race-protoss-bg: oklch(0.6 0.16 80 / 0.08);
 
     /* ── Tier colors (light) ── */
     --tier-god: oklch(0.62 0.16 85);
     --tier-king: oklch(0.58 0.14 75);
-    --tier-jack: oklch(0.52 0.10 60);
+    --tier-jack: oklch(0.52 0.1 60);
     --tier-joker: oklch(0.52 0.16 300);
-    --tier-spade: oklch(0.50 0.12 230);
+    --tier-spade: oklch(0.5 0.12 230);
     --tier-0: oklch(0.52 0.14 155);
-    --tier-1: oklch(0.50 0.12 155);
-    --tier-2: oklch(0.48 0.10 155);
+    --tier-1: oklch(0.5 0.12 155);
+    --tier-2: oklch(0.48 0.1 155);
     --tier-3: oklch(0.52 0.12 200);
-    --tier-4: oklch(0.50 0.10 200);
+    --tier-4: oklch(0.5 0.1 200);
     --tier-5: oklch(0.48 0.08 200);
-    --tier-6: oklch(0.50 0.12 260);
-    --tier-7: oklch(0.48 0.10 260);
+    --tier-6: oklch(0.5 0.12 260);
+    --tier-7: oklch(0.48 0.1 260);
     --tier-8: oklch(0.46 0.08 260);
     --tier-baby: oklch(0.58 0.14 350);
 
     --tier-god-bg: oklch(0.62 0.16 85 / 0.08);
     --tier-king-bg: oklch(0.58 0.14 75 / 0.08);
-    --tier-jack-bg: oklch(0.52 0.10 60 / 0.08);
+    --tier-jack-bg: oklch(0.52 0.1 60 / 0.08);
     --tier-joker-bg: oklch(0.52 0.16 300 / 0.08);
-    --tier-spade-bg: oklch(0.50 0.12 230 / 0.08);
+    --tier-spade-bg: oklch(0.5 0.12 230 / 0.08);
     --tier-0-bg: oklch(0.52 0.14 155 / 0.08);
-    --tier-1-bg: oklch(0.50 0.12 155 / 0.08);
-    --tier-2-bg: oklch(0.48 0.10 155 / 0.08);
+    --tier-1-bg: oklch(0.5 0.12 155 / 0.08);
+    --tier-2-bg: oklch(0.48 0.1 155 / 0.08);
     --tier-3-bg: oklch(0.52 0.12 200 / 0.08);
-    --tier-4-bg: oklch(0.50 0.10 200 / 0.08);
+    --tier-4-bg: oklch(0.5 0.1 200 / 0.08);
     --tier-5-bg: oklch(0.48 0.08 200 / 0.08);
-    --tier-6-bg: oklch(0.50 0.12 260 / 0.08);
-    --tier-7-bg: oklch(0.48 0.10 260 / 0.08);
+    --tier-6-bg: oklch(0.5 0.12 260 / 0.08);
+    --tier-7-bg: oklch(0.48 0.1 260 / 0.08);
     --tier-8-bg: oklch(0.46 0.08 260 / 0.08);
     --tier-baby-bg: oklch(0.58 0.14 350 / 0.08);
 
@@ -133,11 +133,11 @@
     --tag-promotion: oklch(0.58 0.16 55);
     --tag-rising: oklch(0.52 0.14 145);
     --tag-new: oklch(0.55 0.14 255);
-    --tag-inactive: oklch(0.50 0.02 0);
+    --tag-inactive: oklch(0.5 0.02 0);
     --tag-promotion-bg: oklch(0.58 0.16 55 / 0.1);
     --tag-rising-bg: oklch(0.52 0.14 145 / 0.1);
     --tag-new-bg: oklch(0.55 0.14 255 / 0.1);
-    --tag-inactive-bg: oklch(0.50 0.02 0 / 0.1);
+    --tag-inactive-bg: oklch(0.5 0.02 0 / 0.1);
 
     /* ── Font ── */
     --font-sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
@@ -193,20 +193,20 @@
     --foreground: oklch(0.95 0 0);
     --card: oklch(0.235 0.006 280);
     --card-foreground: oklch(0.95 0 0);
-    --muted: oklch(0.30 0.006 280);
+    --muted: oklch(0.3 0.006 280);
     --muted-foreground: oklch(0.68 0 0);
     --popover: oklch(0.235 0.006 280);
     --popover-foreground: oklch(0.95 0 0);
 
     /* ── Brand ── */
     --primary: oklch(0.7297 0.1384 260.5699);
-    --primary-foreground: oklch(1.0000 0 0);
-    --secondary: oklch(0.6332 0.1460 132.7937);
-    --secondary-foreground: oklch(1.0000 0 0);
+    --primary-foreground: oklch(1 0 0);
+    --secondary: oklch(0.6332 0.146 132.7937);
+    --secondary-foreground: oklch(1 0 0);
     --accent: oklch(0.7686 0.1647 70.0804);
     --accent-foreground: oklch(0 0 0);
     --destructive: oklch(0.6368 0.2078 25.3313);
-    --destructive-foreground: oklch(1.0000 0 0);
+    --destructive-foreground: oklch(1 0 0);
 
     /* ── UI ── */
     --border: oklch(1 0 0);
@@ -217,7 +217,7 @@
 
     /* ── Chart ── */
     --chart-1: oklch(0.7297 0.1384 260.5699);
-    --chart-2: oklch(0.6332 0.1460 132.7937);
+    --chart-2: oklch(0.6332 0.146 132.7937);
     --chart-3: oklch(0.7686 0.1647 70.0804);
     --chart-4: oklch(0.6368 0.2078 25.3313);
     --chart-5: oklch(0.7853 0.1041 274.7134);
@@ -231,50 +231,50 @@
     --race-protoss: oklch(0.78 0.14 85);
     --race-terran-bg: oklch(0.72 0.15 255 / 0.12);
     --race-zerg-bg: oklch(0.68 0.18 25 / 0.12);
-    --race-protoss-bg: oklch(0.60 0.16 80 / 0.12);
+    --race-protoss-bg: oklch(0.6 0.16 80 / 0.12);
 
     /* ── Tier colors (dark) ── */
     --tier-god: oklch(0.82 0.14 85);
     --tier-king: oklch(0.78 0.12 75);
-    --tier-jack: oklch(0.70 0.08 60);
+    --tier-jack: oklch(0.7 0.08 60);
     --tier-joker: oklch(0.72 0.14 300);
-    --tier-spade: oklch(0.68 0.10 230);
+    --tier-spade: oklch(0.68 0.1 230);
     --tier-0: oklch(0.72 0.12 155);
-    --tier-1: oklch(0.70 0.10 155);
+    --tier-1: oklch(0.7 0.1 155);
     --tier-2: oklch(0.68 0.08 155);
-    --tier-3: oklch(0.72 0.10 200);
-    --tier-4: oklch(0.70 0.08 200);
+    --tier-3: oklch(0.72 0.1 200);
+    --tier-4: oklch(0.7 0.08 200);
     --tier-5: oklch(0.68 0.06 200);
-    --tier-6: oklch(0.70 0.10 260);
+    --tier-6: oklch(0.7 0.1 260);
     --tier-7: oklch(0.68 0.08 260);
     --tier-8: oklch(0.66 0.06 260);
     --tier-baby: oklch(0.78 0.12 350);
 
     --tier-god-bg: oklch(0.82 0.14 85 / 0.12);
     --tier-king-bg: oklch(0.78 0.12 75 / 0.12);
-    --tier-jack-bg: oklch(0.70 0.08 60 / 0.12);
+    --tier-jack-bg: oklch(0.7 0.08 60 / 0.12);
     --tier-joker-bg: oklch(0.72 0.14 300 / 0.12);
-    --tier-spade-bg: oklch(0.68 0.10 230 / 0.12);
+    --tier-spade-bg: oklch(0.68 0.1 230 / 0.12);
     --tier-0-bg: oklch(0.72 0.12 155 / 0.12);
-    --tier-1-bg: oklch(0.70 0.10 155 / 0.12);
+    --tier-1-bg: oklch(0.7 0.1 155 / 0.12);
     --tier-2-bg: oklch(0.68 0.08 155 / 0.12);
-    --tier-3-bg: oklch(0.72 0.10 200 / 0.12);
-    --tier-4-bg: oklch(0.70 0.08 200 / 0.12);
+    --tier-3-bg: oklch(0.72 0.1 200 / 0.12);
+    --tier-4-bg: oklch(0.7 0.08 200 / 0.12);
     --tier-5-bg: oklch(0.68 0.06 200 / 0.12);
-    --tier-6-bg: oklch(0.70 0.10 260 / 0.12);
+    --tier-6-bg: oklch(0.7 0.1 260 / 0.12);
     --tier-7-bg: oklch(0.68 0.08 260 / 0.12);
     --tier-8-bg: oklch(0.66 0.06 260 / 0.12);
     --tier-baby-bg: oklch(0.78 0.12 350 / 0.12);
 
     /* ── Tag colors (dark) ── */
     --tag-promotion: oklch(0.75 0.14 55);
-    --tag-rising: oklch(0.70 0.12 145);
+    --tag-rising: oklch(0.7 0.12 145);
     --tag-new: oklch(0.72 0.12 255);
-    --tag-inactive: oklch(0.60 0.02 0);
+    --tag-inactive: oklch(0.6 0.02 0);
     --tag-promotion-bg: oklch(0.75 0.14 55 / 0.15);
-    --tag-rising-bg: oklch(0.70 0.12 145 / 0.15);
+    --tag-rising-bg: oklch(0.7 0.12 145 / 0.15);
     --tag-new-bg: oklch(0.72 0.12 255 / 0.15);
-    --tag-inactive-bg: oklch(0.60 0.02 0 / 0.15);
+    --tag-inactive-bg: oklch(0.6 0.02 0 / 0.15);
 
     /* ── Shadow (stronger for dark) ── */
     --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.2);
@@ -317,7 +317,10 @@
     background: var(--background);
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-sans);
     font-weight: 600;
     line-height: var(--leading-tight);
@@ -327,10 +330,18 @@
     scroll-margin-top: calc(var(--nav-height) + var(--sp-4));
   }
 
-  h1 { font-size: var(--text-3xl); }
-  h2 { font-size: var(--text-2xl); }
-  h3 { font-size: var(--text-xl); }
-  h4 { font-size: var(--text-lg); }
+  h1 {
+    font-size: var(--text-3xl);
+  }
+  h2 {
+    font-size: var(--text-2xl);
+  }
+  h3 {
+    font-size: var(--text-xl);
+  }
+  h4 {
+    font-size: var(--text-lg);
+  }
 
   /* Scrollbar */
   ::-webkit-scrollbar {
@@ -373,8 +384,12 @@
     padding: var(--sp-8) var(--sp-6);
   }
 
-  .page--narrow { max-width: 900px; }
-  .page--detail { max-width: 720px; }
+  .page--narrow {
+    max-width: 900px;
+  }
+  .page--detail {
+    max-width: 720px;
+  }
 
   .page-header {
     margin-bottom: var(--sp-8);
@@ -531,21 +546,51 @@
   }
 
   /* Tier text color */
-  .tier-color[data-tier="God"] { color: var(--tier-god); }
-  .tier-color[data-tier="King"] { color: var(--tier-king); }
-  .tier-color[data-tier="Jack"] { color: var(--tier-jack); }
-  .tier-color[data-tier="Joker"] { color: var(--tier-joker); }
-  .tier-color[data-tier="Spade"] { color: var(--tier-spade); }
-  .tier-color[data-tier="0"] { color: var(--tier-0); }
-  .tier-color[data-tier="1"] { color: var(--tier-1); }
-  .tier-color[data-tier="2"] { color: var(--tier-2); }
-  .tier-color[data-tier="3"] { color: var(--tier-3); }
-  .tier-color[data-tier="4"] { color: var(--tier-4); }
-  .tier-color[data-tier="5"] { color: var(--tier-5); }
-  .tier-color[data-tier="6"] { color: var(--tier-6); }
-  .tier-color[data-tier="7"] { color: var(--tier-7); }
-  .tier-color[data-tier="8"] { color: var(--tier-8); }
-  .tier-color[data-tier="Baby"] { color: var(--tier-baby); }
+  .tier-color[data-tier="God"] {
+    color: var(--tier-god);
+  }
+  .tier-color[data-tier="King"] {
+    color: var(--tier-king);
+  }
+  .tier-color[data-tier="Jack"] {
+    color: var(--tier-jack);
+  }
+  .tier-color[data-tier="Joker"] {
+    color: var(--tier-joker);
+  }
+  .tier-color[data-tier="Spade"] {
+    color: var(--tier-spade);
+  }
+  .tier-color[data-tier="0"] {
+    color: var(--tier-0);
+  }
+  .tier-color[data-tier="1"] {
+    color: var(--tier-1);
+  }
+  .tier-color[data-tier="2"] {
+    color: var(--tier-2);
+  }
+  .tier-color[data-tier="3"] {
+    color: var(--tier-3);
+  }
+  .tier-color[data-tier="4"] {
+    color: var(--tier-4);
+  }
+  .tier-color[data-tier="5"] {
+    color: var(--tier-5);
+  }
+  .tier-color[data-tier="6"] {
+    color: var(--tier-6);
+  }
+  .tier-color[data-tier="7"] {
+    color: var(--tier-7);
+  }
+  .tier-color[data-tier="8"] {
+    color: var(--tier-8);
+  }
+  .tier-color[data-tier="Baby"] {
+    color: var(--tier-baby);
+  }
 
   /* Responsive */
   @media (max-width: 640px) {
@@ -555,7 +600,9 @@
   }
 
   @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+      transform: rotate(360deg);
+    }
   }
 }
 

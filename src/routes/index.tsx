@@ -1,15 +1,5 @@
-import {
-  createAsync,
-  useSearchParams,
-  type RouteDefinition,
-} from "@solidjs/router";
-import {
-  ErrorBoundary,
-  For,
-  Show,
-  Suspense,
-  createMemo,
-} from "solid-js";
+import { createAsync, useSearchParams, type RouteDefinition } from "@solidjs/router";
+import { ErrorBoundary, For, Show, Suspense, createMemo } from "solid-js";
 import { Title } from "@solidjs/meta";
 import { getAllPlayers, getCrews } from "~/lib/queries";
 import { TIER_ORDER, TIER_DESCRIPTIONS, type Tier } from "~/lib/types";
@@ -35,25 +25,17 @@ export default function Home() {
   const [searchParams] = useSearchParams();
 
   /* ── 카드 variant 상태 (localStorage 연동) ── */
-  const [cardVariant, setCardVariant] = createLocalStorage<CardVariant>(
-    "cardVariant",
-    "compact",
-    { validate: (v) => ["compact", "full", "list"].includes(v) },
-  );
+  const [cardVariant, setCardVariant] = createLocalStorage<CardVariant>("cardVariant", "compact", {
+    validate: (v) => ["compact", "full", "list"].includes(v),
+  });
 
   /* ── 티어 순서 상태 (localStorage 연동) ── */
-  const [orderedTiers, setOrderedTiers] = createLocalStorage<Tier[]>(
-    "tierOrder",
-    [...TIER_ORDER],
-    {
-      serialize: JSON.stringify,
-      deserialize: JSON.parse,
-      validate: (v) =>
-        Array.isArray(v) &&
-        v.length === TIER_ORDER.length &&
-        TIER_ORDER.every((t) => v.includes(t)),
-    },
-  );
+  const [orderedTiers, setOrderedTiers] = createLocalStorage<Tier[]>("tierOrder", [...TIER_ORDER], {
+    serialize: JSON.stringify,
+    deserialize: JSON.parse,
+    validate: (v) =>
+      Array.isArray(v) && v.length === TIER_ORDER.length && TIER_ORDER.every((t) => v.includes(t)),
+  });
 
   /* ── 단일 fetch: 모든 active 선수 ── */
   const allPlayers = createAsync(() => getAllPlayers());
@@ -63,15 +45,9 @@ export default function Home() {
     const players = allPlayers();
     if (!players) return {} as Record<string, PlayerWithCrew[]>;
 
-    const races = searchParams.race
-      ? (searchParams.race as string).split(",")
-      : [];
-    const tierFilter = searchParams.tier
-      ? (searchParams.tier as string).split(",")
-      : [];
-    const crewParam = searchParams.crew
-      ? (searchParams.crew as string).split(",")
-      : [];
+    const races = searchParams.race ? (searchParams.race as string).split(",") : [];
+    const tierFilter = searchParams.tier ? (searchParams.tier as string).split(",") : [];
+    const crewParam = searchParams.crew ? (searchParams.crew as string).split(",") : [];
     const hasFa = crewParam.includes("FA");
     const crewNames = crewParam.filter((n) => n !== "FA");
     const gender = searchParams.gender as string | undefined;
@@ -87,9 +63,7 @@ export default function Home() {
       if (hasFa || crewNames.length) {
         const matchesFa = hasFa && p.is_fa;
         const matchesCrew =
-          crewNames.length > 0 &&
-          !!p.crew_name &&
-          crewNames.includes(p.crew_name);
+          crewNames.length > 0 && !!p.crew_name && crewNames.includes(p.crew_name);
         if (!matchesFa && !matchesCrew) continue;
       }
       if (gender && p.gender !== gender) continue;
@@ -108,7 +82,13 @@ export default function Home() {
   });
 
   const hasActiveFilter = createMemo(() => {
-    return !!(searchParams.race || searchParams.tier || searchParams.crew || searchParams.gender || searchParams.search);
+    return !!(
+      searchParams.race ||
+      searchParams.tier ||
+      searchParams.crew ||
+      searchParams.gender ||
+      searchParams.search
+    );
   });
 
   /* ── 스크롤 방향 감지: 위로 스크롤할 때만 stickyBar 표시 ── */
@@ -118,7 +98,11 @@ export default function Home() {
   /* ── Tier section renderer ── */
   const renderTierSection = (tier: Tier) => (
     <Show when={tierData()[tier]?.length}>
-      <section id={`tier-${tier}`} class={styles.tierSection} aria-labelledby={`tier-heading-${tier}`}>
+      <section
+        id={`tier-${tier}`}
+        class={styles.tierSection}
+        aria-labelledby={`tier-heading-${tier}`}
+      >
         <div class={styles.tierHeader}>
           <h2 id={`tier-heading-${tier}`} class={`${styles.tierLabel} tier-color`} data-tier={tier}>
             {tier}
@@ -156,9 +140,7 @@ export default function Home() {
         </Suspense>
       </div>
 
-      <ErrorBoundary
-        fallback={<p class="empty-state">데이터를 불러올 수 없습니다.</p>}
-      >
+      <ErrorBoundary fallback={<p class="empty-state">데이터를 불러올 수 없습니다.</p>}>
         <Suspense
           fallback={
             <div class="loading" role="status" aria-live="polite">
@@ -166,9 +148,7 @@ export default function Home() {
             </div>
           }
         >
-          <For each={orderedTiers()}>
-            {(tier) => renderTierSection(tier)}
-          </For>
+          <For each={orderedTiers()}>{(tier) => renderTierSection(tier)}</For>
           <Show when={hasActiveFilter() && !hasAnyResults()}>
             <p class="empty-state">필터 조건에 맞는 선수가 없습니다.</p>
           </Show>

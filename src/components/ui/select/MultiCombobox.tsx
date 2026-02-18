@@ -71,9 +71,7 @@ export function MultiCombobox<T>(props: {
       onInputChange={setCurrentInput}
       itemComponent={(itemProps) => (
         <Combobox.Item item={itemProps.item} class={styles.item}>
-          <Combobox.ItemLabel>
-            {props.itemLabel(itemProps.item.rawValue)}
-          </Combobox.ItemLabel>
+          <Combobox.ItemLabel>{props.itemLabel(itemProps.item.rawValue)}</Combobox.ItemLabel>
           <Combobox.ItemIndicator class={styles.itemIndicator}>
             <CheckIcon />
           </Combobox.ItemIndicator>
@@ -87,10 +85,7 @@ export function MultiCombobox<T>(props: {
             <div class={styles.chips}>
               <For each={state.selectedOptions()}>
                 {(option) => (
-                  <span
-                    class={styles.chip}
-                    {...(props.chipAttrs?.(option) ?? {})}
-                  >
+                  <span class={styles.chip} {...(props.chipAttrs?.(option) ?? {})}>
                     {props.chipLabel(option)}
                     <button
                       class={styles.chipRemove}

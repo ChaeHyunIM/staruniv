@@ -12,9 +12,7 @@ export interface CreateScrollDirectionOptions {
  * 위로 스크롤하면 true, 아래로 스크롤하면 false.
  * SSR에서는 항상 true를 반환함.
  */
-export function createScrollDirection(
-  options?: CreateScrollDirectionOptions,
-): Accessor<boolean> {
+export function createScrollDirection(options?: CreateScrollDirectionOptions): Accessor<boolean> {
   const threshold = options?.threshold ?? 5;
   const [visible, setVisible] = createSignal(true);
 
@@ -23,9 +21,7 @@ export function createScrollDirection(
 
     /* ref가 있으면 해당 요소의 문서 내 절대 위치를 sticky 전환 임계점으로 사용 */
     const el = options?.ref?.();
-    const stickyTop = el
-      ? el.getBoundingClientRect().top + window.scrollY
-      : 0;
+    const stickyTop = el ? el.getBoundingClientRect().top + window.scrollY : 0;
 
     const onScroll = () => {
       const y = window.scrollY;

@@ -20,7 +20,7 @@ export const getAllPlayers = query(async () => {
       p.nickname
   `;
 
-  return rows as unknown as PlayerWithCrew[];
+  return rows as PlayerWithCrew[];
 }, "allPlayers");
 
 export const getPlayer = query(async (nickname: string) => {
@@ -33,5 +33,5 @@ export const getPlayer = query(async (nickname: string) => {
     WHERE p.nickname = ${nickname}
   `;
 
-  return (rows[0] as unknown as PlayerWithCrew) ?? null;
+  return (rows[0] as PlayerWithCrew) ?? null;
 }, "player");

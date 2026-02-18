@@ -20,6 +20,7 @@ interface SignalOptions<T> {
 ```
 
 **Examples:**
+
 ```tsx
 const [count, setCount] = createSignal(0);
 const [user, setUser] = createSignal<User | null>(null);
@@ -29,12 +30,12 @@ const [data, setData] = createSignal(obj, { equals: false });
 
 // Custom equality
 const [items, setItems] = createSignal([], {
-  equals: (a, b) => a.length === b.length
+  equals: (a, b) => a.length === b.length,
 });
 
 // Setter forms
-setCount(5);                      // Direct value
-setCount(prev => prev + 1);       // Functional update
+setCount(5); // Direct value
+setCount((prev) => prev + 1); // Functional update
 ```
 
 ### createEffect
@@ -51,6 +52,7 @@ interface EffectOptions {
 ```
 
 **Examples:**
+
 ```tsx
 // Basic
 createEffect(() => {
@@ -86,9 +88,10 @@ interface MemoOptions<T> {
 ```
 
 **Examples:**
+
 ```tsx
 const doubled = createMemo(() => count() * 2);
-const filtered = createMemo(() => items().filter(i => i.active));
+const filtered = createMemo(() => items().filter((i) => i.active));
 
 // Previous value
 const delta = createMemo((prev) => count() - prev, 0);
@@ -124,6 +127,7 @@ interface ResourceOptions<T> {
 ```
 
 **Examples:**
+
 ```tsx
 // Without source
 const [users] = createResource(fetchUsers);
@@ -134,13 +138,13 @@ const [user] = createResource(userId, fetchUser);
 // With options
 const [data] = createResource(id, fetchData, {
   initialValue: [],
-  deferStream: true
+  deferStream: true,
 });
 
 // Actions
-mutate(newValue);           // Update locally
-refetch();                  // Re-fetch
-refetch(customInfo);        // Pass to fetcher's info.refetching
+mutate(newValue); // Update locally
+refetch(); // Re-fetch
+refetch(customInfo); // Pass to fetcher's info.refetching
 ```
 
 ## Stores
@@ -154,25 +158,26 @@ const [store, setStore] = createStore<T>(initialValue);
 ```
 
 **Update patterns:**
+
 ```tsx
 const [state, setState] = createStore({
   user: { name: "John", age: 30 },
-  todos: [{ id: 1, text: "Learn Solid", done: false }]
+  todos: [{ id: 1, text: "Learn Solid", done: false }],
 });
 
 // Path syntax
 setState("user", "name", "Jane");
-setState("user", "age", a => a + 1);
+setState("user", "age", (a) => a + 1);
 setState("todos", 0, "done", true);
 
 // Array operations
-setState("todos", t => [...t, newTodo]);
+setState("todos", (t) => [...t, newTodo]);
 setState("todos", todos.length, newTodo);
 
 // Multiple paths
 setState("todos", { from: 0, to: 2 }, "done", true);
 setState("todos", [0, 2, 4], "done", true);
-setState("todos", i => i.done, "done", false);
+setState("todos", (i) => i.done, "done", false);
 
 // Object merge (shallow)
 setState("user", { age: 31 }); // Keeps other properties
@@ -183,11 +188,13 @@ setState("user", { age: 31 }); // Keeps other properties
 ```tsx
 import { produce } from "solid-js/store";
 
-setState(produce(draft => {
-  draft.user.age++;
-  draft.todos.push({ id: 2, text: "New", done: false });
-  draft.todos[0].done = true;
-}));
+setState(
+  produce((draft) => {
+    draft.user.age++;
+    draft.todos.push({ id: 2, text: "New", done: false });
+    draft.todos[0].done = true;
+  }),
+);
 ```
 
 ### reconcile
@@ -207,7 +214,7 @@ reconcile(data, { key: "id", merge: true });
 ```tsx
 import { unwrap } from "solid-js/store";
 
-const raw = unwrap(store);  // Non-reactive plain object
+const raw = unwrap(store); // Non-reactive plain object
 ```
 
 ### createMutable
@@ -217,7 +224,7 @@ import { createMutable } from "solid-js/store";
 
 const state = createMutable({
   count: 0,
-  user: { name: "John" }
+  user: { name: "John" },
 });
 
 // Direct mutation (like MobX)
@@ -231,7 +238,12 @@ state.user.name = "Jane";
 import { modifyMutable, reconcile, produce } from "solid-js/store";
 
 modifyMutable(state, reconcile(newData));
-modifyMutable(state, produce(s => { s.count++ }));
+modifyMutable(
+  state,
+  produce((s) => {
+    s.count++;
+  }),
+);
 ```
 
 ## Component APIs
@@ -244,8 +256,8 @@ import { children } from "solid-js";
 const resolved = children(() => props.children);
 
 // Access
-resolved();           // JSX.Element | JSX.Element[]
-resolved.toArray();   // Always array
+resolved(); // JSX.Element | JSX.Element[]
+resolved.toArray(); // Always array
 ```
 
 ### createContext / useContext
@@ -269,7 +281,7 @@ const value = useContext(MyContext);
 ```tsx
 import { createUniqueId } from "solid-js";
 
-const id = createUniqueId();  // "0", "1", etc.
+const id = createUniqueId(); // "0", "1", etc.
 ```
 
 ### lazy
@@ -282,7 +294,7 @@ const LazyComponent = lazy(() => import("./Component"));
 // Use with Suspense
 <Suspense fallback={<Loading />}>
   <LazyComponent />
-</Suspense>
+</Suspense>;
 ```
 
 ## Lifecycle
@@ -336,7 +348,7 @@ batch(() => {
 import { untrack } from "solid-js";
 
 createEffect(() => {
-  console.log(a());              // Tracked
+  console.log(a()); // Tracked
   console.log(untrack(() => b())); // Not tracked
 });
 ```
@@ -347,14 +359,18 @@ createEffect(() => {
 import { on } from "solid-js";
 
 // Explicit dependencies
-createEffect(on(count, (value, prev) => {
-  console.log("Count changed:", prev, "->", value);
-}));
+createEffect(
+  on(count, (value, prev) => {
+    console.log("Count changed:", prev, "->", value);
+  }),
+);
 
 // Multiple dependencies
-createEffect(on([a, b], ([a, b], [prevA, prevB]) => {
-  console.log("Changed");
-}));
+createEffect(
+  on([a, b], ([a, b], [prevA, prevB]) => {
+    console.log("Changed");
+  }),
+);
 
 // Defer first run
 createEffect(on(count, (v) => console.log(v), { defer: true }));
@@ -366,8 +382,8 @@ createEffect(on(count, (v) => console.log(v), { defer: true }));
 import { mergeProps } from "solid-js";
 
 const merged = mergeProps(
-  { size: "medium", color: "blue" },  // Defaults
-  props                                 // Overrides
+  { size: "medium", color: "blue" }, // Defaults
+  props, // Overrides
 );
 ```
 
@@ -420,7 +436,7 @@ import { mapArray } from "solid-js";
 
 const mapped = mapArray(
   () => items(),
-  (item, index) => ({ ...item, doubled: item.value * 2 })
+  (item, index) => ({ ...item, doubled: item.value * 2 }),
 );
 ```
 
@@ -431,7 +447,11 @@ import { indexArray } from "solid-js";
 
 const mapped = indexArray(
   () => items(),
-  (item, index) => <div>{index}: {item().name}</div>
+  (item, index) => (
+    <div>
+      {index}: {item().name}
+    </div>
+  ),
 );
 ```
 
@@ -464,7 +484,7 @@ import { catchError } from "solid-js";
 
 catchError(
   () => riskyOperation(),
-  (err) => console.error("Error:", err)
+  (err) => console.error("Error:", err),
 );
 ```
 
@@ -499,7 +519,7 @@ import { createDeferred } from "solid-js";
 
 // Returns value after idle time
 const deferred = createDeferred(() => expensiveComputation(), {
-  timeoutMs: 1000
+  timeoutMs: 1000,
 });
 ```
 
@@ -523,12 +543,8 @@ import { createSelector } from "solid-js";
 const isSelected = createSelector(selectedId);
 
 <For each={items()}>
-  {(item) => (
-    <div class={isSelected(item.id) ? "selected" : ""}>
-      {item.name}
-    </div>
-  )}
-</For>
+  {(item) => <div class={isSelected(item.id) ? "selected" : ""}>{item.name}</div>}
+</For>;
 ```
 
 ## Components
@@ -550,7 +566,11 @@ const isSelected = createSelector(selectedId);
 
 ```tsx
 <For each={items()} fallback={<Empty />}>
-  {(item, index) => <div>{index()}: {item.name}</div>}
+  {(item, index) => (
+    <div>
+      {index()}: {item.name}
+    </div>
+  )}
 </For>
 ```
 
@@ -591,18 +611,20 @@ import { Portal } from "solid-js/web";
 
 <Portal mount={document.body}>
   <Modal />
-</Portal>
+</Portal>;
 ```
 
 ### ErrorBoundary
 
 ```tsx
-<ErrorBoundary fallback={(err, reset) => (
-  <div>
-    <p>Error: {err.message}</p>
-    <button onClick={reset}>Retry</button>
-  </div>
-)}>
+<ErrorBoundary
+  fallback={(err, reset) => (
+    <div>
+      <p>Error: {err.message}</p>
+      <button onClick={reset}>Retry</button>
+    </div>
+  )}
+>
   <Content />
 </ErrorBoundary>
 ```
@@ -619,9 +641,15 @@ import { Portal } from "solid-js/web";
 
 ```tsx
 <SuspenseList revealOrder="forwards" tail="collapsed">
-  <Suspense fallback={<Loading />}><Item1 /></Suspense>
-  <Suspense fallback={<Loading />}><Item2 /></Suspense>
-  <Suspense fallback={<Loading />}><Item3 /></Suspense>
+  <Suspense fallback={<Loading />}>
+    <Item1 />
+  </Suspense>
+  <Suspense fallback={<Loading />}>
+    <Item2 />
+  </Suspense>
+  <Suspense fallback={<Loading />}>
+    <Item3 />
+  </Suspense>
 </SuspenseList>
 ```
 
@@ -722,19 +750,19 @@ function clickOutside(el: HTMLElement, accessor: () => () => void) {
   onCleanup(() => document.removeEventListener("click", handler));
 }
 
-<div use:clickOutside={() => setOpen(false)} />
+<div use:clickOutside={() => setOpen(false)} />;
 ```
 
 ### prop:property
 
 ```tsx
-<input prop:value={value()} />  // Set as property, not attribute
+<input prop:value={value()} /> // Set as property, not attribute
 ```
 
 ### attr:attribute
 
 ```tsx
-<div attr:data-custom={value()} />  // Force attribute
+<div attr:data-custom={value()} /> // Force attribute
 ```
 
 ### bool:attribute
@@ -746,7 +774,7 @@ function clickOutside(el: HTMLElement, accessor: () => () => void) {
 ### @once
 
 ```tsx
-<div title={/*@once*/ staticValue} />  // Never updates
+<div title={/*@once*/ staticValue} /> // Never updates
 ```
 
 ## Types
@@ -762,7 +790,7 @@ import type {
   Setter,
   Signal,
   Resource,
-  Owner
+  Owner,
 } from "solid-js";
 
 // Component types
