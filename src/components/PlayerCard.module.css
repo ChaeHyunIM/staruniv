@@ -48,24 +48,34 @@
 /* ─── Accent border (compact / list) ─── */
 /* 종족 accent 색상 변수 — 기본 border를 숨겨 accent만 보이도록 */
 .compact[data-race="T"],
+.full[data-race="T"],
 .list[data-race="T"] {
   --_accent: var(--race-terran);
 }
 
 .compact[data-race="Z"],
+.full[data-race="Z"],
 .list[data-race="Z"] {
   --_accent: var(--race-zerg);
 }
 
 .compact[data-race="P"],
+.full[data-race="P"],
 .list[data-race="P"] {
   --_accent: var(--race-protoss);
 }
 
 .compact[data-race],
+.full[data-race],
 .list[data-race] {
   border-color: transparent;
   box-shadow: 0 1px 4px oklch(from var(--_accent) l c h / 0.1);
+}
+
+/* full — gradient가 항상 전체 표시이므로 shadow/outline 제거 */
+.full[data-race] {
+  box-shadow: none;
+  outline: none;
 }
 
 /* border-radius 윤곽을 따르는 gradient accent */
@@ -100,17 +110,51 @@
   clip-path: inset(0 calc(100% - var(--radius-sm)) 0 0);
 }
 
-/* 호버 시 accent를 카드 전체 border로 확장 */
+/* full variant — gradient border 항상 표시 (clip 없음) */
+.full[data-race]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+      to bottom,
+      oklch(from var(--_accent) l c h / 0.8),
+      oklch(from var(--_accent) l c h / 0.3)
+    )
+    border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* 호버 시 accent를 카드 전체 border로 확장 + shadow 제거 */
 @media (hover: hover) {
   .compact[data-race]:hover::before,
   .list[data-race]:hover::before {
     clip-path: inset(0);
+  }
+
+  .compact[data-race]:hover,
+  .list[data-race]:hover {
+    box-shadow: none;
   }
 }
 
 .compact[data-race]:active::before,
 .list[data-race]:active::before {
   clip-path: inset(0);
+}
+
+.compact[data-race]:active,
+.list[data-race]:active {
+  box-shadow: none;
 }
 
 /* hover glow overlay — opacity transition으로 GPU compositing 활용 */
@@ -149,65 +193,24 @@
   gap: var(--sp-3);
   transition:
     transform 0.2s ease,
-    border-color 0.2s ease,
     background-color 0.15s ease;
 
   &:hover {
     transform: translateY(-2px);
-    border-color: oklch(from var(--border) l c h / 0.2);
     background: var(--muted);
   }
-
-  /* Race-specific hover — border-color만 유지 */
-  &[data-race="T"]:hover {
-    border-color: oklch(from var(--race-terran) l c h / 0.4);
-  }
-
-  &[data-race="Z"]:hover {
-    border-color: oklch(from var(--race-zerg) l c h / 0.4);
-  }
-
-  &[data-race="P"]:hover {
-    border-color: oklch(from var(--race-protoss) l c h / 0.4);
-  }
 }
 
-/* full variant hover glow overlay — 종족별 ::after */
-.full[data-race="T"]::after {
+/* full variant hover glow overlay — --_accent 통합 */
+.full[data-race]::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
   box-shadow:
-    0 4px 16px oklch(from var(--race-terran) l c h / 0.12),
-    inset 0 0 20px oklch(from var(--race-terran) l c h / 0.04);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.full[data-race="Z"]::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  box-shadow:
-    0 4px 16px oklch(from var(--race-zerg) l c h / 0.12),
-    inset 0 0 20px oklch(from var(--race-zerg) l c h / 0.04);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.full[data-race="P"]::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  box-shadow:
-    0 4px 16px oklch(from var(--race-protoss) l c h / 0.12),
-    inset 0 0 20px oklch(from var(--race-protoss) l c h / 0.04);
+    0 4px 16px oklch(from var(--_accent) l c h / 0.15),
+    inset 0 0 20px oklch(from var(--_accent) l c h / 0.05);
   opacity: 0;
   transition: opacity 0.2s ease;
 }
@@ -528,40 +531,28 @@
 
   /* ── card box-shadow 단순화 ── */
   .compact[data-race],
+  .full[data-race],
   .list[data-race] {
     box-shadow: 0 1px 3px oklch(0 0 0 / 0.06);
   }
 
   /* ── accent: gradient mask ::before → 단순 border ── */
   .compact[data-race]::before,
+  .full[data-race]::before,
   .list[data-race]::before {
     display: none;
   }
 
   .compact[data-race],
+  .full[data-race],
   .list[data-race] {
     border-color: var(--_accent);
   }
 
   /* ── hover glow overlay 비활성화 ── */
   .compact[data-race]::after,
-  .full[data-race="T"]::after,
-  .full[data-race="Z"]::after,
-  .full[data-race="P"]::after {
+  .full[data-race]::after {
     display: none;
-  }
-
-  /* ── full variant 호버: oklch(from ...) → 단순 종족색 border ── */
-  .full[data-race="T"]:hover {
-    border-color: var(--race-terran);
-  }
-
-  .full[data-race="Z"]:hover {
-    border-color: var(--race-zerg);
-  }
-
-  .full[data-race="P"]:hover {
-    border-color: var(--race-protoss);
   }
 }
 
