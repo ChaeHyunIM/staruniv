@@ -4,8 +4,30 @@
   padding: var(--sp-8) var(--sp-6);
 }
 
+/* ─── Sticky bar (헤더 + 필터) ─── */
+.stickyBar {
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 50;
+  margin-inline: calc(-1 * var(--sp-6));
+  padding-inline: var(--sp-6);
+  padding-block: var(--sp-4);
+  margin-top: calc(-1 * var(--sp-4));
+  margin-bottom: var(--sp-2);
+  backdrop-filter: blur(12px);
+  background: oklch(from var(--background) l c h / 0.85);
+  border-bottom: 1px solid oklch(from var(--border) l c h / 0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+
+  &[data-hidden] {
+    transform: translateY(calc(-100% - var(--nav-height)));
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
 .header {
-  margin-bottom: var(--sp-6);
+  margin-bottom: var(--sp-4);
 
   & h1 {
     display: flex;
@@ -64,7 +86,7 @@
 .tierSection {
   position: relative;
   margin-bottom: var(--sp-8);
-  scroll-margin-top: calc(var(--nav-height) + var(--sp-4));
+  scroll-margin-top: calc(var(--nav-height) + var(--sticky-header-height, 5.5rem) + var(--sp-4));
   &:has(a:hover) {
     z-index: 1;
   }
@@ -134,9 +156,27 @@
 
 
 /* ─── Responsive ─── */
+@media (prefers-reduced-transparency: reduce) {
+  .stickyBar {
+    backdrop-filter: none;
+    background: var(--background);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stickyBar {
+    transition: none;
+  }
+}
+
 @media (max-width: 640px) {
   .home {
     padding: var(--sp-6) var(--sp-4);
+  }
+
+  .stickyBar {
+    margin-inline: calc(-1 * var(--sp-4));
+    padding-inline: var(--sp-4);
   }
 
   .tierGrid {
