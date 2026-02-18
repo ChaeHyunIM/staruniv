@@ -6,7 +6,7 @@
 
 /* ─── 헤더 + 필터 영역 ─── */
 .stickyBar {
-  margin-bottom: var(--sp-2);
+  margin-bottom: var(--sp-16);
 }
 
 .header {
@@ -40,7 +40,6 @@
   justify-content: space-between;
   gap: var(--sp-4);
 }
-
 
 /* ─── Gender sections (tier + FA views) ─── */
 .genderSection {
@@ -91,21 +90,51 @@
   line-height: 1;
 }
 
-.tierLabel[data-tier="God"] { color: var(--tier-god); }
-.tierLabel[data-tier="King"] { color: var(--tier-king); }
-.tierLabel[data-tier="Jack"] { color: var(--tier-jack); }
-.tierLabel[data-tier="Joker"] { color: var(--tier-joker); }
-.tierLabel[data-tier="Spade"] { color: var(--tier-spade); }
-.tierLabel[data-tier="0"] { color: var(--tier-0); }
-.tierLabel[data-tier="1"] { color: var(--tier-1); }
-.tierLabel[data-tier="2"] { color: var(--tier-2); }
-.tierLabel[data-tier="3"] { color: var(--tier-3); }
-.tierLabel[data-tier="4"] { color: var(--tier-4); }
-.tierLabel[data-tier="5"] { color: var(--tier-5); }
-.tierLabel[data-tier="6"] { color: var(--tier-6); }
-.tierLabel[data-tier="7"] { color: var(--tier-7); }
-.tierLabel[data-tier="8"] { color: var(--tier-8); }
-.tierLabel[data-tier="Baby"] { color: var(--tier-baby); }
+.tierLabel[data-tier="God"] {
+  color: var(--tier-god);
+}
+.tierLabel[data-tier="King"] {
+  color: var(--tier-king);
+}
+.tierLabel[data-tier="Jack"] {
+  color: var(--tier-jack);
+}
+.tierLabel[data-tier="Joker"] {
+  color: var(--tier-joker);
+}
+.tierLabel[data-tier="Spade"] {
+  color: var(--tier-spade);
+}
+.tierLabel[data-tier="0"] {
+  color: var(--tier-0);
+}
+.tierLabel[data-tier="1"] {
+  color: var(--tier-1);
+}
+.tierLabel[data-tier="2"] {
+  color: var(--tier-2);
+}
+.tierLabel[data-tier="3"] {
+  color: var(--tier-3);
+}
+.tierLabel[data-tier="4"] {
+  color: var(--tier-4);
+}
+.tierLabel[data-tier="5"] {
+  color: var(--tier-5);
+}
+.tierLabel[data-tier="6"] {
+  color: var(--tier-6);
+}
+.tierLabel[data-tier="7"] {
+  color: var(--tier-7);
+}
+.tierLabel[data-tier="8"] {
+  color: var(--tier-8);
+}
+.tierLabel[data-tier="Baby"] {
+  color: var(--tier-baby);
+}
 
 .tierCount {
   font-family: var(--font-mono);
@@ -136,7 +165,6 @@
   grid-template-columns: 1fr;
   gap: var(--sp-1);
 }
-
 
 /* ─── Responsive ─── */
 @media (max-width: 640px) {
