@@ -2,6 +2,7 @@ import { createSignal, For, Show, onMount, onCleanup, type Accessor } from "soli
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
 import { TIER_ORDER, type Tier, type PlayerWithCrew } from "~/lib/types";
+import { createReorderable } from "~/primitives/createReorderable";
 import styles from "./TierNavigator.module.css";
 
 // TODO: 유저 인증 시스템 도입 시 투어 완료 상태를 서버 DB(user_preferences)로 마이그레이션
@@ -16,11 +17,15 @@ interface TierNavigatorProps {
 
 export default function TierNavigator(props: TierNavigatorProps) {
   const [isOpen, setIsOpen] = createSignal(false);
-  const [dragTier, setDragTier] = createSignal<Tier | null>(null);
-  const [dropTarget, setDropTarget] = createSignal<{ tier: Tier; position: "before" | "after" } | null>(null);
 
   let panelRef: HTMLDivElement | undefined;
   let fabRef: HTMLButtonElement | undefined;
+
+  const reorderable = createReorderable<Tier>({
+    items: props.tiers,
+    key: (tier) => tier,
+    onReorder: props.onReorder,
+  });
 
   /* ── Guided tour ── */
   const shouldTour = () =>
@@ -143,81 +148,18 @@ export default function TierNavigator(props: TierNavigatorProps) {
     fabRef?.focus();
   };
 
-  /* ── Keyboard reorder: Alt+Arrow로 티어 순서 변경 ── */
+  /* ── 키보드 reorder 후 포커스 복원 래퍼 ── */
   const handleItemKeyDown = (tier: Tier, e: KeyboardEvent) => {
-    if (!e.altKey) return;
-    const tiers = [...props.tiers()];
-    const idx = tiers.indexOf(tier);
-    if (idx === -1) return;
-
-    let swapIdx = -1;
-    if (e.key === "ArrowUp" && idx > 0) {
-      swapIdx = idx - 1;
-    } else if (e.key === "ArrowDown" && idx < tiers.length - 1) {
-      swapIdx = idx + 1;
-    }
-    if (swapIdx === -1) return;
-
-    e.preventDefault();
-    [tiers[idx], tiers[swapIdx]] = [tiers[swapIdx], tiers[idx]];
-    props.onReorder(tiers);
+    if (!e.altKey || (e.key !== "ArrowUp" && e.key !== "ArrowDown")) return;
+    const delta = e.key === "ArrowUp" ? -1 : 1;
+    const newIdx = reorderable.move(tier, delta);
+    if (newIdx === -1) return;
 
     /* 이동 후 같은 아이템에 포커스 유지 */
     requestAnimationFrame(() => {
       const items = panelRef?.querySelectorAll<HTMLElement>(`.${styles.tierItem}`);
-      items?.[swapIdx]?.focus();
+      items?.[newIdx]?.focus();
     });
-  };
-
-  /* ── Drag & Drop handlers ── */
-  const handleDragStart = (tier: Tier, e: DragEvent) => {
-    setDragTier(tier);
-    if (e.dataTransfer) {
-      e.dataTransfer.effectAllowed = "move";
-      e.dataTransfer.setData("text/plain", tier);
-    }
-  };
-
-  const handleDragOver = (tier: Tier, e: DragEvent) => {
-    if (!dragTier()) return;
-    e.preventDefault();
-    if (e.dataTransfer) e.dataTransfer.dropEffect = "move";
-
-    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
-    const midY = rect.top + rect.height / 2;
-    setDropTarget({ tier, position: e.clientY < midY ? "before" : "after" });
-  };
-
-  const handleDrop = (e: DragEvent) => {
-    e.preventDefault();
-    const drag = dragTier();
-    const drop = dropTarget();
-    if (!drag || !drop || drag === drop.tier) {
-      setDragTier(null);
-      setDropTarget(null);
-      return;
-    }
-
-    const tiers = [...props.tiers()];
-    const fromIndex = tiers.indexOf(drag);
-    if (fromIndex === -1) return;
-
-    tiers.splice(fromIndex, 1);
-
-    let toIndex = tiers.indexOf(drop.tier);
-    if (toIndex === -1) return;
-    if (drop.position === "after") toIndex++;
-
-    tiers.splice(toIndex, 0, drag);
-    props.onReorder(tiers);
-
-    setDragTier(null);
-    setDropTarget(null);
-  };
-
-  const handleDragEnd = () => {
-    setDragTier(null);
-    setDropTarget(null);
   };
 
   /* ── Reset order ── */
@@ -251,10 +193,8 @@ export default function TierNavigator(props: TierNavigatorProps) {
             <For each={props.tiers()}>
               {(tier, idx) => {
                 const count = () => props.tierData()[tier]?.length ?? 0;
-                const isDragging = () => dragTier() === tier;
-                const drop = () => dropTarget();
-                const isDropBefore = () => drop()?.tier === tier && drop()?.position === "before";
-                const isDropAfter = () => drop()?.tier === tier && drop()?.position === "after";
+                const state = reorderable.itemState(tier);
+                const handlers = reorderable.itemHandlers(tier);
                 const isFirst = () => idx() === 0;
 
                 return (
@@ -262,19 +202,19 @@ export default function TierNavigator(props: TierNavigatorProps) {
                     id={isFirst() ? "tour-tier-item" : undefined}
                     class={styles.tierItem}
                     classList={{
-                      [styles.tierItemDragging]: isDragging(),
-                      [styles.tierItemDropBefore]: isDropBefore(),
-                      [styles.tierItemDropAfter]: isDropAfter(),
+                      [styles.tierItemDragging]: state.isDragging,
+                      [styles.tierItemDropBefore]: state.dropIndicator === "before",
+                      [styles.tierItemDropAfter]: state.dropIndicator === "after",
                     }}
                     role="option"
                     tabIndex={0}
                     aria-label={`${tier}${count() > 0 ? ` ${count()}명` : ""} — Alt+화살표로 순서 변경`}
-                    draggable={true}
-                    onDragStart={(e) => handleDragStart(tier, e)}
-                    onDragOver={(e) => handleDragOver(tier, e)}
-                    onDragLeave={() => setDropTarget(null)}
-                    onDrop={handleDrop}
-                    onDragEnd={handleDragEnd}
+                    draggable={handlers.draggable}
+                    onDragStart={handlers.onDragStart}
+                    onDragOver={handlers.onDragOver}
+                    onDragLeave={handlers.onDragLeave}
+                    onDrop={handlers.onDrop}
+                    onDragEnd={handlers.onDragEnd}
                     onKeyDown={(e) => handleItemKeyDown(tier, e)}
                     onClick={() => scrollToTier(tier)}
                   >
