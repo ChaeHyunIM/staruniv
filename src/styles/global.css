@@ -73,6 +73,8 @@
 
     /* ── UI ── */
     --border: oklch(0 0 0);
+    --border-10: oklch(from var(--border) l c h / 0.1);
+    --border-15: oklch(from var(--border) l c h / 0.15);
     --input: oklch(0.5555 0 0);
     --ring: oklch(0.7853 0.1041 274.7134);
 
@@ -208,6 +210,8 @@
 
     /* ── UI ── */
     --border: oklch(1 0 0);
+    --border-10: oklch(from var(--border) l c h / 0.1);
+    --border-15: oklch(from var(--border) l c h / 0.15);
     --input: oklch(0.5555 0 0);
     --ring: oklch(0.7853 0.1041 274.7134);
 

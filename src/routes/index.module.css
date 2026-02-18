@@ -59,6 +59,10 @@
   &:has(a:hover) {
     z-index: 1;
   }
+
+  /* off-screen 티어 섹션 전체를 layout/paint에서 제외 */
+  content-visibility: auto;
+  contain-intrinsic-block-size: auto 400px;
 }
 
 .tierHeader {
