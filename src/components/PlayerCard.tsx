@@ -32,15 +32,18 @@ export default function PlayerCard(props: Props) {
         <img
           ref={(el) => {
             /* 하이드레이션 전에 이미 로드된 이미지 처리 */
-            if (el.complete && el.naturalWidth > 0) el.classList.add(styles.loaded);
+            if (el.complete && el.naturalWidth > 0)
+              el.classList.add(styles.loaded);
           }}
-          src={props.player.profile_image ? `https:${profileWebp(props.player.profile_image)}` : undefined}
+          src={
+            props.player.profile_image
+              ? `https:${profileWebp(props.player.profile_image)}`
+              : undefined
+          }
           alt={props.player.nickname}
           width={80}
           height={80}
           class={styles.avatarPhoto}
-          loading="lazy"
-          decoding="async"
           onLoad={(e) => e.currentTarget.classList.add(styles.loaded)}
           onError={(e) => e.currentTarget.classList.add(styles.loaded)}
         />
@@ -52,7 +55,9 @@ export default function PlayerCard(props: Props) {
           <span class={styles.name}>{props.player.nickname}</span>
           <span
             class={styles.crew}
-            classList={{ [styles.hidden]: !props.player.crew_name && !props.player.is_fa }}
+            classList={{
+              [styles.hidden]: !props.player.crew_name && !props.player.is_fa,
+            }}
           >
             {props.player.crew_name || (props.player.is_fa ? "FA" : "")}
           </span>
