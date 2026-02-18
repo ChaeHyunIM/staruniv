@@ -1,4 +1,9 @@
-import { A, createAsync, useParams, type RouteDefinition } from "@solidjs/router";
+import {
+  A,
+  createAsync,
+  useParams,
+  type RouteDefinition,
+} from "@solidjs/router";
 import { ErrorBoundary, Show, Suspense } from "solid-js";
 import { Title } from "@solidjs/meta";
 import { getPlayer } from "~/lib/queries";
@@ -8,18 +13,29 @@ import TagBadge from "~/components/TagBadge";
 import styles from "./[nickname].module.css";
 
 export const route = {
-  preload: ({ params }) => getPlayer(params.nickname),
+  preload: ({ params }) => getPlayer(params.nickname!),
 } satisfies RouteDefinition;
 
 export default function PlayerDetailPage() {
-  const params = useParams();
+  const params = useParams<{ nickname: string }>();
   const player = createAsync(() => getPlayer(params.nickname));
 
   return (
     <main id="main-content" class="page page--detail">
-      <Suspense fallback={<div class="loading" role="status" aria-live="polite">선수 정보를 불러오는 중…</div>}>
-        <ErrorBoundary fallback={<p class="empty-state">선수를 찾을 수 없습니다.</p>}>
-          <Show when={player()} fallback={<p class="empty-state">선수를 찾을 수 없습니다.</p>}>
+      <Suspense
+        fallback={
+          <div class="loading" role="status" aria-live="polite">
+            선수 정보를 불러오는 중…
+          </div>
+        }
+      >
+        <ErrorBoundary
+          fallback={<p class="empty-state">선수를 찾을 수 없습니다.</p>}
+        >
+          <Show
+            when={player()}
+            fallback={<p class="empty-state">선수를 찾을 수 없습니다.</p>}
+          >
             {(p) => (
               <>
                 <Title>StarUniv - {p().nickname}</Title>
@@ -38,7 +54,13 @@ export default function PlayerDetailPage() {
                   <dl class={styles.info}>
                     <div class={styles.field}>
                       <dt>종족</dt>
-                      <dd>{p().race === "T" ? "Terran" : p().race === "Z" ? "Zerg" : "Protoss"}</dd>
+                      <dd>
+                        {p().race === "T"
+                          ? "Terran"
+                          : p().race === "Z"
+                            ? "Zerg"
+                            : "Protoss"}
+                      </dd>
                     </div>
                     <div class={styles.field}>
                       <dt>티어</dt>
@@ -52,7 +74,10 @@ export default function PlayerDetailPage() {
                       <dt>크루</dt>
                       <dd>
                         <Show when={p().crew_name} fallback="FA">
-                          <A href={`/crews/${encodeURIComponent(p().crew_name!)}`} class={styles.crewLink}>
+                          <A
+                            href={`/crews/${encodeURIComponent(p().crew_name!)}`}
+                            class={styles.crewLink}
+                          >
                             {p().crew_name}
                           </A>
                         </Show>

@@ -8,11 +8,11 @@ import TagBadge from "~/components/TagBadge";
 import styles from "./[name].module.css";
 
 export const route = {
-  preload: ({ params }) => getCrew(params.name),
+  preload: ({ params }) => getCrew(params.name!),
 } satisfies RouteDefinition;
 
 export default function CrewDetailPage() {
-  const params = useParams();
+  const params = useParams<{ name: string }>();
   const crew = createAsync(() => getCrew(params.name));
 
   return (

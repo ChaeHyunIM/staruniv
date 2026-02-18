@@ -151,7 +151,7 @@ export default function Home() {
           <PlayerFilters
             fallback={<FiltersSkeleton />}
             cardVariant={cardVariant()}
-            onVariantChange={(v) => setCardVariant(() => v)}
+            onVariantChange={(v: CardVariant) => setCardVariant(() => v)}
           />
         </Suspense>
       </div>
