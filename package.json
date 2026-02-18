@@ -23,7 +23,8 @@
     "test": "vitest run",
     "test-watch": "vitest",
     "test-ui": "vitest --ui",
-    "db:migrate": "bun run scripts/migrate.ts"
+    "db:migrate": "bun run scripts/migrate.ts",
+    "typecheck": "tsc"
   },
   "type": "module",
   "dependencies": {
