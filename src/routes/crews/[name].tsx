@@ -16,14 +16,14 @@ export default function CrewDetailPage() {
   const crew = createAsync(() => getCrew(params.name));
 
   return (
-    <main id="main-content" class={styles.page}>
+    <main id="main-content" class="page page--narrow">
       <Suspense fallback={<div class="loading" role="status" aria-live="polite">크루 정보를 불러오는 중…</div>}>
         <ErrorBoundary fallback={<p class="empty-state">크루를 찾을 수 없습니다.</p>}>
           <Show when={crew()} fallback={<p class="empty-state">크루를 찾을 수 없습니다.</p>}>
             {(c) => (
               <>
                 <Title>StarUniv - {c().name}</Title>
-                <A href="/crews" class={styles.back}>
+                <A href="/crews" class="back-link">
                   &larr; 크루 목록
                 </A>
                 <div class={styles.crewHeader}>

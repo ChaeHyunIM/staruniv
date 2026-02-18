@@ -17,10 +17,11 @@ import type { PlayerWithCrew } from "~/lib/types";
 import PlayerCard from "~/components/PlayerCard";
 import { clientOnly } from "@solidjs/start";
 const PlayerFilters = clientOnly(() => import("~/components/PlayerFilters"));
-import LayoutToggle, { type CardVariant } from "~/components/LayoutToggle";
+import type { CardVariant } from "~/components/LayoutToggle";
 import TierNavigator from "~/components/TierNavigator";
 import FiltersSkeleton from "~/components/FiltersSkeleton";
 import { createLocalStorage } from "~/primitives/createLocalStorage";
+import { createScrollDirection } from "~/primitives/createScrollDirection";
 import styles from "./index.module.css";
 
 export const route = {
@@ -110,12 +111,16 @@ export default function Home() {
     return !!(searchParams.race || searchParams.tier || searchParams.crew || searchParams.gender || searchParams.search);
   });
 
+  /* ── 스크롤 방향 감지: 위로 스크롤할 때만 stickyBar 표시 ── */
+  let stickyBarRef: HTMLDivElement | undefined;
+  const barVisible = createScrollDirection({ ref: () => stickyBarRef });
+
   /* ── Tier section renderer ── */
   const renderTierSection = (tier: Tier) => (
     <Show when={tierData()[tier]?.length}>
       <section id={`tier-${tier}`} class={styles.tierSection} aria-labelledby={`tier-heading-${tier}`}>
         <div class={styles.tierHeader}>
-          <h2 id={`tier-heading-${tier}`} class={styles.tierLabel} data-tier={tier}>
+          <h2 id={`tier-heading-${tier}`} class={`${styles.tierLabel} tier-color`} data-tier={tier}>
             {tier}
           </h2>
           <span class={styles.tierCount}>{tierData()[tier]?.length}명</span>
@@ -131,18 +136,23 @@ export default function Home() {
   );
 
   return (
-    <main id="main-content" class={styles.home}>
+    <main id="main-content" class="page">
       <Title>StarUniv - 티어표</Title>
-      <div class={styles.stickyBar}>
-        <div class={styles.header}>
-          <div class={styles.headerRow}>
-            <h1>티어표</h1>
-            <LayoutToggle value={cardVariant()} onChange={(v) => setCardVariant(() => v)} />
-          </div>
-          <p>스타크래프트 대학 리그 선수 티어 현황</p>
-        </div>
+      <div class={styles.header}>
+        <h1>티어표</h1>
+        <p>스타크래프트 대학 리그 선수 티어 현황</p>
+      </div>
+      <div
+        ref={stickyBarRef}
+        class={styles.stickyBar}
+        classList={{ [styles.stickyBarHidden]: !barVisible() }}
+      >
         <Suspense fallback={<FiltersSkeleton />}>
-          <PlayerFilters fallback={<FiltersSkeleton />} />
+          <PlayerFilters
+            fallback={<FiltersSkeleton />}
+            cardVariant={cardVariant()}
+            onVariantChange={(v) => setCardVariant(() => v)}
+          />
         </Suspense>
       </div>
 

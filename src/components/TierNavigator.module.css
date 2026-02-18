@@ -54,17 +54,6 @@
   line-height: 1;
 }
 
-.fab[data-expanded] {
-  padding: 0 var(--sp-3);
-  gap: 0;
-
-  & .fabLabel {
-    width: 0;
-    overflow: hidden;
-    opacity: 0;
-  }
-}
-
 /* ─── Panel ─── */
 .panel {
   position: fixed;
@@ -194,23 +183,6 @@
   line-height: 1;
   flex-shrink: 0;
 }
-
-/* Tier colors via data-tier */
-.tierName[data-tier="God"] { color: var(--tier-god); }
-.tierName[data-tier="King"] { color: var(--tier-king); }
-.tierName[data-tier="Jack"] { color: var(--tier-jack); }
-.tierName[data-tier="Joker"] { color: var(--tier-joker); }
-.tierName[data-tier="Spade"] { color: var(--tier-spade); }
-.tierName[data-tier="0"] { color: var(--tier-0); }
-.tierName[data-tier="1"] { color: var(--tier-1); }
-.tierName[data-tier="2"] { color: var(--tier-2); }
-.tierName[data-tier="3"] { color: var(--tier-3); }
-.tierName[data-tier="4"] { color: var(--tier-4); }
-.tierName[data-tier="5"] { color: var(--tier-5); }
-.tierName[data-tier="6"] { color: var(--tier-6); }
-.tierName[data-tier="7"] { color: var(--tier-7); }
-.tierName[data-tier="8"] { color: var(--tier-8); }
-.tierName[data-tier="Baby"] { color: var(--tier-baby); }
 
 .tierCount {
   margin-left: auto;

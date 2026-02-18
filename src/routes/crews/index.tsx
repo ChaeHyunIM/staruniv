@@ -12,9 +12,9 @@ export default function CrewsPage() {
   const crews = createAsync(() => getCrews());
 
   return (
-    <main id="main-content" class={styles.page}>
+    <main id="main-content" class="page">
       <Title>StarUniv - 크루 목록</Title>
-      <div class={styles.header}>
+      <div class="page-header">
         <h1>크루 목록</h1>
         <p>활동 중인 크루 현황</p>
       </div>

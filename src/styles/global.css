@@ -369,6 +369,9 @@
     padding: var(--sp-8) var(--sp-6);
   }
 
+  .page--narrow { max-width: 900px; }
+  .page--detail { max-width: 720px; }
+
   .page-header {
     margin-bottom: var(--sp-8);
 
@@ -391,6 +394,21 @@
       margin-top: var(--sp-2);
       color: var(--muted-foreground);
       font-size: var(--text-sm);
+    }
+  }
+
+  /* Back link */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--text-sm);
+    color: var(--muted-foreground);
+    margin-bottom: var(--sp-6);
+    transition: color 0.15s;
+
+    &:hover {
+      color: var(--foreground);
     }
   }
 
@@ -505,6 +523,30 @@
 
     &:focus {
       top: var(--sp-2);
+    }
+  }
+
+  /* Tier text color */
+  .tier-color[data-tier="God"] { color: var(--tier-god); }
+  .tier-color[data-tier="King"] { color: var(--tier-king); }
+  .tier-color[data-tier="Jack"] { color: var(--tier-jack); }
+  .tier-color[data-tier="Joker"] { color: var(--tier-joker); }
+  .tier-color[data-tier="Spade"] { color: var(--tier-spade); }
+  .tier-color[data-tier="0"] { color: var(--tier-0); }
+  .tier-color[data-tier="1"] { color: var(--tier-1); }
+  .tier-color[data-tier="2"] { color: var(--tier-2); }
+  .tier-color[data-tier="3"] { color: var(--tier-3); }
+  .tier-color[data-tier="4"] { color: var(--tier-4); }
+  .tier-color[data-tier="5"] { color: var(--tier-5); }
+  .tier-color[data-tier="6"] { color: var(--tier-6); }
+  .tier-color[data-tier="7"] { color: var(--tier-7); }
+  .tier-color[data-tier="8"] { color: var(--tier-8); }
+  .tier-color[data-tier="Baby"] { color: var(--tier-baby); }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .page {
+      padding: var(--sp-6) var(--sp-4);
     }
   }
 

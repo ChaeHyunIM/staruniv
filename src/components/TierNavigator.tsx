@@ -174,7 +174,7 @@ export default function TierNavigator(props: TierNavigatorProps) {
                     >
                       <GripVertical aria-hidden="true" />
                     </span>
-                    <span class={styles.tierName} data-tier={tier}>
+                    <span class={`${styles.tierName} tier-color`} data-tier={tier}>
                       {tier}
                     </span>
                     <Show when={count() > 0}>

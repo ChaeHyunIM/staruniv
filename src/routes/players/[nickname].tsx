@@ -16,14 +16,14 @@ export default function PlayerDetailPage() {
   const player = createAsync(() => getPlayer(params.nickname));
 
   return (
-    <main id="main-content" class={styles.page}>
+    <main id="main-content" class="page page--detail">
       <Suspense fallback={<div class="loading" role="status" aria-live="polite">선수 정보를 불러오는 중…</div>}>
         <ErrorBoundary fallback={<p class="empty-state">선수를 찾을 수 없습니다.</p>}>
           <Show when={player()} fallback={<p class="empty-state">선수를 찾을 수 없습니다.</p>}>
             {(p) => (
               <>
                 <Title>StarUniv - {p().nickname}</Title>
-                <A href="/?view=players" class={styles.back}>
+                <A href="/?view=players" class="back-link">
                   &larr; 선수 목록
                 </A>
                 <div class={styles.card}>

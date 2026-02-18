@@ -26,9 +26,9 @@ export default function HistoryPage() {
   });
 
   return (
-    <main id="main-content" class={styles.page}>
+    <main id="main-content" class="page page--narrow">
       <Title>StarUniv - 대회 히스토리</Title>
-      <div class={styles.header}>
+      <div class="page-header">
         <h1>대회 히스토리</h1>
         <p>스타크래프트 대학 리그 역대 대회 기록</p>
       </div>
