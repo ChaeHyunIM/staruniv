@@ -35,6 +35,16 @@
   }
 }
 
+/* 터치 기기용 active 피드백 */
+.compact:active {
+  transform: translateY(-2px);
+  background: var(--muted);
+}
+
+.compact:active .avatar {
+  transform: scale(1.1);
+}
+
 /* ─── Accent border (compact / list) ─── */
 /* 종족 accent 색상 변수 — 기본 border를 숨겨 accent만 보이도록 */
 .compact[data-race="T"],
@@ -98,6 +108,11 @@
   }
 }
 
+.compact[data-race]:active::before,
+.list[data-race]:active::before {
+  clip-path: inset(0);
+}
+
 /* hover glow overlay — opacity transition으로 GPU compositing 활용 */
 .compact[data-race]::after {
   content: "";
@@ -116,6 +131,10 @@
   .compact[data-race]:hover::after {
     opacity: 1;
   }
+}
+
+.compact[data-race]:active::after {
+  opacity: 1;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -199,6 +218,10 @@
   }
 }
 
+.full[data-race]:active::after {
+  opacity: 1;
+}
+
 /* ═══════════════════════════════════════════════════
    LIST variant (dense one-liner)
    ═══════════════════════════════════════════════════ */
@@ -242,6 +265,10 @@
   }
 }
 
+.list:active {
+  background: var(--muted);
+}
+
 /* ── Full hover ── */
 @media (hover: hover) {
   .full:hover {
@@ -251,6 +278,14 @@
   .full:hover .avatar {
     transform: scale(1.08);
   }
+}
+
+.full:active {
+  transform: translateY(-4px);
+}
+
+.full:active .avatar {
+  transform: scale(1.08);
 }
 
 /* ═══════════════════
