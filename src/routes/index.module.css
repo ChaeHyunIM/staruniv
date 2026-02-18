@@ -6,11 +6,16 @@
 
 /* ─── 헤더 + 필터 영역 ─── */
 .stickyBar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
   margin-bottom: var(--sp-16);
 }
 
 .header {
-  margin-bottom: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
 
   & h1 {
     display: flex;
@@ -28,7 +33,6 @@
   }
 
   & p {
-    margin-top: var(--sp-2);
     color: var(--muted-foreground);
     font-size: var(--text-sm);
   }
@@ -41,32 +45,12 @@
   gap: var(--sp-4);
 }
 
-/* ─── Gender sections (tier + FA views) ─── */
-.genderSection {
-  margin-bottom: var(--sp-10);
-
-  & h2 {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-3);
-    margin-bottom: var(--sp-6);
-    padding-bottom: var(--sp-3);
-    border-bottom: 2px solid oklch(from var(--border) l c h / 0.15);
-
-    &::before {
-      content: "";
-      display: inline-block;
-      width: 3px;
-      height: 0.8em;
-      background: var(--primary);
-      border-radius: 2px;
-    }
-  }
-}
-
 /* ─── Tier section ─── */
 .tierSection {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
   margin-bottom: var(--sp-8);
   scroll-margin-top: calc(var(--nav-height) + var(--sp-4));
   &:has(a:hover) {
@@ -78,7 +62,6 @@
   display: flex;
   align-items: baseline;
   gap: var(--sp-3);
-  margin-bottom: var(--sp-4);
   padding-bottom: var(--sp-2);
   border-bottom: 1px solid oklch(from var(--border) l c h / 0.1);
 }
