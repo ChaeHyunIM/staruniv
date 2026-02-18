@@ -1,8 +1,9 @@
-import { createSignal, For, Show, onMount, onCleanup, type Accessor } from "solid-js";
+import { createSignal, For, Show, type Accessor } from "solid-js";
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
 import { TIER_ORDER, type Tier, type PlayerWithCrew } from "~/lib/types";
 import { createReorderable } from "~/primitives/createReorderable";
+import { createFocusTrap } from "~/primitives/createFocusTrap";
 import styles from "./TierNavigator.module.css";
 
 // TODO: 유저 인증 시스템 도입 시 투어 완료 상태를 서버 DB(user_preferences)로 마이그레이션
@@ -87,44 +88,12 @@ export default function TierNavigator(props: TierNavigatorProps) {
     });
   };
 
-  /* ── Focus trap: 패널 내부에 포커스를 가둠 ── */
-  const trapFocus = (e: KeyboardEvent) => {
-    if (e.key !== "Tab" || !panelRef) return;
-    const focusable = panelRef.querySelectorAll<HTMLElement>(
-      'button, [href], [tabindex]:not([tabindex="-1"]), input, select, textarea, [role="button"]'
-    );
-    if (!focusable.length) return;
-
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-
-    if (e.shiftKey) {
-      if (document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      }
-    } else {
-      if (document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    }
-  };
-
-  /* ── Keyboard: Escape 닫기 + focus trap ── */
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (!isOpen()) return;
-    if (e.key === "Escape") {
-      setIsOpen(false);
-      fabRef?.focus();
-      return;
-    }
-    trapFocus(e);
-  };
-
-  onMount(() => {
-    document.addEventListener("keydown", handleKeyDown);
-    onCleanup(() => document.removeEventListener("keydown", handleKeyDown));
+  /* ── Focus trap ── */
+  const { focusFirst, restoreFocus } = createFocusTrap({
+    container: () => panelRef,
+    isActive: isOpen,
+    triggerRef: () => fabRef,
+    onEscape: () => setIsOpen(false),
   });
 
   /* ── Toggle panel ── */
@@ -133,10 +102,7 @@ export default function TierNavigator(props: TierNavigatorProps) {
     setIsOpen(opening);
     if (opening) {
       startTour();
-      /* 패널 렌더 후 첫 포커서블 요소로 포커스 이동 */
-      requestAnimationFrame(() => {
-        panelRef?.querySelector<HTMLElement>("button, [tabindex]")?.focus();
-      });
+      requestAnimationFrame(() => focusFirst());
     }
   };
 
@@ -145,7 +111,7 @@ export default function TierNavigator(props: TierNavigatorProps) {
     const el = document.getElementById(`tier-${tier}`);
     if (el) el.scrollIntoView({ behavior: "smooth" });
     setIsOpen(false);
-    fabRef?.focus();
+    restoreFocus();
   };
 
   /* ── 키보드 reorder 후 포커스 복원 래퍼 ── */

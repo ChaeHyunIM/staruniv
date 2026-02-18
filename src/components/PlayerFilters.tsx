@@ -1,5 +1,5 @@
 import { useSearchParams, createAsync } from "@solidjs/router";
-import { createSignal, onCleanup, Show } from "solid-js";
+import { createEffect, on, Show } from "solid-js";
 import {
   TIER_ORDER,
   type Tier,
@@ -11,6 +11,7 @@ import { getCrews } from "~/lib/queries/crews";
 import { MultiSelect } from "~/components/ui/MultiSelect";
 import { SingleSelect } from "~/components/ui/SingleSelect";
 import { MultiCombobox } from "~/components/ui/MultiCombobox";
+import { createDebouncedSignal } from "~/primitives/createDebounced";
 import styles from "./PlayerFilters.module.css";
 
 /* FA를 크루 콤보박스의 특수 옵션으로 표현 */
@@ -59,9 +60,12 @@ export default function PlayerFilters() {
   const crews = createAsync(() => getCrews());
 
   /* ── 검색어 debounce (300ms) ── */
-  const [searchText, setSearchText] = createSignal((searchParams.search as string) ?? "");
-  let debounceTimer: ReturnType<typeof setTimeout> | undefined;
-  onCleanup(() => clearTimeout(debounceTimer));
+  const search = createDebouncedSignal((searchParams.search as string) ?? "", 300);
+
+  /* debounced 값 변경 시 URL 파라미터에 반영 */
+  createEffect(on(() => search.debounced(), (val) => {
+    update("search", val);
+  }, { defer: true }));
 
   /* 콤마 구분 → 배열 파싱 */
   const selectedRaces = (): Race[] =>
@@ -95,8 +99,7 @@ export default function PlayerFilters() {
   };
 
   const resetAll = () => {
-    clearTimeout(debounceTimer);
-    setSearchText("");
+    search.clear("");
     setSearchParams({
       race: undefined,
       tier: undefined,
@@ -212,13 +215,8 @@ export default function PlayerFilters() {
           placeholder="닉네임 검색…"
           spellcheck={false}
           autocomplete="off"
-          value={searchText()}
-          onInput={(e) => {
-            const value = e.currentTarget.value;
-            setSearchText(value);
-            clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(() => update("search", value), 300);
-          }}
+          value={search.value()}
+          onInput={(e) => search.set(e.currentTarget.value)}
         />
       </div>
 

@@ -9,8 +9,6 @@ import {
   Show,
   Suspense,
   createMemo,
-  createSignal,
-  onMount,
 } from "solid-js";
 import { Title } from "@solidjs/meta";
 import { getAllPlayers, getCrews } from "~/lib/queries";
@@ -22,6 +20,7 @@ const PlayerFilters = clientOnly(() => import("~/components/PlayerFilters"));
 import LayoutToggle, { type CardVariant } from "~/components/LayoutToggle";
 import TierNavigator from "~/components/TierNavigator";
 import FiltersSkeleton from "~/components/FiltersSkeleton";
+import { createLocalStorage } from "~/primitives/createLocalStorage";
 import styles from "./index.module.css";
 
 export const route = {
@@ -35,42 +34,25 @@ export default function Home() {
   const [searchParams] = useSearchParams();
 
   /* ── 카드 variant 상태 (localStorage 연동) ── */
-  const [cardVariant, setCardVariant] = createSignal<CardVariant>("compact");
+  const [cardVariant, setCardVariant] = createLocalStorage<CardVariant>(
+    "cardVariant",
+    "compact",
+    { validate: (v) => ["compact", "full", "list"].includes(v) },
+  );
 
   /* ── 티어 순서 상태 (localStorage 연동) ── */
-  const [orderedTiers, setOrderedTiers] = createSignal<Tier[]>([...TIER_ORDER]);
-
-  onMount(() => {
-    try {
-      const savedVariant = localStorage.getItem("cardVariant");
-      if (savedVariant && ["compact", "full", "list"].includes(savedVariant)) {
-        setCardVariant(savedVariant as CardVariant);
-      }
-    } catch { /* ignore */ }
-
-    try {
-      const saved = localStorage.getItem("tierOrder");
-      if (!saved) return;
-      const parsed = JSON.parse(saved) as string[];
-      if (
-        Array.isArray(parsed) &&
-        parsed.length === TIER_ORDER.length &&
-        TIER_ORDER.every((t) => parsed.includes(t))
-      ) {
-        setOrderedTiers(parsed as Tier[]);
-      }
-    } catch { /* ignore */ }
-  });
-
-  const handleVariantChange = (v: CardVariant) => {
-    setCardVariant(v);
-    localStorage.setItem("cardVariant", v);
-  };
-
-  const handleReorder = (tiers: Tier[]) => {
-    setOrderedTiers(tiers);
-    localStorage.setItem("tierOrder", JSON.stringify(tiers));
-  };
+  const [orderedTiers, setOrderedTiers] = createLocalStorage<Tier[]>(
+    "tierOrder",
+    [...TIER_ORDER],
+    {
+      serialize: JSON.stringify,
+      deserialize: JSON.parse,
+      validate: (v) =>
+        Array.isArray(v) &&
+        v.length === TIER_ORDER.length &&
+        TIER_ORDER.every((t) => v.includes(t)),
+    },
+  );
 
   /* ── 단일 fetch: 모든 active 선수 ── */
   const allPlayers = createAsync(() => getAllPlayers());
@@ -154,7 +136,7 @@ export default function Home() {
       <div class={styles.header}>
         <div class={styles.headerRow}>
           <h1>티어표</h1>
-          <LayoutToggle value={cardVariant()} onChange={handleVariantChange} />
+          <LayoutToggle value={cardVariant()} onChange={(v) => setCardVariant(() => v)} />
         </div>
         <p>스타크래프트 대학 리그 선수 티어 현황</p>
       </div>
@@ -179,7 +161,7 @@ export default function Home() {
           </Show>
           <TierNavigator
             tiers={orderedTiers}
-            onReorder={handleReorder}
+            onReorder={(tiers) => setOrderedTiers(() => tiers)}
             tierData={tierData}
           />
         </Suspense>
