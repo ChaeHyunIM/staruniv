@@ -177,7 +177,7 @@ export default function TierNavigator(props: TierNavigatorProps) {
 
       {/* Panel */}
       <Show when={isOpen()}>
-        <div ref={panelRef} class={styles.panel} role="dialog" aria-modal="true" aria-label="티어 네비게이터">
+        <div ref={panelRef} id="tier-navigator-panel" class={styles.panel} role="dialog" aria-modal="true" aria-label="티어 네비게이터">
           <div class={styles.panelHeader}>
             <h3>티어 순서</h3>
             <button id="tour-reset-btn" class={styles.resetBtn} onClick={handleReset} title="기본 순서로 초기화">
