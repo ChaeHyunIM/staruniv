@@ -2,6 +2,10 @@ import { createSignal, For, Show, type Accessor } from "solid-js";
 import { Dialog } from "@kobalte/core/dialog";
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
+import RefreshCw from "lucide-solid/icons/refresh-cw";
+import GripVertical from "lucide-solid/icons/grip-vertical";
+import Menu from "lucide-solid/icons/menu";
+import X from "lucide-solid/icons/x";
 import { TIER_ORDER, type Tier, type PlayerWithCrew } from "~/lib/types";
 import { createReorderable } from "~/primitives/createReorderable";
 import styles from "./TierNavigator.module.css";
@@ -128,10 +132,7 @@ export default function TierNavigator(props: TierNavigatorProps) {
           <div class={styles.panelHeader}>
             <Dialog.Title class={styles.panelTitle}>티어 순서</Dialog.Title>
             <button id="tour-reset-btn" class={styles.resetBtn} onClick={handleReset} title="기본 순서로 초기화">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <path d="M2 8a6 6 0 0 1 10.2-4.3M14 8a6 6 0 0 1-10.2 4.3" />
-                <path d="M12.5 1v3h-3M3.5 15v-3h3" />
-              </svg>
+              <RefreshCw aria-hidden="true" />
               초기화
             </button>
           </div>
@@ -171,14 +172,7 @@ export default function TierNavigator(props: TierNavigatorProps) {
                       aria-hidden="true"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <svg viewBox="0 0 16 16" fill="currentColor">
-                        <circle cx="5.5" cy="3.5" r="1.5" />
-                        <circle cx="10.5" cy="3.5" r="1.5" />
-                        <circle cx="5.5" cy="8" r="1.5" />
-                        <circle cx="10.5" cy="8" r="1.5" />
-                        <circle cx="5.5" cy="12.5" r="1.5" />
-                        <circle cx="10.5" cy="12.5" r="1.5" />
-                      </svg>
+                      <GripVertical aria-hidden="true" />
                     </span>
                     <span class={styles.tierName} data-tier={tier}>
                       {tier}
@@ -201,15 +195,9 @@ export default function TierNavigator(props: TierNavigatorProps) {
       >
         <Show
           when={!isOpen()}
-          fallback={
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-              <path d="M18 6 6 18M6 6l12 12" />
-            </svg>
-          }
+          fallback={<X aria-hidden="true" />}
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <path d="M3 7h18M3 12h18M3 17h18" />
-          </svg>
+          <Menu aria-hidden="true" />
         </Show>
         <span class={styles.fabLabel}>티어 이동</span>
       </Dialog.Trigger>
