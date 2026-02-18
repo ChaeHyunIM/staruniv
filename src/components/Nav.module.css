@@ -71,6 +71,13 @@
   background: oklch(from var(--primary) l c h / 0.1);
 }
 
+@media (prefers-reduced-transparency: reduce) {
+  .nav {
+    backdrop-filter: none;
+    background: var(--card);
+  }
+}
+
 @media (max-width: 640px) {
   .inner {
     gap: var(--sp-4);

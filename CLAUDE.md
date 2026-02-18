@@ -42,14 +42,15 @@ When writing basic UI components (dialog, popover, tooltip, select, checkbox, ta
 
 ## Icons
 
-Use `lucide-solid` for SVG icons. Always use named exports.
+Use `lucide-solid` for SVG icons. Always import directly from `lucide-solid/icons/` to avoid Vite dev server performance issues (barrel export가 수백 개 모듈을 한꺼번에 파싱).
 
 ```tsx
-// Good
-import { Search, ChevronDown, X } from "lucide-solid";
+// Good — 개별 파일에서 직접 import
+import Camera from "lucide-solid/icons/camera";
+import Search from "lucide-solid/icons/search";
 
-// Bad — no default exports
-import SearchIcon from "lucide-solid/icons/search";
+// Bad — barrel export (dev server 성능 저하)
+import { Camera, Search } from "lucide-solid";
 ```
 
 ## Code Comments

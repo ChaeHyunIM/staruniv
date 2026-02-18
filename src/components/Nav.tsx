@@ -9,17 +9,23 @@ export default function Nav() {
         <A href="/" class={styles.logo}>
           Star<span class={styles.logoAccent}>Univ</span>
         </A>
-        <div class={styles.links}>
-          <A href="/" class={styles.link} activeClass={styles.linkActive} end>
-            Home
-          </A>
-          <A href="/crews" class={styles.link} activeClass={styles.linkActive}>
-            Crews
-          </A>
-          <A href="/history" class={styles.link} activeClass={styles.linkActive}>
-            History
-          </A>
-        </div>
+        <ul class={styles.links}>
+          <li>
+            <A href="/" class={styles.link} activeClass={styles.linkActive} end>
+              Home
+            </A>
+          </li>
+          <li>
+            <A href="/crews" class={styles.link} activeClass={styles.linkActive}>
+              Crews
+            </A>
+          </li>
+          <li>
+            <A href="/history" class={styles.link} activeClass={styles.linkActive}>
+              History
+            </A>
+          </li>
+        </ul>
         <ThemeToggle />
       </div>
     </nav>

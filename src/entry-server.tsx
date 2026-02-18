@@ -9,6 +9,8 @@ export default createHandler(() => (
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
+          <meta name="theme-color" content="#faf9f8" media="(prefers-color-scheme: light)" />
+          <meta name="theme-color" content="#343036" media="(prefers-color-scheme: dark)" />
           <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="" />
           <link
             rel="stylesheet"

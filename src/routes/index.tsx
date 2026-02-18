@@ -131,11 +131,11 @@ export default function Home() {
   /* ── Tier section renderer ── */
   const renderTierSection = (tier: Tier) => (
     <Show when={tierData()[tier]?.length}>
-      <section id={`tier-${tier}`} class={styles.tierSection}>
+      <section id={`tier-${tier}`} class={styles.tierSection} aria-labelledby={`tier-heading-${tier}`}>
         <div class={styles.tierHeader}>
-          <span class={styles.tierLabel} data-tier={tier}>
+          <h2 id={`tier-heading-${tier}`} class={styles.tierLabel} data-tier={tier}>
             {tier}
-          </span>
+          </h2>
           <span class={styles.tierCount}>{tierData()[tier]?.length}명</span>
           <span class={styles.tierDesc}>{TIER_DESCRIPTIONS[tier]}</span>
         </div>
