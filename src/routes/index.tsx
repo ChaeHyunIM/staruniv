@@ -21,7 +21,6 @@ import LayoutToggle, { type CardVariant } from "~/components/LayoutToggle";
 import TierNavigator from "~/components/TierNavigator";
 import FiltersSkeleton from "~/components/FiltersSkeleton";
 import { createLocalStorage } from "~/primitives/createLocalStorage";
-import { createScrollHidden } from "~/primitives/createScrollHidden";
 import styles from "./index.module.css";
 
 export const route = {
@@ -40,9 +39,6 @@ export default function Home() {
     "compact",
     { validate: (v) => ["compact", "full", "list"].includes(v) },
   );
-
-  /* ── 스크롤 방향에 따른 sticky bar 숨김 ── */
-  const stickyHidden = createScrollHidden(200);
 
   /* ── 티어 순서 상태 (localStorage 연동) ── */
   const [orderedTiers, setOrderedTiers] = createLocalStorage<Tier[]>(
@@ -137,7 +133,7 @@ export default function Home() {
   return (
     <main id="main-content" class={styles.home}>
       <Title>StarUniv - 티어표</Title>
-      <div class={styles.stickyBar} data-hidden={stickyHidden() || undefined}>
+      <div class={styles.stickyBar}>
         <div class={styles.header}>
           <div class={styles.headerRow}>
             <h1>티어표</h1>
@@ -145,7 +141,9 @@ export default function Home() {
           </div>
           <p>스타크래프트 대학 리그 선수 티어 현황</p>
         </div>
-        <PlayerFilters fallback={<FiltersSkeleton />} />
+        <Suspense fallback={<FiltersSkeleton />}>
+          <PlayerFilters fallback={<FiltersSkeleton />} />
+        </Suspense>
       </div>
 
       <ErrorBoundary
