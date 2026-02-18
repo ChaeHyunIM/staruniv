@@ -1,18 +1,33 @@
 {
   "compilerOptions": {
+    // Environment setup & latest features
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
+    "module": "Preserve",
+    "moduleDetection": "force",
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "allowJs": true,
-    "strict": true,
+
+    // Bundler mode
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
     "noEmit": true,
-    "types": ["vite/client", "@solidjs/start/env", "vitest/globals", "@testing-library/jest-dom"],
-    "isolatedModules": true,
+
+    // Best practices
+    "strict": true,
     "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+
+    // Some stricter flags (disabled by default)
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noPropertyAccessFromIndexSignature": false,
+
+    // Project-specific
+    "types": ["vite/client", "@solidjs/start/env", "vitest/globals", "@testing-library/jest-dom"],
     "paths": {
       "~/*": ["./src/*"]
     }

@@ -1,5 +1,5 @@
 import { query } from "@solidjs/router";
-import { sql } from "~/lib/db";
+import { sql } from "bun";
 import type { CrewWithCount, Player } from "~/lib/types";
 
 export const getCrews = query(async () => {
