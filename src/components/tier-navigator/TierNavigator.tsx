@@ -22,6 +22,7 @@ interface TierNavigatorProps {
 
 export default function TierNavigator(props: TierNavigatorProps) {
   const [isOpen, setIsOpen] = createSignal(false);
+  const [isTourActive, setIsTourActive] = createSignal(false);
 
   let panelRef: HTMLElement | undefined;
 
@@ -53,6 +54,7 @@ export default function TierNavigator(props: TierNavigatorProps) {
       doneBtnText: "완료",
       onDestroyed: () => {
         localStorage.setItem(TOUR_KEY, "1");
+        setIsTourActive(false);
       },
       steps: [
         {
@@ -86,6 +88,7 @@ export default function TierNavigator(props: TierNavigatorProps) {
     });
 
     // 패널 렌더링 후 약간의 딜레이
+    setIsTourActive(true);
     requestAnimationFrame(() => {
       requestAnimationFrame(() => driverObj.drive());
     });
@@ -128,7 +131,12 @@ export default function TierNavigator(props: TierNavigatorProps) {
     <Dialog open={isOpen()} onOpenChange={handleOpenChange} modal preventScroll={false}>
       <Dialog.Portal>
         <Dialog.Overlay class={styles.backdrop} />
-        <Dialog.Content ref={(el) => { panelRef = el; }} class={styles.panel}>
+        <Dialog.Content
+          ref={(el) => { panelRef = el; }}
+          class={styles.panel}
+          onInteractOutside={(e: Event) => { if (isTourActive()) e.preventDefault(); }}
+          onEscapeKeyDown={(e: Event) => { if (isTourActive()) e.preventDefault(); }}
+        >
           <div class={styles.panelHeader}>
             <Dialog.Title class={styles.panelTitle}>티어 순서</Dialog.Title>
             <button id="tour-reset-btn" class={styles.resetBtn} onClick={handleReset} title="기본 순서로 초기화">
