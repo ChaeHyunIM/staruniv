@@ -25,12 +25,13 @@ export const getAllPlayers = query(async () => {
 
 export const getPlayer = query(async (nickname: string) => {
   "use server";
+  const decoded = decodeURIComponent(nickname);
   const rows = await sql`
     SELECT p.id, p.nickname, p.race, p.tier, p.gender, p.crew_id, p.is_fa, p.tag, p.status,
            p.soop_id, p.profile_image, p.created_at, p.updated_at, c.name AS crew_name
     FROM players p
     LEFT JOIN crews c ON p.crew_id = c.id
-    WHERE p.nickname = ${nickname}
+    WHERE p.nickname = ${decoded}
   `;
 
   return (rows[0] as PlayerWithCrew) ?? null;

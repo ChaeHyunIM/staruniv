@@ -24,7 +24,7 @@ export default function PlayerCard(props: Props) {
 
   return (
     <A
-      href={`/players/${encodeURIComponent(props.player.nickname)}`}
+      href={`/players/${props.player.nickname}`}
       class={styles[props.variant]}
       data-race={props.player.race}
     >
@@ -42,6 +42,7 @@ export default function PlayerCard(props: Props) {
           alt={props.player.nickname}
           width={80}
           height={80}
+          loading="lazy"
           class={styles.avatarPhoto}
           onLoad={(e) => e.currentTarget.classList.add(styles.loaded)}
           onError={(e) => e.currentTarget.classList.add(styles.loaded)}

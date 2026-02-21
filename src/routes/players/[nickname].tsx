@@ -58,10 +58,7 @@ export default function PlayerDetailPage() {
                       <dt>크루</dt>
                       <dd>
                         <Show when={p().crew_name} fallback="FA">
-                          <A
-                            href={`/crews/${encodeURIComponent(p().crew_name!)}`}
-                            class={styles.crewLink}
-                          >
+                          <A href={`/crews/${p().crew_name!}`} class={styles.crewLink}>
                             {p().crew_name}
                           </A>
                         </Show>

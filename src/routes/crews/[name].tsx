@@ -64,10 +64,7 @@ export default function CrewDetailPage() {
                                   <TierBadge tier={p.tier} />
                                 </td>
                                 <td>
-                                  <A
-                                    href={`/players/${encodeURIComponent(p.nickname)}`}
-                                    class={styles.nickname}
-                                  >
+                                  <A href={`/players/${p.nickname}`} class={styles.nickname}>
                                     {p.nickname}
                                   </A>
                                 </td>

@@ -19,12 +19,13 @@ export const getCrews = query(async () => {
 
 export const getCrew = query(async (name: string) => {
   "use server";
+  const decoded = decodeURIComponent(name);
   const crewRows = await sql`
     SELECT c.id, c.name, c.is_active, c.created_at, c.updated_at,
            COUNT(p.id)::int AS member_count
     FROM crews c
     LEFT JOIN players p ON p.crew_id = c.id AND p.status = 'active'
-    WHERE c.name = ${name}
+    WHERE c.name = ${decoded}
     GROUP BY c.id
   `;
 

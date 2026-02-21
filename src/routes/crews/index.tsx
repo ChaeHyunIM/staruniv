@@ -34,7 +34,7 @@ export default function CrewsPage() {
             <div class={styles.grid}>
               <For each={crews()}>
                 {(crew) => (
-                  <A href={`/crews/${encodeURIComponent(crew.name)}`} class={styles.card}>
+                  <A href={`/crews/${crew.name}`} class={styles.card}>
                     <div class={styles.cardName}>{crew.name}</div>
                     <div class={styles.cardCount}>
                       멤버 <span class={styles.cardCountNum}>{crew.member_count}</span>명

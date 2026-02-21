@@ -62,10 +62,7 @@ export default function HistoryPage() {
                           <Show when={t.winner_crew_name}>
                             <div class={styles.entryWinner}>
                               우승:{" "}
-                              <A
-                                href={`/crews/${encodeURIComponent(t.winner_crew_name!)}`}
-                                class={styles.winnerName}
-                              >
+                              <A href={`/crews/${t.winner_crew_name!}`} class={styles.winnerName}>
                                 {t.winner_crew_name}
                               </A>
                             </div>
