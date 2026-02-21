@@ -4,8 +4,8 @@
   z-index: 100;
   height: var(--nav-height);
   border-bottom: 1px solid oklch(from var(--border) l c h / 0.1);
-  backdrop-filter: blur(8px);
-  background: oklch(from var(--card) l c h / 0.9);
+  background: var(--card);
+  box-shadow: 0 1px 3px oklch(0 0 0 / 0.06);
 }
 
 .inner {
@@ -71,13 +71,6 @@
 .linkActive {
   color: var(--primary);
   background: oklch(from var(--primary) l c h / 0.1);
-}
-
-@media (prefers-reduced-transparency: reduce) {
-  .nav {
-    backdrop-filter: none;
-    background: var(--card);
-  }
 }
 
 @media (max-width: 640px) {

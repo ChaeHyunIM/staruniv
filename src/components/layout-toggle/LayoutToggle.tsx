@@ -1,7 +1,6 @@
-import { For } from "solid-js";
 import LayoutGrid from "lucide-solid/icons/layout-grid";
 import LayoutList from "lucide-solid/icons/layout-list";
-import List from "lucide-solid/icons/list";
+import { For } from "solid-js";
 import styles from "./layout-toggle.module.css";
 
 export type CardVariant = "compact" | "full" | "list";

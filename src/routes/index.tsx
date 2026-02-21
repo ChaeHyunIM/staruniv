@@ -111,7 +111,7 @@ export default function Home() {
           <span class={styles.tierDesc}>{TIER_DESCRIPTIONS[tier]}</span>
         </div>
         <div class={styles.tierGrid} data-variant={cardVariant()}>
-          <For each={tierData()[tier]}>
+          <For each={tierData()[tier]!}>
             {(player) => <PlayerCard player={player} variant={cardVariant()} />}
           </For>
         </div>

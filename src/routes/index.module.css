@@ -38,8 +38,8 @@
   margin-inline: calc(-1 * var(--sp-6));
   padding-inline: var(--sp-6);
   margin-bottom: var(--sp-8);
-  background: oklch(from var(--background) l c h / 0.85);
-  backdrop-filter: blur(12px);
+  background: var(--background);
+  border-bottom: 1px solid oklch(from var(--border) l c h / 0.1);
   transition: transform 0.3s ease;
 }
 
@@ -59,10 +59,6 @@
   &:has(a:hover) {
     z-index: 1;
   }
-
-  /* off-screen 티어 섹션 전체를 layout/paint에서 제외 */
-  content-visibility: auto;
-  contain-intrinsic-block-size: auto 400px;
 }
 
 .tierHeader {
@@ -120,13 +116,6 @@
 @media (prefers-reduced-motion: reduce) {
   .stickyBar {
     transition: none;
-  }
-}
-
-@media (prefers-reduced-transparency: reduce) {
-  .stickyBar {
-    backdrop-filter: none;
-    background: var(--background);
   }
 }
 

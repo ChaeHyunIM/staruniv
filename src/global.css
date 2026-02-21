@@ -286,7 +286,6 @@
 
   html {
     color-scheme: light;
-    scroll-behavior: smooth;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
   }
@@ -296,10 +295,6 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-
     *,
     *::before,
     *::after {

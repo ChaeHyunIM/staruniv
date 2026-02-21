@@ -10,11 +10,6 @@ interface Props {
   variant: "compact" | "full" | "list";
 }
 
-/** 원본 프로필 이미지 경로를 webp(420x420, ~11-20KB)로 변환 */
-function profileWebp(path: string) {
-  return path.replace(/\.jpg$/, ".webp");
-}
-
 /**
  * hydration mismatch 방지를 위해 <Show> 대신 CSS + classList로 가시성 제어.
  * DOM 구조가 항상 동일하므로 <A>의 spread hydration이 안전함.
@@ -34,11 +29,7 @@ export default function PlayerCard(props: Props) {
             /* 하이드레이션 전에 이미 로드된 이미지 처리 */
             if (el.complete && el.naturalWidth > 0) el.classList.add(styles.loaded);
           }}
-          src={
-            props.player.profile_image
-              ? `https:${profileWebp(props.player.profile_image)}`
-              : undefined
-          }
+          src={props.player.profile_image ? `https:${props.player.profile_image}` : undefined}
           alt={props.player.nickname}
           width={80}
           height={80}
