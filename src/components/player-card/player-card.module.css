@@ -66,120 +66,12 @@
   --_accent: var(--race-protoss);
 }
 
+/* ─── 종족 accent border (단순 border-color) ─── */
 .compact[data-race],
 .full[data-race],
 .list[data-race] {
-  border-color: transparent;
-  box-shadow: 0 1px 4px oklch(from var(--_accent) l c h / 0.1);
-}
-
-/* full — gradient가 항상 전체 표시이므로 shadow/outline 제거 */
-.full[data-race] {
-  box-shadow: none;
-  outline: none;
-}
-
-/* border-radius 윤곽을 따르는 gradient accent */
-.compact[data-race]::before,
-.list[data-race]::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 2px;
-  background: linear-gradient(
-      to bottom,
-      oklch(from var(--_accent) l c h / 0.8),
-      oklch(from var(--_accent) l c h / 0.3)
-    )
-    border-box;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  clip-path: inset(0 calc(100% - var(--radius-sm)) 0 0);
-  pointer-events: none;
-  transition: clip-path 0.35s ease;
-}
-
-.list[data-race]::before {
-  padding: 1.5px;
-  clip-path: inset(0 calc(100% - var(--radius-sm)) 0 0);
-}
-
-/* full variant — gradient border 항상 표시 (clip 없음) */
-.full[data-race]::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 2px;
-  background: linear-gradient(
-      to bottom,
-      oklch(from var(--_accent) l c h / 0.8),
-      oklch(from var(--_accent) l c h / 0.3)
-    )
-    border-box;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-/* 호버 시 accent를 카드 전체 border로 확장 + shadow 제거 */
-@media (hover: hover) {
-  .compact[data-race]:hover::before,
-  .list[data-race]:hover::before {
-    clip-path: inset(0);
-  }
-
-  .compact[data-race]:hover,
-  .list[data-race]:hover {
-    box-shadow: none;
-  }
-}
-
-.compact[data-race]:active::before,
-.list[data-race]:active::before {
-  clip-path: inset(0);
-}
-
-.compact[data-race]:active,
-.list[data-race]:active {
-  box-shadow: none;
-}
-
-/* hover glow overlay — opacity transition으로 GPU compositing 활용 */
-.compact[data-race]::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  box-shadow:
-    0 4px 16px oklch(from var(--_accent) l c h / 0.15),
-    inset 0 0 16px oklch(from var(--_accent) l c h / 0.05);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-@media (hover: hover) {
-  .compact[data-race]:hover::after {
-    opacity: 1;
-  }
-}
-
-.compact[data-race]:active::after {
-  opacity: 1;
+  border-color: var(--_accent);
+  box-shadow: 0 1px 3px oklch(0 0 0 / 0.06);
 }
 
 /* ═══════════════════════════════════════════════════
@@ -200,30 +92,6 @@
     transform: translateY(-2px);
     background: var(--muted);
   }
-}
-
-/* full variant hover glow overlay — --_accent 통합 */
-.full[data-race]::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  box-shadow:
-    0 4px 16px oklch(from var(--_accent) l c h / 0.15),
-    inset 0 0 20px oklch(from var(--_accent) l c h / 0.05);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-@media (hover: hover) {
-  .full[data-race]:hover::after {
-    opacity: 1;
-  }
-}
-
-.full[data-race]:active::after {
-  opacity: 1;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -356,37 +224,17 @@
   height: 80px;
 }
 
-/* Race gradients — Terran */
+/* 아바타 종족 배경색 */
 .avatar[data-race="T"] {
-  background: linear-gradient(
-    135deg,
-    oklch(from var(--race-terran) calc(l - 0.15) c h),
-    var(--race-terran),
-    oklch(from var(--race-terran) calc(l - 0.1) c calc(h + 20))
-  );
-  box-shadow: inset 0 -2px 6px oklch(from var(--race-terran) l c h / 0.3);
+  background: var(--race-terran);
 }
 
-/* Race gradients — Zerg */
 .avatar[data-race="Z"] {
-  background: linear-gradient(
-    135deg,
-    oklch(from var(--race-zerg) calc(l - 0.12) c calc(h - 10)),
-    var(--race-zerg),
-    oklch(from var(--race-zerg) calc(l - 0.08) c calc(h + 15))
-  );
-  box-shadow: inset 0 -2px 6px oklch(from var(--race-zerg) l c h / 0.3);
+  background: var(--race-zerg);
 }
 
-/* Race gradients — Protoss */
 .avatar[data-race="P"] {
-  background: linear-gradient(
-    135deg,
-    oklch(from var(--race-protoss) calc(l - 0.08) c calc(h - 10)),
-    var(--race-protoss),
-    oklch(from var(--race-protoss) calc(l + 0.05) c calc(h + 10))
-  );
-  box-shadow: inset 0 -2px 6px oklch(from var(--race-protoss) l c h / 0.3);
+  background: var(--race-protoss);
 }
 
 .initials {
@@ -507,55 +355,6 @@
   }
 }
 
-/* ═══════════════════════════════════════════════════
-   Safari / iOS 최적화
-   — gradient + oklch(from ...) 렌더링 부하 감소
-   — -webkit-named-image는 WebKit(Safari/iOS)에서만 지원됨
-   ═══════════════════════════════════════════════════ */
-@supports (background: -webkit-named-image(i)) {
-  /* ── 아바타: gradient → flat 종족색 ── */
-  .avatar[data-race="T"] {
-    background: var(--race-terran);
-    box-shadow: none;
-  }
-
-  .avatar[data-race="Z"] {
-    background: var(--race-zerg);
-    box-shadow: none;
-  }
-
-  .avatar[data-race="P"] {
-    background: var(--race-protoss);
-    box-shadow: none;
-  }
-
-  /* ── card box-shadow 단순화 ── */
-  .compact[data-race],
-  .full[data-race],
-  .list[data-race] {
-    box-shadow: 0 1px 3px oklch(0 0 0 / 0.06);
-  }
-
-  /* ── accent: gradient mask ::before → 단순 border ── */
-  .compact[data-race]::before,
-  .full[data-race]::before,
-  .list[data-race]::before {
-    display: none;
-  }
-
-  .compact[data-race],
-  .full[data-race],
-  .list[data-race] {
-    border-color: var(--_accent);
-  }
-
-  /* ── hover glow overlay 비활성화 ── */
-  .compact[data-race]::after,
-  .full[data-race]::after {
-    display: none;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .compact,
   .full,
@@ -571,11 +370,5 @@
   .avatar::after {
     animation: none;
     display: none;
-  }
-
-  /* hover glow overlay transition 비활성화 */
-  .compact[data-race]::after,
-  .full[data-race]::after {
-    transition: none;
   }
 }
